@@ -12,6 +12,7 @@ const links = [
   { href: "/portfolio", label: "Our Work" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
+  { href: "/silentstack", label: "SilentStack" },
 ];
 
 export default function Nav() {
