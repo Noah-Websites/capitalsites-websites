@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red-brand: #8B1A1A;
+  --color-red-brand-dark: #6B1414;
+  --color-red-brand-light: #A52525;
+  --color-navy: #1B2A4A;
+  --color-navy-dark: #0F1D35;
+  --color-navy-light: #2A3D66;
+  --color-dark: #0A0A0B;
+  --color-dark-card: #111113;
+  --color-dark-border: #1E1E22;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Sora", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---- Base ---- */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #e0e0e0;
+  background-color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(139, 26, 26, 0.5);
+  color: #fff;
+}
+
+
+/* ---- Animated gradient ---- */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #0A0A0B 0%, #0F1D35 25%, #1a0f14 50%, #8B1A1A 75%, #0F1D35 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* ---- Floating shapes ---- */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-25px) rotate(5deg); }
+  66% { transform: translateY(12px) rotate(-3deg); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-35px) rotate(-8deg); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-18px) rotate(10deg) scale(1.05); }
+}
+.float-slow { animation: float-slow 9s ease-in-out infinite; }
+.float-medium { animation: float-medium 7s ease-in-out infinite; }
+.float-fast { animation: float-fast 5s ease-in-out infinite; }
+
+/* ---- Glowing border (pricing) ---- */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes glow-rotate {
+  0% { --glow-angle: 0deg; }
+  100% { --glow-angle: 360deg; }
+}
+.glow-border {
+  position: relative;
+  z-index: 0;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 1.25rem;
+  background: conic-gradient(from var(--glow-angle), #8B1A1A, #1B2A4A, #A52525, #2A3D66, #8B1A1A);
+  animation: glow-rotate 4s linear infinite;
+}
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -2;
+  border-radius: 1.5rem;
+  background: conic-gradient(from var(--glow-angle), #8B1A1A, #1B2A4A, #A52525, #2A3D66, #8B1A1A);
+  animation: glow-rotate 4s linear infinite;
+  filter: blur(20px);
+  opacity: 0.4;
+}
+
+/* ---- Service / portfolio card ---- */
+.card-hover {
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(139,26,26,0.2), 0 0 30px rgba(139,26,26,0.08);
+}
+
+/* ---- Marquee ---- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+
+/* ---- Flip card ---- */
+.flip-card { perspective: 1000px; }
+.flip-inner {
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back { backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+
+/* ---- Typewriter cursor ---- */
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #8B1A1A; }
+}
+.typewriter-cursor {
+  border-right: 3px solid #8B1A1A;
+  animation: blink-caret 0.8s step-end infinite;
+}
+
+/* ---- Quote marks ---- */
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(139, 26, 26, 0.15);
+  position: absolute;
+  top: -0.25rem;
+  left: 0.75rem;
+}
