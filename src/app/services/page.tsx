@@ -65,7 +65,7 @@ export default function ServicesPage() {
             Our Services
           </motion.h1>
           <motion.p {...fadeUp} className="mt-6 text-lg text-white/40 max-w-2xl mx-auto">
-            Everything your business needs to succeed online, handled by professionals who care about results.
+            Everything Ottawa small businesses need to fix what&apos;s broken on their website. Handled by one developer who cares about results.
           </motion.p>
         </div>
       </section>
@@ -106,10 +106,10 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="pb-28 md:pb-40 px-6">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">Ready to get started?</h2>
-          <p className="text-white/30 mb-10 text-lg">Tell us about your project and we will get back to you within 24 hours.</p>
-          <Link href="/contact" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
-            Start Your Project
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">See what&apos;s broken on your site.</h2>
+          <p className="text-white/30 mb-10 text-lg">Get a free audit covering load speed, mobile, SEO, and conversion. Within 24 hours.</p>
+          <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
+            Get a free website audit
           </Link>
         </motion.div>
       </section>

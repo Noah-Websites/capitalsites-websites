@@ -6,10 +6,25 @@ import LayoutShell from "@/components/LayoutShell";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 
+const SITE_TITLE = "CapitalSites — Ottawa Web Design Studio";
+const SITE_DESCRIPTION =
+  "Ottawa web design studio. We rebuild slow, outdated, and mobile-broken websites for local small businesses. Free audit, transparent pricing.";
+
 export const metadata: Metadata = {
-  title: "CapitalSites | Premium Web Design for Small Businesses",
-  description:
-    "CapitalSites builds premium, high-converting websites for small businesses worldwide. Starting at $500 CAD, delivered in 7 days.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en_CA",
+    type: "website",
+    siteName: "CapitalSites",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

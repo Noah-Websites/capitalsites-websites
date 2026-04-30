@@ -11,8 +11,8 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Our Work" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/audit", label: "Free Audit" },
   { href: "/contact", label: "Contact" },
-  { href: "/silentstack", label: "SilentStack" },
 ];
 
 export default function Nav() {
@@ -36,7 +36,7 @@ export default function Nav() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-9 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-dark/90 backdrop-blur-xl border-b border-dark-border"
             : "bg-transparent"

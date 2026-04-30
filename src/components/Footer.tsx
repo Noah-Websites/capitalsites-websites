@@ -6,6 +6,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Our Work" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/audit", label: "Free Audit" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -23,7 +24,10 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white/30 text-sm max-w-xs">
-              Professional websites for small businesses around the world. Built to convert, delivered in days.
+              Ottawa web studio rebuilding slow, outdated, and mobile-broken websites for local small businesses.
+            </p>
+            <p className="text-white/50 text-sm font-semibold mt-4">
+              Ottawa, Ontario, Canada
             </p>
           </div>
 
@@ -50,8 +54,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/20">
-          <p>2025 CapitalSites. All rights reserved.</p>
-          <p>Ottawa, Canada</p>
+          <p>&copy; 2025 CapitalSites. All rights reserved.</p>
+          <p>Serving Ottawa, Orleans, Kanata, Nepean, Gatineau, Westboro, and the Glebe.</p>
         </div>
       </div>
     </footer>

@@ -36,7 +36,7 @@ export default function ContactPage() {
               Start Your Project
             </h1>
             <p className="mt-5 text-white/40 text-lg">
-              Tell us about your business and we will get back to you within 24 hours.
+              Tell us about your Ottawa business and we will get back to you within 24 hours.
             </p>
           </motion.div>
 
@@ -63,12 +63,12 @@ export default function ContactPage() {
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="country" className="block text-sm font-semibold text-white/70 mb-2">Country</label>
-                  <input type="text" id="country" name="country" required placeholder="Your country" className={inputClasses} />
-                </div>
-                <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-white/70 mb-2">Email</label>
                   <input type="email" id="email" name="email" required placeholder="you@example.com" className={inputClasses} />
+                </div>
+                <div>
+                  <label htmlFor="website" className="block text-sm font-semibold text-white/70 mb-2">Current Website (optional)</label>
+                  <input type="text" id="website" name="current_website" placeholder="yourbusiness.com" className={inputClasses} />
                 </div>
               </div>
 
@@ -76,9 +76,9 @@ export default function ContactPage() {
                 <label htmlFor="package" className="block text-sm font-semibold text-white/70 mb-2">Package Interest</label>
                 <select id="package" name="package" className={`${inputClasses} appearance-none`} defaultValue="">
                   <option value="" disabled>Select a package</option>
-                  <option value="starter">Starter - $500 CAD</option>
-                  <option value="professional">Professional - $900 CAD</option>
-                  <option value="premium">Premium - $1,500 CAD</option>
+                  <option value="refresh">Refresh — $1,200 + $79/mo</option>
+                  <option value="build">Build — $1,500 + $79/mo</option>
+                  <option value="premium">Premium — $2,500 + $129/mo</option>
                   <option value="not-sure">Not sure yet</option>
                 </select>
               </div>

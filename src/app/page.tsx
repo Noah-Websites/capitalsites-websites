@@ -26,32 +26,6 @@ const staggerChild = {
   transition: { duration: 0.6, ease },
 };
 
-/* ---- Typewriter ---- */
-function Typewriter({ text, className }: { text: string; className?: string }) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      i++;
-      setDisplayed(text.slice(0, i));
-      if (i >= text.length) {
-        clearInterval(timer);
-        setDone(true);
-      }
-    }, 50);
-    return () => clearInterval(timer);
-  }, [text]);
-
-  return (
-    <span className={className}>
-      {displayed}
-      <span className={`typewriter-cursor ${done ? "opacity-0" : ""}`}>&nbsp;</span>
-    </span>
-  );
-}
-
 /* ---- Counter ---- */
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -93,43 +67,45 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="mb-8"
         >
           <span className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-sm font-medium tracking-widest uppercase">
-            Web Design Studio
+            Ottawa Web Design Studio
           </span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight min-h-[2.2em]"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
         >
-          <Typewriter text="We Build Websites That Win Customers" />
+          Your website is costing you customers.
+          <br />
+          <span className="text-red-brand">We fix that.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 2.5 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-8 text-lg md:text-xl text-white/40 max-w-2xl mx-auto"
         >
-          Premium websites for small businesses. Designed to convert. Delivered in days.
+          Ottawa-based web studio. We rebuild slow, outdated, and mobile-broken websites for local small businesses.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Link href="/contact" className="bg-red-brand text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/20 hover:-translate-y-0.5">
-            Start Your Project
+          <Link href="/audit" className="bg-red-brand text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/20 hover:-translate-y-0.5">
+            Get a free website audit
           </Link>
-          <Link href="/portfolio" className="border border-white/15 text-white/70 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-white/30">
-            View Our Work
+          <Link href="/pricing" className="border border-white/15 text-white/70 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-white/30">
+            See pricing
           </Link>
         </motion.div>
       </div>
@@ -140,24 +116,24 @@ function Hero() {
 /* ---- Why CapitalSites ---- */
 const reasons = [
   {
-    title: "Built to Convert",
-    desc: "Every design decision is focused on turning your visitors into paying customers.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>,
+    title: "Based in Ottawa",
+    desc: "Not an offshore agency or faceless freelancer marketplace. Local, accountable, and easy to reach.",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>,
   },
   {
-    title: "7-Day Delivery",
-    desc: "We work fast without cutting corners. Your site goes live in a week or less.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>,
+    title: "Owner-operated",
+    desc: "You talk directly to the person building your site. No account managers, no handoffs, no confusion.",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>,
   },
   {
-    title: "Mobile First",
-    desc: "Over 60% of web traffic is mobile. Every site we build is optimized for all devices.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>,
+    title: "Specific, measurable improvements",
+    desc: "Load speed, mobile responsiveness, SEO, conversion. Real metrics, not vague promises.",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>,
   },
   {
-    title: "Global Clients",
-    desc: "We work with businesses across 15+ countries. Distance is never a barrier.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>,
+    title: "Ongoing support included",
+    desc: "We don't disappear after launch. Hosting, updates, monitoring, and content changes all included monthly.",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   },
 ];
 
@@ -168,7 +144,7 @@ function WhySection() {
         <motion.div className="text-center mb-20" {...fadeUp}>
           <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">Why Us</span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mt-4">Why CapitalSites</h2>
-          <p className="mt-5 text-white/30 max-w-xl mx-auto text-lg">We do things differently.</p>
+          <p className="mt-5 text-white/30 max-w-xl mx-auto text-lg">A different way of doing web design in Ottawa.</p>
         </motion.div>
         <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" {...staggerContainer}>
           {reasons.map((r) => (
@@ -188,7 +164,7 @@ function WhySection() {
 
 /* ---- Marquee ---- */
 function Marquee() {
-  const items = ["Fast Delivery", "Professional Design", "Mobile First", "Built to Convert", "Global Clients"];
+  const items = ["Faster Load Times", "Mobile-Responsive", "SEO Foundation", "Ongoing Support", "Ottawa-Based"];
   const repeated = [...items, ...items, ...items, ...items];
   return (
     <section className="py-8 border-y border-dark-border overflow-hidden bg-dark-card">
@@ -206,10 +182,10 @@ function Marquee() {
 
 /* ---- Stats ---- */
 const stats = [
-  { value: 50, suffix: "+", label: "Websites Built" },
-  { value: 15, suffix: "+", label: "Countries" },
   { value: 7, suffix: "", label: "Day Delivery" },
-  { value: 100, suffix: "%", label: "Satisfaction" },
+  { value: 100, suffix: "%", label: "Ottawa-Based" },
+  { value: 1, suffix: "", label: "Person Building" },
+  { value: 24, suffix: "h", label: "Response Time" },
 ];
 
 function Stats() {
@@ -231,6 +207,45 @@ function Stats() {
   );
 }
 
+/* ---- About / Noah ---- */
+function AboutNoah() {
+  return (
+    <section className="py-28 md:py-40 px-6 bg-dark-card/30">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-center">
+        <motion.div {...fadeUp} className="md:col-span-2">
+          <div className="aspect-square rounded-2xl bg-gradient-to-br from-navy-dark to-dark border border-dark-border overflow-hidden flex items-center justify-center">
+            {/* Placeholder photo. Replace /public/noah-placeholder.jpg when ready. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/noah-placeholder.jpg"
+              alt="Noah, founder of CapitalSites"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          </div>
+        </motion.div>
+        <motion.div {...fadeUp} className="md:col-span-3">
+          <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">About</span>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+            Meet Noah
+          </h2>
+          <p className="text-white/50 text-lg leading-relaxed mb-5">
+            I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ottawa-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
+          </p>
+          <p className="text-white/50 text-lg leading-relaxed mb-6">
+            Every project I take on, I build personally. No agency overhead, no offshore handoffs, no project managers between you and the work.
+          </p>
+          <p className="text-white/30 text-sm font-medium tracking-wider uppercase">
+            Based in Ottawa, Ontario.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 /* ---- CTA Banner ---- */
 function CTABanner() {
   return (
@@ -239,16 +254,16 @@ function CTABanner() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,26,26,0.15),transparent_70%)]" />
       <motion.div className="relative z-10 max-w-4xl mx-auto text-center" {...fadeUp}>
         <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-          Your competitors already have a website.
+          See what&apos;s broken on your website.
           <br />
-          <span className="text-red-brand">Do you?</span>
+          <span className="text-red-brand">In 60 seconds.</span>
         </h2>
         <p className="mt-6 text-white/30 text-lg max-w-xl mx-auto">
-          Every day without a professional website is a day your customers go to someone else.
+          Get a free audit covering load speed, mobile responsiveness, SEO, and conversion. No obligation.
         </p>
         <div className="mt-10">
-          <Link href="/contact" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
-            Let&apos;s Build Your Website
+          <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
+            Get a free website audit
           </Link>
         </div>
       </motion.div>
@@ -264,6 +279,7 @@ export default function Home() {
       <WhySection />
       <Marquee />
       <Stats />
+      <AboutNoah />
       <CTABanner />
     </PageTransition>
   );

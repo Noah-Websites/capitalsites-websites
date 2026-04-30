@@ -24,7 +24,7 @@ const fadeUp = {
 function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a demo website built by CapitalSites — Professional Package $900 CAD
+      This is a concept redesign by CapitalSites — Build Tier $1,500 + $79/mo
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         Back to Portfolio
       </Link>
@@ -102,13 +102,13 @@ function Hero() {
       <div className="max-w-6xl mx-auto px-6 w-full">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
-            Farm to Table · Vancouver
+            Farm to Table · The Glebe, Ottawa
           </span>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             Where Fire<br />Meets Flavour.
           </h1>
           <p className="mt-6 text-white/40 text-lg max-w-lg">
-            A modern dining experience rooted in wood-fired cooking, seasonal ingredients, and bold flavours from around the world.
+            A modern dining experience rooted in wood-fired cooking, seasonal ingredients, and bold local flavours.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href="#reservations" className="bg-orange-500 text-white px-8 py-3.5 rounded-md font-semibold hover:bg-orange-400 transition-colors">
@@ -137,7 +137,7 @@ function About() {
             Our wood-fired kitchen sits at the heart of everything we do, from charred appetizers to slow-roasted mains.
           </p>
           <p className="text-white/40 leading-relaxed mb-6">
-            Nestled in the vibrant Gastown district, we source locally whenever possible, partner with BC farms,
+            Nestled in the vibrant Glebe neighbourhood, we source locally whenever possible, partner with Ottawa Valley farms,
             and change our menu with the seasons. Every plate tells a story of craft, care, and a little bit of smoke.
           </p>
           <div className="grid grid-cols-3 gap-6">
@@ -151,7 +151,7 @@ function About() {
             </div>
             <div>
               <div className="text-2xl font-bold text-orange-500">Local</div>
-              <div className="text-white/30 text-sm mt-1">BC Sourced</div>
+              <div className="text-white/30 text-sm mt-1">Ottawa Valley</div>
             </div>
           </div>
         </motion.div>
@@ -204,7 +204,7 @@ const menuCategories = [
     items: [
       { name: "Ember Old Fashioned", price: "$18", desc: "Smoked bourbon, demerara, angostura" },
       { name: "Seasonal Sangria", price: "$14", desc: "Red wine, stone fruit, cinnamon, citrus" },
-      { name: "BC Wine Selection", price: "$16+", desc: "Rotating local pours by the glass" },
+      { name: "Ontario Wine Selection", price: "$16+", desc: "Rotating local pours by the glass" },
       { name: "House Espresso", price: "$5", desc: "Double shot, locally roasted beans" },
     ],
   },
@@ -322,7 +322,7 @@ function Team() {
 
 /* ---- Testimonials ---- */
 const testimonials = [
-  { name: "Jessica T.", text: "Best dining experience in Vancouver, hands down. The wood-fired salmon was incredible, and the atmosphere is unmatched. We come back every month.", rating: 5 },
+  { name: "Jessica T.", text: "Best dining experience in Ottawa, hands down. The wood-fired salmon was incredible, and the atmosphere is unmatched. We come back every month.", rating: 5 },
   { name: "David & Maria K.", text: "We hosted our anniversary dinner here and it was perfect. The staff went above and beyond, and the tasting menu was a culinary journey. Highly recommend the private dining room.", rating: 5 },
   { name: "Alex R.", text: "As a food blogger, I have been to a lot of restaurants in this city. Ember Kitchen consistently delivers — creative dishes, quality ingredients, and that smoky flavour from the wood fire. The Old Fashioned is a must.", rating: 5 },
 ];
@@ -398,8 +398,8 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Location</p>
-                <p className="text-white/30">28 Water Street, Gastown</p>
-                <p className="text-white/30">Vancouver, BC V6B 1A4</p>
+                <p className="text-white/30">784 Bank Street, The Glebe</p>
+                <p className="text-white/30">Ottawa, ON K1S 3V6</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -410,7 +410,7 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Phone</p>
-                <p className="text-white/30">(604) 555-0189</p>
+                <p className="text-white/30">(613) 555-0189</p>
               </div>
             </div>
           </div>
@@ -466,7 +466,7 @@ function Footer() {
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <span className="text-lg font-bold text-white">EMBER <span className="text-orange-500">KITCHEN</span></span>
-            <p className="text-white/25 text-sm mt-2 leading-relaxed">Wood-fired dining in the heart of Gastown, Vancouver. Seasonal. Local. Bold.</p>
+            <p className="text-white/25 text-sm mt-2 leading-relaxed">Wood-fired dining in the heart of the Glebe, Ottawa. Seasonal. Local. Bold.</p>
           </div>
           <div>
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Quick Links</h4>
@@ -481,7 +481,7 @@ function Footer() {
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Connect</h4>
             <div className="space-y-2 text-sm text-white/25">
               <p>info@emberkitchen.ca</p>
-              <p>(604) 555-0189</p>
+              <p>(613) 555-0189</p>
               <p>@emberkitchen</p>
             </div>
           </div>

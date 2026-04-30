@@ -25,7 +25,7 @@ const fadeUp = {
 function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a demo website built by CapitalSites — Premium Package $1,500 CAD
+      This is a concept redesign by CapitalSites — Premium Tier $2,500 + $129/mo
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         Back to Portfolio
       </Link>
@@ -119,7 +119,7 @@ function Hero() {
             Redefining<br />Minimalism.
           </h1>
           <p className="mt-6 text-white/30 text-lg max-w-md mx-auto">
-            Timeless essentials crafted from premium fabrics. Designed in Montreal, made to last.
+            Timeless essentials crafted from premium fabrics. Designed in Ottawa&apos;s Byward Market, made to last.
           </p>
           <div className="mt-10 flex justify-center gap-4">
             <a href="#shop" className="bg-white text-black px-10 py-3.5 rounded-none font-semibold hover:bg-white/90 transition-colors tracking-wide text-sm uppercase">
@@ -258,7 +258,7 @@ function Lookbook() {
         <motion.div className="text-center mb-16" {...fadeUp}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Lookbook</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">SS25 Campaign</h2>
-          <p className="text-white/25 mt-3">Shot on location in Old Montreal</p>
+          <p className="text-white/25 mt-3">Shot on location in the Byward Market, Ottawa</p>
         </motion.div>
         <div className="grid grid-cols-6 gap-3">
           {/* Large left */}
@@ -293,15 +293,15 @@ function Story() {
         <motion.div {...fadeUp}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.3em] uppercase mb-6 block">Our Story</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
-            Born in Montreal.<br />Worn Everywhere.
+            Born in Ottawa.<br />Worn Everywhere.
           </h2>
           <p className="text-white/30 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
             Maison Noir was founded in 2021 with a simple mission: create wardrobe staples that transcend trends.
-            We believe in fewer, better things — pieces designed with intention, crafted from premium materials,
-            and built to become the foundation of your personal style.
+            We believe in fewer, better things — pieces designed with intention in our Byward Market studio,
+            crafted from premium materials, and built to become the foundation of your personal style.
           </p>
           <p className="text-white/30 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-            Every garment is designed in our Montreal atelier, produced in ethical factories, and delivered
+            Every garment is designed in our Ottawa atelier, produced in ethical factories, and delivered
             in 100% recyclable packaging. Quality over quantity, always.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -393,9 +393,9 @@ function Newsletter() {
 
 /* ---- Reviews ---- */
 const reviews = [
-  { name: "Camille D.", text: "The quality is unreal for the price. My Essential Tee has been washed 30+ times and still looks brand new. This is my go-to brand now.", location: "Montreal, QC" },
-  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "Toronto, ON" },
-  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Vancouver, BC" },
+  { name: "Camille D.", text: "The quality is unreal for the price. My Essential Tee has been washed 30+ times and still looks brand new. This is my go-to brand now.", location: "Ottawa, ON" },
+  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "Kanata, ON" },
+  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Gatineau, QC" },
   { name: "Alexandre F.", text: "Maison Noir has replaced half my wardrobe. The fabrics feel luxurious and the designs are timeless. Worth every penny.", location: "Ottawa, ON" },
 ];
 
@@ -482,7 +482,7 @@ function Footer() {
               Maison <span className="font-light">Noir</span>
             </span>
             <p className="text-white/20 text-sm mt-3 leading-relaxed">
-              Timeless wardrobe essentials designed in Montreal. Fewer things, better made.
+              Timeless wardrobe essentials designed in Ottawa. Fewer things, better made.
             </p>
           </div>
           <div>
