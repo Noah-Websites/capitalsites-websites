@@ -113,7 +113,7 @@ function Hero() {
       <div className="max-w-6xl mx-auto px-6 w-full text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.3em] uppercase mb-6 block">
-            Spring / Summer 2025
+            The Latest Collection
           </span>
           <h1 className="text-5xl md:text-8xl font-bold text-white leading-[1.05] tracking-tight">
             Redefining<br />Minimalism.
@@ -257,7 +257,7 @@ function Lookbook() {
       <div className="max-w-6xl mx-auto">
         <motion.div className="text-center mb-16" {...fadeUp}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Lookbook</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">SS25 Campaign</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">Current Campaign</h2>
           <p className="text-white/25 mt-3">Shot on location in the Byward Market, Ottawa</p>
         </motion.div>
         <div className="grid grid-cols-6 gap-3">
@@ -514,7 +514,7 @@ function Footer() {
           </div>
         </div>
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/12 gap-3">
-          <span>&copy; 2025 Maison Noir Inc. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Maison Noir Inc. All rights reserved.</span>
           <div className="flex gap-6">
             <span className="hover:text-white/25 cursor-pointer transition-colors">Privacy</span>
             <span className="hover:text-white/25 cursor-pointer transition-colors">Terms</span>

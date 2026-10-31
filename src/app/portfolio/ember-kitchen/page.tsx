@@ -487,7 +487,7 @@ function Footer() {
           </div>
         </div>
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/15 gap-3">
-          <span>&copy; 2025 Ember Kitchen. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Ember Kitchen. All rights reserved.</span>
           <div className="flex gap-6">
             <span className="hover:text-white/30 cursor-pointer transition-colors">Privacy Policy</span>
             <span className="hover:text-white/30 cursor-pointer transition-colors">Terms of Service</span>

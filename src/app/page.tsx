@@ -183,7 +183,6 @@ function Marquee() {
 /* ---- Stats ---- */
 const stats = [
   { value: 7, suffix: "", label: "Day Delivery" },
-  { value: 100, suffix: "%", label: "Ottawa-Based" },
   { value: 1, suffix: "", label: "Person Building" },
   { value: 24, suffix: "h", label: "Response Time" },
 ];
@@ -192,7 +191,7 @@ function Stats() {
   return (
     <section className="py-24 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12" {...staggerContainer}>
+        <motion.div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12" {...staggerContainer}>
           {stats.map((stat) => (
             <motion.div key={stat.label} {...staggerChild} className="text-center">
               <div className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
@@ -211,30 +210,16 @@ function Stats() {
 function AboutNoah() {
   return (
     <section className="py-28 md:py-40 px-6 bg-dark-card/30">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-center">
-        <motion.div {...fadeUp} className="md:col-span-2">
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-navy-dark to-dark border border-dark-border overflow-hidden flex items-center justify-center">
-            {/* Placeholder photo. Replace /public/noah-placeholder.jpg when ready. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/noah-placeholder.jpg"
-              alt="Noah, founder of CapitalSites"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-              }}
-            />
-          </div>
-        </motion.div>
-        <motion.div {...fadeUp} className="md:col-span-3">
+      <div className="max-w-3xl mx-auto text-center">
+        <motion.div {...fadeUp}>
           <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">About</span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-4 mb-8 leading-tight">
             Meet Noah
           </h2>
           <p className="text-white/50 text-lg leading-relaxed mb-5">
             I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ottawa-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
           </p>
-          <p className="text-white/50 text-lg leading-relaxed mb-6">
+          <p className="text-white/50 text-lg leading-relaxed mb-8">
             Every project I take on, I build personally. No agency overhead, no offshore handoffs, no project managers between you and the work.
           </p>
           <p className="text-white/30 text-sm font-medium tracking-wider uppercase">
@@ -256,10 +241,10 @@ function CTABanner() {
         <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
           See what&apos;s broken on your website.
           <br />
-          <span className="text-red-brand">In 60 seconds.</span>
+          <span className="text-red-brand">Delivered within 24 hours.</span>
         </h2>
         <p className="mt-6 text-white/30 text-lg max-w-xl mx-auto">
-          Get a free audit covering load speed, mobile responsiveness, SEO, and conversion. No obligation.
+          Free website audit covering load speed, mobile responsiveness, SEO, and conversion. No obligation.
         </p>
         <div className="mt-10">
           <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">

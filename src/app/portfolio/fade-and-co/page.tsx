@@ -258,7 +258,7 @@ function Footer() {
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/20">
         <span className="font-bold text-white/40">FADE <span className="text-amber-500/60">&</span> CO.</span>
         <span>312 Richmond Rd, Westboro, Ottawa, ON</span>
-        <span>&copy; 2025 Fade & Co.</span>
+        <span>&copy; {new Date().getFullYear()} Fade & Co.</span>
       </div>
     </footer>
   );

@@ -38,6 +38,15 @@ export default function ContactPage() {
             <p className="mt-5 text-white/40 text-lg">
               Tell us about your Ottawa business and we will get back to you within 24 hours.
             </p>
+            <p className="mt-4 text-white/60 text-base">
+              Prefer email? Reach us directly at{" "}
+              <a
+                href="mailto:capitalsitesottawa@gmail.com"
+                className="text-red-brand hover:text-red-brand-dark font-semibold transition-colors"
+              >
+                capitalsitesottawa@gmail.com
+              </a>
+            </p>
           </motion.div>
 
           <motion.div {...fadeUp}>
