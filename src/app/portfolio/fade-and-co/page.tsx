@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
+import { fadeAndCo, u } from "@/lib/demoImages";
 
 /* =========================================================
    FADE & CO. — Starter Package Demo ($500 CAD)
@@ -88,14 +90,24 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center bg-[#111] pt-24 overflow-hidden">
+      {/* Background photo */}
+      <Image
+        src={u(fadeAndCo.hero, 1920, 1200)}
+        alt="Fade & Co barbershop interior"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-25"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#111] via-[#111]/85 to-[#111]/50" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.05),transparent_60%)]" />
-      <div className="max-w-5xl mx-auto px-6 w-full">
+      <div className="relative max-w-5xl mx-auto px-6 w-full">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">Premium Barbershop</span>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             Look Sharp.<br />Feel Sharp.
           </h1>
-          <p className="mt-6 text-white/40 text-lg max-w-md">
+          <p className="mt-6 text-white/70 text-lg max-w-md">
             Westboro&apos;s finest barbershop experience. Classic cuts, modern style, and attention to detail.
           </p>
           <div className="mt-10 flex gap-4">
@@ -141,7 +153,7 @@ function Services() {
                 <h3 className="text-white font-semibold">{s.name}</h3>
                 <span className="text-amber-500 font-bold">{s.price}</span>
               </div>
-              <p className="text-white/30 text-sm">{s.desc}</p>
+              <p className="text-white/60 text-sm">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -160,21 +172,19 @@ function Gallery() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Our Work</h2>
         </motion.div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
+          {fadeAndCo.gallery.map((id, n) => (
             <motion.div
-              key={n}
+              key={id}
               {...fadeUp}
-              className="aspect-square bg-gradient-to-br from-[#1a1510] to-[#0d0d0d] rounded-xl border border-white/5 flex items-center justify-center"
+              className="relative aspect-square overflow-hidden rounded-xl border border-white/5 group"
             >
-              <div className="text-center">
-                <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5 text-amber-500/50">
-                    <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                    <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                  </svg>
-                </div>
-                <span className="text-white/15 text-xs">Photo {n}</span>
-              </div>
+              <Image
+                src={u(id, 600, 600)}
+                alt={`Fade & Co gallery image ${n + 1}`}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </motion.div>
           ))}
         </div>
@@ -191,7 +201,7 @@ function About() {
         <motion.div {...fadeUp}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">About Us</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-8">The Fade & Co. Story</h2>
-          <p className="text-white/40 text-lg leading-relaxed">
+          <p className="text-white/70 text-lg leading-relaxed">
             Founded in the heart of Westboro, Ottawa, Fade & Co. has been delivering precision cuts and timeless style since 2019.
             Our team of skilled barbers brings years of experience and a passion for the craft. Whether you want a classic
             look or something fresh, we have got you covered. Walk-ins welcome, appointments preferred.
@@ -199,15 +209,15 @@ function About() {
           <div className="mt-12 grid grid-cols-3 gap-8">
             <div>
               <div className="text-3xl font-bold text-amber-500">5+</div>
-              <div className="text-white/30 text-sm mt-1">Years Open</div>
+              <div className="text-white/55 text-sm mt-1">Years Open</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-amber-500">4</div>
-              <div className="text-white/30 text-sm mt-1">Barbers</div>
+              <div className="text-white/55 text-sm mt-1">Barbers</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-amber-500">5K+</div>
-              <div className="text-white/30 text-sm mt-1">Happy Clients</div>
+              <div className="text-white/55 text-sm mt-1">Happy Clients</div>
             </div>
           </div>
         </motion.div>
@@ -224,15 +234,15 @@ function Contact() {
         <motion.div className="text-center mb-12" {...fadeUp}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Contact</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Book Your Appointment</h2>
-          <p className="mt-4 text-white/30">Walk-ins welcome. For guaranteed seating, book below.</p>
+          <p className="mt-4 text-white/55">Walk-ins welcome. For guaranteed seating, book below.</p>
         </motion.div>
         <motion.form {...fadeUp} className="space-y-4" onSubmit={(e) => e.preventDefault()}>
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="text" placeholder="Your name" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-amber-500/30" />
-            <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-amber-500/30" />
+            <input type="text" placeholder="Your name" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-amber-500/30" />
+            <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-amber-500/30" />
           </div>
-          <input type="email" placeholder="Email address" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-amber-500/30" />
-          <select className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white/40 appearance-none focus:outline-none focus:border-amber-500/30">
+          <input type="email" placeholder="Email address" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-amber-500/30" />
+          <select className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-amber-500/30">
             <option>Select a service</option>
             <option>Classic Cut — $35</option>
             <option>Fade — $40</option>
@@ -241,7 +251,7 @@ function Contact() {
             <option>Kids Cut — $25</option>
             <option>Hot Towel Shave — $30</option>
           </select>
-          <textarea rows={3} placeholder="Any notes or preferred time" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 resize-none focus:outline-none focus:border-amber-500/30" />
+          <textarea rows={3} placeholder="Any notes or preferred time" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 resize-none focus:outline-none focus:border-amber-500/30" />
           <button type="submit" className="w-full bg-amber-500 text-black py-3.5 rounded-lg font-semibold hover:bg-amber-400 transition-colors">
             Book Appointment
           </button>
@@ -255,7 +265,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="py-10 px-6 bg-[#0a0a0a] border-t border-white/5">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/20">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/55">
         <span className="font-bold text-white/40">FADE <span className="text-amber-500/60">&</span> CO.</span>
         <span>312 Richmond Rd, Westboro, Ottawa, ON</span>
         <span>&copy; {new Date().getFullYear()} Fade & Co.</span>

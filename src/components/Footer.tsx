@@ -23,7 +23,7 @@ export default function Footer() {
                 <span className="text-white/70">Sites</span>
               </span>
             </div>
-            <p className="text-white/30 text-sm max-w-xs">
+            <p className="text-white/65 text-sm max-w-xs">
               Ottawa web studio rebuilding slow, outdated, and mobile-broken websites for local small businesses.
             </p>
             <p className="text-white/50 text-sm font-semibold mt-4">
@@ -36,14 +36,14 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/40 hover:text-white transition-colors duration-300"
+                className="text-white/70 hover:text-white transition-colors duration-300"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="text-sm text-white/40">
+          <div className="text-sm text-white/70">
             <a
               href="mailto:capitalsitesottawa@gmail.com"
               className="hover:text-red-brand transition-colors duration-300"
@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/20">
+        <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/55">
           <p>&copy; {new Date().getFullYear()} CapitalSites. All rights reserved.</p>
           <p>Serving Ottawa, Orleans, Kanata, Nepean, Gatineau, Westboro, and the Glebe.</p>
         </div>

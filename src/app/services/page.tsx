@@ -33,9 +33,9 @@ const services = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>,
   },
   {
-    title: "Fast 7-Day Delivery",
-    desc: "No waiting months for your website. We design, build, and launch your site in as little as 7 business days.",
-    details: "Our streamlined process means you get a professional website fast. Day 1-2: design concepts. Day 3-5: development. Day 6-7: revisions and launch.",
+    title: "Fast 7-Day Delivery on Refresh Projects",
+    desc: "7-day delivery on Refresh projects. Build and Premium tiers take 10-21 days depending on scope. No month-long waits.",
+    details: "Refresh: 7 days from kickoff to launch (Day 1-2 design, 3-5 build, 6-7 revisions). Build: 10-14 days. Premium e-commerce: 14-21 days.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>,
   },
   {
@@ -64,7 +64,7 @@ export default function ServicesPage() {
           <motion.h1 {...fadeUp} className="font-heading text-5xl md:text-7xl font-bold text-white mt-4 leading-tight">
             Our Services
           </motion.h1>
-          <motion.p {...fadeUp} className="mt-6 text-lg text-white/40 max-w-2xl mx-auto">
+          <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
             Everything Ottawa small businesses need to fix what&apos;s broken on their website. Handled by one developer who cares about results.
           </motion.p>
         </div>
@@ -80,23 +80,27 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-              className="card-hover group bg-dark-card border border-dark-border rounded-2xl p-8 relative overflow-hidden"
+              className="group bg-dark-card border border-dark-border rounded-2xl relative overflow-hidden h-full min-h-[280px] transition-colors duration-500 hover:border-red-brand/40"
             >
-              {/* Hover overlay with more details */}
-              <div className="absolute inset-0 bg-gradient-to-b from-red-brand/90 to-navy-dark/95 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl flex flex-col justify-end p-8">
-                <p className="text-white/90 text-sm leading-relaxed">{s.details}</p>
-                <Link href="/contact" className="mt-4 inline-block text-white font-semibold text-sm underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors">
-                  Get a Quote
-                </Link>
-              </div>
-
-              <div className="relative z-10 group-hover:opacity-0 transition-opacity duration-300">
-                <div className="w-14 h-14 bg-red-brand/10 text-red-brand rounded-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-red-brand group-hover:text-white group-hover:scale-110">
+              {/* Default view — hides instantly on hover */}
+              <div className="absolute inset-0 p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-none">
+                <div className="w-14 h-14 bg-red-brand/10 text-red-brand rounded-xl flex items-center justify-center mb-6">
                   {s.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 font-heading">{s.title}</h3>
-                <p className="text-sm text-white/40 leading-relaxed">{s.desc}</p>
-                <div className="mt-6 text-red-brand text-sm font-medium">Hover for details</div>
+                <p className="text-sm text-white/65 leading-relaxed">{s.desc}</p>
+                <div className="mt-auto pt-6 text-red-brand text-sm font-medium">Hover for details →</div>
+              </div>
+
+              {/* Hover view — reveals after default is gone */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-between bg-gradient-to-br from-red-brand/95 to-navy-dark/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4 font-heading">{s.title}</h3>
+                  <p className="text-white/95 text-sm leading-relaxed">{s.details}</p>
+                </div>
+                <Link href="/contact" className="mt-6 inline-block text-white font-semibold text-sm underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors self-start">
+                  Get a Quote →
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -107,7 +111,7 @@ export default function ServicesPage() {
       <section className="pb-28 md:pb-40 px-6">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">See what&apos;s broken on your site.</h2>
-          <p className="text-white/30 mb-10 text-lg">Get a free audit covering load speed, mobile, SEO, and conversion. Within 24 hours.</p>
+          <p className="text-white/70 mb-10 text-lg">Get a free audit covering load speed, mobile, SEO, and conversion. Within 24 hours.</p>
           <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
             Get a free website audit
           </Link>

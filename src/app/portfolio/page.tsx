@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import PageTransition from "@/components/PageTransition";
+import { fadeAndCo, emberKitchen, maisonNoir, u } from "@/lib/demoImages";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -21,8 +23,8 @@ const projects = [
     price: "$1,200 + $79/mo",
     desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation. Built to demonstrate the Refresh package.",
     gradient: "from-[#1a1510] to-[#0a0a0b]",
-    accent: "from-amber-800/20 to-amber-900/5",
-    initial: "F",
+    image: u(fadeAndCo.hero, 900, 600),
+    imageAlt: "Fade & Co barbershop concept redesign preview",
     href: "/portfolio/fade-and-co",
   },
   {
@@ -32,8 +34,8 @@ const projects = [
     price: "$1,500 + $79/mo",
     desc: "Concept redesign for a wood-fired restaurant. 7+ pages with menu, reservations form, team bios, gallery, and Google Business Profile setup. Demonstrates the Build package.",
     gradient: "from-[#1a0d0d] to-[#0a0a0b]",
-    accent: "from-red-800/20 to-red-900/5",
-    initial: "E",
+    image: u(emberKitchen.hero, 900, 600),
+    imageAlt: "Ember Kitchen restaurant concept redesign preview",
     featured: true,
     href: "/portfolio/ember-kitchen",
   },
@@ -44,8 +46,8 @@ const projects = [
     price: "$2,500 + $129/mo",
     desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout. Demonstrates the Premium package.",
     gradient: "from-[#0f0d1a] to-[#0a0a0b]",
-    accent: "from-purple-800/20 to-purple-900/5",
-    initial: "M",
+    image: u(maisonNoir.hero, 900, 600),
+    imageAlt: "Maison Noir boutique concept redesign preview",
     href: "/portfolio/maison-noir",
   },
 ];
@@ -62,7 +64,7 @@ export default function PortfolioPage() {
           <motion.h1 {...fadeUp} className="font-heading text-5xl md:text-7xl font-bold text-white mt-4 leading-tight">
             Concept Redesigns
           </motion.h1>
-          <motion.p {...fadeUp} className="mt-6 text-lg text-white/40 max-w-2xl mx-auto">
+          <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
             Three example sites showing exactly what we&apos;d build at each tier.
           </motion.p>
         </div>
@@ -80,7 +82,7 @@ export default function PortfolioPage() {
                 <path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
               </svg>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-white/75 text-sm leading-relaxed">
               <span className="font-semibold text-white">These are concept redesigns</span> demonstrating what we&apos;d build for businesses in each tier. Real client case studies will be added as projects launch.
             </p>
           </div>
@@ -101,39 +103,43 @@ export default function PortfolioPage() {
                 p.featured ? "border-red-brand/20" : "border-dark-border"
               }`}
             >
-              {/* Concept work label */}
-              <div className="px-8 pt-8">
-                <div className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-3">
-                  Concept work — example redesign
+              {/* Hero image */}
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <div className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-white/85 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded">
+                    Concept work
+                  </div>
                 </div>
               </div>
 
               {/* Tier badge */}
-              <div className="px-8">
+              <div className="px-8 pt-6">
                 <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide ${
                   p.featured
                     ? "bg-red-brand/15 text-red-brand border border-red-brand/20"
-                    : "bg-white/[0.04] text-white/40 border border-white/[0.06]"
+                    : "bg-white/[0.06] text-white/70 border border-white/[0.08]"
                 }`}>
                   {p.tier} — {p.price}
                 </div>
               </div>
 
-              {/* Logo / initial */}
-              <div className="px-8 pt-8 pb-4">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${p.accent} border border-white/[0.06] flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110`}>
-                  <span className="font-heading font-bold text-2xl text-white/50 group-hover:text-white/70 transition-colors duration-500">
-                    {p.initial}
-                  </span>
-                </div>
-
+              {/* Title + location */}
+              <div className="px-8 pt-4 pb-4">
                 <h3 className="font-heading text-2xl font-bold text-white mb-1">{p.name}</h3>
-                <p className="text-red-brand/60 text-sm font-medium">{p.location}</p>
+                <p className="text-red-brand/80 text-sm font-medium">{p.location}</p>
               </div>
 
               {/* Description */}
               <div className="px-8 pb-6 flex-1">
-                <p className="text-sm text-white/30 leading-relaxed">{p.desc}</p>
+                <p className="text-sm text-white/60 leading-relaxed">{p.desc}</p>
               </div>
 
               {/* Divider */}
@@ -146,7 +152,7 @@ export default function PortfolioPage() {
                   className={`block w-full text-center py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
                     p.featured
                       ? "bg-red-brand text-white hover:bg-red-brand-dark hover:shadow-lg hover:shadow-red-brand/20"
-                      : "bg-white/[0.04] text-white/50 border border-white/[0.06] hover:bg-white/[0.08] hover:text-white"
+                      : "bg-white/[0.06] text-white/80 border border-white/[0.1] hover:bg-white/[0.1] hover:text-white"
                   }`}
                 >
                   View Demo Site
@@ -163,7 +169,7 @@ export default function PortfolioPage() {
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
             Want this for your business?
           </h2>
-          <p className="text-white/30 mb-10 text-lg">
+          <p className="text-white/70 mb-10 text-lg">
             Get a free audit of your current site, then we&apos;ll quote a rebuild based on what needs fixing.
           </p>
           <Link

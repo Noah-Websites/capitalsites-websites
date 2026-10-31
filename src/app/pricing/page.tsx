@@ -121,7 +121,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         </span>
       </button>
       <div className={`overflow-hidden transition-all duration-500 ${open ? "max-h-60 pb-6" : "max-h-0"}`}>
-        <p className="text-white/40 text-sm leading-relaxed">{a}</p>
+        <p className="text-white/70 text-sm leading-relaxed">{a}</p>
       </div>
     </div>
   );
@@ -136,10 +136,10 @@ export default function PricingPage() {
           <motion.span {...fadeUp} className="text-red-brand font-semibold text-sm tracking-widest uppercase">
             Pricing
           </motion.span>
-          <motion.h1 {...fadeUp} className="font-heading text-5xl md:text-7xl font-bold text-white mt-4 leading-tight">
-            One build fee.<br />One monthly plan.
+          <motion.h1 {...fadeUp} className="font-heading text-4xl md:text-6xl font-bold text-white mt-4 leading-tight">
+            Simple pricing. One build fee, one monthly plan per tier.
           </motion.h1>
-          <motion.p {...fadeUp} className="mt-6 text-lg text-white/40 max-w-2xl mx-auto">
+          <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
             Transparent pricing for Ottawa small businesses. Build it once, then we handle the rest every month.
           </motion.p>
         </div>
@@ -168,10 +168,10 @@ export default function PricingPage() {
 
                 <div className="text-center mb-8">
                   <h3 className="font-heading text-lg font-bold text-white mb-1">{tier.name}</h3>
-                  <p className="text-white/30 text-sm mb-6 min-h-[2.5rem]">{tier.desc}</p>
+                  <p className="text-white/65 text-sm mb-6 min-h-[2.5rem]">{tier.desc}</p>
                   <div className="font-heading text-5xl font-bold text-white">
                     {tier.price}
-                    <span className="text-lg font-normal text-white/30 ml-1">CAD</span>
+                    <span className="text-lg font-normal text-white/55 ml-1">CAD</span>
                   </div>
                   <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-brand/10 border border-red-brand/20 text-red-brand text-sm font-semibold">
                     + {tier.monthly}
@@ -179,7 +179,7 @@ export default function PricingPage() {
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-white/40 text-xs font-semibold tracking-wider uppercase mb-3">What you get</p>
+                  <p className="text-white/65 text-xs font-semibold tracking-wider uppercase mb-3">What you get</p>
                   <ul className="space-y-3">
                     {tier.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm">
@@ -195,14 +195,14 @@ export default function PricingPage() {
                 </div>
 
                 <div className="mb-8 pt-6 border-t border-dark-border flex-1">
-                  <p className="text-white/40 text-xs font-semibold tracking-wider uppercase mb-3">
+                  <p className="text-white/65 text-xs font-semibold tracking-wider uppercase mb-3">
                     {tier.monthly} includes
                   </p>
                   <ul className="space-y-2">
                     {tier.monthlyIncludes.map((m) => (
                       <li key={m} className="flex items-start gap-2 text-sm">
                         <span className="text-red-brand/60 mt-0.5">·</span>
-                        <span className="text-white/40">{m}</span>
+                        <span className="text-white/70">{m}</span>
                       </li>
                     ))}
                   </ul>
@@ -226,7 +226,7 @@ export default function PricingPage() {
         {/* Pricing note */}
         <motion.p
           {...fadeUp}
-          className="max-w-3xl mx-auto text-center text-white/30 text-sm mt-10 leading-relaxed"
+          className="max-w-3xl mx-auto text-center text-white/60 text-sm mt-10 leading-relaxed"
         >
           All prices in CAD. One-time build fee is paid 50% upfront, 50% on launch. Monthly fee starts on launch day and can be cancelled with 30 days notice.
         </motion.p>

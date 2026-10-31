@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
+import { emberKitchen, u } from "@/lib/demoImages";
 
 /* =========================================================
    EMBER KITCHEN — Professional Package Demo ($900 CAD)
@@ -97,9 +99,18 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-[#0c0806] pt-24 overflow-hidden">
+      <Image
+        src={u(emberKitchen.hero, 1920, 1200)}
+        alt="Ember Kitchen interior with wood-fired oven"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-30"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0c0806] via-[#0c0806]/80 to-[#0c0806]/40" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,0.06),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(220,38,38,0.04),transparent_50%)]" />
-      <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="relative max-w-6xl mx-auto px-6 w-full">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
             Farm to Table · The Glebe, Ottawa
@@ -107,7 +118,7 @@ function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             Where Fire<br />Meets Flavour.
           </h1>
-          <p className="mt-6 text-white/40 text-lg max-w-lg">
+          <p className="mt-6 text-white/75 text-lg max-w-lg">
             A modern dining experience rooted in wood-fired cooking, seasonal ingredients, and bold local flavours.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -132,11 +143,11 @@ function About() {
         <motion.div {...fadeUp}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase">Our Story</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">Cooking With Heart Since 2020</h2>
-          <p className="text-white/40 leading-relaxed mb-4">
+          <p className="text-white/70 leading-relaxed mb-4">
             Ember Kitchen was born from a simple belief: great food starts with great ingredients and an open flame.
             Our wood-fired kitchen sits at the heart of everything we do, from charred appetizers to slow-roasted mains.
           </p>
-          <p className="text-white/40 leading-relaxed mb-6">
+          <p className="text-white/70 leading-relaxed mb-6">
             Nestled in the vibrant Glebe neighbourhood, we source locally whenever possible, partner with Ottawa Valley farms,
             and change our menu with the seasons. Every plate tells a story of craft, care, and a little bit of smoke.
           </p>
@@ -155,16 +166,14 @@ function About() {
             </div>
           </div>
         </motion.div>
-        <motion.div {...fadeUp} className="aspect-[4/5] bg-gradient-to-br from-[#1a1008] to-[#0d0806] rounded-2xl border border-white/5 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8 text-orange-500/50">
-                <path d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                <path d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-              </svg>
-            </div>
-            <span className="text-white/15 text-sm">Restaurant Photo</span>
-          </div>
+        <motion.div {...fadeUp} className="relative aspect-[4/5] rounded-2xl border border-white/5 overflow-hidden">
+          <Image
+            src={u(emberKitchen.about, 900, 1125)}
+            alt="Ember Kitchen dining room"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="object-cover"
+          />
         </motion.div>
       </div>
     </section>
@@ -217,7 +226,7 @@ function Menu() {
         <motion.div className="text-center mb-16" {...fadeUp}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase">Our Menu</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Seasonal Favourites</h2>
-          <p className="text-white/30 mt-3 max-w-md mx-auto">Menu changes seasonally. Prices subject to change. Ask your server about daily specials and allergen info.</p>
+          <p className="text-white/55 mt-3 max-w-md mx-auto">Menu changes seasonally. Prices subject to change. Ask your server about daily specials and allergen info.</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-12">
           {menuCategories.map((cat) => (
@@ -228,7 +237,7 @@ function Menu() {
                   <div key={item.name} className="flex justify-between gap-4 group">
                     <div>
                       <h4 className="text-white font-medium group-hover:text-orange-400 transition-colors">{item.name}</h4>
-                      <p className="text-white/25 text-sm mt-0.5">{item.desc}</p>
+                      <p className="text-white/55 text-sm mt-0.5">{item.desc}</p>
                     </div>
                     <span className="text-orange-500/80 font-semibold whitespace-nowrap">{item.price}</span>
                   </div>
@@ -257,16 +266,17 @@ function Gallery() {
             <motion.div
               key={n}
               {...fadeUp}
-              className="aspect-[4/3] bg-gradient-to-br from-[#1a0f08] to-[#0d0806] rounded-xl border border-white/5 flex items-center justify-center group hover:border-orange-500/20 transition-colors"
+              className="relative aspect-[4/3] rounded-xl border border-white/5 overflow-hidden group hover:border-orange-500/30 transition-colors"
             >
-              <div className="text-center">
-                <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5 text-orange-500/50">
-                    <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                    <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                  </svg>
-                </div>
-                <span className="text-white/15 text-xs">{caption}</span>
+              <Image
+                src={u(emberKitchen.gallery[n], 800, 600)}
+                alt={`Ember Kitchen — ${caption}`}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                <span className="text-white/80 text-xs font-medium tracking-wide">{caption}</span>
               </div>
             </motion.div>
           ))}
@@ -302,15 +312,19 @@ function Team() {
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
               className="bg-[#111] border border-white/5 rounded-xl overflow-hidden group hover:border-orange-500/20 transition-colors"
             >
-              <div className="aspect-square bg-gradient-to-br from-[#1a0f08] to-[#0d0806] flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center">
-                  <span className="text-orange-500/50 font-bold text-xl">{member.name.split(" ").map(n => n[0]).join("")}</span>
-                </div>
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={u(emberKitchen.team[i], 500, 500)}
+                  alt={member.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
               </div>
               <div className="p-5">
                 <h3 className="text-white font-semibold">{member.name}</h3>
                 <p className="text-orange-500/60 text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-white/25 text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-white/70 text-sm leading-relaxed">{member.bio}</p>
               </div>
             </motion.div>
           ))}
@@ -353,7 +367,7 @@ function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <p className="text-white/35 text-sm leading-relaxed mb-4">{t.text}</p>
+              <p className="text-white/70 text-sm leading-relaxed mb-4">{t.text}</p>
               <p className="text-white/60 text-sm font-semibold">{t.name}</p>
             </motion.div>
           ))}
@@ -371,7 +385,7 @@ function Reservations() {
         <motion.div {...fadeUp}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase">Reservations</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">Book Your Table</h2>
-          <p className="text-white/35 leading-relaxed mb-8">
+          <p className="text-white/70 leading-relaxed mb-8">
             Reserve ahead to guarantee your spot. Walk-ins are welcome but subject to availability,
             especially on weekends. For parties of 8 or more, please call us directly.
           </p>
@@ -384,9 +398,9 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Hours</p>
-                <p className="text-white/30">Tue–Thu: 5pm–10pm</p>
-                <p className="text-white/30">Fri–Sat: 5pm–11pm</p>
-                <p className="text-white/30">Sun: 5pm–9pm · Mon: Closed</p>
+                <p className="text-white/60">Tue–Thu: 5pm–10pm</p>
+                <p className="text-white/60">Fri–Sat: 5pm–11pm</p>
+                <p className="text-white/60">Sun: 5pm–9pm · Mon: Closed</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -398,8 +412,8 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Location</p>
-                <p className="text-white/30">784 Bank Street, The Glebe</p>
-                <p className="text-white/30">Ottawa, ON K1S 3V6</p>
+                <p className="text-white/60">784 Bank Street, The Glebe</p>
+                <p className="text-white/60">Ottawa, ON K1S 3V6</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -410,7 +424,7 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Phone</p>
-                <p className="text-white/30">(613) 555-0189</p>
+                <p className="text-white/60">(613) 555-0189</p>
               </div>
             </div>
           </div>
@@ -418,12 +432,12 @@ function Reservations() {
 
         <motion.form {...fadeUp} className="space-y-4" onSubmit={(e) => e.preventDefault()}>
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="text" placeholder="Full name" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-orange-500/30" />
-            <input type="email" placeholder="Email" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-orange-500/30" />
+            <input type="text" placeholder="Full name" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-orange-500/30" />
+            <input type="email" placeholder="Email" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-orange-500/30" />
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-orange-500/30" />
-            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/40 appearance-none focus:outline-none focus:border-orange-500/30">
+            <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-orange-500/30" />
+            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
               <option>Party size</option>
               <option>1–2 guests</option>
               <option>3–4 guests</option>
@@ -433,8 +447,8 @@ function Reservations() {
             </select>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="date" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/40 focus:outline-none focus:border-orange-500/30" />
-            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/40 appearance-none focus:outline-none focus:border-orange-500/30">
+            <input type="date" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 focus:outline-none focus:border-orange-500/30" />
+            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
               <option>Preferred time</option>
               <option>5:00 PM</option>
               <option>5:30 PM</option>
@@ -447,11 +461,11 @@ function Reservations() {
               <option>9:00 PM</option>
             </select>
           </div>
-          <textarea rows={3} placeholder="Special requests (allergies, celebrations, seating preferences)" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/20 resize-none focus:outline-none focus:border-orange-500/30" />
+          <textarea rows={3} placeholder="Special requests (allergies, celebrations, seating preferences)" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 resize-none focus:outline-none focus:border-orange-500/30" />
           <button type="submit" className="w-full bg-orange-500 text-white py-3.5 rounded-lg font-semibold hover:bg-orange-400 transition-colors">
             Request Reservation
           </button>
-          <p className="text-white/15 text-xs text-center">You will receive a confirmation email within 2 hours.</p>
+          <p className="text-white/50 text-xs text-center">You will receive a confirmation email within 2 hours.</p>
         </motion.form>
       </div>
     </section>
@@ -466,11 +480,11 @@ function Footer() {
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <span className="text-lg font-bold text-white">EMBER <span className="text-orange-500">KITCHEN</span></span>
-            <p className="text-white/25 text-sm mt-2 leading-relaxed">Wood-fired dining in the heart of the Glebe, Ottawa. Seasonal. Local. Bold.</p>
+            <p className="text-white/55 text-sm mt-2 leading-relaxed">Wood-fired dining in the heart of the Glebe, Ottawa. Seasonal. Local. Bold.</p>
           </div>
           <div>
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Quick Links</h4>
-            <div className="space-y-2 text-sm text-white/25">
+            <div className="space-y-2 text-sm text-white/55">
               <a href="#menu" className="block hover:text-white/50 transition-colors">Menu</a>
               <a href="#reservations" className="block hover:text-white/50 transition-colors">Reservations</a>
               <a href="#gallery" className="block hover:text-white/50 transition-colors">Gallery</a>
@@ -479,14 +493,14 @@ function Footer() {
           </div>
           <div>
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Connect</h4>
-            <div className="space-y-2 text-sm text-white/25">
+            <div className="space-y-2 text-sm text-white/55">
               <p>info@emberkitchen.ca</p>
               <p>(613) 555-0189</p>
               <p>@emberkitchen</p>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/15 gap-3">
+        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-3">
           <span>&copy; {new Date().getFullYear()} Ember Kitchen. All rights reserved.</span>
           <div className="flex gap-6">
             <span className="hover:text-white/30 cursor-pointer transition-colors">Privacy Policy</span>

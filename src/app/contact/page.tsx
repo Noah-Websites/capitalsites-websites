@@ -13,7 +13,7 @@ const fadeUp = {
 };
 
 const inputClasses =
-  "w-full px-5 py-4 bg-dark-card border border-dark-border rounded-xl text-sm text-white placeholder:text-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-brand/30 focus:border-red-brand";
+  "w-full px-5 py-4 bg-dark-card border border-dark-border rounded-xl text-sm text-white placeholder:text-white/45 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-brand/30 focus:border-red-brand";
 
 export default function ContactPage() {
   return (
@@ -35,7 +35,7 @@ export default function ContactPage() {
             <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mt-4 leading-tight">
               Start Your Project
             </h1>
-            <p className="mt-5 text-white/40 text-lg">
+            <p className="mt-5 text-white/70 text-lg">
               Tell us about your Ottawa business and we will get back to you within 24 hours.
             </p>
             <p className="mt-4 text-white/60 text-base">
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 Send Message
               </button>
 
-              <p className="text-center text-white/20 text-xs mt-4">
+              <p className="text-center text-white/55 text-xs mt-4">
                 We typically respond within 24 hours. Your information is never shared.
               </p>
             </form>

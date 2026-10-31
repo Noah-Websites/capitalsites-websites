@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
+import { maisonNoir, u } from "@/lib/demoImages";
 
 /* =========================================================
    MAISON NOIR — Premium Package Demo ($1,500 CAD)
@@ -109,8 +111,17 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[95vh] flex items-center bg-[#0a0a0a] pt-32 overflow-hidden">
+      <Image
+        src={u(maisonNoir.hero, 1920, 1200)}
+        alt="Maison Noir boutique"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/60 to-[#0a0a0a]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,200,0.04),transparent_60%)]" />
-      <div className="max-w-6xl mx-auto px-6 w-full text-center">
+      <div className="relative max-w-6xl mx-auto px-6 w-full text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.3em] uppercase mb-6 block">
             The Latest Collection
@@ -118,7 +129,7 @@ function Hero() {
           <h1 className="text-5xl md:text-8xl font-bold text-white leading-[1.05] tracking-tight">
             Redefining<br />Minimalism.
           </h1>
-          <p className="mt-6 text-white/30 text-lg max-w-md mx-auto">
+          <p className="mt-6 text-white/75 text-lg max-w-md mx-auto">
             Timeless essentials crafted from premium fabrics. Designed in Ottawa&apos;s Byward Market, made to last.
           </p>
           <div className="mt-10 flex justify-center gap-4">
@@ -156,7 +167,7 @@ function Shop() {
             <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Shop</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">Featured Pieces</h2>
           </div>
-          <a href="#shop" className="text-sm text-white/30 hover:text-white/60 transition-colors tracking-wide hidden md:block">
+          <a href="#shop" className="text-sm text-white/55 hover:text-white transition-colors tracking-wide hidden md:block">
             View All →
           </a>
         </motion.div>
@@ -170,20 +181,19 @@ function Shop() {
               transition={{ duration: 0.5, delay: i * 0.06, ease }}
               className="group cursor-pointer"
             >
-              <div className="aspect-[3/4] bg-gradient-to-b from-[#141414] to-[#0d0d0d] border border-white/5 flex items-center justify-center relative overflow-hidden group-hover:border-purple-500/20 transition-colors">
+              <div className="aspect-[3/4] bg-[#0d0d0d] border border-white/5 relative overflow-hidden group-hover:border-purple-500/30 transition-colors">
+                <Image
+                  src={u(maisonNoir.products[i], 600, 800)}
+                  alt={p.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 {p.tag && (
-                  <span className="absolute top-3 left-3 bg-white text-black text-[10px] px-2.5 py-1 font-semibold uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 bg-white text-black text-[10px] px-2.5 py-1 font-semibold uppercase tracking-wider z-10">
                     {p.tag}
                   </span>
                 )}
-                <div className="text-center">
-                  <div className="w-14 h-14 rounded-full bg-purple-500/5 flex items-center justify-center mx-auto mb-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="w-6 h-6 text-purple-400/30">
-                      <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                  </div>
-                  <span className="text-white/10 text-xs">Product Image</span>
-                </div>
                 {/* Quick add overlay */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <button className="w-full bg-white text-black py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors">
@@ -192,10 +202,10 @@ function Shop() {
                 </div>
               </div>
               <div className="mt-3">
-                <h3 className="text-white text-sm font-medium group-hover:text-purple-300 transition-colors">{p.name}</h3>
+                <h3 className="text-white text-sm font-semibold group-hover:text-purple-300 transition-colors">{p.name}</h3>
                 <div className="flex items-center justify-between mt-1">
-                  <span className="text-white/40 text-sm">{p.price}</span>
-                  <span className="text-white/20 text-xs">{p.color}</span>
+                  <span className="text-white/70 text-sm">{p.price}</span>
+                  <span className="text-white/55 text-xs">{p.color}</span>
                 </div>
               </div>
             </motion.div>
@@ -231,13 +241,20 @@ function Collections() {
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
               className="group cursor-pointer"
             >
-              <div className="aspect-[3/4] bg-gradient-to-b from-[#121215] to-[#0a0a0c] border border-white/5 rounded-sm flex items-end p-8 relative overflow-hidden group-hover:border-purple-500/20 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="aspect-[3/4] bg-[#0a0a0c] border border-white/5 rounded-sm flex items-end p-8 relative overflow-hidden group-hover:border-purple-500/30 transition-all duration-500">
+                <Image
+                  src={u(maisonNoir.collections[i], 800, 1067)}
+                  alt={`${c.name} collection`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 <div className="relative z-10">
-                  <span className="text-white/20 text-xs uppercase tracking-wider">{c.count}</span>
+                  <span className="text-white/60 text-xs uppercase tracking-wider">{c.count}</span>
                   <h3 className="text-white text-2xl font-bold mt-1">{c.name}</h3>
-                  <p className="text-white/30 text-sm mt-1">{c.desc}</p>
-                  <span className="text-purple-400/60 text-sm mt-3 block group-hover:text-purple-400 transition-colors">
+                  <p className="text-white/70 text-sm mt-1">{c.desc}</p>
+                  <span className="text-purple-300 text-sm mt-3 block group-hover:text-purple-200 transition-colors">
                     Explore →
                   </span>
                 </div>
@@ -258,26 +275,56 @@ function Lookbook() {
         <motion.div className="text-center mb-16" {...fadeUp}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Lookbook</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">Current Campaign</h2>
-          <p className="text-white/25 mt-3">Shot on location in the Byward Market, Ottawa</p>
+          <p className="text-white/55 mt-3">Shot on location in the Byward Market, Ottawa</p>
         </motion.div>
         <div className="grid grid-cols-6 gap-3">
           {/* Large left */}
-          <motion.div {...fadeUp} className="col-span-6 md:col-span-4 aspect-[16/9] bg-gradient-to-br from-[#12101a] to-[#0a0a0c] border border-white/5 rounded-sm flex items-center justify-center">
-            <span className="text-white/10 text-sm">Campaign Image 1</span>
+          <motion.div {...fadeUp} className="relative col-span-6 md:col-span-4 aspect-[16/9] bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
+            <Image
+              src={u(maisonNoir.lookbook[0], 1200, 675)}
+              alt="Lookbook campaign 1"
+              fill
+              sizes="(max-width: 768px) 100vw, 66vw"
+              className="object-cover"
+            />
           </motion.div>
           {/* Two stacked right */}
-          <motion.div {...fadeUp} className="col-span-3 md:col-span-2 aspect-square bg-gradient-to-br from-[#141018] to-[#0a0a0c] border border-white/5 rounded-sm flex items-center justify-center">
-            <span className="text-white/10 text-sm">Image 2</span>
+          <motion.div {...fadeUp} className="relative col-span-3 md:col-span-2 aspect-square bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
+            <Image
+              src={u(maisonNoir.lookbook[1], 600, 600)}
+              alt="Lookbook campaign 2"
+              fill
+              sizes="(max-width: 768px) 50vw, 33vw"
+              className="object-cover"
+            />
           </motion.div>
-          <motion.div {...fadeUp} className="col-span-3 md:col-span-2 aspect-square bg-gradient-to-br from-[#100e16] to-[#0a0a0c] border border-white/5 rounded-sm flex items-center justify-center">
-            <span className="text-white/10 text-sm">Image 3</span>
+          <motion.div {...fadeUp} className="relative col-span-3 md:col-span-2 aspect-square bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
+            <Image
+              src={u(maisonNoir.lookbook[2], 600, 600)}
+              alt="Lookbook campaign 3"
+              fill
+              sizes="(max-width: 768px) 50vw, 33vw"
+              className="object-cover"
+            />
           </motion.div>
           {/* Two equal bottom */}
-          <motion.div {...fadeUp} className="col-span-3 md:col-span-2 aspect-square bg-gradient-to-br from-[#0f0d15] to-[#0a0a0c] border border-white/5 rounded-sm flex items-center justify-center">
-            <span className="text-white/10 text-sm">Image 4</span>
+          <motion.div {...fadeUp} className="relative col-span-3 md:col-span-2 aspect-square bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
+            <Image
+              src={u(maisonNoir.lookbook[3], 600, 600)}
+              alt="Lookbook campaign 4"
+              fill
+              sizes="(max-width: 768px) 50vw, 33vw"
+              className="object-cover"
+            />
           </motion.div>
-          <motion.div {...fadeUp} className="col-span-6 md:col-span-4 aspect-[16/9] bg-gradient-to-br from-[#110f18] to-[#0a0a0c] border border-white/5 rounded-sm flex items-center justify-center">
-            <span className="text-white/10 text-sm">Campaign Image 5</span>
+          <motion.div {...fadeUp} className="relative col-span-6 md:col-span-4 aspect-[16/9] bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
+            <Image
+              src={u(maisonNoir.lookbook[4], 1200, 675)}
+              alt="Lookbook campaign 5"
+              fill
+              sizes="(max-width: 768px) 100vw, 66vw"
+              className="object-cover"
+            />
           </motion.div>
         </div>
       </div>
@@ -295,31 +342,31 @@ function Story() {
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
             Born in Ottawa.<br />Worn Everywhere.
           </h2>
-          <p className="text-white/30 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+          <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
             Maison Noir was founded in 2021 with a simple mission: create wardrobe staples that transcend trends.
             We believe in fewer, better things — pieces designed with intention in our Byward Market studio,
             crafted from premium materials, and built to become the foundation of your personal style.
           </p>
-          <p className="text-white/30 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
             Every garment is designed in our Ottawa atelier, produced in ethical factories, and delivered
             in 100% recyclable packaging. Quality over quantity, always.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <div className="text-3xl font-bold text-white">100%</div>
-              <div className="text-white/20 text-sm mt-1">Premium Fabrics</div>
+              <div className="text-white/55 text-sm mt-1">Premium Fabrics</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">Ethical</div>
-              <div className="text-white/20 text-sm mt-1">Production</div>
+              <div className="text-white/55 text-sm mt-1">Production</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">4K+</div>
-              <div className="text-white/20 text-sm mt-1">Happy Customers</div>
+              <div className="text-white/55 text-sm mt-1">Happy Customers</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">Free</div>
-              <div className="text-white/20 text-sm mt-1">Returns</div>
+              <div className="text-white/55 text-sm mt-1">Returns</div>
             </div>
           </div>
         </motion.div>
@@ -359,7 +406,7 @@ function Sustainability() {
                 </svg>
               </div>
               <h3 className="text-white font-semibold mb-2">{p.title}</h3>
-              <p className="text-white/25 text-sm leading-relaxed">{p.desc}</p>
+              <p className="text-white/70 text-sm leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -375,12 +422,12 @@ function Newsletter() {
       <motion.div {...fadeUp} className="max-w-xl mx-auto text-center">
         <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Newsletter</span>
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-3">Stay in the Loop</h2>
-        <p className="text-white/25 text-sm mb-8">Early access to new drops, exclusive offers, and style inspiration. No spam, unsubscribe anytime.</p>
+        <p className="text-white/60 text-sm mb-8">Early access to new drops, exclusive offers, and style inspiration. No spam, unsubscribe anytime.</p>
         <form onSubmit={(e) => e.preventDefault()} className="flex gap-3">
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 px-5 py-3.5 bg-[#111] border border-white/5 rounded-none text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-purple-500/30"
+            className="flex-1 px-5 py-3.5 bg-[#111] border border-white/5 rounded-none text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-purple-500/30"
           />
           <button type="submit" className="bg-white text-black px-8 py-3.5 rounded-none text-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors whitespace-nowrap">
             Subscribe
@@ -424,10 +471,10 @@ function Reviews() {
                   </svg>
                 ))}
               </div>
-              <p className="text-white/30 text-sm leading-relaxed mb-4">{r.text}</p>
+              <p className="text-white/70 text-sm leading-relaxed mb-4">{r.text}</p>
               <div>
                 <p className="text-white/60 text-sm font-semibold">{r.name}</p>
-                <p className="text-white/15 text-xs">{r.location}</p>
+                <p className="text-white/50 text-xs">{r.location}</p>
               </div>
             </motion.div>
           ))}
@@ -456,13 +503,13 @@ function FAQ() {
         <motion.div {...fadeUp} className="space-y-4">
           {faqs.map((faq) => (
             <details key={faq.q} className="group bg-[#0e0e10] border border-white/5 rounded-sm">
-              <summary className="px-6 py-4 cursor-pointer text-white/70 font-medium text-sm list-none flex items-center justify-between hover:text-white transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white/85 font-medium text-sm list-none flex items-center justify-between hover:text-white transition-colors">
                 {faq.q}
                 <svg className="w-4 h-4 text-white/20 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <div className="px-6 pb-4 text-white/25 text-sm leading-relaxed">{faq.a}</div>
+              <div className="px-6 pb-4 text-white/70 text-sm leading-relaxed">{faq.a}</div>
             </details>
           ))}
         </motion.div>
@@ -481,13 +528,13 @@ function Footer() {
             <span className="text-lg font-bold tracking-[0.15em] text-white uppercase">
               Maison <span className="font-light">Noir</span>
             </span>
-            <p className="text-white/20 text-sm mt-3 leading-relaxed">
+            <p className="text-white/55 text-sm mt-3 leading-relaxed">
               Timeless wardrobe essentials designed in Ottawa. Fewer things, better made.
             </p>
           </div>
           <div>
-            <h4 className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-4">Shop</h4>
-            <div className="space-y-2 text-sm text-white/20">
+            <h4 className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-4">Shop</h4>
+            <div className="space-y-2 text-sm text-white/55">
               <a href="#shop" className="block hover:text-white/40 transition-colors">All Products</a>
               <a href="#collections" className="block hover:text-white/40 transition-colors">Collections</a>
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Gift Cards</span>
@@ -495,8 +542,8 @@ function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-4">Company</h4>
-            <div className="space-y-2 text-sm text-white/20">
+            <h4 className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-4">Company</h4>
+            <div className="space-y-2 text-sm text-white/55">
               <a href="#story" className="block hover:text-white/40 transition-colors">Our Story</a>
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Sustainability</span>
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Careers</span>
@@ -504,8 +551,8 @@ function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-4">Support</h4>
-            <div className="space-y-2 text-sm text-white/20">
+            <h4 className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-4">Support</h4>
+            <div className="space-y-2 text-sm text-white/55">
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Size Guide</span>
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Shipping & Returns</span>
               <span className="block cursor-pointer hover:text-white/40 transition-colors">Contact Us</span>
@@ -513,12 +560,12 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/12 gap-3">
+        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-3">
           <span>&copy; {new Date().getFullYear()} Maison Noir Inc. All rights reserved.</span>
           <div className="flex gap-6">
-            <span className="hover:text-white/25 cursor-pointer transition-colors">Privacy</span>
-            <span className="hover:text-white/25 cursor-pointer transition-colors">Terms</span>
-            <span className="hover:text-white/25 cursor-pointer transition-colors">Accessibility</span>
+            <span className="hover:text-white/80 cursor-pointer transition-colors">Privacy</span>
+            <span className="hover:text-white/80 cursor-pointer transition-colors">Terms</span>
+            <span className="hover:text-white/80 cursor-pointer transition-colors">Accessibility</span>
           </div>
         </div>
       </div>

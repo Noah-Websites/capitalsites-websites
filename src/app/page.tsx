@@ -64,47 +64,37 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-8"
-        >
-          <span className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-sm font-medium tracking-widest uppercase">
+        <div className="mb-8">
+          <span className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/65 text-sm font-medium tracking-widest uppercase">
             Ottawa Web Design Studio
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
-        >
+        <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
           Your website is costing you customers.
           <br />
           <span className="text-red-brand">We fix that.</span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 text-lg md:text-xl text-white/40 max-w-2xl mx-auto"
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="mt-8 text-lg md:text-xl text-white/65 max-w-2xl mx-auto"
         >
           Ottawa-based web studio. We rebuild slow, outdated, and mobile-broken websites for local small businesses.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link href="/audit" className="bg-red-brand text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/20 hover:-translate-y-0.5">
             Get a free website audit
           </Link>
-          <Link href="/pricing" className="border border-white/15 text-white/70 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-white/30">
+          <Link href="/pricing" className="border border-white/20 text-white/80 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-white/40">
             See pricing
           </Link>
         </motion.div>
@@ -144,7 +134,7 @@ function WhySection() {
         <motion.div className="text-center mb-20" {...fadeUp}>
           <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">Why Us</span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mt-4">Why CapitalSites</h2>
-          <p className="mt-5 text-white/30 max-w-xl mx-auto text-lg">A different way of doing web design in Ottawa.</p>
+          <p className="mt-5 text-white/65 max-w-xl mx-auto text-lg">A different way of doing web design in Ottawa.</p>
         </motion.div>
         <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" {...staggerContainer}>
           {reasons.map((r) => (
@@ -153,7 +143,7 @@ function WhySection() {
                 {r.icon}
               </div>
               <h3 className="text-lg font-bold text-white mb-3 font-heading">{r.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed">{r.desc}</p>
+              <p className="text-sm text-white/70 leading-relaxed">{r.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -182,7 +172,7 @@ function Marquee() {
 
 /* ---- Stats ---- */
 const stats = [
-  { value: 7, suffix: "", label: "Day Delivery" },
+  { value: 7, suffix: "", label: "Days (Refresh)" },
   { value: 1, suffix: "", label: "Person Building" },
   { value: 24, suffix: "h", label: "Response Time" },
 ];
@@ -197,7 +187,7 @@ function Stats() {
               <div className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-white/25 text-sm font-medium tracking-wider uppercase">{stat.label}</div>
+              <div className="text-white/60 text-sm font-medium tracking-wider uppercase">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -207,6 +197,40 @@ function Stats() {
 }
 
 /* ---- About / Noah ---- */
+function NoahPortrait() {
+  // Portrait only renders if /public/noah.jpg exists at runtime.
+  // Starts collapsed (zero size, hidden img) so no empty slot shows while
+  // we wait on the image. On successful load, container expands and fades in.
+  // On error, we return null and nothing is left in the layout.
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <>
+      {loaded && (
+        <div className="mx-auto mb-8 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-red-brand/30 shadow-lg shadow-red-brand/10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/noah.jpg"
+            alt="Noah, founder of CapitalSites"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      {/* Hidden probe so onLoad / onError fire without reserving layout space */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/noah.jpg"
+        alt=""
+        aria-hidden="true"
+        style={{ display: "none" }}
+        onLoad={() => setLoaded(true)}
+        onError={() => setFailed(true)}
+      />
+    </>
+  );
+}
+
 function AboutNoah() {
   return (
     <section className="py-28 md:py-40 px-6 bg-dark-card/30">
@@ -216,13 +240,14 @@ function AboutNoah() {
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-4 mb-8 leading-tight">
             Meet Noah
           </h2>
-          <p className="text-white/50 text-lg leading-relaxed mb-5">
+          <NoahPortrait />
+          <p className="text-white/80 text-lg leading-relaxed mb-5">
             I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ottawa-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
           </p>
-          <p className="text-white/50 text-lg leading-relaxed mb-8">
+          <p className="text-white/80 text-lg leading-relaxed mb-8">
             Every project I take on, I build personally. No agency overhead, no offshore handoffs, no project managers between you and the work.
           </p>
-          <p className="text-white/30 text-sm font-medium tracking-wider uppercase">
+          <p className="text-white/65 text-sm font-medium tracking-wider uppercase">
             Based in Ottawa, Ontario.
           </p>
         </motion.div>
@@ -243,7 +268,7 @@ function CTABanner() {
           <br />
           <span className="text-red-brand">Delivered within 24 hours.</span>
         </h2>
-        <p className="mt-6 text-white/30 text-lg max-w-xl mx-auto">
+        <p className="mt-6 text-white/70 text-lg max-w-xl mx-auto">
           Free website audit covering load speed, mobile responsiveness, SEO, and conversion. No obligation.
         </p>
         <div className="mt-10">
