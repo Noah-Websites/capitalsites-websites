@@ -2,10 +2,10 @@
  * Unsplash photo IDs for the three concept demo sites.
  * All URLs resolve to images.unsplash.com (configured in next.config.ts).
  *
- * To use: `${u(id, 1200, 800)}` renders a sized Unsplash URL.
+ * To use: `${u(id, 1280, 800)}` renders a sized Unsplash URL.
  */
 
-export function u(photoId: string, w = 1200, h?: number): string {
+export function u(photoId: string, w = 1280, h?: number): string {
   const base = `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&q=80&w=${w}`;
   return h ? `${base}&h=${h}` : base;
 }

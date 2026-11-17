@@ -14,18 +14,33 @@ const fadeUp = {
   transition: { duration: 0.7, ease },
 };
 
-const tiers = [
+type Tier = {
+  name: string;
+  priceLabel: string;
+  priceSubLabel?: string;
+  monthly: string;
+  monthlySubLabel?: string;
+  desc: string;
+  features: string[];
+  monthlyIncludes: string[];
+  recommended?: boolean;
+};
+
+const tiers: Tier[] = [
   {
-    name: "Refresh",
-    price: "$1,200",
-    monthly: "$79/mo",
-    desc: "For businesses who already have a website that needs to be rebuilt.",
+    name: "Website Plan",
+    priceLabel: "$0",
+    priceSubLabel: "upfront",
+    monthly: "$99/mo",
+    monthlySubLabel: "12-month minimum, then $79/mo",
+    desc: "For businesses that need their current site rebuilt, or a website for the first time.",
     features: [
-      "Full redesign of up to 5 pages",
+      "Full design and build up to 7 pages",
       "Mobile-optimized and fast-loading",
       "SEO foundation (meta tags, structured data, sitemap)",
-      "Contact form connected to your email",
-      "7-day delivery",
+      "Contact or booking form connected to your email",
+      "Google Business Profile setup (new sites)",
+      "Rebuilds launch in 7 days · new sites in 10–14 days",
     ],
     monthlyIncludes: [
       "Hosting",
@@ -38,64 +53,46 @@ const tiers = [
     recommended: true,
   },
   {
-    name: "Build",
-    price: "$1,500",
-    monthly: "$79/mo",
-    desc: "For businesses starting fresh with no current website.",
-    features: [
-      "Everything in Refresh",
-      "Brand discovery session",
-      "Logo refinement if needed",
-      "Up to 7 pages",
-      "Google Business Profile setup",
-    ],
-    monthlyIncludes: [
-      "Hosting",
-      "Domain renewal",
-      "Security updates",
-      "Monthly content changes",
-      "Uptime monitoring",
-      "Email support",
-    ],
-    recommended: false,
-  },
-  {
     name: "Premium",
-    price: "$2,500",
+    priceLabel: "$2,500",
+    priceSubLabel: "CAD",
     monthly: "$129/mo",
     desc: "For e-commerce stores or larger sites.",
     features: [
-      "Everything in Build",
+      "Everything in the Website Plan",
       "Up to 15 pages",
       "E-commerce setup (Stripe, Shopify, or WooCommerce)",
       "Inventory management",
       "Priority support",
     ],
     monthlyIncludes: [
-      "Everything in $79/mo plan",
+      "Everything in $99/mo plan",
       "Product updates",
       "Order troubleshooting",
     ],
-    recommended: false,
   },
 ];
 
 const faqs = [
   {
     q: "How does payment work?",
-    a: "The one-time build fee is paid 50% upfront and 50% on launch. The monthly fee starts on launch day and can be cancelled with 30 days notice.",
+    a: "For the Website Plan there's nothing to pay upfront. Your $99/month starts the day your site launches and runs for a 12-month minimum. After that it drops to $79/month, or you can cancel with 30 days notice. Premium builds are paid 50% upfront and 50% on launch, plus $129/month.",
+  },
+  {
+    q: "Why is there a 12-month minimum?",
+    a: "Instead of charging a big build fee upfront, we spread it over your first year. That's what lets us start at $0 upfront.",
+  },
+  {
+    q: "Can I cancel?",
+    a: "After your first 12 months, yes, with 30 days notice, and we'll help you move your site wherever you want. If you need to cancel during the first 12 months, you pay the remaining months of the minimum, or the site comes down.",
+  },
+  {
+    q: "Do I own the website?",
+    a: "Yes. Once your first 12 months are paid, the design, content and code are yours. The monthly fee after that covers hosting and ongoing service, not licensing.",
   },
   {
     q: "What's actually included in the monthly fee?",
     a: "Hosting, domain renewal, security updates, uptime monitoring, monthly content changes (text, images, prices, hours), and email support. Premium tier also includes product updates and order troubleshooting. We handle the boring stuff so you can focus on running your business.",
-  },
-  {
-    q: "Can I cancel the monthly plan anytime?",
-    a: "Yes. The monthly fee can be cancelled with 30 days notice. If you cancel, you keep ownership of your site files and we help you transfer hosting wherever you want.",
-  },
-  {
-    q: "Do I own the website?",
-    a: "Yes. You own the design, content, and code. The monthly fee covers hosting and ongoing service, not licensing.",
   },
   {
     q: "Do I need to provide content and photos?",
@@ -103,7 +100,7 @@ const faqs = [
   },
   {
     q: "How long does the build take?",
-    a: "Refresh tier launches in 7 days. Build tier typically takes 10-14 days due to the brand discovery session. Premium e-commerce builds take 14-21 days depending on product catalog size.",
+    a: "Rebuilds launch in 7 days. New sites take 10–14 days because of the brand discovery session. Premium e-commerce builds take 14–21 days depending on catalog size.",
   },
 ];
 
@@ -120,7 +117,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           +
         </span>
       </button>
-      <div className={`overflow-hidden transition-all duration-500 ${open ? "max-h-60 pb-6" : "max-h-0"}`}>
+      <div className={`overflow-hidden transition-all duration-500 ${open ? "max-h-80 pb-6" : "max-h-0"}`}>
         <p className="text-white/70 text-sm leading-relaxed">{a}</p>
       </div>
     </div>
@@ -137,17 +134,17 @@ export default function PricingPage() {
             Pricing
           </motion.span>
           <motion.h1 {...fadeUp} className="font-heading text-4xl md:text-6xl font-bold text-white mt-4 leading-tight">
-            Simple pricing. One build fee, one monthly plan per tier.
+            Simple pricing. No upfront cost to start.
           </motion.h1>
           <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Transparent pricing for Ottawa small businesses. Build it once, then we handle the rest every month.
+            Transparent monthly pricing from a small Ontario web studio serving London, Toronto, and Ottawa.
           </motion.p>
         </div>
       </section>
 
       {/* Pricing cards */}
       <section className="pb-12 md:pb-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -170,12 +167,17 @@ export default function PricingPage() {
                   <h3 className="font-heading text-lg font-bold text-white mb-1">{tier.name}</h3>
                   <p className="text-white/65 text-sm mb-6 min-h-[2.5rem]">{tier.desc}</p>
                   <div className="font-heading text-5xl font-bold text-white">
-                    {tier.price}
-                    <span className="text-lg font-normal text-white/55 ml-1">CAD</span>
+                    {tier.priceLabel}
+                    {tier.priceSubLabel && (
+                      <span className="text-lg font-normal text-white/55 ml-1">{tier.priceSubLabel}</span>
+                    )}
                   </div>
                   <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-brand/10 border border-red-brand/20 text-red-brand text-sm font-semibold">
                     + {tier.monthly}
                   </div>
+                  {tier.monthlySubLabel && (
+                    <p className="text-white/55 text-xs mt-2">{tier.monthlySubLabel}</p>
+                  )}
                 </div>
 
                 <div className="mb-6">
@@ -188,7 +190,7 @@ export default function PricingPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-white/50">{f}</span>
+                        <span className="text-white/70">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -223,12 +225,12 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* Pricing note */}
+        {/* Fine print */}
         <motion.p
           {...fadeUp}
           className="max-w-3xl mx-auto text-center text-white/60 text-sm mt-10 leading-relaxed"
         >
-          All prices in CAD. One-time build fee is paid 50% upfront, 50% on launch. Monthly fee starts on launch day and can be cancelled with 30 days notice.
+          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum, then $79/month or cancel with 30 days notice. Premium: build fee paid 50% upfront and 50% on launch; monthly fee starts on launch day.
         </motion.p>
       </section>
 

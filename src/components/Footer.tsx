@@ -24,10 +24,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white/65 text-sm max-w-xs">
-              Ottawa web studio rebuilding slow, outdated, and mobile-broken websites for local small businesses.
-            </p>
-            <p className="text-white/50 text-sm font-semibold mt-4">
-              Ottawa, Ontario, Canada
+              Ontario web studio rebuilding slow, outdated, and mobile-broken websites for local small businesses.
             </p>
           </div>
 
@@ -55,7 +52,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/55">
           <p>&copy; {new Date().getFullYear()} CapitalSites. All rights reserved.</p>
-          <p>Serving Ottawa, Orleans, Kanata, Nepean, Gatineau, Westboro, and the Glebe.</p>
+          <p>Ontario web studio · London, Toronto, Ottawa</p>
         </div>
       </div>
     </footer>

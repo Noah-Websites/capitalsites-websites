@@ -33,9 +33,9 @@ const services = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>,
   },
   {
-    title: "Fast 7-Day Delivery on Refresh Projects",
-    desc: "7-day delivery on Refresh projects. Build and Premium tiers take 10-21 days depending on scope. No month-long waits.",
-    details: "Refresh: 7 days from kickoff to launch (Day 1-2 design, 3-5 build, 6-7 revisions). Build: 10-14 days. Premium e-commerce: 14-21 days.",
+    title: "Fast Delivery",
+    desc: "Rebuilds launch in 7 days. New sites in 10–14 days. Premium e-commerce in 14–21 days. No month-long waits.",
+    details: "Rebuilds: 7 days from kickoff to launch (Day 1-2 design, 3-5 build, 6-7 revisions). New sites: 10-14 days (includes brand discovery). Premium e-commerce: 14-21 days depending on catalog size.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>,
   },
   {
@@ -65,7 +65,7 @@ export default function ServicesPage() {
             Our Services
           </motion.h1>
           <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Everything Ottawa small businesses need to fix what&apos;s broken on their website. Handled by one developer who cares about results.
+            Everything Ontario small businesses need to fix what&apos;s broken on their website. Handled by one developer who cares about results.
           </motion.p>
         </div>
       </section>

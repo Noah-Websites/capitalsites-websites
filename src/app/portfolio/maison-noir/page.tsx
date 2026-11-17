@@ -8,7 +8,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { maisonNoir, u } from "@/lib/demoImages";
 
 /* =========================================================
-   MAISON NOIR — Premium Package Demo ($1,500 CAD)
+   MAISON NOIR — Premium Tier concept demo
    A luxury e-commerce clothing brand website.
    Sections: Hero, Featured Collection, Shop Categories,
    Lookbook, Brand Story, Sustainability, Newsletter,
@@ -27,7 +27,7 @@ const fadeUp = {
 function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a concept redesign by CapitalSites — Premium Tier $2,500 + $129/mo
+      This is a concept redesign by CapitalSites — Premium Tier $2,500 build + $129/mo
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         Back to Portfolio
       </Link>
@@ -112,7 +112,7 @@ function Hero() {
   return (
     <section className="relative min-h-[95vh] flex items-center bg-[#0a0a0a] pt-32 overflow-hidden">
       <Image
-        src={u(maisonNoir.hero, 1920, 1200)}
+        src={u(maisonNoir.hero, 1920, 1280)}
         alt="Maison Noir boutique"
         fill
         priority
@@ -130,7 +130,7 @@ function Hero() {
             Redefining<br />Minimalism.
           </h1>
           <p className="mt-6 text-white/75 text-lg max-w-md mx-auto">
-            Timeless essentials crafted from premium fabrics. Designed in Ottawa&apos;s Byward Market, made to last.
+            Timeless essentials crafted from premium fabrics. Designed in Ottawa&apos;s Centretown, made to last.
           </p>
           <div className="mt-10 flex justify-center gap-4">
             <a href="#shop" className="bg-white text-black px-10 py-3.5 rounded-none font-semibold hover:bg-white/90 transition-colors tracking-wide text-sm uppercase">
@@ -275,13 +275,13 @@ function Lookbook() {
         <motion.div className="text-center mb-16" {...fadeUp}>
           <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Lookbook</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">Current Campaign</h2>
-          <p className="text-white/55 mt-3">Shot on location in the Byward Market, Ottawa</p>
+          <p className="text-white/55 mt-3">Shot on location in Centretown, Ottawa</p>
         </motion.div>
         <div className="grid grid-cols-6 gap-3">
           {/* Large left */}
           <motion.div {...fadeUp} className="relative col-span-6 md:col-span-4 aspect-[16/9] bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
             <Image
-              src={u(maisonNoir.lookbook[0], 1200, 675)}
+              src={u(maisonNoir.lookbook[0], 1280, 720)}
               alt="Lookbook campaign 1"
               fill
               sizes="(max-width: 768px) 100vw, 66vw"
@@ -319,7 +319,7 @@ function Lookbook() {
           </motion.div>
           <motion.div {...fadeUp} className="relative col-span-6 md:col-span-4 aspect-[16/9] bg-[#0a0a0c] border border-white/5 rounded-sm overflow-hidden">
             <Image
-              src={u(maisonNoir.lookbook[4], 1200, 675)}
+              src={u(maisonNoir.lookbook[4], 1280, 720)}
               alt="Lookbook campaign 5"
               fill
               sizes="(max-width: 768px) 100vw, 66vw"
@@ -344,7 +344,7 @@ function Story() {
           </h2>
           <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
             Maison Noir was founded in 2021 with a simple mission: create wardrobe staples that transcend trends.
-            We believe in fewer, better things — pieces designed with intention in our Byward Market studio,
+            We believe in fewer, better things — pieces designed with intention in our Centretown studio,
             crafted from premium materials, and built to become the foundation of your personal style.
           </p>
           <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
@@ -441,8 +441,8 @@ function Newsletter() {
 /* ---- Reviews ---- */
 const reviews = [
   { name: "Camille D.", text: "The quality is unreal for the price. My Essential Tee has been washed 30+ times and still looks brand new. This is my go-to brand now.", location: "Ottawa, ON" },
-  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "Kanata, ON" },
-  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Gatineau, QC" },
+  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "London, ON" },
+  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Toronto, ON" },
   { name: "Alexandre F.", text: "Maison Noir has replaced half my wardrobe. The fabrics feel luxurious and the designs are timeless. Worth every penny.", location: "Ottawa, ON" },
 ];
 

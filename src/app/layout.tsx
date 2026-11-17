@@ -6,9 +6,9 @@ import LayoutShell from "@/components/LayoutShell";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 
-const SITE_TITLE = "CapitalSites — Ottawa Web Design Studio";
+const SITE_TITLE = "CapitalSites — Ontario Web Design Studio";
 const SITE_DESCRIPTION =
-  "Ottawa web design studio. We rebuild slow, outdated, and mobile-broken websites for local small businesses. Free audit, transparent pricing.";
+  "Ontario web design studio serving London, Toronto, and Ottawa. We rebuild slow, outdated, and mobile-broken websites for local small businesses. No upfront cost, $99/month.";
 
 export const metadata: Metadata = {
   title: SITE_TITLE,

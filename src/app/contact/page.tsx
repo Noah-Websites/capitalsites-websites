@@ -36,7 +36,7 @@ export default function ContactPage() {
               Start Your Project
             </h1>
             <p className="mt-5 text-white/70 text-lg">
-              Tell us about your Ottawa business and we will get back to you within 24 hours.
+              Tell us about your Ontario business and we will get back to you within 24 hours.
             </p>
             <p className="mt-4 text-white/60 text-base">
               Prefer email? Reach us directly at{" "}
@@ -82,11 +82,10 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="package" className="block text-sm font-semibold text-white/70 mb-2">Package Interest</label>
+                <label htmlFor="package" className="block text-sm font-semibold text-white/70 mb-2">Plan Interest</label>
                 <select id="package" name="package" className={`${inputClasses} appearance-none`} defaultValue="">
-                  <option value="" disabled>Select a package</option>
-                  <option value="refresh">Refresh — $1,200 + $79/mo</option>
-                  <option value="build">Build — $1,500 + $79/mo</option>
+                  <option value="" disabled>Select a plan</option>
+                  <option value="website-plan">Website Plan — $0 upfront, $99/mo</option>
                   <option value="premium">Premium — $2,500 + $129/mo</option>
                   <option value="not-sure">Not sure yet</option>
                 </select>

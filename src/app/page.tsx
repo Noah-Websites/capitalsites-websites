@@ -27,13 +27,17 @@ const staggerChild = {
 };
 
 /* ---- Counter ---- */
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+function AnimatedCounter({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     if (!isInView) return;
+    if (target === 0) {
+      setDisplay(0);
+      return;
+    }
     const controls = animate(0, target, {
       duration: 2,
       ease: [0.22, 1, 0.36, 1],
@@ -42,7 +46,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
     return () => controls.stop();
   }, [isInView, target]);
 
-  return <span ref={ref}>{display}{suffix}</span>;
+  return <span ref={ref}>{prefix}{display}{suffix}</span>;
 }
 
 /* ---- Hero ---- */
@@ -66,7 +70,7 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <div className="mb-8">
           <span className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/65 text-sm font-medium tracking-widest uppercase">
-            Ottawa Web Design Studio
+            Ontario Web Design Studio
           </span>
         </div>
 
@@ -82,7 +86,7 @@ function Hero() {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="mt-8 text-lg md:text-xl text-white/65 max-w-2xl mx-auto"
         >
-          Ottawa-based web studio. We rebuild slow, outdated, and mobile-broken websites for local small businesses.
+          A small Ontario web studio serving London, Toronto, and Ottawa. We rebuild slow, outdated, and mobile-broken websites for local small businesses.
         </motion.p>
 
         <motion.div
@@ -98,6 +102,15 @@ function Hero() {
             See pricing
           </Link>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="mt-6 text-sm text-white/70"
+        >
+          No upfront cost · <Link href="/pricing" className="text-red-brand hover:text-red-brand-dark font-semibold">$99/month</Link>
+        </motion.p>
       </div>
     </section>
   );
@@ -106,8 +119,8 @@ function Hero() {
 /* ---- Why CapitalSites ---- */
 const reasons = [
   {
-    title: "Based in Ottawa",
-    desc: "Not an offshore agency or faceless freelancer marketplace. Local, accountable, and easy to reach.",
+    title: "Based in Ontario",
+    desc: "Serving London, Toronto, and Ottawa. Not an offshore agency or faceless freelancer marketplace. Local, accountable, and easy to reach.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>,
   },
   {
@@ -134,7 +147,7 @@ function WhySection() {
         <motion.div className="text-center mb-20" {...fadeUp}>
           <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">Why Us</span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mt-4">Why CapitalSites</h2>
-          <p className="mt-5 text-white/65 max-w-xl mx-auto text-lg">A different way of doing web design in Ottawa.</p>
+          <p className="mt-5 text-white/65 max-w-xl mx-auto text-lg">A different way of doing web design in Ontario.</p>
         </motion.div>
         <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" {...staggerContainer}>
           {reasons.map((r) => (
@@ -154,7 +167,7 @@ function WhySection() {
 
 /* ---- Marquee ---- */
 function Marquee() {
-  const items = ["Faster Load Times", "Mobile-Responsive", "SEO Foundation", "Ongoing Support", "Ottawa-Based"];
+  const items = ["Faster Load Times", "Mobile-Responsive", "SEO Foundation", "Ongoing Support", "Ontario-Based"];
   const repeated = [...items, ...items, ...items, ...items];
   return (
     <section className="py-8 border-y border-dark-border overflow-hidden bg-dark-card">
@@ -171,9 +184,11 @@ function Marquee() {
 }
 
 /* ---- Stats ---- */
-const stats = [
-  { value: 7, suffix: "", label: "Days (Refresh)" },
-  { value: 1, suffix: "", label: "Person Building" },
+type Stat = { value: number; suffix?: string; prefix?: string; label: string };
+
+const stats: Stat[] = [
+  { value: 0, prefix: "$", label: "Upfront Cost" },
+  { value: 1, label: "Person Building" },
   { value: 24, suffix: "h", label: "Response Time" },
 ];
 
@@ -185,7 +200,7 @@ function Stats() {
           {stats.map((stat) => (
             <motion.div key={stat.label} {...staggerChild} className="text-center">
               <div className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
               </div>
               <div className="text-white/60 text-sm font-medium tracking-wider uppercase">{stat.label}</div>
             </motion.div>
@@ -242,13 +257,13 @@ function AboutNoah() {
           </h2>
           <NoahPortrait />
           <p className="text-white/80 text-lg leading-relaxed mb-5">
-            I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ottawa-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
+            I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ontario-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
           </p>
           <p className="text-white/80 text-lg leading-relaxed mb-8">
             Every project I take on, I build personally. No agency overhead, no offshore handoffs, no project managers between you and the work.
           </p>
           <p className="text-white/65 text-sm font-medium tracking-wider uppercase">
-            Based in Ottawa, Ontario.
+            Ontario · London, Toronto, Ottawa
           </p>
         </motion.div>
       </div>

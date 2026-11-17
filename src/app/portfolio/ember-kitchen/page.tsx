@@ -8,7 +8,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { emberKitchen, u } from "@/lib/demoImages";
 
 /* =========================================================
-   EMBER KITCHEN — Professional Package Demo ($900 CAD)
+   EMBER KITCHEN — Website Plan concept demo
    A rich, multi-section restaurant website.
    Sections: Hero, About, Menu, Gallery, Chef/Team,
    Testimonials, Reservations, Hours/Location, Footer
@@ -26,7 +26,7 @@ const fadeUp = {
 function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a concept redesign by CapitalSites — Build Tier $1,500 + $79/mo
+      This is a concept redesign by CapitalSites — Website Plan $0 upfront, $99/mo
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         Back to Portfolio
       </Link>
@@ -100,7 +100,7 @@ function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-[#0c0806] pt-24 overflow-hidden">
       <Image
-        src={u(emberKitchen.hero, 1920, 1200)}
+        src={u(emberKitchen.hero, 1920, 1280)}
         alt="Ember Kitchen interior with wood-fired oven"
         fill
         priority
@@ -113,7 +113,7 @@ function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 w-full">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
           <span className="text-orange-500 text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
-            Farm to Table · The Glebe, Ottawa
+            Farm to Table · Ossington, Toronto
           </span>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             Where Fire<br />Meets Flavour.
@@ -148,7 +148,7 @@ function About() {
             Our wood-fired kitchen sits at the heart of everything we do, from charred appetizers to slow-roasted mains.
           </p>
           <p className="text-white/70 leading-relaxed mb-6">
-            Nestled in the vibrant Glebe neighbourhood, we source locally whenever possible, partner with Ottawa Valley farms,
+            Nestled on vibrant Ossington Avenue, we source locally whenever possible, partner with Ontario farms,
             and change our menu with the seasons. Every plate tells a story of craft, care, and a little bit of smoke.
           </p>
           <div className="grid grid-cols-3 gap-6">
@@ -162,7 +162,7 @@ function About() {
             </div>
             <div>
               <div className="text-2xl font-bold text-orange-500">Local</div>
-              <div className="text-white/30 text-sm mt-1">Ottawa Valley</div>
+              <div className="text-white/55 text-sm mt-1">Ontario Farms</div>
             </div>
           </div>
         </motion.div>
@@ -336,7 +336,7 @@ function Team() {
 
 /* ---- Testimonials ---- */
 const testimonials = [
-  { name: "Jessica T.", text: "Best dining experience in Ottawa, hands down. The wood-fired salmon was incredible, and the atmosphere is unmatched. We come back every month.", rating: 5 },
+  { name: "Jessica T.", text: "Best dining experience in Toronto, hands down. The wood-fired salmon was incredible, and the atmosphere is unmatched. We come back every month.", rating: 5 },
   { name: "David & Maria K.", text: "We hosted our anniversary dinner here and it was perfect. The staff went above and beyond, and the tasting menu was a culinary journey. Highly recommend the private dining room.", rating: 5 },
   { name: "Alex R.", text: "As a food blogger, I have been to a lot of restaurants in this city. Ember Kitchen consistently delivers — creative dishes, quality ingredients, and that smoky flavour from the wood fire. The Old Fashioned is a must.", rating: 5 },
 ];
@@ -412,8 +412,8 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Location</p>
-                <p className="text-white/60">784 Bank Street, The Glebe</p>
-                <p className="text-white/60">Ottawa, ON K1S 3V6</p>
+                <p className="text-white/60">142 Ossington Avenue</p>
+                <p className="text-white/60">Toronto, ON M6J 2Y9</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -424,7 +424,7 @@ function Reservations() {
               </div>
               <div>
                 <p className="text-white font-medium">Phone</p>
-                <p className="text-white/60">(613) 555-0189</p>
+                <p className="text-white/60">(416) 555-0189</p>
               </div>
             </div>
           </div>
@@ -480,7 +480,7 @@ function Footer() {
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <span className="text-lg font-bold text-white">EMBER <span className="text-orange-500">KITCHEN</span></span>
-            <p className="text-white/55 text-sm mt-2 leading-relaxed">Wood-fired dining in the heart of the Glebe, Ottawa. Seasonal. Local. Bold.</p>
+            <p className="text-white/55 text-sm mt-2 leading-relaxed">Wood-fired dining on Ossington Avenue, Toronto. Seasonal. Local. Bold.</p>
           </div>
           <div>
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Quick Links</h4>
@@ -495,7 +495,7 @@ function Footer() {
             <h4 className="text-white/50 text-sm font-semibold uppercase tracking-wide mb-3">Connect</h4>
             <div className="space-y-2 text-sm text-white/55">
               <p>info@emberkitchen.ca</p>
-              <p>(613) 555-0189</p>
+              <p>(416) 555-0189</p>
               <p>@emberkitchen</p>
             </div>
           </div>
