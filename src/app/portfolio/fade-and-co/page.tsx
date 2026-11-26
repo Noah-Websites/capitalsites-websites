@@ -108,7 +108,7 @@ function Hero() {
             Look Sharp.<br />Feel Sharp.
           </h1>
           <p className="mt-6 text-white/70 text-lg max-w-md">
-            Richmond Row&apos;s finest barbershop experience. Classic cuts, modern style, and attention to detail.
+            Kensington&apos;s finest barbershop experience. Classic cuts, modern style, and attention to detail.
           </p>
           <div className="mt-10 flex gap-4">
             <a href="#contact" className="bg-amber-500 text-black px-8 py-3.5 rounded-md font-semibold hover:bg-amber-400 transition-colors">
@@ -202,7 +202,7 @@ function About() {
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">About Us</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-8">The Fade & Co. Story</h2>
           <p className="text-white/70 text-lg leading-relaxed">
-            Founded in the heart of Richmond Row, London, Fade & Co. has been delivering precision cuts and timeless style since 2019.
+            Founded in the heart of Kensington, Calgary, Fade & Co. has been delivering precision cuts and timeless style since 2019.
             Our team of skilled barbers brings years of experience and a passion for the craft. Whether you want a classic
             look or something fresh, we have got you covered. Walk-ins welcome, appointments preferred.
           </p>
@@ -267,7 +267,7 @@ function Footer() {
     <footer className="py-10 px-6 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/55">
         <span className="font-bold text-white/40">FADE <span className="text-amber-500/60">&</span> CO.</span>
-        <span>412 Richmond St, London, ON</span>
+        <span>1124 Kensington Rd NW, Calgary, AB</span>
         <span>&copy; {new Date().getFullYear()} Fade & Co.</span>
       </div>
     </footer>

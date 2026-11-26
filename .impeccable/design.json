@@ -189,7 +189,7 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Lead paragraphs 17/21, tile copy 17/19, lists 16, plan detail 15; measure 420–640px."
+        "purpose": "Lead paragraphs 17/21, tile copy 17/19, lists 16, plan detail 15; measure 420\u2013640px."
       },
       "label": {
         "displayName": "Label",
@@ -369,7 +369,7 @@
       "name": "Chevron Link",
       "kind": "custom",
       "refersTo": "chevron-link",
-      "description": "Apple-style 'Learn more ›' link; ink at rest, red and underlined on hover on light grounds, white in both states on dark.",
+      "description": "Apple-style 'Learn more \u203a' link; ink at rest, red and underlined on hover on light grounds, white in both states on dark.",
       "html": "<a class=\"ds-chev\" href=\"#\">Compare plans<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:12px 16px;border-radius:12px\"><a class=\"ds-chev\" href=\"#\">See all concept work<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></span>",
       "css": ".ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;transition:color 150ms;} .ds-chev:hover{color:var(--color-red,#C8102E);text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);} .ds-on-dark .ds-chev,.ds-on-dark .ds-chev:hover{color:#fff;}"
     },
@@ -410,8 +410,8 @@
       "kind": "card",
       "refersTo": "card-tile",
       "description": "28px-radius mosaic tile with headline, subhead and chevron link; solid red and ink variants.",
-      "html": "<div class=\"ds-tile ds-tile-red\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more ›</a></div><div class=\"ds-tile ds-tile-ink\" style=\"margin-top:12px\"><h3>One person. Start to finish.</h3><p>No agency. No handoffs. Just Noah.</p><a href=\"#\">Talk to Noah ›</a></div>",
-      "css": ".ds-tile{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;} .ds-tile-red{background:var(--color-red,#C8102E);} .ds-tile-ink{background:var(--color-ink,#1D1D1F);} .ds-tile h3{margin:0;font-family:Poppins,Inter,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1.08;} .ds-tile p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;color:rgba(255,255,255,0.9);} .ds-tile a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile a:hover{text-decoration:underline;text-underline-offset:3px;} .ds-tile a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;}"
+      "html": "<div class=\"ds-tile ds-tile-snow\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more \u203a</a></div><div class=\"ds-tile ds-tile-ink\" style=\"margin-top:12px\"><h3>One person. Start to finish.</h3><p>No agency. No handoffs. Just Noah.</p><a href=\"#\">Talk to Noah \u203a</a></div>",
+      "css": ".ds-tile{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;} .ds-tile-snow{background:var(--color-snow,#F5F5F7);color:var(--color-ink,#1D1D1F);} .ds-tile-snow p{color:var(--color-ink-2,#6E6E73);} .ds-tile-snow a{color:var(--color-ink,#1D1D1F);} .ds-tile-ink{background:var(--color-ink,#1D1D1F);} .ds-tile h3{margin:0;font-family:Poppins,Inter,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1.08;} .ds-tile p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;color:rgba(255,255,255,0.9);} .ds-tile a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile a:hover{text-decoration:underline;text-underline-offset:3px;} .ds-tile a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;}"
     },
     {
       "name": "Zero Figure",
@@ -430,7 +430,7 @@
       "Full-bleed alternating tiles below: black, snow, white, then a solid red or ink tile for punctuation.",
       "One accent only: deep maple red. No secondary hue.",
       "Poppins display (800, -0.025em) and headline (700, -0.02em) type with balanced wrapping; Inter for everything else.",
-      "Pill buttons (980px radius) and ink chevron text links (\"Learn more ›\") that turn red on hover.",
+      "Pill buttons (980px radius) and ink chevron text links (\"Learn more \u203a\") that turn red on hover.",
       "Real concept-site screenshots inside CSS MacBook and iPhone frames.",
       "Centred composition on a 1024px container. Tiles in a mosaic sit 12px apart on white."
     ],
@@ -442,7 +442,7 @@
       },
       {
         "name": "The Red On Black Is Large Only Rule",
-        "body": "Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line at 48–88px. Body-size links and copy on dark grounds stay white. Text on red grounds (tiles, hero, nav) is white or white at 90% (4.95:1), never lower.",
+        "body": "Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line at 48\u201388px. Body-size links and copy on dark grounds stay white. Text on red grounds (tiles, hero, nav) is white or white at 90% (4.95:1), never lower.",
         "section": "colors"
       },
       {

@@ -441,8 +441,8 @@ function Newsletter() {
 /* ---- Reviews ---- */
 const reviews = [
   { name: "Camille D.", text: "The quality is unreal for the price. My Essential Tee has been washed 30+ times and still looks brand new. This is my go-to brand now.", location: "Ottawa, ON" },
-  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "London, ON" },
-  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Toronto, ON" },
+  { name: "Jordan P.", text: "Finally found a brand that does minimalism right. No logos, no gimmicks — just beautifully made clothes that fit perfectly. The Oversized Blazer is chef's kiss.", location: "Winnipeg, MB" },
+  { name: "Mei L.", text: "I was hesitant to buy online but the fit guide was spot on. The linen trousers are my new summer staple. Love the sustainable packaging too.", location: "Vancouver, BC" },
   { name: "Alexandre F.", text: "Maison Noir has replaced half my wardrobe. The fabrics feel luxurious and the designs are timeless. Worth every penny.", location: "Ottawa, ON" },
 ];
 

@@ -6,7 +6,7 @@ const projects = [
   {
     slug: "fade-and-co",
     name: "Fade & Co.",
-    location: "Richmond Row, London",
+    location: "Kensington, Calgary",
     plan: "Website Plan · $0 upfront, $99/mo",
     desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation.",
     tile: "tile-black on-dark",
@@ -14,10 +14,10 @@ const projects = [
   {
     slug: "ember-kitchen",
     name: "Ember Kitchen",
-    location: "Ossington, Toronto",
+    location: "North End, Halifax",
     plan: "Website Plan · $0 upfront, $99/mo",
     desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup.",
-    tile: "tile-red on-dark",
+    tile: "tile-snow",
   },
   {
     slug: "maison-noir",
@@ -25,7 +25,7 @@ const projects = [
     location: "Centretown, Ottawa",
     plan: "Premium · $2,500 + $129/mo",
     desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout.",
-    tile: "tile-snow",
+    tile: "tile-ink on-dark",
   },
 ];
 

@@ -28,12 +28,12 @@ export default function ServicesPage() {
             </div>
             <ChevLink href="/portfolio">See concept work</ChevLink>
           </Rise>
-          <Rise className="tile tile-red on-dark card-tile md:col-span-2 p-10 min-h-[420px] flex flex-col justify-between">
+          <Rise className="tile tile-snow card-tile md:col-span-2 p-10 min-h-[420px] flex flex-col justify-between">
             <h2 className="headline text-[36px] md:text-[40px]">Fast.</h2>
             <div className="tabular">
-              <p className="display text-[96px] leading-none">7</p>
+              <p className="display text-[96px] leading-none text-red">7</p>
               <p className="text-[19px] font-semibold mt-1">days to launch a rebuild</p>
-              <p className="text-[14px] text-white/90 mt-3">New sites 10–14 days. Premium 14–21.</p>
+              <p className="text-[14px] text-ink-2 mt-3">New sites 10–14 days. Premium 14–21.</p>
             </div>
           </Rise>
           <Rise className="tile tile-black on-dark card-tile md:col-span-3 px-10 pt-10 md:px-14 md:pt-14 min-h-[520px] flex flex-col">

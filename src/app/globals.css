@@ -105,7 +105,7 @@ input, textarea, select, button { font: inherit; }
 .on-dark .pill-ghost:hover { background: var(--color-white); color: var(--color-ink); }
 .pill-white { background: var(--color-white); color: var(--color-ink); }
 .pill-white:hover { background: var(--color-snow); }
-.tile-hero .pill-white, .tile-red .pill-white, .nav-red .pill-white { color: var(--color-red); }
+.tile-hero .pill-white, .nav-red .pill-white { color: var(--color-red); }
 
 .chev {
   display: inline-flex;
@@ -141,8 +141,6 @@ input, textarea, select, button { font: inherit; }
     radial-gradient(120% 100% at 50% 100%, var(--color-red-deep) 0%, var(--color-red) 75%);
   color: var(--color-white);
 }
-/* Solid red only: white text needs the full 5.88:1, so no lighter gradient stops. */
-.tile-red { background: var(--color-red); color: var(--color-white); }
 .tile-glow::before {
   content: "";
   position: absolute;

@@ -38,19 +38,19 @@ The $0-upfront monthly plan is the mechanism a competing studio cannot truthfull
 ## Brand Commitments
 
 - Name: CapitalSites. The "Capital" is a holdover from Ottawa-origin branding; kept as the brand's given name, never treated as a geographic claim.
-- Positioning (owner, 2026-11-26): "a small Canadian web studio" working with independent small businesses across Canada. Never name a specific city or province as the studio's base; no street address anywhere. No flag, maple leaf, "Canada" wordmark or government-style imagery, and nothing implying government affiliation.
+- Positioning (owner, 2026-11-26): "a small Canadian web studio" working with independent small businesses across Canada. Never name a specific city or province as the studio's base; no street address anywhere. No flag, maple leaf, "Canada" wordmark or government-style imagery, and nothing implying government affiliation. Exception: the owner's logo includes a Peace Tower-style tower, which the owner approved keeping (2026-11-26).
 - The "ottawa" in capitalsitesottawa@gmail.com and the Calendly URL is a live-inbox constraint, not positioning; do not change those addresses.
 - Voice: direct, operator-to-operator, zero agency jargon. "We rebuild slow, outdated, mobile-broken websites." Not "we craft digital experiences."
 - Honesty rule: no invented clients, testimonials, reviews, stats, case studies, or results. Numbers on the site must be true (plan price, response time, upfront cost = $0, "1 person building").
 - Noah Potter is the human face of the business; the site is not pretending to be a team.
-- Standing visual preference (owner, 2026-11-25): the site should look and feel like Apple.com — modern, premium, big confident type, full-bleed tiles — with exciting, vivid colour (the owner liked the red/navy energy of the original dark site). A plain or muted look was explicitly rejected. Palette update (owner, 2026-11-26): one deep maple-red accent (#C8102E) on white, off-white and near-black, used for primary buttons, link hover and key highlights only; navy retired.
+- Standing visual preference (owner, 2026-11-25): the site should look and feel like Apple.com — modern, premium, big confident type, full-bleed tiles — with exciting, vivid colour (the owner liked the red/navy energy of the original dark site). A plain or muted look was explicitly rejected. Palette update (owner, 2026-11-26): one deep maple-red accent (#C8102E) on white, off-white and near-black, used for primary buttons, link hover and key highlights only, except the nav bar and home hero, which are solid red so the first screen pops; navy retired.
 
 ## Evidence on Hand
 
 - Three concept redesigns live at `/portfolio/fade-and-co`, `/portfolio/ember-kitchen`, `/portfolio/maison-noir`. Each is clearly labeled as a concept demo, not a real client.
 - Noah's bio and (optional) portrait at `/noah.jpg`.
 - No real client testimonials, press mentions, revenue figures, conversion lifts, or case studies. Future work must not fabricate any.
-- Geography: Canada-wide, remote. The three concept demos are set in fictional businesses in London, Toronto and Ottawa; those locations describe the fictional clients, not the studio.
+- Geography: Canada-wide, remote. The three concept demos are set in fictional businesses in Calgary (Fade & Co.), Halifax (Ember Kitchen) and Ottawa (Maison Noir, kept in Ottawa at the owner's request); those locations describe the fictional clients, not the studio.
 - No customers yet: no testimonials, case studies, client logos, review counts, awards or "trusted by" claims on CapitalSites' own pages.
 
 ## Product Principles

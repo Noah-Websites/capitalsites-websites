@@ -3,8 +3,8 @@ import Rise from "@/components/Rise";
 import { ChevLink, Pill, MacBook, IPhone } from "@/components/ui";
 
 const concepts = [
-  { slug: "fade-and-co", name: "Fade & Co.", kind: "Barbershop · London", plan: "Website Plan" },
-  { slug: "ember-kitchen", name: "Ember Kitchen", kind: "Restaurant · Toronto", plan: "Website Plan" },
+  { slug: "fade-and-co", name: "Fade & Co.", kind: "Barbershop · Calgary", plan: "Website Plan" },
+  { slug: "ember-kitchen", name: "Ember Kitchen", kind: "Restaurant · Halifax", plan: "Website Plan" },
   { slug: "maison-noir", name: "Maison Noir", kind: "Boutique · Ottawa", plan: "Premium" },
 ];
 
@@ -61,9 +61,9 @@ export default function Home() {
       {/* Two-up promo tiles */}
       <section className="bg-white p-3">
         <div className="grid md:grid-cols-2 gap-3">
-          <Rise className="tile tile-red on-dark card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
+          <Rise className="tile tile-snow card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
             <h2 className="headline text-[40px] md:text-[56px]">Live in 7 days.</h2>
-            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/90">Rebuilds launch in a week.</p>
+            <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2">Rebuilds launch in a week.</p>
             <div
               className="mt-auto pt-12 flex justify-center items-end gap-3 tabular"
               role="img"
@@ -76,16 +76,16 @@ export default function Home() {
               ].map((s, i) => (
                 <div
                   key={s.t}
-                  className="w-[30%] max-w-[150px] rounded-2xl bg-white/12 px-3 py-4 text-left ring-1 ring-white/25"
+                  className={`w-[30%] max-w-[150px] rounded-2xl px-3 py-4 text-left ${i === 2 ? "bg-red text-white" : "bg-white text-ink ring-1 ring-line"}`}
                   style={{ height: `${120 + i * 50}px` }}
                 >
-                  <p className="text-[12px] text-white/90">Day</p>
+                  <p className={`text-[12px] ${i === 2 ? "text-white/90" : "text-ink-2"}`}>Day</p>
                   <p className="text-[28px] font-bold tracking-[-0.03em] leading-none">{s.d}</p>
                   <p className="text-[14px] font-medium mt-2">{s.t}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-[14px] text-white/90">New sites take 10–14 days. Premium e-commerce 14–21.</p>
+            <p className="mt-6 text-[14px] text-ink-2">New sites take 10–14 days. Premium e-commerce 14–21.</p>
           </Rise>
           <Rise className="tile tile-ink on-dark card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
             <h2 className="headline text-[40px] md:text-[56px]">One person builds it.</h2>
@@ -147,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* Closing */}
-      <section className="tile tile-red on-dark py-24 md:py-32 px-6 text-center">
+      <section className="tile tile-ink on-dark py-24 md:py-32 px-6 text-center">
         <Rise>
           <h2 className="display text-[44px] md:text-[80px]">See what&apos;s broken.</h2>
           <p className="subhead text-[19px] md:text-[24px] mt-4 text-white/90 max-w-[620px] mx-auto">
@@ -155,9 +155,7 @@ export default function Home() {
             hours.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Pill href="/audit" variant="white">
-              Get a free audit
-            </Pill>
+            <Pill href="/audit">Get a free audit</Pill>
             <Pill href="/contact" variant="ghost">
               Contact
             </Pill>

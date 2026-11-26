@@ -130,9 +130,6 @@ components:
   tile-ink:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.white}"
-  tile-red:
-    backgroundColor: "{colors.red}"
-    textColor: "{colors.white}"
   tile-hero:
     backgroundColor: "{colors.red}"
     textColor: "{colors.white}"
@@ -208,7 +205,7 @@ The palette is Apple neutrals (black, white, snow, ink greys) plus a single deep
 Device frames (MacBook lid and base, iPhone body and bezel) use their own local metal and glass greys inside the frame classes. They are material colours, not palette tokens, and are not to be reused elsewhere.
 
 ### Named Rules
-**The One Accent Rule.** Red is the only accent. As a full ground it is allowed in three places only: the nav bar, the home hero and the red tiles (owner request). Otherwise it goes on primary buttons, links on hover and key highlights (the $0 figures, the featured plan, checkmarks). Every other surface is a neutral. Red text is for large type or for white grounds (and snow, 5.40:1). Gradients are not used for text. The red tile is solid; the home hero's radial is the one red gradient, and every stop in it is red or darker.
+**The One Accent Rule.** Red is the only accent. As a full ground it is allowed in two places only, the first things a visitor sees: the nav bar and the home hero (owner request: the first screen should pop). Below that first screen the standard rule applies. Otherwise it goes on primary buttons, links on hover and key highlights (the $0 figures, the featured plan, checkmarks). Every other surface is a neutral. Red text is for large type or for white grounds (and snow, 5.40:1). Gradients are not used for text. The red tile is solid; the home hero's radial is the one red gradient, and every stop in it is red or darker.
 
 **The Red On Black Is Large Only Rule.** Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line at 48–88px. Body-size links and copy on dark grounds stay white. Text on red grounds (tiles, hero, nav) is white or white at 90% (4.95:1), never lower.
 
@@ -253,7 +250,7 @@ The frontmatter records each role's top step. Every role is responsive, and thes
 
 The page is a vertical stack of full-bleed tiles. Content inside them is centred on a 1024px container (`max-w-[1024px]`) with a 24px side gutter (20px in the nav and footer). The nav is 56px tall. Section tiles use 96px vertical padding, rising to 128px at md. Hero tiles start tighter (64 → 96px top on home, 80 → 112px on pricing) because the device frame fills the bottom and is cropped by the tile edge (`translate-y` 6–18%). From sm (640px) up, the home hero shows the MacBook frame. Below 640px it swaps to the iPhone frame (64% wide, max 260px) with the mobile screenshot.
 
-Two-up and bento mosaics sit on a white ground with a 12px gap and 12px outer padding, so each tile reads as a rounded card with white between. The home mosaic pairs a red tile with an ink tile. Services uses a 6-column md grid with spans of 4+2, 3+3 and 3+3. Pricing uses a 2-column grid with a 20px gap on a snow ground. Form pages (audit, contact) use a two-column lg grid: copy on the left, a fixed 480–560px form card on the right. The portfolio stacks one card tile per concept site, alternating black, red and snow.
+Two-up and bento mosaics sit on a white ground with a 12px gap and 12px outer padding, so each tile reads as a rounded card with white between. The home mosaic pairs a snow tile (with a red highlight on its last day bar) with an ink tile. Services uses a 6-column md grid with spans of 4+2, 3+3 and 3+3. Pricing uses a 2-column grid with a 20px gap on a snow ground. Form pages (audit, contact) use a two-column lg grid: copy on the left, a fixed 480–560px form card on the right. The portfolio stacks one card tile per concept site, alternating black, red and snow.
 
 The concept gallery is a horizontal scroll-snap row (`.snap-row`, columns min(72vw, 300px), 24px gap). From lg up it becomes a centred 3 × 300px grid.
 
@@ -284,7 +281,7 @@ Pill-shaped, quietly tactile, with Apple's proportions.
 - **Shape:** full pill (980px), minimum 44px tall, 11px × 22px padding, 17px/500 type at -0.01em.
 - **Primary (red):** red fill and white text. Hover deepens to red-deep. Active scales to 0.97.
 - **Ghost:** red text with a 1.5px inset red ring. Hover fills red with white text. On dark grounds (`.on-dark`, which includes red and ink tiles) the ring and text become white, and hover goes white with ink text.
-- **White:** white fill with ink text; on red grounds (the hero, red tiles and the nav) its text turns red. Hover moves to snow.
+- **White:** white fill with ink text; on red grounds (the hero and the nav) its text turns red. Hover moves to snow.
 - **Focus:** a 3px ink outline with 3px offset, switching to white inside `.on-dark`.
 - **Pairing:** the home hero pairs a white pill (red text) with a white ghost pill, side by side, with a 12px gap. The red closer pairs white with ghost. Light grounds pair filled red with red ghost.
 
@@ -336,11 +333,11 @@ Native `details` rows separated by hairlines. The summary is 19 / 21px/600 with 
 
 ### Don't:
 - **Don't** add a second accent hue, and don't put gradients on text or on the red tile. The home hero radial is the only red gradient, and it never uses a stop lighter than red.
-- **Don't** use red as a full ground beyond the nav bar, the home hero and red tiles.
+- **Don't** use red as a full ground beyond the nav bar and the home hero. Sections below the first screen are black, ink, snow or white, with red only on buttons, link hover and key highlights.
 - **Don't** set body, buttons or nav links in Poppins. It is the display face only.
 - **Don't** set body-size red text on black (3.57:1). Red on black is for large display text only.
 - **Don't** use red for field focus or other neutral states. Red must never read as an error.
-- **Don't** use the Canadian flag, a maple leaf, a "Canada" wordmark or government-style imagery, and don't imply any government affiliation. (Open question: the owner-supplied logo's tower resembles the Peace Tower; that is the owner's call, not a precedent for new imagery.)
+- **Don't** use the Canadian flag, a maple leaf, a "Canada" wordmark or government-style imagery, and don't imply any government affiliation. (Exception approved by the owner on 2026-11-26: the logo's tower resembles the Peace Tower and stays as part of the brand mark.)
 - **Don't** add stock photography, icon-card grids or testimonial carousels. The devices and the type carry the page.
 - **Don't** put uppercase letter-spaced eyebrows above headlines. Use a sentence-case 21px+ title line or nothing.
 - **Don't** put shadows on tiles or plan cards. Shadows belong to devices and to floating cards.
