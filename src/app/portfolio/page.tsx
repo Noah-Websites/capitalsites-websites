@@ -1,185 +1,85 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import PageTransition from "@/components/PageTransition";
-import { fadeAndCo, emberKitchen, maisonNoir, u } from "@/lib/demoImages";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" as const },
-  transition: { duration: 0.7, ease },
-};
+import Rise from "@/components/Rise";
+import { Pill, ChevLink, MacBook, IPhone } from "@/components/ui";
 
 const projects = [
   {
+    slug: "fade-and-co",
     name: "Fade & Co.",
     location: "Richmond Row, London",
-    tier: "Website Plan",
-    price: "$0 upfront · $99/mo",
-    desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation. Built to demonstrate the Website Plan.",
-    gradient: "from-[#1a1510] to-[#0a0a0b]",
-    image: u(fadeAndCo.hero, 900, 600),
-    imageAlt: "Fade & Co barbershop concept redesign preview",
-    featured: true,
-    href: "/portfolio/fade-and-co",
+    plan: "Website Plan · $0 upfront, $99/mo",
+    desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation.",
+    tile: "tile-black on-dark",
   },
   {
+    slug: "ember-kitchen",
     name: "Ember Kitchen",
     location: "Ossington, Toronto",
-    tier: "Website Plan",
-    price: "$0 upfront · $99/mo",
-    desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup. Built to demonstrate the Website Plan.",
-    gradient: "from-[#1a0d0d] to-[#0a0a0b]",
-    image: u(emberKitchen.hero, 900, 600),
-    imageAlt: "Ember Kitchen restaurant concept redesign preview",
-    href: "/portfolio/ember-kitchen",
+    plan: "Website Plan · $0 upfront, $99/mo",
+    desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup.",
+    tile: "tile-red on-dark on-color",
   },
   {
+    slug: "maison-noir",
     name: "Maison Noir",
     location: "Centretown, Ottawa",
-    tier: "Premium Tier",
-    price: "$2,500 + $129/mo",
-    desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout. Demonstrates the Premium tier.",
-    gradient: "from-[#0f0d1a] to-[#0a0a0b]",
-    image: u(maisonNoir.hero, 900, 600),
-    imageAlt: "Maison Noir boutique concept redesign preview",
-    href: "/portfolio/maison-noir",
+    plan: "Premium · $2,500 + $129/mo",
+    desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout.",
+    tile: "tile-navy on-dark on-color",
   },
 ];
 
+export const metadata = {
+  title: "Work — CapitalSites",
+  description: "Three concept redesigns showing what CapitalSites builds at each plan.",
+};
+
 export default function PortfolioPage() {
   return (
-    <PageTransition>
-      {/* Hero */}
-      <section className="pt-36 pb-16 md:pt-44 md:pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.span {...fadeUp} className="text-red-brand font-semibold text-sm tracking-widest uppercase">
-            Our Work
-          </motion.span>
-          <motion.h1 {...fadeUp} className="font-heading text-5xl md:text-7xl font-bold text-white mt-4 leading-tight">
-            Concept Redesigns
-          </motion.h1>
-          <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Three example sites showing exactly what we&apos;d build at each tier.
-          </motion.p>
+    <>
+      <section className="bg-white text-center px-6 pt-20 md:pt-28 pb-14">
+        <h1 className="display text-[48px] sm:text-[64px] md:text-[88px]">Concept redesigns.</h1>
+        <p className="subhead text-[19px] md:text-[24px] mt-5 text-ink-2 max-w-[680px] mx-auto">
+          Three example sites showing what we&apos;d build at each plan. These are concepts, not paying clients. Real
+          client work will be added as projects launch.
+        </p>
+      </section>
+
+      <div className="bg-white px-3 pb-3 space-y-3">
+        {projects.map((p) => (
+          <section key={p.slug} className={`tile ${p.tile} card-tile pt-16 md:pt-20 text-center`}>
+            <Rise className="px-6">
+              <h2 className="display text-[48px] md:text-[72px]">{p.name}</h2>
+              <p className="text-[15px] font-semibold opacity-80 mt-2">{p.location} · Concept</p>
+              <p className="subhead text-[17px] md:text-[21px] mt-3 max-w-[620px] mx-auto opacity-85">{p.desc}</p>
+              <p className="text-[15px] font-semibold mt-4">{p.plan}</p>
+              <div className="mt-6">
+                <ChevLink href={`/portfolio/${p.slug}`}>View the demo site</ChevLink>
+              </div>
+            </Rise>
+            <Rise className="mt-12 px-6 relative">
+              <Link href={`/portfolio/${p.slug}`} className="block max-w-[860px] mx-auto translate-y-[8%]" aria-label={`Open the ${p.name} demo`}>
+                <div className="hidden sm:block">
+                  <MacBook src={`/shots/${p.slug}-desktop.jpg`} alt={`${p.name} concept website on a laptop`} />
+                </div>
+                <div className="sm:hidden w-[62%] mx-auto">
+                  <IPhone src={`/shots/${p.slug}-mobile.jpg`} alt={`${p.name} concept website on a phone`} />
+                </div>
+              </Link>
+            </Rise>
+          </section>
+        ))}
+      </div>
+
+      <section className="bg-white text-center px-6 py-24 md:py-32">
+        <h2 className="headline text-[40px] md:text-[56px]">Want this for your business?</h2>
+        <p className="subhead text-[19px] md:text-[21px] text-ink-2 mt-3 max-w-[620px] mx-auto">
+          Get a free audit of your current site, then we&apos;ll quote a rebuild based on what needs fixing.
+        </p>
+        <div className="mt-8">
+          <Pill href="/audit">Get a free audit</Pill>
         </div>
       </section>
-
-      {/* Disclaimer */}
-      <section className="pb-12 px-6">
-        <motion.div
-          {...fadeUp}
-          className="max-w-3xl mx-auto bg-dark-card/60 border border-red-brand/20 rounded-2xl p-6 md:p-7"
-        >
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-red-brand/15 text-red-brand flex items-center justify-center flex-shrink-0">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-                <path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-              </svg>
-            </div>
-            <p className="text-white/75 text-sm leading-relaxed">
-              <span className="font-semibold text-white">These are concept redesigns</span> demonstrating what we&apos;d build for businesses in each tier. Real client case studies will be added as projects launch.
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Projects */}
-      <section className="pb-28 md:pb-40 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease }}
-              className={`group relative bg-gradient-to-b ${p.gradient} border rounded-2xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-brand/10 ${
-                p.featured ? "border-red-brand/20" : "border-dark-border"
-              }`}
-            >
-              {/* Hero image */}
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <div className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-white/85 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded">
-                    Concept work
-                  </div>
-                </div>
-              </div>
-
-              {/* Tier badge */}
-              <div className="px-8 pt-6">
-                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide ${
-                  p.featured
-                    ? "bg-red-brand/15 text-red-brand border border-red-brand/20"
-                    : "bg-white/[0.06] text-white/70 border border-white/[0.08]"
-                }`}>
-                  {p.tier} — {p.price}
-                </div>
-              </div>
-
-              {/* Title + location */}
-              <div className="px-8 pt-4 pb-4">
-                <h3 className="font-heading text-2xl font-bold text-white mb-1">{p.name}</h3>
-                <p className="text-red-brand/80 text-sm font-medium">{p.location}</p>
-              </div>
-
-              {/* Description */}
-              <div className="px-8 pb-6 flex-1">
-                <p className="text-sm text-white/60 leading-relaxed">{p.desc}</p>
-              </div>
-
-              {/* Divider */}
-              <div className="mx-8 h-px bg-white/[0.05]" />
-
-              {/* CTA */}
-              <div className="px-8 py-6">
-                <Link
-                  href={p.href}
-                  className={`block w-full text-center py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
-                    p.featured
-                      ? "bg-red-brand text-white hover:bg-red-brand-dark hover:shadow-lg hover:shadow-red-brand/20"
-                      : "bg-white/[0.06] text-white/80 border border-white/[0.1] hover:bg-white/[0.1] hover:text-white"
-                  }`}
-                >
-                  View Demo Site
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="pb-28 md:pb-40 px-6">
-        <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
-            Want this for your business?
-          </h2>
-          <p className="text-white/70 mb-10 text-lg">
-            Get a free audit of your current site, then we&apos;ll quote a rebuild based on what needs fixing.
-          </p>
-          <Link
-            href="/audit"
-            className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5"
-          >
-            Get a free website audit
-          </Link>
-        </motion.div>
-      </section>
-    </PageTransition>
+    </>
   );
 }

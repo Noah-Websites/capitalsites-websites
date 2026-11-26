@@ -1,122 +1,93 @@
-"use client";
+import Rise from "@/components/Rise";
+import { Pill, ChevLink, IPhone } from "@/components/ui";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import PageTransition from "@/components/PageTransition";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" as const },
-  transition: { duration: 0.7, ease },
+export const metadata = {
+  title: "Services — CapitalSites",
+  description: "Design, mobile, SEO, support and e-commerce for Ontario small businesses.",
 };
-
-const services = [
-  {
-    title: "Custom Website Design",
-    desc: "Every website we build is designed from scratch to match your brand, your audience, and your goals. No templates, no shortcuts.",
-    details: "We start with your brand identity and business objectives, then craft a custom design that speaks directly to your target audience. Every element is intentional.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>,
-  },
-  {
-    title: "Mobile Optimization",
-    desc: "Your website will look flawless on every device. Phones, tablets, laptops, desktops -- every screen size covered.",
-    details: "With 60%+ of traffic coming from mobile, we build mobile-first. Responsive layouts, touch-friendly navigation, and fast loading on cellular connections.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>,
-  },
-  {
-    title: "SEO Setup",
-    desc: "We set up the foundation so search engines can find you. Meta tags, structured data, performance optimization, and more.",
-    details: "Technical SEO, semantic HTML, image optimization, sitemap generation, and Google Search Console setup included with every build.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>,
-  },
-  {
-    title: "Fast Delivery",
-    desc: "Rebuilds launch in 7 days. New sites in 10–14 days. Premium e-commerce in 14–21 days. No month-long waits.",
-    details: "Rebuilds: 7 days from kickoff to launch (Day 1-2 design, 3-5 build, 6-7 revisions). New sites: 10-14 days (includes brand discovery). Premium e-commerce: 14-21 days depending on catalog size.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>,
-  },
-  {
-    title: "Ongoing Support",
-    desc: "We do not disappear after launch. Updates, edits, and technical support whenever you need it.",
-    details: "Content updates, security patches, performance monitoring, and priority email support. Your website stays running smoothly long after launch day.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
-  },
-  {
-    title: "E-Commerce",
-    desc: "Sell products online with a fully integrated store. Payments, inventory, and order management built in.",
-    details: "Stripe or PayPal integration, product catalogs, shopping cart, checkout flow, inventory management, and order notifications all set up and ready to go.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>,
-  },
-];
 
 export default function ServicesPage() {
   return (
-    <PageTransition>
-      {/* Hero */}
-      <section className="pt-36 pb-20 md:pt-44 md:pb-28 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.span {...fadeUp} className="text-red-brand font-semibold text-sm tracking-widest uppercase">
-            What We Offer
-          </motion.span>
-          <motion.h1 {...fadeUp} className="font-heading text-5xl md:text-7xl font-bold text-white mt-4 leading-tight">
-            Our Services
-          </motion.h1>
-          <motion.p {...fadeUp} className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Everything Ontario small businesses need to fix what&apos;s broken on their website. Handled by one developer who cares about results.
-          </motion.p>
+    <>
+      <section className="tile tile-black on-dark text-center px-6 pt-20 md:pt-28 pb-20">
+        <h1 className="display text-[48px] sm:text-[64px] md:text-[88px] text-white">Everything your site needs.</h1>
+        <p className="subhead text-[19px] md:text-[24px] mt-5 text-night-muted max-w-[640px] mx-auto">
+          Everything Ontario small businesses need to look credible and get found online.
+        </p>
+      </section>
+
+      <section className="bg-white p-3">
+        <div className="grid gap-3 md:grid-cols-6">
+          <Rise className="tile tile-snow card-tile md:col-span-4 p-10 md:p-14 min-h-[420px] flex flex-col justify-between">
+            <div>
+              <h2 className="headline text-[36px] md:text-[48px]">Custom design.</h2>
+              <p className="text-[17px] md:text-[19px] text-ink-2 mt-3 max-w-[460px] leading-[1.45]">
+                Every website is designed from scratch to match your brand, your audience, and your goals. No templates,
+                no shortcuts.
+              </p>
+            </div>
+            <ChevLink href="/portfolio">See concept work</ChevLink>
+          </Rise>
+          <Rise className="tile tile-red on-dark on-color card-tile md:col-span-2 p-10 min-h-[420px] flex flex-col justify-between">
+            <h2 className="headline text-[36px] md:text-[40px]">Fast.</h2>
+            <div className="tabular">
+              <p className="display text-[96px] leading-none">7</p>
+              <p className="text-[19px] font-semibold mt-1">days to launch a rebuild</p>
+              <p className="text-[14px] text-white/85 mt-3">New sites 10–14 days. Premium 14–21.</p>
+            </div>
+          </Rise>
+          <Rise className="tile tile-black on-dark card-tile md:col-span-3 px-10 pt-10 md:px-14 md:pt-14 min-h-[520px] flex flex-col">
+            <h2 className="headline text-[36px] md:text-[48px] text-white">Mobile first.</h2>
+            <p className="text-[17px] md:text-[19px] text-night-muted mt-3 max-w-[420px] leading-[1.45]">
+              Responsive layouts, touch-friendly navigation, and fast loading on cellular connections.
+            </p>
+            <div className="mt-auto pt-10 w-[56%] max-w-[240px] mx-auto translate-y-[18%]">
+              <IPhone src="/shots/fade-and-co-mobile.jpg" alt="Fade & Co concept website on a phone" />
+            </div>
+          </Rise>
+          <Rise className="tile tile-navy on-dark on-color card-tile md:col-span-3 p-10 md:p-14 min-h-[520px] flex flex-col">
+            <h2 className="headline text-[36px] md:text-[48px]">Found on Google.</h2>
+            <p className="text-[17px] md:text-[19px] text-white/85 mt-3 max-w-[440px] leading-[1.45]">
+              Technical SEO, semantic HTML, image optimization, sitemap generation, and Google Search Console setup
+              included with every build.
+            </p>
+            <div className="mt-auto pt-10 rounded-2xl bg-white text-ink p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)] max-w-[440px]">
+              <p className="text-[12px] text-ink-3">Sample search result</p>
+              <p className="text-[13px] text-ink-2 mt-2">yourbusiness.ca</p>
+              <p className="text-[19px] text-[#1a0dab] font-medium leading-tight mt-0.5">Your Business — London, ON</p>
+              <p className="text-[14px] text-ink-2 mt-1 leading-snug">Hours, menu, booking and directions. Updated monthly.</p>
+            </div>
+          </Rise>
+          <Rise className="tile tile-snow card-tile md:col-span-3 p-10 md:p-14 min-h-[360px]">
+            <h2 className="headline text-[36px] md:text-[48px]">We stay after launch.</h2>
+            <p className="text-[17px] md:text-[19px] text-ink-2 mt-3 max-w-[440px] leading-[1.45]">
+              Content updates, security patches, performance monitoring, and email support. Your website stays running
+              smoothly long after launch day.
+            </p>
+          </Rise>
+          <Rise className="tile tile-snow card-tile md:col-span-3 p-10 md:p-14 min-h-[360px] flex flex-col">
+            <h2 className="headline text-[36px] md:text-[48px]">Sell online.</h2>
+            <p className="text-[17px] md:text-[19px] text-ink-2 mt-3 max-w-[440px] leading-[1.45]">
+              Stripe, Shopify, or WooCommerce, with product catalogs, cart, checkout, inventory and order notifications
+              set up and ready to go. Part of the Premium plan.
+            </p>
+            <div className="mt-auto pt-6">
+              <ChevLink href="/pricing">Premium pricing</ChevLink>
+            </div>
+          </Rise>
         </div>
       </section>
 
-      {/* Services grid */}
-      <section className="pb-28 md:pb-40 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-              className="group bg-dark-card border border-dark-border rounded-2xl relative overflow-hidden h-full min-h-[280px] transition-colors duration-500 hover:border-red-brand/40"
-            >
-              {/* Default view — hides instantly on hover */}
-              <div className="absolute inset-0 p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-none">
-                <div className="w-14 h-14 bg-red-brand/10 text-red-brand rounded-xl flex items-center justify-center mb-6">
-                  {s.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3 font-heading">{s.title}</h3>
-                <p className="text-sm text-white/65 leading-relaxed">{s.desc}</p>
-                <div className="mt-auto pt-6 text-red-brand text-sm font-medium">Hover for details →</div>
-              </div>
-
-              {/* Hover view — reveals after default is gone */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between bg-gradient-to-br from-red-brand/95 to-navy-dark/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-4 font-heading">{s.title}</h3>
-                  <p className="text-white/95 text-sm leading-relaxed">{s.details}</p>
-                </div>
-                <Link href="/contact" className="mt-6 inline-block text-white font-semibold text-sm underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors self-start">
-                  Get a Quote →
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+      <section className="bg-white text-center px-6 py-24 md:py-32">
+        <h2 className="headline text-[40px] md:text-[56px]">Start with a free audit.</h2>
+        <p className="subhead text-[19px] md:text-[21px] text-ink-2 mt-3">We&apos;ll show you exactly what to fix.</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Pill href="/audit">Get a free audit</Pill>
+          <Pill href="/pricing" variant="ghost">
+            See pricing
+          </Pill>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="pb-28 md:pb-40 px-6">
-        <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">See what&apos;s broken on your site.</h2>
-          <p className="text-white/70 mb-10 text-lg">Get a free audit covering load speed, mobile, SEO, and conversion. Within 24 hours.</p>
-          <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
-            Get a free website audit
-          </Link>
-        </motion.div>
-      </section>
-    </PageTransition>
+    </>
   );
 }

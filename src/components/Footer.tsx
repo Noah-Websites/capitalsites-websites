@@ -1,58 +1,58 @@
-import Image from "next/image";
 import Link from "next/link";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Our Work" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/audit", label: "Free Audit" },
-  { href: "/contact", label: "Contact" },
+const cols = [
+  {
+    title: "Plans",
+    links: [
+      { href: "/pricing", label: "Website Plan" },
+      { href: "/pricing", label: "Premium" },
+      { href: "/pricing#faq", label: "Pricing FAQ" },
+    ],
+  },
+  {
+    title: "Studio",
+    links: [
+      { href: "/services", label: "Services" },
+      { href: "/portfolio", label: "Concept work" },
+    ],
+  },
+  {
+    title: "Get in touch",
+    links: [
+      { href: "/audit", label: "Free website audit" },
+      { href: "/contact", label: "Contact" },
+      { href: "mailto:capitalsitesottawa@gmail.com", label: "Email" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-dark-border bg-dark">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="CapitalSites" width={32} height={22} className="w-8 h-auto" />
-              <span className="text-lg font-bold tracking-tight">
-                <span className="text-red-brand">Capital</span>
-                <span className="text-white/70">Sites</span>
-              </span>
+    <footer className="bg-snow text-ink-2 text-[12px] leading-[1.6]">
+      <div className="max-w-[1024px] mx-auto px-5 pt-6 pb-10">
+        <p className="pb-4 border-b border-line">
+          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum,
+          then $79/month or cancel with 30 days notice.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-6 border-b border-line">
+          {cols.map((c) => (
+            <div key={c.title}>
+              <h3 className="font-semibold text-ink mb-2">{c.title}</h3>
+              <ul className="space-y-1.5">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="hover:underline hover:text-ink">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p className="text-white/65 text-sm max-w-xs">
-              Ontario web studio rebuilding slow, outdated, and mobile-broken websites for local small businesses.
-            </p>
-          </div>
-
-          <nav className="flex flex-wrap gap-6 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-white/70 hover:text-white transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="text-sm text-white/70">
-            <a
-              href="mailto:capitalsitesottawa@gmail.com"
-              className="hover:text-red-brand transition-colors duration-300"
-            >
-              capitalsitesottawa@gmail.com
-            </a>
-          </div>
+          ))}
         </div>
-
-        <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/55">
-          <p>&copy; {new Date().getFullYear()} CapitalSites. All rights reserved.</p>
-          <p>Ontario web studio · London, Toronto, Ottawa</p>
+        <div className="pt-4 flex flex-col sm:flex-row gap-2 justify-between">
+          <p>© {new Date().getFullYear()} CapitalSites. Ontario web studio · London, Toronto, Ottawa</p>
+          <p>capitalsitesottawa@gmail.com</p>
         </div>
       </div>
     </footer>

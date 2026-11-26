@@ -1,311 +1,165 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useInView, animate } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import PageTransition from "@/components/PageTransition";
+import Rise from "@/components/Rise";
+import { ChevLink, Pill, MacBook, IPhone } from "@/components/ui";
 
-/* ---- Animation helpers ---- */
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" as const },
-  transition: { duration: 0.7, ease },
-};
-
-const staggerContainer = {
-  whileInView: { transition: { staggerChildren: 0.1 } },
-  viewport: { once: true, margin: "-80px" as const },
-};
-
-const staggerChild = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease },
-};
-
-/* ---- Counter ---- */
-function AnimatedCounter({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    if (target === 0) {
-      setDisplay(0);
-      return;
-    }
-    const controls = animate(0, target, {
-      duration: 2,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: (v) => setDisplay(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [isInView, target]);
-
-  return <span ref={ref}>{prefix}{display}{suffix}</span>;
-}
-
-/* ---- Hero ---- */
-function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-      {/* Geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="float-slow absolute -top-20 -right-20 w-80 h-80 rounded-full border border-red-brand/10" />
-        <div className="float-medium absolute top-1/4 left-[8%] w-4 h-4 rounded-full bg-red-brand/15" />
-        <div className="float-fast absolute top-[60%] right-[12%] w-14 h-14 rotate-45 border border-navy-light/15" />
-        <div className="float-medium absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-red-brand/5 blur-3xl" />
-        <div className="float-slow absolute top-[20%] right-[28%] w-28 h-28 rounded-full border border-white/5" />
-        <div className="float-fast absolute bottom-[30%] left-[18%] w-6 h-6 rounded-full bg-navy-light/10" />
-        <div className="float-medium absolute bottom-[18%] right-[35%] w-20 h-20 border-l border-b border-white/5 rotate-12" />
-        <div className="float-slow absolute top-[45%] left-[55%] w-3 h-3 rounded-full bg-red-brand/10" />
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark" />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="mb-8">
-          <span className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/65 text-sm font-medium tracking-widest uppercase">
-            Ontario Web Design Studio
-          </span>
-        </div>
-
-        <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-          Your website is costing you customers.
-          <br />
-          <span className="text-red-brand">We fix that.</span>
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="mt-8 text-lg md:text-xl text-white/65 max-w-2xl mx-auto"
-        >
-          A small Ontario web studio serving London, Toronto, and Ottawa. We rebuild slow, outdated, and mobile-broken websites for local small businesses.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Link href="/audit" className="bg-red-brand text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/20 hover:-translate-y-0.5">
-            Get a free website audit
-          </Link>
-          <Link href="/pricing" className="border border-white/20 text-white/80 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-white/40">
-            See pricing
-          </Link>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-6 text-sm text-white/70"
-        >
-          No upfront cost · <Link href="/pricing" className="text-red-brand hover:text-red-brand-dark font-semibold">$99/month</Link>
-        </motion.p>
-      </div>
-    </section>
-  );
-}
-
-/* ---- Why CapitalSites ---- */
-const reasons = [
-  {
-    title: "Based in Ontario",
-    desc: "Serving London, Toronto, and Ottawa. Not an offshore agency or faceless freelancer marketplace. Local, accountable, and easy to reach.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>,
-  },
-  {
-    title: "Owner-operated",
-    desc: "You talk directly to the person building your site. No account managers, no handoffs, no confusion.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>,
-  },
-  {
-    title: "Specific, measurable improvements",
-    desc: "Load speed, mobile responsiveness, SEO, conversion. Real metrics, not vague promises.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>,
-  },
-  {
-    title: "Ongoing support included",
-    desc: "We don't disappear after launch. Hosting, updates, monitoring, and content changes all included monthly.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  },
+const concepts = [
+  { slug: "fade-and-co", name: "Fade & Co.", kind: "Barbershop · London", plan: "Website Plan" },
+  { slug: "ember-kitchen", name: "Ember Kitchen", kind: "Restaurant · Toronto", plan: "Website Plan" },
+  { slug: "maison-noir", name: "Maison Noir", kind: "Boutique · Ottawa", plan: "Premium" },
 ];
 
-function WhySection() {
-  return (
-    <section className="py-28 md:py-40 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div className="text-center mb-20" {...fadeUp}>
-          <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">Why Us</span>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mt-4">Why CapitalSites</h2>
-          <p className="mt-5 text-white/65 max-w-xl mx-auto text-lg">A different way of doing web design in Ontario.</p>
-        </motion.div>
-        <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" {...staggerContainer}>
-          {reasons.map((r) => (
-            <motion.div key={r.title} {...staggerChild} className="card-hover bg-dark-card border border-dark-border p-8 rounded-2xl group">
-              <div className="w-14 h-14 bg-red-brand/10 text-red-brand rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-red-brand group-hover:text-white group-hover:scale-110">
-                {r.icon}
-              </div>
-              <h3 className="text-lg font-bold text-white mb-3 font-heading">{r.title}</h3>
-              <p className="text-sm text-white/70 leading-relaxed">{r.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ---- Marquee ---- */
-function Marquee() {
-  const items = ["Faster Load Times", "Mobile-Responsive", "SEO Foundation", "Ongoing Support", "Ontario-Based"];
-  const repeated = [...items, ...items, ...items, ...items];
-  return (
-    <section className="py-8 border-y border-dark-border overflow-hidden bg-dark-card">
-      <div className="marquee-track flex whitespace-nowrap">
-        {repeated.map((item, i) => (
-          <span key={i} className="mx-8 text-lg md:text-xl font-heading font-semibold text-white/15 flex items-center gap-8">
-            {item}
-            <span className="w-2 h-2 rounded-full bg-red-brand/30" />
-          </span>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ---- Stats ---- */
-type Stat = { value: number; suffix?: string; prefix?: string; label: string };
-
-const stats: Stat[] = [
-  { value: 0, prefix: "$", label: "Upfront Cost" },
-  { value: 1, label: "Person Building" },
-  { value: 24, suffix: "h", label: "Response Time" },
-];
-
-function Stats() {
-  return (
-    <section className="py-24 md:py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <motion.div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12" {...staggerContainer}>
-          {stats.map((stat) => (
-            <motion.div key={stat.label} {...staggerChild} className="text-center">
-              <div className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
-              </div>
-              <div className="text-white/60 text-sm font-medium tracking-wider uppercase">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ---- About / Noah ---- */
-function NoahPortrait() {
-  // Portrait only renders if /public/noah.jpg exists at runtime.
-  // Starts collapsed (zero size, hidden img) so no empty slot shows while
-  // we wait on the image. On successful load, container expands and fades in.
-  // On error, we return null and nothing is left in the layout.
-  const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
-  return (
-    <>
-      {loaded && (
-        <div className="mx-auto mb-8 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-red-brand/30 shadow-lg shadow-red-brand/10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/noah.jpg"
-            alt="Noah, founder of CapitalSites"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
-      {/* Hidden probe so onLoad / onError fire without reserving layout space */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/noah.jpg"
-        alt=""
-        aria-hidden="true"
-        style={{ display: "none" }}
-        onLoad={() => setLoaded(true)}
-        onError={() => setFailed(true)}
-      />
-    </>
-  );
-}
-
-function AboutNoah() {
-  return (
-    <section className="py-28 md:py-40 px-6 bg-dark-card/30">
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.div {...fadeUp}>
-          <span className="text-red-brand font-semibold text-sm tracking-widest uppercase">About</span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-4 mb-8 leading-tight">
-            Meet Noah
-          </h2>
-          <NoahPortrait />
-          <p className="text-white/80 text-lg leading-relaxed mb-5">
-            I&apos;m Noah, the founder of CapitalSites. I&apos;m an Ontario-based developer who started CapitalSites because too many great local businesses are losing customers to slow, broken websites.
-          </p>
-          <p className="text-white/80 text-lg leading-relaxed mb-8">
-            Every project I take on, I build personally. No agency overhead, no offshore handoffs, no project managers between you and the work.
-          </p>
-          <p className="text-white/65 text-sm font-medium tracking-wider uppercase">
-            Ontario · London, Toronto, Ottawa
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ---- CTA Banner ---- */
-function CTABanner() {
-  return (
-    <section className="relative py-32 md:py-44 px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-dark to-dark" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,26,26,0.15),transparent_70%)]" />
-      <motion.div className="relative z-10 max-w-4xl mx-auto text-center" {...fadeUp}>
-        <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-          See what&apos;s broken on your website.
-          <br />
-          <span className="text-red-brand">Delivered within 24 hours.</span>
-        </h2>
-        <p className="mt-6 text-white/70 text-lg max-w-xl mx-auto">
-          Free website audit covering load speed, mobile responsiveness, SEO, and conversion. No obligation.
-        </p>
-        <div className="mt-10">
-          <Link href="/audit" className="inline-block bg-red-brand text-white px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-red-brand-dark hover:shadow-2xl hover:shadow-red-brand/25 hover:-translate-y-0.5">
-            Get a free website audit
-          </Link>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-/* ---- Page ---- */
 export default function Home() {
   return (
-    <PageTransition>
-      <Hero />
-      <WhySection />
-      <Marquee />
-      <Stats />
-      <AboutNoah />
-      <CTABanner />
-    </PageTransition>
+    <>
+      {/* Hero */}
+      <section className="tile tile-black tile-glow on-dark pt-14 md:pt-20 text-center">
+        <div className="px-6">
+          <h1 className="display text-[52px] sm:text-[72px] md:text-[96px] text-white">Your website. Rebuilt.</h1>
+          <p className="subhead text-[21px] md:text-[28px] mt-4 text-night-muted">
+            <span className="text-white">$0 upfront.</span> $99/month.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Pill href="/audit">Get a free audit</Pill>
+            <Pill href="/pricing" variant="ghost">
+              See pricing
+            </Pill>
+          </div>
+        </div>
+        <Rise className="mt-14 md:mt-16 px-6">
+          <div className="hidden sm:block max-w-[920px] mx-auto translate-y-[6%]">
+            <MacBook src="/shots/ember-kitchen-desktop.jpg" alt="Ember Kitchen concept website on a laptop" priority />
+          </div>
+          <div className="sm:hidden w-[64%] max-w-[260px] mx-auto translate-y-[14%]">
+            <IPhone src="/shots/ember-kitchen-mobile.jpg" alt="Ember Kitchen concept website on a phone" />
+          </div>
+        </Rise>
+      </section>
+
+      {/* $0 */}
+      <section className="tile tile-snow py-24 md:py-32 text-center px-6">
+        <Rise>
+          <p className="text-[21px] md:text-[24px] font-semibold tracking-[-0.02em] text-ink">Due today</p>
+          <p className="display zero-fig tabular text-[120px] sm:text-[160px] md:text-[220px] leading-[0.9] mt-2">$0</p>
+          <p className="headline text-[32px] md:text-[48px] mt-4 max-w-[760px] mx-auto">
+            Then $99 a month. Everything included.
+          </p>
+          <p className="text-[17px] md:text-[21px] text-ink-2 mt-5 max-w-[620px] mx-auto leading-[1.45]">
+            Design, build, hosting, domain renewal, security updates, monthly content changes and email support. After
+            12 months it drops to $79/month, or cancel with 30 days notice.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <ChevLink href="/pricing">Compare plans</ChevLink>
+            <ChevLink href="/pricing#faq">How the 12 months work</ChevLink>
+          </div>
+        </Rise>
+      </section>
+
+      {/* Two-up promo tiles */}
+      <section className="bg-white p-3">
+        <div className="grid md:grid-cols-2 gap-3">
+          <Rise className="tile tile-red on-dark on-color card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
+            <h2 className="headline text-[40px] md:text-[56px]">Live in 7 days.</h2>
+            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/85">Rebuilds launch in a week.</p>
+            <div
+              className="mt-auto pt-12 flex justify-center items-end gap-3 tabular"
+              role="img"
+              aria-label="Day 1 to 2 design, day 3 to 5 build, day 6 to 7 revisions and launch"
+            >
+              {[
+                { d: "1–2", t: "Design" },
+                { d: "3–5", t: "Build" },
+                { d: "6–7", t: "Launch" },
+              ].map((s, i) => (
+                <div
+                  key={s.t}
+                  className="w-[30%] max-w-[150px] rounded-2xl bg-white/12 px-3 py-4 text-left ring-1 ring-white/25"
+                  style={{ height: `${120 + i * 50}px` }}
+                >
+                  <p className="text-[12px] text-white/80">Day</p>
+                  <p className="text-[28px] font-bold tracking-[-0.03em] leading-none">{s.d}</p>
+                  <p className="text-[14px] font-medium mt-2">{s.t}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-[14px] text-white/85">New sites take 10–14 days. Premium e-commerce 14–21.</p>
+          </Rise>
+          <Rise className="tile tile-navy on-dark on-color card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
+            <h2 className="headline text-[40px] md:text-[56px]">One person builds it.</h2>
+            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/85">No agency. No handoffs. Just Noah.</p>
+            <ul className="mt-auto pt-12 grid gap-3 max-w-[360px] mx-auto w-full text-left">
+              {["No project managers in between", "No offshore handoff", "You own it after 12 months"].map((t) => (
+                <li key={t} className="flex items-center gap-3 rounded-2xl bg-white/10 ring-1 ring-white/15 px-4 py-3.5 text-[16px] font-medium">
+                  <svg viewBox="0 0 20 20" className="w-5 h-5 flex-none text-sky" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M4.5 10.5 8.5 14.5 15.5 6" />
+                  </svg>
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <ChevLink href="/contact">Talk to Noah</ChevLink>
+            </div>
+          </Rise>
+        </div>
+      </section>
+
+      {/* Concept gallery */}
+      <section className="tile tile-black on-dark pt-24 md:pt-32 pb-16">
+        <Rise className="px-6 max-w-[1024px] mx-auto">
+          <h2 className="headline text-[40px] md:text-[64px] text-white">Built for the phone in their pocket.</h2>
+          <p className="subhead text-[19px] md:text-[24px] mt-3 text-night-muted max-w-[640px]">
+            Three concept redesigns showing what each plan gets you. Concepts, not paying clients.
+          </p>
+        </Rise>
+        <div className="snap-row mt-12 lg:justify-center lg:grid-cols-[repeat(3,300px)] lg:grid-flow-row lg:overflow-visible">
+          {concepts.map((c) => (
+            <Link key={c.slug} href={`/portfolio/${c.slug}`} className="group block">
+              <div className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2">
+                <IPhone src={`/shots/${c.slug}-mobile.jpg`} alt={`${c.name} concept website on a phone`} />
+              </div>
+              <p className="mt-5 text-[19px] font-semibold text-white tracking-[-0.015em]">{c.name}</p>
+              <p className="text-[14px] text-night-muted">
+                {c.kind} · {c.plan}
+              </p>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-4">
+          <ChevLink href="/portfolio">See all concept work</ChevLink>
+        </div>
+      </section>
+
+      {/* Noah */}
+      <section className="tile tile-white py-24 md:py-32 px-6">
+        <Rise className="max-w-[720px] mx-auto text-center">
+          <h2 className="headline text-[40px] md:text-[56px]">Hi, I&apos;m Noah.</h2>
+          <p className="text-[19px] md:text-[21px] text-ink-2 mt-6 leading-[1.5]">
+            I&apos;m an Ontario-based developer who started CapitalSites because too many great local businesses are
+            losing customers to slow, broken websites. Every project I take on, I build personally. No agency overhead,
+            no offshore handoffs, no project managers between you and the work.
+          </p>
+          <p className="mt-6 text-[14px] font-medium text-ink-3">Ontario · London, Toronto, Ottawa</p>
+        </Rise>
+      </section>
+
+      {/* Closing */}
+      <section className="tile tile-red on-dark on-color py-24 md:py-32 px-6 text-center">
+        <Rise>
+          <h2 className="display text-[44px] md:text-[80px]">See what&apos;s broken.</h2>
+          <p className="subhead text-[19px] md:text-[24px] mt-4 text-white/90 max-w-[620px] mx-auto">
+            A free manual audit of your current site: speed, mobile, SEO, trust and conversion. In your inbox within 24
+            hours.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Pill href="/audit" variant="white">
+              Get a free audit
+            </Pill>
+            <Pill href="/contact" variant="ghost">
+              Contact
+            </Pill>
+          </div>
+        </Rise>
+      </section>
+    </>
   );
 }

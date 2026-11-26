@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T00:03:02+00:00",
+  "title": "Design System: CapitalSites",
+  "extensions": {
+    "colorMeta": {
+      "red": {
+        "role": "primary",
+        "displayName": "CapitalSites Red",
+        "canonical": "#E3262F",
+        "tonalRamp": [
+          "oklch(15% 0.084 26)",
+          "oklch(26% 0.122 26)",
+          "oklch(37% 0.159 26)",
+          "oklch(48% 0.197 26)",
+          "oklch(60% 0.203 26)",
+          "oklch(72% 0.163 26)",
+          "oklch(84% 0.122 26)",
+          "oklch(95% 0.084 26)"
+        ]
+      },
+      "red-deep": {
+        "role": "primary",
+        "displayName": "Pressed Red",
+        "canonical": "#B5121B",
+        "tonalRamp": [
+          "oklch(15% 0.073 26)",
+          "oklch(26% 0.106 26)",
+          "oklch(37% 0.138 26)",
+          "oklch(48% 0.171 26)",
+          "oklch(60% 0.177 26)",
+          "oklch(72% 0.141 26)",
+          "oklch(84% 0.106 26)",
+          "oklch(95% 0.073 26)"
+        ]
+      },
+      "red-bright": {
+        "role": "primary",
+        "displayName": "Signal Coral",
+        "canonical": "#FF5A5F",
+        "tonalRamp": [
+          "oklch(15% 0.077 22)",
+          "oklch(26% 0.111 22)",
+          "oklch(37% 0.145 22)",
+          "oklch(48% 0.179 22)",
+          "oklch(60% 0.185 22)",
+          "oklch(72% 0.148 22)",
+          "oklch(84% 0.111 22)",
+          "oklch(95% 0.077 22)"
+        ]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Ember",
+        "canonical": "#FF6A3D",
+        "tonalRamp": [
+          "oklch(15% 0.073 37)",
+          "oklch(26% 0.106 37)",
+          "oklch(37% 0.138 37)",
+          "oklch(48% 0.171 37)",
+          "oklch(60% 0.177 37)",
+          "oklch(72% 0.141 37)",
+          "oklch(84% 0.106 37)",
+          "oklch(95% 0.073 37)"
+        ]
+      },
+      "navy": {
+        "role": "secondary",
+        "displayName": "Deep Navy",
+        "canonical": "#0A1A3F",
+        "tonalRamp": [
+          "oklch(15% 0.028 264)",
+          "oklch(26% 0.041 264)",
+          "oklch(37% 0.053 264)",
+          "oklch(48% 0.066 264)",
+          "oklch(60% 0.068 264)",
+          "oklch(72% 0.055 264)",
+          "oklch(84% 0.041 264)",
+          "oklch(95% 0.028 264)"
+        ]
+      },
+      "navy-2": {
+        "role": "secondary",
+        "displayName": "Midnight Blue",
+        "canonical": "#13306B",
+        "tonalRamp": [
+          "oklch(15% 0.042 262)",
+          "oklch(26% 0.060 262)",
+          "oklch(37% 0.079 262)",
+          "oklch(48% 0.097 262)",
+          "oklch(60% 0.101 262)",
+          "oklch(72% 0.080 262)",
+          "oklch(84% 0.060 262)",
+          "oklch(95% 0.042 262)"
+        ]
+      },
+      "sky": {
+        "role": "tertiary",
+        "displayName": "Focus Sky",
+        "canonical": "#5AA9FF",
+        "tonalRamp": [
+          "oklch(15% 0.057 252)",
+          "oklch(26% 0.082 252)",
+          "oklch(37% 0.107 252)",
+          "oklch(48% 0.132 252)",
+          "oklch(60% 0.137 252)",
+          "oklch(72% 0.109 252)",
+          "oklch(84% 0.082 252)",
+          "oklch(95% 0.057 252)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1D1D1F",
+        "tonalRamp": [
+          "oklch(15% 0.001 286)",
+          "oklch(26% 0.002 286)",
+          "oklch(37% 0.003 286)",
+          "oklch(48% 0.003 286)",
+          "oklch(60% 0.004 286)",
+          "oklch(72% 0.003 286)",
+          "oklch(84% 0.002 286)",
+          "oklch(95% 0.001 286)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#6E6E73",
+        "tonalRamp": [
+          "oklch(15% 0.003 286)",
+          "oklch(26% 0.004 286)",
+          "oklch(37% 0.006 286)",
+          "oklch(48% 0.007 286)",
+          "oklch(60% 0.007 286)",
+          "oklch(72% 0.006 286)",
+          "oklch(84% 0.004 286)",
+          "oklch(95% 0.003 286)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Pewter",
+        "canonical": "#86868B",
+        "tonalRamp": [
+          "oklch(15% 0.003 286)",
+          "oklch(26% 0.004 286)",
+          "oklch(37% 0.005 286)",
+          "oklch(48% 0.007 286)",
+          "oklch(60% 0.007 286)",
+          "oklch(72% 0.005 286)",
+          "oklch(84% 0.004 286)",
+          "oklch(95% 0.003 286)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#D2D2D7",
+        "tonalRamp": [
+          "oklch(15% 0.003 286)",
+          "oklch(26% 0.004 286)",
+          "oklch(37% 0.005 286)",
+          "oklch(48% 0.006 286)",
+          "oklch(60% 0.006 286)",
+          "oklch(72% 0.005 286)",
+          "oklch(84% 0.004 286)",
+          "oklch(95% 0.003 286)"
+        ]
+      },
+      "snow": {
+        "role": "neutral",
+        "displayName": "Snow",
+        "canonical": "#F5F5F7",
+        "tonalRamp": [
+          "oklch(15% 0.001 286)",
+          "oklch(26% 0.001 286)",
+          "oklch(37% 0.002 286)",
+          "oklch(48% 0.002 286)",
+          "oklch(60% 0.002 286)",
+          "oklch(72% 0.002 286)",
+          "oklch(84% 0.001 286)",
+          "oklch(95% 0.001 286)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(37% 0.000 90)",
+          "oklch(48% 0.000 90)",
+          "oklch(60% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "oklch(15% 0.000 0)",
+          "oklch(26% 0.000 0)",
+          "oklch(37% 0.000 0)",
+          "oklch(48% 0.000 0)",
+          "oklch(60% 0.000 0)",
+          "oklch(72% 0.000 0)",
+          "oklch(84% 0.000 0)",
+          "oklch(95% 0.000 0)"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Night Bar",
+        "canonical": "#161617",
+        "tonalRamp": [
+          "oklch(15% 0.001 286)",
+          "oklch(26% 0.001 286)",
+          "oklch(37% 0.001 286)",
+          "oklch(48% 0.002 286)",
+          "oklch(60% 0.002 286)",
+          "oklch(72% 0.001 286)",
+          "oklch(84% 0.001 286)",
+          "oklch(95% 0.001 286)"
+        ]
+      },
+      "night-text": {
+        "role": "neutral",
+        "displayName": "Night Text",
+        "canonical": "#F5F5F7",
+        "tonalRamp": [
+          "oklch(15% 0.001 286)",
+          "oklch(26% 0.001 286)",
+          "oklch(37% 0.002 286)",
+          "oklch(48% 0.002 286)",
+          "oklch(60% 0.002 286)",
+          "oklch(72% 0.002 286)",
+          "oklch(84% 0.001 286)",
+          "oklch(95% 0.001 286)"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Night Muted",
+        "canonical": "#A1A1A6",
+        "tonalRamp": [
+          "oklch(15% 0.003 286)",
+          "oklch(26% 0.004 286)",
+          "oklch(37% 0.005 286)",
+          "oklch(48% 0.006 286)",
+          "oklch(60% 0.007 286)",
+          "oklch(72% 0.005 286)",
+          "oklch(84% 0.004 286)",
+          "oklch(95% 0.003 286)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page h1s and hero figures. Ramp: 52/72/96 (home hero), 48/64/88 (page heroes), 48/72 (form pages), 44/80 (closer), 120/160/220 ($0), 72/88 (plan prices)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section and tile headlines. Ramp: 40/56, 40/64, 36/48, 32/48, 36/44, 32 (price)."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "One-line follow-up under a headline. Ramp: 19/24, 21/28 (hero), 19/21, 17/21."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sentence-case 600 lines: 'Due today' (21/24), FAQ summaries (19/21), card titles (19)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lead paragraphs 17/21, tile copy 17/19, lists 16, plan detail 15; measure 420–640px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels 14/600; meta 14, tags 13, footer and nav CTA 12, nav links 12.5."
+      }
+    },
+    "shadows": [
+      {
+        "name": "device-lid",
+        "value": "inset 0 0 0 1.5px #3a3a3c, 0 30px 80px -20px rgba(0,0,0,0.6)",
+        "purpose": "MacBook lid bezel and lift."
+      },
+      {
+        "name": "device-base",
+        "value": "0 18px 40px -12px rgba(0,0,0,0.55)",
+        "purpose": "MacBook aluminium base."
+      },
+      {
+        "name": "device-phone",
+        "value": "inset 0 0 0 1.5px #48484a, inset 0 0 0 4px #0b0b0c, 0 30px 60px -20px rgba(0,0,0,0.45)",
+        "purpose": "iPhone frame bezel and lift."
+      },
+      {
+        "name": "form-card",
+        "value": "0 24px 60px -30px rgba(0,0,0,0.25)",
+        "purpose": "White form card on snow."
+      },
+      {
+        "name": "floating-panel",
+        "value": "0 20px 50px -20px rgba(0,0,0,0.6)",
+        "purpose": "White mock panel floating on a dark tile."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 4px rgba(227,38,47,0.18)",
+        "purpose": "Red focus halo on fields."
+      },
+      {
+        "name": "hero-glow",
+        "value": "radial-gradient(closest-side, rgba(227,38,47,0.45), rgba(19,48,107,0.25) 55%, transparent); filter: blur(40px)",
+        "purpose": "Glow under the bottom edge of black hero tiles (.tile-glow)."
+      },
+      {
+        "name": "nav-glass",
+        "value": "background: rgba(22,22,23,0.72); backdrop-filter: blur(24px) saturate(1.5); border-bottom: 1px solid rgba(255,255,255,0.1)",
+        "purpose": "Sticky nav translucency."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Pill, chevron and transform transitions (200ms)."
+      },
+      {
+        "name": "field-transition",
+        "value": "150ms",
+        "purpose": "Field border and halo changes."
+      },
+      {
+        "name": "pill-press",
+        "value": "transform: scale(0.97)",
+        "purpose": "Active state on pills."
+      },
+      {
+        "name": "rise",
+        "value": "@keyframes rise-in { from { transform: translateY(40px) } to { transform: none } }; animation-timeline: view(); animation-range: entry 0% entry 40%",
+        "purpose": "Transform-only scroll reveal; no opacity, no scale; only with animation-timeline support and no reduced-motion preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Pill",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled red pill CTA; the single primary action in a section.",
+      "html": "<a class=\"ds-pill ds-pill-red\" href=\"#\">Get a free audit</a>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-pill-red{background:var(--color-red,#E3262F);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#B5121B);}"
+    },
+    {
+      "name": "Ghost Pill",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outline pill paired beside the primary; inverts to white on dark tiles.",
+      "html": "<a class=\"ds-pill-ghost\" href=\"#\">See pricing</a>",
+      "css": ".ds-pill-ghost{display:inline-flex;align-items:center;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;text-decoration:none;color:var(--color-red,#E3262F);box-shadow:inset 0 0 0 1.5px var(--color-red,#E3262F);transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill-ghost:hover{background:var(--color-red,#E3262F);color:#fff;} .ds-pill-ghost:active{transform:scale(0.97);} .ds-pill-ghost:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;}"
+    },
+    {
+      "name": "White Pill",
+      "kind": "button",
+      "refersTo": "button-white",
+      "description": "White pill for actions on red or navy colour tiles.",
+      "html": "<div style=\"background:#E3262F;padding:24px\"><a class=\"ds-pill-white\" href=\"#\">Start my plan</a></div>",
+      "css": ".ds-pill-white{display:inline-flex;align-items:center;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;text-decoration:none;background:#fff;color:var(--color-ink,#1D1D1F);transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-pill-white:active{transform:scale(0.97);} .ds-pill-white:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;}"
+    },
+    {
+      "name": "Chevron Link",
+      "kind": "custom",
+      "refersTo": "chevron-link",
+      "description": "Apple-style 'Learn more ›' text link; red on light, coral on dark.",
+      "html": "<a class=\"ds-chev\" href=\"#\">Compare plans<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a>",
+      "css": ".ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-red,#E3262F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;} .ds-chev:hover{text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Labelled 52px field with red focus halo.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-n\">Business name</label><input id=\"ds-n\" class=\"ds-field\" placeholder=\"Ember Kitchen\">",
+      "css": ".ds-field-label{display:block;font-family:Inter,-apple-system,sans-serif;font-size:14px;font-weight:600;color:var(--color-ink,#1D1D1F);margin-bottom:6px;} .ds-field{display:block;width:100%;min-height:52px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;transition:border-color 150ms,box-shadow 150ms;} .ds-field::placeholder{color:var(--color-ink-3,#86868B);} .ds-field:hover{border-color:var(--color-ink-3,#86868B);} .ds-field:focus{outline:none;border-color:var(--color-red,#E3262F);box-shadow:0 0 0 4px rgba(227,38,47,0.18);}"
+    },
+    {
+      "name": "Select Field",
+      "kind": "input",
+      "refersTo": "input-select",
+      "description": "Native select restyled as a field with a red chevron.",
+      "html": "<select class=\"ds-select\"><option>Website Plan</option><option>Premium</option></select>",
+      "css": ".ds-select{display:block;width:100%;min-height:52px;padding:14px 44px 14px 16px;border-radius:12px;background-color:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%23E3262F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 18px center;background-size:14px 8px;transition:border-color 150ms,box-shadow 150ms;} .ds-select:hover{border-color:var(--color-ink-3,#86868B);} .ds-select:focus{outline:none;border-color:var(--color-red,#E3262F);box-shadow:0 0 0 4px rgba(227,38,47,0.18);}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Sticky translucent 48px night bar with wordmark, 12.5px links and a small red CTA pill.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Capital<span>Sites</span></a><ul><li><a href=\"#\" aria-current=\"page\">Pricing</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Get a free audit</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;height:48px;padding:0 20px;background:rgba(22,22,23,0.72);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.1);font-family:Inter,-apple-system,sans-serif;color:#e8e8ed;} .ds-nav-mark{font-size:17px;font-weight:600;letter-spacing:-0.02em;color:#fff;text-decoration:none;} .ds-nav-mark span{color:var(--color-red-bright,#FF5A5F);} .ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:12.5px;} .ds-nav ul a{color:rgba(210,210,215,0.85);text-decoration:none;transition:color 200ms;} .ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#fff;} .ds-nav a:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:var(--color-red,#E3262F);color:#fff;font-size:12px;font-weight:500;text-decoration:none;transition:background-color 200ms;} .ds-nav-cta:hover{background:var(--color-red-deep,#B5121B);}"
+    },
+    {
+      "name": "Plan Tag",
+      "kind": "chip",
+      "refersTo": "plan-tag-featured",
+      "description": "Pill tag on plan cards; red when featured, snow otherwise.",
+      "html": "<span class=\"ds-tag ds-tag-featured\">Most popular</span> <span class=\"ds-tag\">One-time</span>",
+      "css": ".ds-tag{display:inline-block;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;background:var(--color-snow,#F5F5F7);color:var(--color-ink-2,#6E6E73);} .ds-tag-featured{background:var(--color-red,#E3262F);color:#fff;}"
+    },
+    {
+      "name": "Colour Card Tile",
+      "kind": "card",
+      "refersTo": "card-tile",
+      "description": "28px-radius mosaic tile with headline, subhead and chevron link; red gradient variant.",
+      "html": "<div class=\"ds-tile-red\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more ›</a></div>",
+      "css": ".ds-tile-red{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;background:radial-gradient(120% 90% at 85% 10%,rgba(255,130,70,0.55) 0%,transparent 55%),linear-gradient(160deg,#F0373F 0%,#E3262F 45%,#B5121B 100%);} .ds-tile-red h3{margin:0;font-size:40px;font-weight:700;letter-spacing:-0.028em;line-height:1.08;} .ds-tile-red p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;opacity:0.85;} .ds-tile-red a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile-red a:hover{text-decoration:underline;text-underline-offset:3px;}"
+    },
+    {
+      "name": "Zero Figure",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The red→ember gradient $0; the only gradient text in the system.",
+      "html": "<div class=\"ds-zero-wrap\"><p class=\"ds-zero-label\">Due today</p><p class=\"ds-zero\">$0</p></div>",
+      "css": ".ds-zero-wrap{background:var(--color-snow,#F5F5F7);padding:32px;text-align:center;font-family:Inter,-apple-system,sans-serif;} .ds-zero-label{margin:0;font-size:21px;font-weight:600;letter-spacing:-0.02em;color:var(--color-ink,#1D1D1F);} .ds-zero{margin:8px 0 0;font-size:120px;font-weight:700;letter-spacing:-0.035em;line-height:0.9;font-variant-numeric:tabular-nums;background:linear-gradient(100deg,#E3262F 0%,#FF6A3D 70%,#FFB23D 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Product Page",
+    "overview": "**Creative North Star: \"The Product Page\"**\n\nCapitalSites sells a website plan, and the site presents that plan the way Apple presents a phone: the product is shown big, on real screens, and priced plainly. Every section is a full-bleed tile. True black and Apple grey alternate as the ground, and saturated colour tiles in CapitalSites red and deep navy break that rhythm. Headlines are set in Inter at 700 with tight tracking, large enough to carry a section alone. The supporting copy is one short line and one chevron link.\n\nThe product imagery is the studio's own work: screenshots of the three concept sites (`public/shots/*.jpg`) set inside CSS-drawn MacBook and iPhone frames. There is no stock photography, no icon-card grid and no testimonial carousel. Depth comes from the devices and a soft red-navy glow under the hero, not from card chrome. Motion is a single transform-only scroll-driven rise, written in CSS, which disappears when reduced motion is requested.\n\nThis world replaces the earlier receipt world, which the owner rejected as plain. The three concept demos under `src/app/portfolio/{fade-and-co,ember-kitchen,maison-noir}` are separate worlds with their own styling and are out of scope here. The legacy `--color-red-brand` (#8B1A1A) token exists only for their banners and is not part of this system.",
+    "keyCharacteristics": [
+      "Full-bleed alternating tiles: black, snow, white, then a red or navy colour tile for punctuation.",
+      "Inter 700 display and headline type with negative tracking (-0.035em / -0.028em) and balanced wrapping.",
+      "Pill buttons (980px radius) and red chevron text links (\"Learn more ›\").",
+      "Real concept-site screenshots inside CSS MacBook and iPhone frames.",
+      "One gradient signature: red into ember, used only on \"$0\" figures.",
+      "Centred composition on a 1024px container. Tiles in a mosaic sit 12px apart on white."
+    ],
+    "rules": [
+      {
+        "name": "The Gradient Is For Zero Rule",
+        "body": "The red → ember → amber text gradient (`.zero-fig`) is used only on \"$0\" figures: the home \"Due today\" figure and the featured plan's price on pricing. Every other emphasis, including the pricing h1's second line, is solid colour (red-bright on dark, red on light). Gradient fills on tiles are allowed (red, navy, glow). Gradient text on anything that isn't a $0 figure is not.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sky Is For Focus Rule",
+        "body": "`sky` marks keyboard focus. Do not use it as a decorative accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stay On The Ramp Rule",
+        "body": "Headline sizes come in pairs from the list above (40/56, 36/48, 32/48, 48/64/88, 52/72/96). Do not add one-off steps.",
+        "section": "typography"
+      },
+      {
+        "name": "The Title Not Eyebrow Rule",
+        "body": "Small lines above headlines are sentence-case titles in Inter 600 at 21px or larger. The site has no uppercase, letter-spaced kickers.",
+        "section": "typography"
+      },
+      {
+        "name": "The Product Casts The Shadow Rule",
+        "body": "Shadows go on devices and on cards that float over a contrasting ground. Tiles and plan cards stay flat. Separation comes from colour change and the 12px white gap.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do build sections as full-bleed tiles alternating black and snow or white, with a red or navy tile as punctuation.",
+      "Do take every display and headline size from the ramp (e.g. 52/72/96, 48/64/88, 40/56, 36/48) at Inter 700 with the `.display` or `.headline` tracking.",
+      "Do show the product as real concept-site screenshots in the MacBook or iPhone frames, cropped by the tile edge.",
+      "Do end a section with one pill pair or one to two chevron links. Use red on light, red-bright on dark, white on colour.",
+      "Do keep keyboard focus visible with the 3px sky outline.",
+      "Do keep the `.rise` reveal CSS-only, transform-only (no opacity fade), and gated by `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "Don't use the red → ember gradient text anywhere but a \"$0\" figure.",
+      "Don't add stock photography, icon-card grids or testimonial carousels. The devices and the type carry the page.",
+      "Don't put uppercase letter-spaced eyebrows above headlines. Use a sentence-case 21px+ title line or nothing.",
+      "Don't put shadows on tiles or plan cards. Shadows belong to devices and to floating cards.",
+      "Don't use `red-brand` (#8B1A1A) or any concept-demo styling on the main site. Those belong to the portfolio demo worlds.",
+      "Don't revert to the receipt / thermal-paper world (cream paper, monospace, Oswald). The owner rejected it."
+    ]
+  }
+}

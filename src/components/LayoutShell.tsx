@@ -3,20 +3,17 @@
 import { usePathname } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import StickyCTA from "@/components/StickyCTA";
 
 const demoRoutes = ["/portfolio/fade-and-co", "/portfolio/ember-kitchen", "/portfolio/maison-noir"];
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isDemo = demoRoutes.some((route) => pathname.startsWith(route));
-
+  if (demoRoutes.some((route) => pathname.startsWith(route))) return <main>{children}</main>;
   return (
     <>
-      {!isDemo && <StickyCTA />}
-      {!isDemo && <Nav />}
+      <Nav />
       <main>{children}</main>
-      {!isDemo && <Footer />}
+      <Footer />
     </>
   );
 }
