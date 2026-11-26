@@ -3,37 +3,34 @@
 @theme {
   --color-ink: #1D1D1F;
   --color-ink-2: #6E6E73;
-  --color-ink-3: #86868B;
   --color-snow: #F5F5F7;
   --color-line: #D2D2D7;
   --color-night: #000000;
   --color-night-2: #161617;
   --color-night-text: #F5F5F7;
   --color-night-muted: #A1A1A6;
-  --color-red: #E3262F;
-  --color-red-deep: #B5121B;
-  --color-red-bright: #FF5A5F;
-  --color-ember: #FF6A3D;
-  --color-navy: #0A1A3F;
-  --color-navy-2: #13306B;
-  --color-sky: #5AA9FF;
+  --color-white: #FFFFFF;
+  /* One accent: deep maple red. 5.88:1 with white either way. */
+  --color-red: #C8102E;
+  --color-red-deep: #A50D26;
   /* legacy token still used by the concept demo banners */
   --color-red-brand: #8B1A1A;
 
+  --font-display: var(--font-poppins), "Poppins", var(--font-inter), sans-serif;
   --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 @layer base {
 html {
   scroll-behavior: smooth;
-  background: #fff;
+  background: var(--color-white);
   color-scheme: light;
 }
 
 body {
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background: #fff;
+  background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -43,7 +40,7 @@ body {
 
 ::selection {
   background: var(--color-red);
-  color: #fff;
+  color: var(--color-white);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -54,14 +51,17 @@ input, textarea, select, button { font: inherit; }
 @layer components {
 /* ---- Type ---- */
 .display {
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  word-spacing: 0.06em;
   line-height: 1.02;
   text-wrap: balance;
 }
 .headline {
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.02em;
   line-height: 1.08;
   text-wrap: balance;
 }
@@ -74,10 +74,7 @@ input, textarea, select, button { font: inherit; }
 .tabular { font-variant-numeric: tabular-nums; }
 
 .zero-fig {
-  background: linear-gradient(100deg, var(--color-red) 0%, var(--color-ember) 70%, #FFB23D 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-red);
 }
 
 /* ---- Buttons ---- */
@@ -98,30 +95,34 @@ input, textarea, select, button { font: inherit; }
   white-space: nowrap;
 }
 .pill:active { transform: scale(0.97); }
-.pill:focus-visible { outline: 3px solid var(--color-sky); outline-offset: 3px; }
-.pill-red { background: var(--color-red); color: #fff; }
+.pill:focus-visible { outline: 3px solid var(--color-ink); outline-offset: 3px; }
+.on-dark .pill:focus-visible { outline-color: var(--color-white); }
+.pill-red { background: var(--color-red); color: var(--color-white); }
 .pill-red:hover { background: var(--color-red-deep); }
 .pill-ghost { color: var(--color-red); box-shadow: inset 0 0 0 1.5px var(--color-red); }
-.pill-ghost:hover { background: var(--color-red); color: #fff; }
-.on-dark .pill-ghost { color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.85); }
-.on-dark .pill-ghost:hover { background: #fff; color: #000; }
-.pill-white { background: #fff; color: var(--color-ink); }
+.pill-ghost:hover { background: var(--color-red); color: var(--color-white); }
+.on-dark .pill-ghost { color: var(--color-white); box-shadow: inset 0 0 0 1.5px var(--color-white); }
+.on-dark .pill-ghost:hover { background: var(--color-white); color: var(--color-ink); }
+.pill-white { background: var(--color-white); color: var(--color-ink); }
 .pill-white:hover { background: var(--color-snow); }
+.tile-hero .pill-white, .tile-red .pill-white, .nav-red .pill-white { color: var(--color-red); }
 
 .chev {
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  color: var(--color-red);
+  color: var(--color-ink);
   font-weight: 500;
   font-size: 17px;
+  transition: color 150ms;
   letter-spacing: -0.01em;
 }
-.chev:hover { text-decoration: underline; text-underline-offset: 3px; }
+.chev:hover { color: var(--color-red); text-decoration: underline; text-underline-offset: 3px; }
+.chev:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px; }
 .chev svg { width: 0.6em; height: 0.6em; margin-left: 2px; transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1); }
 .chev:hover svg { transform: translateX(2px); }
-.on-dark .chev { color: var(--color-red-bright); }
-.on-color .chev { color: #fff; }
+/* Red fails AA on black at body size (3.57:1), so links on dark grounds stay white. */
+.on-dark .chev, .on-dark .chev:hover { color: var(--color-white); }
 
 /* ---- Tiles ---- */
 .tile {
@@ -131,19 +132,17 @@ input, textarea, select, button { font: inherit; }
 }
 .tile-black { background: var(--color-night); color: var(--color-night-text); }
 .tile-snow { background: var(--color-snow); color: var(--color-ink); }
-.tile-white { background: #fff; color: var(--color-ink); }
-.tile-red {
+.tile-white { background: var(--color-white); color: var(--color-ink); }
+.tile-ink { background: var(--color-ink); color: var(--color-white); }
+/* Hero: red deepening toward the edges; every stop is red or darker, so white text stays at 5.88:1 or better. */
+.tile-hero {
   background:
-    radial-gradient(120% 90% at 85% 10%, rgba(255, 130, 70, 0.55) 0%, transparent 55%),
-    linear-gradient(160deg, #F0373F 0%, var(--color-red) 45%, var(--color-red-deep) 100%);
-  color: #fff;
+    radial-gradient(90% 70% at 50% 0%, var(--color-red) 0%, transparent 70%),
+    radial-gradient(120% 100% at 50% 100%, var(--color-red-deep) 0%, var(--color-red) 75%);
+  color: var(--color-white);
 }
-.tile-navy {
-  background:
-    radial-gradient(110% 80% at 15% 0%, rgba(90, 169, 255, 0.35) 0%, transparent 55%),
-    linear-gradient(170deg, var(--color-navy-2) 0%, var(--color-navy) 70%);
-  color: #fff;
-}
+/* Solid red only: white text needs the full 5.88:1, so no lighter gradient stops. */
+.tile-red { background: var(--color-red); color: var(--color-white); }
 .tile-glow::before {
   content: "";
   position: absolute;
@@ -152,7 +151,7 @@ input, textarea, select, button { font: inherit; }
   width: 120%;
   height: 80%;
   transform: translateX(-50%);
-  background: radial-gradient(closest-side, rgba(227, 38, 47, 0.45), rgba(19, 48, 107, 0.25) 55%, transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-red) 40%, transparent), transparent);
   filter: blur(40px);
   z-index: -1;
   pointer-events: none;
@@ -240,23 +239,24 @@ input, textarea, select, button { font: inherit; }
   min-height: 52px;
   padding: 14px 16px;
   border-radius: 12px;
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid var(--color-line);
   color: var(--color-ink);
   font-size: 17px;
   transition: border-color 150ms, box-shadow 150ms;
 }
-.field::placeholder { color: var(--color-ink-3); }
-.field:hover { border-color: var(--color-ink-3); }
+.field::placeholder { color: var(--color-ink-2); }
+.field:hover { border-color: var(--color-ink-2); }
+/* Focus stays neutral so the red accent is never read as an error state. */
 .field:focus {
   outline: none;
-  border-color: var(--color-red);
-  box-shadow: 0 0 0 4px rgba(227, 38, 47, 0.18);
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ink) 14%, transparent);
 }
 .field-select {
   appearance: none;
   padding-right: 44px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%23E3262F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%231D1D1F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 18px center;
   background-size: 14px 8px;

@@ -86,10 +86,10 @@ export default function PricingPage() {
         <h1 className="display text-[48px] sm:text-[64px] md:text-[88px] text-white">
           Simple pricing.
           <br />
-          <span className="text-red-bright">No upfront cost to start.</span>
+          <span className="text-red">No upfront cost to start.</span>
         </h1>
         <p className="subhead text-[19px] md:text-[24px] mt-5 text-night-muted max-w-[640px] mx-auto">
-          Transparent monthly pricing from a small Ontario web studio serving London, Toronto, and Ottawa.
+          Transparent monthly pricing from a small Canadian web studio, for independent businesses across Canada.
         </p>
       </section>
 
@@ -149,7 +149,7 @@ export default function PricingPage() {
           <div className="mt-10 border-t border-line">
             {faqs.map((f) => (
               <details key={f.q} className="group border-b border-line">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[19px] md:text-[21px] font-semibold tracking-[-0.015em] focus-visible:outline-2 focus-visible:outline-sky [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[19px] md:text-[21px] font-semibold tracking-[-0.015em] focus-visible:outline-2 focus-visible:outline-ink [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <svg viewBox="0 0 20 20" className="w-5 h-5 flex-none text-ink-2 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
                     <path d="M10 3v14M3 10h14" />

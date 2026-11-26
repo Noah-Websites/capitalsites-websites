@@ -8,15 +8,15 @@ web
 
 ## Users
 
-Primary user: owner-operators of Ontario small businesses in London, Toronto, and Ottawa — barbershops, restaurants, boutiques, trades, service businesses, independent professionals — who have a current website that is slow, outdated, mobile-broken, or missing entirely. They search for a web designer when a customer complains, a competitor's site makes them look amateur, or they lose a lead to a broken booking flow. They are not design-literate; they judge quality by "does this look like a real business" and "can my phone customer actually use it." Price sensitivity is high; up-front cost is the primary blocker to acting.
+Primary user: owner-operators of independent small businesses anywhere in Canada — barbershops, restaurants, boutiques, trades, service businesses, independent professionals — who have a current website that is slow, outdated, mobile-broken, or missing entirely. They search for a web designer when a customer complains, a competitor's site makes them look amateur, or they lose a lead to a broken booking flow. They are not design-literate; they judge quality by "does this look like a real business" and "can my phone customer actually use it." Price sensitivity is high; up-front cost is the primary blocker to acting.
 
 ## Product Purpose
 
-CapitalSites rebuilds or builds small-business websites for Ontario owner-operators, on a $0-upfront, $99/month plan that covers design, build, hosting, domain renewal, security, monthly content changes, and support. Success is: a prospect with no current web budget signs the 12-month agreement, launches a site they are proud of in 7–14 days, and renews or shifts to $79/month at month 13. The business is Noah Potter solo; capacity is deliberately low, and credibility outranks volume.
+CapitalSites rebuilds or builds small-business websites for independent owner-operators across Canada, on a $0-upfront, $99/month plan that covers design, build, hosting, domain renewal, security, monthly content changes, and support. Success is: a prospect with no current web budget signs the 12-month agreement, launches a site they are proud of in 7–14 days, and renews or shifts to $79/month at month 13. The business is Noah Potter solo; capacity is deliberately low, and credibility outranks volume.
 
 ## Positioning
 
-The $0-upfront monthly plan is the mechanism a neighboring agency cannot truthfully copy without rebuilding its pricing model. Competing Ontario shops charge $1,500–$5,000+ up front; the owner either can't pay it or won't risk it on a stranger. CapitalSites absorbs that risk and recovers through the 12-month minimum. A second position: Ontario-based solo operator (not offshore, not an agency farm), working in-region with London/Toronto/Ottawa businesses, one person building the site.
+The $0-upfront monthly plan is the mechanism a competing studio cannot truthfully copy without rebuilding its pricing model: most charge a build fee before work starts, which the owner either can't pay or won't risk on a stranger. CapitalSites absorbs that risk and recovers through the 12-month minimum. A second position: a small Canadian studio (not offshore, not an agency farm), with one person building the site, working remotely with businesses across Canada.
 
 ## Operating Context
 
@@ -37,18 +37,21 @@ The $0-upfront monthly plan is the mechanism a neighboring agency cannot truthfu
 
 ## Brand Commitments
 
-- Name: CapitalSites. The "Capital" is a holdover from Ottawa-origin branding; kept as the brand's given name, no longer treated as a geographic claim.
+- Name: CapitalSites. The "Capital" is a holdover from Ottawa-origin branding; kept as the brand's given name, never treated as a geographic claim.
+- Positioning (owner, 2026-11-26): "a small Canadian web studio" working with independent small businesses across Canada. Never name a specific city or province as the studio's base; no street address anywhere. No flag, maple leaf, "Canada" wordmark or government-style imagery, and nothing implying government affiliation.
+- The "ottawa" in capitalsitesottawa@gmail.com and the Calendly URL is a live-inbox constraint, not positioning; do not change those addresses.
 - Voice: direct, operator-to-operator, zero agency jargon. "We rebuild slow, outdated, mobile-broken websites." Not "we craft digital experiences."
 - Honesty rule: no invented clients, testimonials, reviews, stats, case studies, or results. Numbers on the site must be true (plan price, response time, upfront cost = $0, "1 person building").
 - Noah Potter is the human face of the business; the site is not pretending to be a team.
-- Standing visual preference (owner, 2026-11-25): the site should look and feel like Apple.com — modern, premium, big confident type, full-bleed tiles — with exciting, vivid colour (the owner liked the red/navy energy of the original dark site). A plain or muted look was explicitly rejected.
+- Standing visual preference (owner, 2026-11-25): the site should look and feel like Apple.com — modern, premium, big confident type, full-bleed tiles — with exciting, vivid colour (the owner liked the red/navy energy of the original dark site). A plain or muted look was explicitly rejected. Palette update (owner, 2026-11-26): one deep maple-red accent (#C8102E) on white, off-white and near-black, used for primary buttons, link hover and key highlights only; navy retired.
 
 ## Evidence on Hand
 
 - Three concept redesigns live at `/portfolio/fade-and-co`, `/portfolio/ember-kitchen`, `/portfolio/maison-noir`. Each is clearly labeled as a concept demo, not a real client.
 - Noah's bio and (optional) portrait at `/noah.jpg`.
 - No real client testimonials, press mentions, revenue figures, conversion lifts, or case studies. Future work must not fabricate any.
-- Geography is factual: Ontario studio, serving London, Toronto, Ottawa.
+- Geography: Canada-wide, remote. The three concept demos are set in fictional businesses in London, Toronto and Ottawa; those locations describe the fictional clients, not the studio.
+- No customers yet: no testimonials, case studies, client logos, review counts, awards or "trusted by" claims on CapitalSites' own pages.
 
 ## Product Principles
 

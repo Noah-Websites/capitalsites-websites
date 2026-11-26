@@ -17,7 +17,7 @@ const projects = [
     location: "Ossington, Toronto",
     plan: "Website Plan · $0 upfront, $99/mo",
     desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup.",
-    tile: "tile-red on-dark on-color",
+    tile: "tile-red on-dark",
   },
   {
     slug: "maison-noir",
@@ -25,7 +25,7 @@ const projects = [
     location: "Centretown, Ottawa",
     plan: "Premium · $2,500 + $129/mo",
     desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout.",
-    tile: "tile-navy on-dark on-color",
+    tile: "tile-snow",
   },
 ];
 

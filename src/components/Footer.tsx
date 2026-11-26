@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const cols = [
   {
@@ -34,7 +35,10 @@ export default function Footer() {
           All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum,
           then $79/month or cancel with 30 days notice.
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-6 border-b border-line">
+        <div className="grid grid-cols-2 sm:grid-cols-[1.2fr_1fr_1fr_1fr] gap-6 py-6 border-b border-line">
+          <Link href="/" className="col-span-2 sm:col-span-1" aria-label="CapitalSites home">
+            <Image src="/logo-full.png" alt="CapitalSites" width={424} height={411} className="h-24 w-auto" />
+          </Link>
           {cols.map((c) => (
             <div key={c.title}>
               <h3 className="font-semibold text-ink mb-2">{c.title}</h3>
@@ -51,7 +55,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="pt-4 flex flex-col sm:flex-row gap-2 justify-between">
-          <p>© {new Date().getFullYear()} CapitalSites. Ontario web studio · London, Toronto, Ottawa</p>
+          <p>© {new Date().getFullYear()} CapitalSites. A small Canadian web studio.</p>
           <p>capitalsitesottawa@gmail.com</p>
         </div>
       </div>

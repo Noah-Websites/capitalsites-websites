@@ -1,112 +1,37 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T00:03:02+00:00",
+  "generatedAt": "2026-11-26T00:59:28+00:00",
   "title": "Design System: CapitalSites",
   "extensions": {
     "colorMeta": {
       "red": {
         "role": "primary",
-        "displayName": "CapitalSites Red",
-        "canonical": "#E3262F",
+        "displayName": "Maple Red",
+        "canonical": "#C8102E",
         "tonalRamp": [
-          "oklch(15% 0.084 26)",
-          "oklch(26% 0.122 26)",
-          "oklch(37% 0.159 26)",
-          "oklch(48% 0.197 26)",
-          "oklch(60% 0.203 26)",
-          "oklch(72% 0.163 26)",
-          "oklch(84% 0.122 26)",
-          "oklch(95% 0.084 26)"
+          "oklch(15% 0.084 21)",
+          "oklch(26% 0.120 21)",
+          "oklch(37% 0.160 21)",
+          "oklch(48% 0.200 21)",
+          "oklch(60% 0.206 21)",
+          "oklch(72% 0.164 21)",
+          "oklch(84% 0.120 21)",
+          "oklch(95% 0.084 21)"
         ]
       },
       "red-deep": {
         "role": "primary",
         "displayName": "Pressed Red",
-        "canonical": "#B5121B",
+        "canonical": "#A50D26",
         "tonalRamp": [
-          "oklch(15% 0.073 26)",
-          "oklch(26% 0.106 26)",
-          "oklch(37% 0.138 26)",
-          "oklch(48% 0.171 26)",
-          "oklch(60% 0.177 26)",
-          "oklch(72% 0.141 26)",
-          "oklch(84% 0.106 26)",
-          "oklch(95% 0.073 26)"
-        ]
-      },
-      "red-bright": {
-        "role": "primary",
-        "displayName": "Signal Coral",
-        "canonical": "#FF5A5F",
-        "tonalRamp": [
-          "oklch(15% 0.077 22)",
-          "oklch(26% 0.111 22)",
-          "oklch(37% 0.145 22)",
-          "oklch(48% 0.179 22)",
-          "oklch(60% 0.185 22)",
-          "oklch(72% 0.148 22)",
-          "oklch(84% 0.111 22)",
-          "oklch(95% 0.077 22)"
-        ]
-      },
-      "ember": {
-        "role": "primary",
-        "displayName": "Ember",
-        "canonical": "#FF6A3D",
-        "tonalRamp": [
-          "oklch(15% 0.073 37)",
-          "oklch(26% 0.106 37)",
-          "oklch(37% 0.138 37)",
-          "oklch(48% 0.171 37)",
-          "oklch(60% 0.177 37)",
-          "oklch(72% 0.141 37)",
-          "oklch(84% 0.106 37)",
-          "oklch(95% 0.073 37)"
-        ]
-      },
-      "navy": {
-        "role": "secondary",
-        "displayName": "Deep Navy",
-        "canonical": "#0A1A3F",
-        "tonalRamp": [
-          "oklch(15% 0.028 264)",
-          "oklch(26% 0.041 264)",
-          "oklch(37% 0.053 264)",
-          "oklch(48% 0.066 264)",
-          "oklch(60% 0.068 264)",
-          "oklch(72% 0.055 264)",
-          "oklch(84% 0.041 264)",
-          "oklch(95% 0.028 264)"
-        ]
-      },
-      "navy-2": {
-        "role": "secondary",
-        "displayName": "Midnight Blue",
-        "canonical": "#13306B",
-        "tonalRamp": [
-          "oklch(15% 0.042 262)",
-          "oklch(26% 0.060 262)",
-          "oklch(37% 0.079 262)",
-          "oklch(48% 0.097 262)",
-          "oklch(60% 0.101 262)",
-          "oklch(72% 0.080 262)",
-          "oklch(84% 0.060 262)",
-          "oklch(95% 0.042 262)"
-        ]
-      },
-      "sky": {
-        "role": "tertiary",
-        "displayName": "Focus Sky",
-        "canonical": "#5AA9FF",
-        "tonalRamp": [
-          "oklch(15% 0.057 252)",
-          "oklch(26% 0.082 252)",
-          "oklch(37% 0.107 252)",
-          "oklch(48% 0.132 252)",
-          "oklch(60% 0.137 252)",
-          "oklch(72% 0.109 252)",
-          "oklch(84% 0.082 252)",
-          "oklch(95% 0.057 252)"
+          "oklch(15% 0.071 20)",
+          "oklch(26% 0.102 20)",
+          "oklch(37% 0.136 20)",
+          "oklch(48% 0.170 20)",
+          "oklch(60% 0.175 20)",
+          "oklch(72% 0.139 20)",
+          "oklch(84% 0.102 20)",
+          "oklch(95% 0.071 20)"
         ]
       },
       "ink": {
@@ -135,21 +60,6 @@
           "oklch(48% 0.007 286)",
           "oklch(60% 0.007 286)",
           "oklch(72% 0.006 286)",
-          "oklch(84% 0.004 286)",
-          "oklch(95% 0.003 286)"
-        ]
-      },
-      "ink-3": {
-        "role": "neutral",
-        "displayName": "Pewter",
-        "canonical": "#86868B",
-        "tonalRamp": [
-          "oklch(15% 0.003 286)",
-          "oklch(26% 0.004 286)",
-          "oklch(37% 0.005 286)",
-          "oklch(48% 0.007 286)",
-          "oklch(60% 0.007 286)",
-          "oklch(72% 0.005 286)",
           "oklch(84% 0.004 286)",
           "oklch(95% 0.003 286)"
         ]
@@ -263,15 +173,15 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page h1s and hero figures. Ramp: 52/72/96 (home hero), 48/64/88 (page heroes), 48/72 (form pages), 44/80 (closer), 120/160/220 ($0), 72/88 (plan prices)."
+        "purpose": "Poppins 800, -0.025em, word-spacing 0.06em. Page h1s and hero figures. Ramp: 56/80/112 at lh 0.95 (home hero, two lines), 48/64/88 (page heroes), 48/72 (form pages), 44/80 (closer), 120/160/220 ($0), 72/88 (plan prices)."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section and tile headlines. Ramp: 40/56, 40/64, 36/48, 32/48, 36/44, 32 (price)."
+        "purpose": "Poppins 700, -0.02em. Section and tile headlines. Ramp: 40/56, 40/64, 36/48, 32/48, 36/44, 32 (price)."
       },
       "subhead": {
         "displayName": "Subhead",
-        "purpose": "One-line follow-up under a headline. Ramp: 19/24, 21/28 (hero), 19/21, 17/21."
+        "purpose": "Inter 500. One-line follow-up under a headline. Ramp: 19/24, 21/30 (hero), 19/21, 17/21."
       },
       "title": {
         "displayName": "Title",
@@ -283,7 +193,7 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Field labels 14/600; meta 14, tags 13, footer and nav CTA 12, nav links 12.5."
+        "purpose": "Inter. Field labels 14/600; meta 14, tags 13, nav CTA 13/600, footer 12, nav links 14/500."
       }
     },
     "shadows": [
@@ -314,18 +224,23 @@
       },
       {
         "name": "field-focus",
-        "value": "0 0 0 4px rgba(227,38,47,0.18)",
-        "purpose": "Red focus halo on fields."
+        "value": "0 0 0 4px color-mix(in srgb, var(--color-ink) 14%, transparent)",
+        "purpose": "Neutral ink focus ring on fields; deliberately not red."
       },
       {
         "name": "hero-glow",
-        "value": "radial-gradient(closest-side, rgba(227,38,47,0.45), rgba(19,48,107,0.25) 55%, transparent); filter: blur(40px)",
-        "purpose": "Glow under the bottom edge of black hero tiles (.tile-glow)."
+        "value": "radial-gradient(closest-side, color-mix(in srgb, var(--color-red) 40%, transparent), transparent); filter: blur(40px)",
+        "purpose": "Red-only glow under the bottom edge of black hero tiles (.tile-glow); now the pricing hero only, not the red home hero."
       },
       {
-        "name": "nav-glass",
-        "value": "background: rgba(22,22,23,0.72); backdrop-filter: blur(24px) saturate(1.5); border-bottom: 1px solid rgba(255,255,255,0.1)",
-        "purpose": "Sticky nav translucency."
+        "name": "hero-radial",
+        "value": "radial-gradient(90% 70% at 50% 0%, var(--color-red) 0%, transparent 70%), radial-gradient(120% 100% at 50% 100%, var(--color-red-deep) 0%, var(--color-red) 75%)",
+        "purpose": "Home hero ground (.tile-hero). Every stop is red or darker so white text stays >= 5.88:1."
+      },
+      {
+        "name": "nav-hairline",
+        "value": "border-bottom: 1px solid rgb(255 255 255 / 0.15)",
+        "purpose": "Only separation under the solid red nav; nothing is translucent."
       }
     ],
     "motion": [
@@ -337,7 +252,7 @@
       {
         "name": "field-transition",
         "value": "150ms",
-        "purpose": "Field border and halo changes."
+        "purpose": "Field border and ring changes."
       },
       {
         "name": "pill-press",
@@ -363,64 +278,124 @@
         "name": "lg",
         "value": "1024px"
       }
-    ]
+    ],
+    "contrast": [
+      {
+        "pair": "red on white",
+        "ratio": 5.88
+      },
+      {
+        "pair": "white on red",
+        "ratio": 5.88
+      },
+      {
+        "pair": "red on snow",
+        "ratio": 5.4
+      },
+      {
+        "pair": "red on black",
+        "ratio": 3.57,
+        "note": "Large text only: the pricing h1 second line at 48-88px."
+      },
+      {
+        "pair": "white/90 on red",
+        "ratio": 4.95,
+        "note": "Minimum for text on red grounds (tiles, hero, nav links)."
+      },
+      {
+        "pair": "ink-2 on white",
+        "ratio": 5.07
+      },
+      {
+        "pair": "ink-2 on snow",
+        "ratio": 4.66
+      },
+      {
+        "pair": "white on red-deep",
+        "ratio": 7.82,
+        "note": "Hero bottom edge and mobile menu panel."
+      }
+    ],
+    "logo": {
+      "full": {
+        "path": "public/logo-full.png",
+        "use": "Full-colour mark + CapitalSites wordmark (Ottawa line removed), transparent; light grounds; footer at 96px tall."
+      },
+      "mark": {
+        "path": "public/logo-mark.png",
+        "use": "Colour symbol alone, transparent."
+      },
+      "markWhite": {
+        "path": "public/logo-mark-white.png",
+        "use": "Solid white symbol for red/dark grounds; nav at 32px tall beside the Poppins 700 19px wordmark."
+      },
+      "openQuestion": "The symbol's tower resembles Parliament's Peace Tower; the owner's earlier brief said no government-style imagery in the logo or header. Owner supplied the logo and asked for it to be used. Unresolved; owner to decide."
+    }
   },
   "components": [
+    {
+      "name": "Home Hero",
+      "kind": "custom",
+      "refersTo": "tile-hero",
+      "description": "Red radial hero with a two-line Poppins 800 headline, white pill (red text) + white ghost pill.",
+      "html": "<section class=\"ds-hero ds-on-dark ds-red-ground\"><h1>Your website.<br>Rebuilt.</h1><p><b>$0 upfront.</b> <span>Then $99/month.</span></p><div class=\"ds-hero-ctas\"><a class=\"ds-pill ds-pill-white\" href=\"#\">Get a free audit</a><a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a></div></section>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-hero{background:radial-gradient(90% 70% at 50% 0%, var(--color-red,#C8102E) 0%, transparent 70%), radial-gradient(120% 100% at 50% 100%, var(--color-red-deep,#A50D26) 0%, var(--color-red,#C8102E) 75%);color:#fff;text-align:center;padding:64px 24px;font-family:Inter,-apple-system,sans-serif;} .ds-hero h1{margin:0;font-family:Poppins,Inter,sans-serif;font-weight:800;font-size:56px;line-height:0.95;letter-spacing:-0.025em;word-spacing:0.06em;text-wrap:balance;} .ds-hero p{margin:24px 0 0;font-size:21px;font-weight:500;letter-spacing:-0.012em;} .ds-hero p span{color:rgb(255 255 255 / 0.9);} .ds-hero-ctas{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;} .ds-pill-white{background:#fff;color:var(--color-red,#C8102E);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);}"
+    },
     {
       "name": "Primary Pill",
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Filled red pill CTA; the single primary action in a section.",
       "html": "<a class=\"ds-pill ds-pill-red\" href=\"#\">Get a free audit</a>",
-      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-pill-red{background:var(--color-red,#E3262F);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#B5121B);}"
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-red{background:var(--color-red,#C8102E);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#A50D26);}"
     },
     {
       "name": "Ghost Pill",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Outline pill paired beside the primary; inverts to white on dark tiles.",
-      "html": "<a class=\"ds-pill-ghost\" href=\"#\">See pricing</a>",
-      "css": ".ds-pill-ghost{display:inline-flex;align-items:center;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;text-decoration:none;color:var(--color-red,#E3262F);box-shadow:inset 0 0 0 1.5px var(--color-red,#E3262F);transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill-ghost:hover{background:var(--color-red,#E3262F);color:#fff;} .ds-pill-ghost:active{transform:scale(0.97);} .ds-pill-ghost:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;}"
+      "description": "Outline pill paired beside the primary; inverts to white on dark, red and ink tiles.",
+      "html": "<a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:16px;border-radius:16px\"><a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a></span>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-ghost{color:var(--color-red,#C8102E);box-shadow:inset 0 0 0 1.5px var(--color-red,#C8102E);} .ds-pill-ghost:hover{background:var(--color-red,#C8102E);color:#fff;} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);}"
     },
     {
       "name": "White Pill",
       "kind": "button",
-      "refersTo": "button-white",
-      "description": "White pill for actions on red or navy colour tiles.",
-      "html": "<div style=\"background:#E3262F;padding:24px\"><a class=\"ds-pill-white\" href=\"#\">Start my plan</a></div>",
-      "css": ".ds-pill-white{display:inline-flex;align-items:center;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;text-decoration:none;background:#fff;color:var(--color-ink,#1D1D1F);transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-pill-white:active{transform:scale(0.97);} .ds-pill-white:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;}"
+      "refersTo": "button-white-on-red",
+      "description": "White pill; ink text on neutral contexts, red text on red grounds (hero, red tiles, nav).",
+      "html": "<div class=\"ds-on-dark ds-red-ground\" style=\"background:#C8102E;padding:24px\"><a class=\"ds-pill ds-pill-white\" href=\"#\">Get a free audit</a></div>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-white{background:#fff;color:var(--color-ink,#1D1D1F);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-red-ground .ds-pill-white{color:var(--color-red,#C8102E);}"
     },
     {
       "name": "Chevron Link",
       "kind": "custom",
       "refersTo": "chevron-link",
-      "description": "Apple-style 'Learn more ›' text link; red on light, coral on dark.",
-      "html": "<a class=\"ds-chev\" href=\"#\">Compare plans<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a>",
-      "css": ".ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-red,#E3262F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;} .ds-chev:hover{text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);}"
+      "description": "Apple-style 'Learn more ›' link; ink at rest, red and underlined on hover on light grounds, white in both states on dark.",
+      "html": "<a class=\"ds-chev\" href=\"#\">Compare plans<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:12px 16px;border-radius:12px\"><a class=\"ds-chev\" href=\"#\">See all concept work<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></span>",
+      "css": ".ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;transition:color 150ms;} .ds-chev:hover{color:var(--color-red,#C8102E);text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);} .ds-on-dark .ds-chev,.ds-on-dark .ds-chev:hover{color:#fff;}"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input-field",
-      "description": "Labelled 52px field with red focus halo.",
+      "description": "Labelled 52px field with a neutral ink focus ring, never red.",
       "html": "<label class=\"ds-field-label\" for=\"ds-n\">Business name</label><input id=\"ds-n\" class=\"ds-field\" placeholder=\"Ember Kitchen\">",
-      "css": ".ds-field-label{display:block;font-family:Inter,-apple-system,sans-serif;font-size:14px;font-weight:600;color:var(--color-ink,#1D1D1F);margin-bottom:6px;} .ds-field{display:block;width:100%;min-height:52px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;transition:border-color 150ms,box-shadow 150ms;} .ds-field::placeholder{color:var(--color-ink-3,#86868B);} .ds-field:hover{border-color:var(--color-ink-3,#86868B);} .ds-field:focus{outline:none;border-color:var(--color-red,#E3262F);box-shadow:0 0 0 4px rgba(227,38,47,0.18);}"
+      "css": ".ds-field-label{display:block;font-family:Inter,-apple-system,sans-serif;font-size:14px;font-weight:600;color:var(--color-ink,#1D1D1F);margin-bottom:6px;} .ds-field{display:block;width:100%;min-height:52px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;transition:border-color 150ms,box-shadow 150ms;} .ds-field::placeholder{color:var(--color-ink-2,#6E6E73);} .ds-field:hover{border-color:var(--color-ink-2,#6E6E73);} .ds-field:focus{outline:none;border-color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 4px color-mix(in srgb, var(--color-ink,#1D1D1F) 14%, transparent);}"
     },
     {
       "name": "Select Field",
       "kind": "input",
       "refersTo": "input-select",
-      "description": "Native select restyled as a field with a red chevron.",
+      "description": "Native select restyled as a field with an ink chevron.",
       "html": "<select class=\"ds-select\"><option>Website Plan</option><option>Premium</option></select>",
-      "css": ".ds-select{display:block;width:100%;min-height:52px;padding:14px 44px 14px 16px;border-radius:12px;background-color:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%23E3262F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 18px center;background-size:14px 8px;transition:border-color 150ms,box-shadow 150ms;} .ds-select:hover{border-color:var(--color-ink-3,#86868B);} .ds-select:focus{outline:none;border-color:var(--color-red,#E3262F);box-shadow:0 0 0 4px rgba(227,38,47,0.18);}"
+      "css": ".ds-select{display:block;width:100%;min-height:52px;padding:14px 44px 14px 16px;border-radius:12px;background-color:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%231D1D1F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 18px center;background-size:14px 8px;transition:border-color 150ms,box-shadow 150ms;} .ds-select:hover{border-color:var(--color-ink-2,#6E6E73);} .ds-select:focus{outline:none;border-color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 4px color-mix(in srgb, var(--color-ink,#1D1D1F) 14%, transparent);}"
     },
     {
       "name": "Navigation Bar",
       "kind": "nav",
       "refersTo": "nav-bar",
-      "description": "Sticky translucent 48px night bar with wordmark, 12.5px links and a small red CTA pill.",
-      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Capital<span>Sites</span></a><ul><li><a href=\"#\" aria-current=\"page\">Pricing</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Get a free audit</a></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;height:48px;padding:0 20px;background:rgba(22,22,23,0.72);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.1);font-family:Inter,-apple-system,sans-serif;color:#e8e8ed;} .ds-nav-mark{font-size:17px;font-weight:600;letter-spacing:-0.02em;color:#fff;text-decoration:none;} .ds-nav-mark span{color:var(--color-red-bright,#FF5A5F);} .ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:12.5px;} .ds-nav ul a{color:rgba(210,210,215,0.85);text-decoration:none;transition:color 200ms;} .ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#fff;} .ds-nav a:focus-visible{outline:3px solid var(--color-sky,#5AA9FF);outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:var(--color-red,#E3262F);color:#fff;font-size:12px;font-weight:500;text-decoration:none;transition:background-color 200ms;} .ds-nav-cta:hover{background:var(--color-red-deep,#B5121B);}"
+      "description": "Sticky solid red 56px bar: white logo symbol (logo-mark-white.png, 32px; omitted from this snippet) + Poppins wordmark, 14px white/90 links with underline on hover/current, white CTA pill with red text.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">CapitalSites</a><ul><li><a href=\"#\" aria-current=\"page\">Pricing</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Get a free audit</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;background:var(--color-red,#C8102E);border-bottom:1px solid rgb(255 255 255 / 0.15);font-family:Inter,-apple-system,sans-serif;color:#fff;} .ds-nav-mark{display:inline-flex;align-items:center;gap:10px;font-family:Poppins,Inter,sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.02em;color:#fff;text-decoration:none;} .ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500;} .ds-nav ul a{color:rgb(255 255 255 / 0.9);text-decoration:none;text-underline-offset:6px;text-decoration-thickness:2px;transition:color 150ms;} .ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#fff;text-decoration-line:underline;} .ds-nav a:focus-visible{outline:2px solid #fff;outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:#fff;color:var(--color-red,#C8102E);font-size:13px;font-weight:600;text-decoration:none;transition:background-color 150ms;} .ds-nav-cta:hover{background:var(--color-snow,#F5F5F7);}"
     },
     {
       "name": "Plan Tag",
@@ -428,50 +403,56 @@
       "refersTo": "plan-tag-featured",
       "description": "Pill tag on plan cards; red when featured, snow otherwise.",
       "html": "<span class=\"ds-tag ds-tag-featured\">Most popular</span> <span class=\"ds-tag\">One-time</span>",
-      "css": ".ds-tag{display:inline-block;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;background:var(--color-snow,#F5F5F7);color:var(--color-ink-2,#6E6E73);} .ds-tag-featured{background:var(--color-red,#E3262F);color:#fff;}"
+      "css": ".ds-tag{display:inline-block;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;background:var(--color-snow,#F5F5F7);color:var(--color-ink-2,#6E6E73);} .ds-tag-featured{background:var(--color-red,#C8102E);color:#fff;}"
     },
     {
       "name": "Colour Card Tile",
       "kind": "card",
       "refersTo": "card-tile",
-      "description": "28px-radius mosaic tile with headline, subhead and chevron link; red gradient variant.",
-      "html": "<div class=\"ds-tile-red\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more ›</a></div>",
-      "css": ".ds-tile-red{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;background:radial-gradient(120% 90% at 85% 10%,rgba(255,130,70,0.55) 0%,transparent 55%),linear-gradient(160deg,#F0373F 0%,#E3262F 45%,#B5121B 100%);} .ds-tile-red h3{margin:0;font-size:40px;font-weight:700;letter-spacing:-0.028em;line-height:1.08;} .ds-tile-red p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;opacity:0.85;} .ds-tile-red a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile-red a:hover{text-decoration:underline;text-underline-offset:3px;}"
+      "description": "28px-radius mosaic tile with headline, subhead and chevron link; solid red and ink variants.",
+      "html": "<div class=\"ds-tile ds-tile-red\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more ›</a></div><div class=\"ds-tile ds-tile-ink\" style=\"margin-top:12px\"><h3>One person. Start to finish.</h3><p>No agency. No handoffs. Just Noah.</p><a href=\"#\">Talk to Noah ›</a></div>",
+      "css": ".ds-tile{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;} .ds-tile-red{background:var(--color-red,#C8102E);} .ds-tile-ink{background:var(--color-ink,#1D1D1F);} .ds-tile h3{margin:0;font-family:Poppins,Inter,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1.08;} .ds-tile p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;color:rgba(255,255,255,0.9);} .ds-tile a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile a:hover{text-decoration:underline;text-underline-offset:3px;} .ds-tile a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;}"
     },
     {
       "name": "Zero Figure",
       "kind": "custom",
       "refersTo": "",
-      "description": "The red→ember gradient $0; the only gradient text in the system.",
+      "description": "The solid red $0; a key highlight, no gradient.",
       "html": "<div class=\"ds-zero-wrap\"><p class=\"ds-zero-label\">Due today</p><p class=\"ds-zero\">$0</p></div>",
-      "css": ".ds-zero-wrap{background:var(--color-snow,#F5F5F7);padding:32px;text-align:center;font-family:Inter,-apple-system,sans-serif;} .ds-zero-label{margin:0;font-size:21px;font-weight:600;letter-spacing:-0.02em;color:var(--color-ink,#1D1D1F);} .ds-zero{margin:8px 0 0;font-size:120px;font-weight:700;letter-spacing:-0.035em;line-height:0.9;font-variant-numeric:tabular-nums;background:linear-gradient(100deg,#E3262F 0%,#FF6A3D 70%,#FFB23D 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}"
+      "css": ".ds-zero-wrap{background:var(--color-snow,#F5F5F7);padding:32px;text-align:center;font-family:Inter,-apple-system,sans-serif;} .ds-zero-label{margin:0;font-size:21px;font-weight:600;letter-spacing:-0.02em;color:var(--color-ink,#1D1D1F);} .ds-zero{margin:8px 0 0;font-family:Poppins,Inter,sans-serif;font-size:120px;font-weight:800;letter-spacing:-0.025em;line-height:0.9;font-variant-numeric:tabular-nums;color:var(--color-red,#C8102E);}"
     }
   ],
   "narrative": {
     "northStar": "The Product Page",
-    "overview": "**Creative North Star: \"The Product Page\"**\n\nCapitalSites sells a website plan, and the site presents that plan the way Apple presents a phone: the product is shown big, on real screens, and priced plainly. Every section is a full-bleed tile. True black and Apple grey alternate as the ground, and saturated colour tiles in CapitalSites red and deep navy break that rhythm. Headlines are set in Inter at 700 with tight tracking, large enough to carry a section alone. The supporting copy is one short line and one chevron link.\n\nThe product imagery is the studio's own work: screenshots of the three concept sites (`public/shots/*.jpg`) set inside CSS-drawn MacBook and iPhone frames. There is no stock photography, no icon-card grid and no testimonial carousel. Depth comes from the devices and a soft red-navy glow under the hero, not from card chrome. Motion is a single transform-only scroll-driven rise, written in CSS, which disappears when reduced motion is requested.\n\nThis world replaces the earlier receipt world, which the owner rejected as plain. The three concept demos under `src/app/portfolio/{fade-and-co,ember-kitchen,maison-noir}` are separate worlds with their own styling and are out of scope here. The legacy `--color-red-brand` (#8B1A1A) token exists only for their banners and is not part of this system.",
+    "overview": "**Creative North Star: \"The Product Page\"**\n\nCapitalSites is a small Canadian web studio that sells a website plan, and the site presents that plan the way Apple presents a phone: the product is shown big, on real screens, and priced plainly. Every section is a full-bleed tile. The brand opens in red: a solid red nav bar sits over a red hero, then true black, white and Apple grey alternate as the ground, with solid red and near-black ink tiles as punctuation. Headlines are set in Poppins (800 for display, 700 for headlines), the geometric face that matches the owner's logo wordmark, large enough to carry a section alone. Inter carries body and UI text. The supporting copy is one short line and one chevron link.\n\nThe product imagery is the studio's own work: screenshots of the three concept sites (`public/shots/*.jpg`) set inside CSS-drawn MacBook and iPhone frames. There is no stock photography, no icon-card grid and no testimonial carousel. Depth comes from the devices, not from card chrome. Motion is a single transform-only scroll-driven rise, written in CSS, which disappears when reduced motion is requested.\n\nThis world replaces the earlier receipt world, which the owner rejected as plain. The three concept demos under `src/app/portfolio/{fade-and-co,ember-kitchen,maison-noir}` are separate worlds with their own styling and are out of scope here. The legacy `--color-red-brand` (#8B1A1A) token exists only for their banners and is not part of this system.\n\nThe owner's logo is the brand mark: a full-colour symbol with a \"CapitalSites\" wordmark (`public/logo-full.png`), a colour symbol alone (`public/logo-mark.png`) and a solid white symbol for red or dark grounds (`public/logo-mark-white.png`). All have transparent backgrounds. **Open brand question (owner to decide):** the symbol includes a tower that resembles Parliament's Peace Tower, while the owner's earlier brief said no government-style imagery in the logo or header. The owner supplied this logo and asked for it to be used, so it ships as is; this system does not resolve the conflict.",
     "keyCharacteristics": [
-      "Full-bleed alternating tiles: black, snow, white, then a red or navy colour tile for punctuation.",
-      "Inter 700 display and headline type with negative tracking (-0.035em / -0.028em) and balanced wrapping.",
-      "Pill buttons (980px radius) and red chevron text links (\"Learn more ›\").",
+      "A red opening: solid red nav bar over a red radial hero, both with white type.",
+      "Full-bleed alternating tiles below: black, snow, white, then a solid red or ink tile for punctuation.",
+      "One accent only: deep maple red. No secondary hue.",
+      "Poppins display (800, -0.025em) and headline (700, -0.02em) type with balanced wrapping; Inter for everything else.",
+      "Pill buttons (980px radius) and ink chevron text links (\"Learn more ›\") that turn red on hover.",
       "Real concept-site screenshots inside CSS MacBook and iPhone frames.",
-      "One gradient signature: red into ember, used only on \"$0\" figures.",
       "Centred composition on a 1024px container. Tiles in a mosaic sit 12px apart on white."
     ],
     "rules": [
       {
-        "name": "The Gradient Is For Zero Rule",
-        "body": "The red → ember → amber text gradient (`.zero-fig`) is used only on \"$0\" figures: the home \"Due today\" figure and the featured plan's price on pricing. Every other emphasis, including the pricing h1's second line, is solid colour (red-bright on dark, red on light). Gradient fills on tiles are allowed (red, navy, glow). Gradient text on anything that isn't a $0 figure is not.",
+        "name": "The One Accent Rule",
+        "body": "Red is the only accent. As a full ground it is allowed in three places only: the nav bar, the home hero and the red tiles (owner request). Otherwise it goes on primary buttons, links on hover and key highlights (the $0 figures, the featured plan, checkmarks). Every other surface is a neutral. Red text is for large type or for white grounds (and snow, 5.40:1). Gradients are not used for text. The red tile is solid; the home hero's radial is the one red gradient, and every stop in it is red or darker.",
         "section": "colors"
       },
       {
-        "name": "The Sky Is For Focus Rule",
-        "body": "`sky` marks keyboard focus. Do not use it as a decorative accent.",
+        "name": "The Red On Black Is Large Only Rule",
+        "body": "Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line at 48–88px. Body-size links and copy on dark grounds stay white. Text on red grounds (tiles, hero, nav) is white or white at 90% (4.95:1), never lower.",
         "section": "colors"
       },
       {
         "name": "The Stay On The Ramp Rule",
-        "body": "Headline sizes come in pairs from the list above (40/56, 36/48, 32/48, 48/64/88, 52/72/96). Do not add one-off steps.",
+        "body": "Headline sizes come in pairs from the list above (40/56, 36/48, 32/48, 48/64/88, 56/80/112). Do not add one-off steps.",
+        "section": "typography"
+      },
+      {
+        "name": "The Poppins For Display Only Rule",
+        "body": "Poppins is for `.display`, `.headline` and the wordmark. Body, subheads, labels, buttons and nav links stay in Inter.",
         "section": "typography"
       },
       {
@@ -486,15 +467,22 @@
       }
     ],
     "dos": [
-      "Do build sections as full-bleed tiles alternating black and snow or white, with a red or navy tile as punctuation.",
-      "Do take every display and headline size from the ramp (e.g. 52/72/96, 48/64/88, 40/56, 36/48) at Inter 700 with the `.display` or `.headline` tracking.",
+      "Do open with the red nav and red hero, then build sections as full-bleed tiles alternating black and snow or white, with a solid red or ink tile as punctuation.",
+      "Do take every display and headline size from the ramp (e.g. 56/80/112, 48/64/88, 40/56, 36/48) in Poppins via `.display` (800) or `.headline` (700).",
+      "Do use the white logo symbol on red or dark grounds and the full-colour logo on light grounds.",
       "Do show the product as real concept-site screenshots in the MacBook or iPhone frames, cropped by the tile edge.",
-      "Do end a section with one pill pair or one to two chevron links. Use red on light, red-bright on dark, white on colour.",
-      "Do keep keyboard focus visible with the 3px sky outline.",
+      "Do end a section with one pill pair or one to two chevron links. Chevrons are ink on light (red on hover) and white on dark, red and ink tiles.",
+      "Do keep keyboard focus visible: a 3px ink outline on pills (white on dark), a 2px currentColor outline on chevron links, and an ink border and ring on fields.",
+      "Do keep text on red grounds (tiles, hero, nav) at white or white/90 (4.95:1) and text on light grounds no lighter than ink-2.",
       "Do keep the `.rise` reveal CSS-only, transform-only (no opacity fade), and gated by `prefers-reduced-motion`."
     ],
     "donts": [
-      "Don't use the red → ember gradient text anywhere but a \"$0\" figure.",
+      "Don't add a second accent hue, and don't put gradients on text or on the red tile. The home hero radial is the only red gradient, and it never uses a stop lighter than red.",
+      "Don't use red as a full ground beyond the nav bar, the home hero and red tiles.",
+      "Don't set body, buttons or nav links in Poppins. It is the display face only.",
+      "Don't set body-size red text on black (3.57:1). Red on black is for large display text only.",
+      "Don't use red for field focus or other neutral states. Red must never read as an error.",
+      "Don't use the Canadian flag, a maple leaf, a \"Canada\" wordmark or government-style imagery, and don't imply any government affiliation. (Open question: the owner-supplied logo's tower resembles the Peace Tower; that is the owner's call, not a precedent for new imagery.)",
       "Don't add stock photography, icon-card grids or testimonial carousels. The devices and the type carry the page.",
       "Don't put uppercase letter-spaced eyebrows above headlines. Use a sentence-case 21px+ title line or nothing.",
       "Don't put shadows on tiles or plan cards. Shadows belong to devices and to floating cards.",

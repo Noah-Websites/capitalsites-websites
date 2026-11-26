@@ -3,7 +3,7 @@ import { Pill, ChevLink, IPhone } from "@/components/ui";
 
 export const metadata = {
   title: "Services — CapitalSites",
-  description: "Design, mobile, SEO, support and e-commerce for Ontario small businesses.",
+  description: "Design, mobile, SEO, support and e-commerce for independent small businesses across Canada.",
 };
 
 export default function ServicesPage() {
@@ -12,7 +12,7 @@ export default function ServicesPage() {
       <section className="tile tile-black on-dark text-center px-6 pt-20 md:pt-28 pb-20">
         <h1 className="display text-[48px] sm:text-[64px] md:text-[88px] text-white">Everything your site needs.</h1>
         <p className="subhead text-[19px] md:text-[24px] mt-5 text-night-muted max-w-[640px] mx-auto">
-          Everything Ontario small businesses need to look credible and get found online.
+          Everything an independent Canadian business needs to look credible and get found online.
         </p>
       </section>
 
@@ -28,12 +28,12 @@ export default function ServicesPage() {
             </div>
             <ChevLink href="/portfolio">See concept work</ChevLink>
           </Rise>
-          <Rise className="tile tile-red on-dark on-color card-tile md:col-span-2 p-10 min-h-[420px] flex flex-col justify-between">
+          <Rise className="tile tile-red on-dark card-tile md:col-span-2 p-10 min-h-[420px] flex flex-col justify-between">
             <h2 className="headline text-[36px] md:text-[40px]">Fast.</h2>
             <div className="tabular">
               <p className="display text-[96px] leading-none">7</p>
               <p className="text-[19px] font-semibold mt-1">days to launch a rebuild</p>
-              <p className="text-[14px] text-white/85 mt-3">New sites 10–14 days. Premium 14–21.</p>
+              <p className="text-[14px] text-white/90 mt-3">New sites 10–14 days. Premium 14–21.</p>
             </div>
           </Rise>
           <Rise className="tile tile-black on-dark card-tile md:col-span-3 px-10 pt-10 md:px-14 md:pt-14 min-h-[520px] flex flex-col">
@@ -45,16 +45,16 @@ export default function ServicesPage() {
               <IPhone src="/shots/fade-and-co-mobile.jpg" alt="Fade & Co concept website on a phone" />
             </div>
           </Rise>
-          <Rise className="tile tile-navy on-dark on-color card-tile md:col-span-3 p-10 md:p-14 min-h-[520px] flex flex-col">
+          <Rise className="tile tile-ink on-dark card-tile md:col-span-3 p-10 md:p-14 min-h-[520px] flex flex-col">
             <h2 className="headline text-[36px] md:text-[48px]">Found on Google.</h2>
-            <p className="text-[17px] md:text-[19px] text-white/85 mt-3 max-w-[440px] leading-[1.45]">
+            <p className="text-[17px] md:text-[19px] text-white/90 mt-3 max-w-[440px] leading-[1.45]">
               Technical SEO, semantic HTML, image optimization, sitemap generation, and Google Search Console setup
               included with every build.
             </p>
             <div className="mt-auto pt-10 rounded-2xl bg-white text-ink p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)] max-w-[440px]">
-              <p className="text-[12px] text-ink-3">Sample search result</p>
+              <p className="text-[12px] text-ink-2">Sample search result</p>
               <p className="text-[13px] text-ink-2 mt-2">yourbusiness.ca</p>
-              <p className="text-[19px] text-[#1a0dab] font-medium leading-tight mt-0.5">Your Business — London, ON</p>
+              <p className="text-[19px] text-ink font-medium leading-tight mt-0.5 underline underline-offset-2">Your Business — Hours, Menu &amp; Booking</p>
               <p className="text-[14px] text-ink-2 mt-1 leading-snug">Hours, menu, booking and directions. Updated monthly.</p>
             </div>
           </Rise>

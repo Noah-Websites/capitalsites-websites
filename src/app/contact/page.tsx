@@ -2,7 +2,7 @@ import { ChevLink } from "@/components/ui";
 
 export const metadata = {
   title: "Contact — CapitalSites",
-  description: "Tell us about your Ontario business. We reply within 24 hours.",
+  description: "Tell us about your business. We reply within 24 hours.",
 };
 
 export default function ContactPage() {
@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="pt-2">
           <h1 className="display text-[48px] md:text-[72px]">Let&apos;s talk.</h1>
           <p className="subhead text-[19px] md:text-[21px] text-ink-2 mt-5 max-w-[440px]">
-            Tell us about your Ontario business and we will get back to you within 24 hours.
+            Tell us about your business and we will get back to you within 24 hours.
           </p>
           <div className="mt-10 space-y-4">
             <div>
@@ -20,7 +20,7 @@ export default function ContactPage() {
             </div>
             <p className="text-[17px] text-ink-2">
               Prefer email?{" "}
-              <a href="mailto:capitalsitesottawa@gmail.com" className="text-red hover:underline underline-offset-3">
+              <a href="mailto:capitalsitesottawa@gmail.com" className="text-ink underline underline-offset-3 hover:text-red">
                 capitalsitesottawa@gmail.com
               </a>
             </p>

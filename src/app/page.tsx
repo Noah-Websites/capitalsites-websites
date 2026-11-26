@@ -12,14 +12,18 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="tile tile-black tile-glow on-dark pt-14 md:pt-20 text-center">
+      <section className="tile tile-hero on-dark pt-16 md:pt-24 text-center">
         <div className="px-6">
-          <h1 className="display text-[52px] sm:text-[72px] md:text-[96px] text-white">Your website. Rebuilt.</h1>
-          <p className="subhead text-[21px] md:text-[28px] mt-4 text-night-muted">
-            <span className="text-white">$0 upfront.</span> $99/month.
+          <h1 className="display text-[56px] sm:text-[80px] md:text-[112px] leading-[0.95] text-white">
+            Your website.
+            <br />
+            Rebuilt.
+          </h1>
+          <p className="subhead text-[21px] md:text-[30px] mt-6 text-white">
+            <span className="font-bold">$0 upfront.</span> <span className="text-white/90">Then $99/month.</span>
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Pill href="/audit">Get a free audit</Pill>
+            <Pill href="/audit" variant="white">Get a free audit</Pill>
             <Pill href="/pricing" variant="ghost">
               See pricing
             </Pill>
@@ -57,9 +61,9 @@ export default function Home() {
       {/* Two-up promo tiles */}
       <section className="bg-white p-3">
         <div className="grid md:grid-cols-2 gap-3">
-          <Rise className="tile tile-red on-dark on-color card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
+          <Rise className="tile tile-red on-dark card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
             <h2 className="headline text-[40px] md:text-[56px]">Live in 7 days.</h2>
-            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/85">Rebuilds launch in a week.</p>
+            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/90">Rebuilds launch in a week.</p>
             <div
               className="mt-auto pt-12 flex justify-center items-end gap-3 tabular"
               role="img"
@@ -75,21 +79,21 @@ export default function Home() {
                   className="w-[30%] max-w-[150px] rounded-2xl bg-white/12 px-3 py-4 text-left ring-1 ring-white/25"
                   style={{ height: `${120 + i * 50}px` }}
                 >
-                  <p className="text-[12px] text-white/80">Day</p>
+                  <p className="text-[12px] text-white/90">Day</p>
                   <p className="text-[28px] font-bold tracking-[-0.03em] leading-none">{s.d}</p>
                   <p className="text-[14px] font-medium mt-2">{s.t}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-[14px] text-white/85">New sites take 10–14 days. Premium e-commerce 14–21.</p>
+            <p className="mt-6 text-[14px] text-white/90">New sites take 10–14 days. Premium e-commerce 14–21.</p>
           </Rise>
-          <Rise className="tile tile-navy on-dark on-color card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
+          <Rise className="tile tile-ink on-dark card-tile text-center px-8 pt-14 pb-14 min-h-[540px] flex flex-col">
             <h2 className="headline text-[40px] md:text-[56px]">One person builds it.</h2>
-            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/85">No agency. No handoffs. Just Noah.</p>
+            <p className="subhead text-[19px] md:text-[24px] mt-3 text-white/90">No agency. No handoffs. Just Noah.</p>
             <ul className="mt-auto pt-12 grid gap-3 max-w-[360px] mx-auto w-full text-left">
               {["No project managers in between", "No offshore handoff", "You own it after 12 months"].map((t) => (
                 <li key={t} className="flex items-center gap-3 rounded-2xl bg-white/10 ring-1 ring-white/15 px-4 py-3.5 text-[16px] font-medium">
-                  <svg viewBox="0 0 20 20" className="w-5 h-5 flex-none text-sky" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <svg viewBox="0 0 20 20" className="w-5 h-5 flex-none text-white" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     <path d="M4.5 10.5 8.5 14.5 15.5 6" />
                   </svg>
                   {t}
@@ -134,16 +138,16 @@ export default function Home() {
         <Rise className="max-w-[720px] mx-auto text-center">
           <h2 className="headline text-[40px] md:text-[56px]">Hi, I&apos;m Noah.</h2>
           <p className="text-[19px] md:text-[21px] text-ink-2 mt-6 leading-[1.5]">
-            I&apos;m an Ontario-based developer who started CapitalSites because too many great local businesses are
+            I&apos;m a Canadian developer who started CapitalSites because too many great independent businesses are
             losing customers to slow, broken websites. Every project I take on, I build personally. No agency overhead,
             no offshore handoffs, no project managers between you and the work.
           </p>
-          <p className="mt-6 text-[14px] font-medium text-ink-3">Ontario · London, Toronto, Ottawa</p>
+          <p className="mt-6 text-[14px] font-medium text-ink-2">Working with small businesses across Canada</p>
         </Rise>
       </section>
 
       {/* Closing */}
-      <section className="tile tile-red on-dark on-color py-24 md:py-32 px-6 text-center">
+      <section className="tile tile-red on-dark py-24 md:py-32 px-6 text-center">
         <Rise>
           <h2 className="display text-[44px] md:text-[80px]">See what&apos;s broken.</h2>
           <p className="subhead text-[19px] md:text-[24px] mt-4 text-white/90 max-w-[620px] mx-auto">
