@@ -1,10 +1,19 @@
 import Rise from "@/components/Rise";
 import { Pill, ChevLink, Check } from "@/components/ui";
+import { contactHref } from "@/lib/services";
 
 const faqs = [
   {
     q: "How does payment work?",
     a: "For the Website Plan there's nothing to pay upfront. Your $99/month starts the day your site launches and runs for a 12-month minimum. After that it drops to $79/month, or you can cancel with 30 days notice. Premium builds are paid 50% upfront and 50% on launch, plus $129/month.",
+  },
+  {
+    q: "What does the Website Plan cost in the first year?",
+    a: "$1,188 in total: 12 monthly payments of $99, starting on launch day. That's the full first-year commitment. There is no build fee on top.",
+  },
+  {
+    q: "What is the $149 Website Fix?",
+    a: "A one-time fix for one specific problem we agree on in writing before we start, like a broken Book Now button, a contact form that doesn't arrive, a wrong phone number or a missing tap-to-call link. You get before-and-after screenshots, and we test the fix on a phone and a computer. You pay $149 by Interac e-Transfer once it's done and working; if we can't fix it, there's no charge. If the fix stops working within 30 days because of our work, we fix it again at no charge. Anything else is quoted separately. It doesn't cover redesigns, moving your site to a new platform, or complex integrations.",
   },
   {
     q: "Why is there a 12-month minimum?",
@@ -35,13 +44,13 @@ const faqs = [
 const plans = [
   {
     name: "Website Plan",
-    tag: "Most popular",
+    tag: "Rebuild or first site",
     for: "For businesses that need their current site rebuilt, or a website for the first time.",
     big: "$0",
     bigNote: "upfront",
     monthly: "$99/mo",
-    monthlyNote: "12-month minimum, then $79/mo",
-    cta: { href: "/contact", label: "Start with $0 upfront" },
+    monthlyNote: "12-month minimum ($1,188 in year one), then $79/mo",
+    cta: { href: contactHref("rebuild"), label: "Start with $0 upfront" },
     build: [
       "Full design and build up to 7 pages",
       "Mobile-optimized and fast-loading",
@@ -61,7 +70,7 @@ const plans = [
     bigNote: "build fee, 50% upfront and 50% on launch",
     monthly: "$129/mo",
     monthlyNote: "starts on launch day",
-    cta: { href: "/contact", label: "Ask about Premium" },
+    cta: { href: contactHref("premium"), label: "Ask about Premium" },
     build: [
       "Everything in the Website Plan",
       "Up to 15 pages",
@@ -76,7 +85,8 @@ const plans = [
 
 export const metadata = {
   title: "Pricing — CapitalSites",
-  description: "Website Plan: $0 upfront, $99/month. Premium: $2,500 + $129/month. All prices in CAD.",
+  description:
+    "Website Fix: $149 one-time. Website Plan: $0 upfront, $99/month (12-month minimum). Premium: $2,500 + $129/month. All prices in CAD.",
 };
 
 export default function PricingPage() {
@@ -135,11 +145,33 @@ export default function PricingPage() {
               </div>
             </Rise>
           ))}
+          <Rise className="card-tile bg-white p-8 md:p-10 md:col-span-2 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 className="headline text-[36px] md:text-[44px]">Website Fix</h2>
+                <span className="rounded-full px-3 py-1 text-[13px] font-semibold bg-snow text-ink-2">One problem, one price</span>
+              </div>
+              <p className="text-[17px] text-ink-2 mt-3 leading-[1.5] max-w-[600px]">
+                Just one thing broken? We fix one agreed problem on your current site, test it on a phone and a computer,
+                and send you before-and-after screenshots. You pay once it&apos;s fixed; if we can&apos;t fix it, there&apos;s
+                no charge. Covered for 30 days. Redesigns, platform moves and complex integrations aren&apos;t included.
+              </p>
+            </div>
+            <div className="md:text-right">
+              <p className="display tabular text-[72px] md:text-[88px] leading-none text-ink">$149</p>
+              <p className="text-[15px] text-ink-2 mt-2">one-time, paid when it&apos;s fixed</p>
+              <div className="mt-6">
+                <Pill href={contactHref("fix")} variant="ghost">
+                  Fix one problem
+                </Pill>
+              </div>
+            </div>
+          </Rise>
         </div>
-        <p className="max-w-[760px] mx-auto mt-10 text-center text-[14px] leading-[1.6] text-ink-2">
-          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum,
-          then $79/month or cancel with 30 days notice. Premium: build fee paid 50% upfront and 50% on launch; monthly
-          fee starts on launch day.
+        <p className="max-w-[760px] mx-auto mt-16 text-center text-[14px] leading-[1.6] text-ink-2">
+          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum
+          ($1,188 in the first year), then $79/month or cancel with 30 days notice. Premium: build fee paid 50% upfront
+          and 50% on launch; monthly fee starts on launch day. Website Fix: $149 one-time for one agreed problem.
         </p>
       </section>
 

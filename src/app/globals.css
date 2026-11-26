@@ -302,3 +302,9 @@ input, textarea, select, button { font: inherit; }
 }
 .snap-row::-webkit-scrollbar { display: none; }
 .snap-row > * { scroll-snap-align: start; }
+
+/* Keyboard focus on the transparent service select shows on the visible field beneath it. */
+.relative:has(> .service-select:focus-visible) > .field {
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ink) 14%, transparent);
+}

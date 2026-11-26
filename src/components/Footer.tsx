@@ -32,8 +32,8 @@ export default function Footer() {
     <footer className="bg-snow text-ink-2 text-[12px] leading-[1.6]">
       <div className="max-w-[1024px] mx-auto px-5 pt-6 pb-10">
         <p className="pb-4 border-b border-line">
-          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum,
-          then $79/month or cancel with 30 days notice.
+          All prices in CAD. Website Plan: no upfront payment; $99/month starts on launch day with a 12-month minimum
+          ($1,188 in the first year), then $79/month or cancel with 30 days notice. Website Fix: $149 one-time.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-[1.2fr_1fr_1fr_1fr] gap-6 py-6 border-b border-line">
           <Link href="/" className="col-span-2 sm:col-span-1" aria-label="CapitalSites home">

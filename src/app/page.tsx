@@ -1,11 +1,36 @@
 import Link from "next/link";
 import Rise from "@/components/Rise";
 import { ChevLink, Pill, MacBook, IPhone } from "@/components/ui";
+import { contactHref, type ServiceId } from "@/lib/services";
 
 const concepts = [
   { slug: "fade-and-co", name: "Fade & Co.", kind: "Barbershop · Calgary", plan: "Website Plan" },
   { slug: "ember-kitchen", name: "Ember Kitchen", kind: "Restaurant · Halifax", plan: "Website Plan" },
   { slug: "maison-noir", name: "Maison Noir", kind: "Boutique · Ottawa", plan: "Premium" },
+];
+
+const starts: { title: string; body: string; price: string; cta: string; id: ServiceId }[] = [
+  {
+    title: "Fix one thing.",
+    body: "One broken button, form or link, fixed and tested on phone and computer, with before-and-after proof.",
+    price: "$149 one-time · pay when it's fixed",
+    cta: "Fix one problem",
+    id: "fix",
+  },
+  {
+    title: "Rebuild your site.",
+    body: "Your current site is slow, outdated or hard to use on a phone. We rebuild it in 7 days.",
+    price: "$0 upfront · $99/mo",
+    cta: "Rebuild my site",
+    id: "rebuild",
+  },
+  {
+    title: "Your first website.",
+    body: "No website yet? No link needed. Tell us about your business and we build it in 10–14 days.",
+    price: "$0 upfront · $99/mo",
+    cta: "Start my first site",
+    id: "new-site",
+  },
 ];
 
 export default function Home() {
@@ -56,6 +81,29 @@ export default function Home() {
             <ChevLink href="/pricing#faq">How the 12 months work</ChevLink>
           </div>
         </Rise>
+      </section>
+
+      {/* Three ways to start */}
+      <section className="bg-white px-3 pt-20 md:pt-24 pb-3">
+        <Rise className="text-center px-6">
+          <h2 className="headline text-[40px] md:text-[56px]">What do you need?</h2>
+          <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2">Three ways to start. Pick the one that fits.</p>
+        </Rise>
+        <div className="mt-12 grid md:grid-cols-3 gap-3">
+          {starts.map((t) => (
+            <Rise key={t.id} className="tile tile-snow card-tile px-8 pt-12 pb-10 flex flex-col">
+              <h3 className="headline text-[32px] md:text-[36px]">{t.title}</h3>
+              <p className="text-[17px] text-ink-2 mt-3 leading-[1.45]">{t.body}</p>
+              <p className="mt-auto pt-8 text-[17px] font-semibold text-ink">{t.price}</p>
+              <div className="mt-4">
+                <ChevLink href={contactHref(t.id)}>{t.cta}</ChevLink>
+              </div>
+            </Rise>
+          ))}
+        </div>
+        <p className="pt-16 pb-12 px-6 text-center text-[14px] leading-[1.6] text-ink-2 max-w-[720px] mx-auto">
+          Website Plan: 12-month minimum ($1,188 in the first year), then $79/month or cancel with 30 days notice.
+        </p>
       </section>
 
       {/* Two-up promo tiles */}

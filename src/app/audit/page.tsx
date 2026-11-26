@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Check } from "@/components/ui";
+import { contactHref } from "@/lib/services";
 
 export const metadata = {
   title: "Free Website Audit — CapitalSites",
@@ -53,6 +55,11 @@ export default function AuditPage() {
           </button>
           <p className="text-center text-[13px] text-ink-2">
             Delivered within 24 hours. No obligation. Your information is never shared.
+          </p>
+          <p className="text-center text-[13px] text-ink-2">
+            <Link href={contactHref("new-site")} className="text-ink underline underline-offset-3 hover:text-red">
+              No website yet? Tell us about your business instead
+            </Link>
           </p>
         </form>
       </div>
