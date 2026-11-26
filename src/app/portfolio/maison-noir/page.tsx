@@ -26,10 +26,12 @@ const fadeUp = {
 /* ---- Banner ---- */
 function DemoBanner() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a concept redesign by CapitalSites — Premium Tier $2,500 build + $129/mo
+    <div className="fixed top-0 left-0 right-0 z-[60] h-8 flex items-center justify-center bg-red-brand text-white text-xs font-medium tracking-wide whitespace-nowrap overflow-hidden px-3">
+      <span className="lg:hidden">Concept site by CapitalSites</span>
+      <span className="hidden lg:inline">This is a concept redesign by CapitalSites — Premium $2,500 build + $129/mo</span>
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
-        Back to Portfolio
+        <span className="lg:hidden">Back</span>
+        <span className="hidden lg:inline">Back to Portfolio</span>
       </Link>
     </div>
   );
@@ -38,8 +40,8 @@ function DemoBanner() {
 /* ---- Announcement Bar ---- */
 function AnnouncementBar() {
   return (
-    <div className="fixed top-8 left-0 right-0 z-[55] bg-[#1a1a1a] text-center text-xs py-2 text-white/40 tracking-widest uppercase">
-      Free shipping on orders over $150 &nbsp;·&nbsp; New arrivals every Friday
+    <div className="fixed top-8 left-0 right-0 z-[55] h-10 flex items-center justify-center bg-[#1a1a1a] text-center text-xs text-white/40 tracking-wide sm:tracking-widest uppercase whitespace-nowrap overflow-hidden px-3">
+      <span className="text-white/80">Demo store: checkout is disabled</span><span className="hidden sm:inline"> &nbsp;·&nbsp; Free shipping on orders over $150</span>
     </div>
   );
 }
@@ -69,7 +71,7 @@ function Nav() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5 inline">
                 <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
               </svg>
-              <span className="ml-1">Cart (0)</span>
+              <span className="ml-1">Cart (demo)</span>
             </a>
           </div>
           <button onClick={() => setOpen(!open)} className="md:hidden w-8 h-8 flex flex-col items-center justify-center gap-1.5" aria-label="Menu">
@@ -132,7 +134,7 @@ function Hero() {
           <p className="mt-6 text-white/75 text-lg max-w-md mx-auto">
             Timeless essentials crafted from premium fabrics. Designed in Ottawa&apos;s Centretown, made to last.
           </p>
-          <div className="mt-10 flex justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a href="#shop" className="bg-white text-black px-10 py-3.5 rounded-none font-semibold hover:bg-white/90 transition-colors tracking-wide text-sm uppercase">
               Shop Now
             </a>
@@ -196,8 +198,13 @@ function Shop() {
                 )}
                 {/* Quick add overlay */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <button className="w-full bg-white text-black py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors">
-                    Quick Add
+                  <button
+                    type="button"
+                    disabled
+                    title="Demo store: checkout is disabled"
+                    className="w-full bg-white/70 text-black/70 py-2.5 text-xs font-semibold uppercase tracking-wider cursor-not-allowed"
+                  >
+                    Demo only · checkout disabled
                   </button>
                 </div>
               </div>
@@ -423,7 +430,7 @@ function Newsletter() {
         <span className="text-purple-400/60 text-sm font-medium tracking-[0.2em] uppercase">Newsletter</span>
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-3">Stay in the Loop</h2>
         <p className="text-white/60 text-sm mb-8">Early access to new drops, exclusive offers, and style inspiration. No spam, unsubscribe anytime.</p>
-        <form onSubmit={(e) => e.preventDefault()} className="flex gap-3">
+        <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3">
           <input
             type="email"
             placeholder="Enter your email"

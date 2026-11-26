@@ -20,18 +20,20 @@ const starts: { title: string; body: string; price: string; cta: string; id: Ser
   {
     title: "Rebuild your site.",
     body: "Your current site is slow, outdated or hard to use on a phone. We rebuild it in 7 days.",
-    price: "$0 upfront · $99/mo",
+    price: "$0 upfront · $99/mo ($1,188 in year one)",
     cta: "Rebuild my site",
     id: "rebuild",
   },
   {
     title: "Your first website.",
     body: "No website yet? No link needed. Tell us about your business and we build it in 10–14 days.",
-    price: "$0 upfront · $99/mo",
+    price: "$0 upfront · $99/mo ($1,188 in year one)",
     cta: "Start my first site",
     id: "new-site",
   },
 ];
+
+export const metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (
@@ -46,12 +48,26 @@ export default function Home() {
           </h1>
           <p className="subhead text-[21px] md:text-[30px] mt-6 text-white">
             <span className="font-bold">$0 upfront.</span> <span className="text-white/90">Then $99/month.</span>
+            <span className="block mt-2 text-[15px] md:text-[17px] text-white/90">
+              Website Plan, 12-month minimum ($1,188 in the first year).
+            </span>
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Pill href="/audit" variant="white">Get a free audit</Pill>
             <Pill href="/pricing" variant="ghost">
               See pricing
             </Pill>
+          </div>
+          <div className="mt-6">
+            <Link
+              href={contactHref("fix")}
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/40 px-5 py-2.5 text-[16px] md:text-[17px] font-semibold text-white hover:bg-white/20 transition-colors"
+            >
+              Just one thing broken? Fix one website problem — $149 CAD
+              <svg viewBox="0 0 8 14" className="w-2 h-3.5 flex-none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M1 1l6 6-6 6" />
+              </svg>
+            </Link>
           </div>
         </div>
         <Rise className="mt-14 md:mt-16 px-6">
@@ -67,14 +83,14 @@ export default function Home() {
       {/* $0 */}
       <section className="tile tile-snow py-24 md:py-32 text-center px-6">
         <Rise>
-          <p className="text-[21px] md:text-[24px] font-semibold tracking-[-0.02em] text-ink">Due today</p>
+          <p className="text-[21px] md:text-[24px] font-semibold tracking-[-0.02em] text-ink">Website Plan · due today</p>
           <p className="display zero-fig tabular text-[120px] sm:text-[160px] md:text-[220px] leading-[0.9] mt-2">$0</p>
           <p className="headline text-[32px] md:text-[48px] mt-4 max-w-[760px] mx-auto">
             Then $99 a month. Everything included.
           </p>
           <p className="text-[17px] md:text-[21px] text-ink-2 mt-5 max-w-[620px] mx-auto leading-[1.45]">
-            Design, build, hosting, domain renewal, security updates, monthly content changes and email support. After
-            12 months it drops to $79/month, or cancel with 30 days notice.
+            Design, build, hosting, domain renewal, security updates, monthly content changes and email support. 12-month
+            minimum ($1,188 in the first year). After 12 months it drops to $79/month, or cancel with 30 days notice.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
             <ChevLink href="/pricing">Compare plans</ChevLink>

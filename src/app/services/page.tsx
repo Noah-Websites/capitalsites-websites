@@ -1,9 +1,13 @@
 import Rise from "@/components/Rise";
 import { Pill, ChevLink, IPhone } from "@/components/ui";
+import FixTerms from "@/components/FixTerms";
+import { contactHref } from "@/lib/services";
 
 export const metadata = {
   title: "Services — CapitalSites",
-  description: "Design, mobile, SEO, support and e-commerce for independent small businesses across Canada.",
+  description:
+    "Website Fix ($149 one-time), full rebuilds and first websites, mobile, SEO, support and e-commerce for independent small businesses across Canada.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
@@ -72,10 +76,34 @@ export default function ServicesPage() {
               set up and ready to go. Part of the Premium plan.
             </p>
             <div className="mt-auto pt-6">
-              <ChevLink href="/pricing">Premium pricing</ChevLink>
+              <div className="flex flex-wrap gap-x-8 gap-y-3">
+                <ChevLink href={contactHref("premium")}>Ask about Premium</ChevLink>
+                <ChevLink href="/pricing">Premium pricing</ChevLink>
+              </div>
             </div>
           </Rise>
         </div>
+      </section>
+
+      {/* Website Fix */}
+      <section className="bg-white px-3 pb-3">
+        <Rise className="tile tile-snow card-tile p-10 md:p-14 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+          <div className="flex flex-col">
+            <h2 className="headline text-[36px] md:text-[48px]">Fix one thing.</h2>
+            <p className="text-[17px] md:text-[19px] text-ink-2 mt-3 max-w-[420px] leading-[1.45]">
+              Not ready for a new site? We fix one broken button, form, link or phone number on the site you already
+              have.
+            </p>
+            <p className="display tabular text-[72px] md:text-[88px] leading-none mt-8">$149</p>
+            <p className="text-[15px] text-ink-2 mt-2">CAD, one-time. Paid within 7 days of delivery.</p>
+            <div className="mt-8">
+              <Pill href={contactHref("fix")}>Fix one problem</Pill>
+            </div>
+          </div>
+          <div className="lg:pt-3">
+            <FixTerms />
+          </div>
+        </Rise>
       </section>
 
       <section className="bg-white text-center px-6 py-24 md:py-32">

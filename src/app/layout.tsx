@@ -8,7 +8,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["600", "700", "800"], var
 
 const SITE_TITLE = "CapitalSites — Canadian Web Design Studio";
 const SITE_DESCRIPTION =
-  "A small Canadian web studio building websites for independent small businesses across Canada. $0 upfront, then $99/month.";
+  "A small Canadian web studio building websites for independent small businesses across Canada. Website Fix $149 one-time, or the Website Plan at $0 upfront, then $99/month ($1,188 in the first year).";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.capitalsites.ca"),

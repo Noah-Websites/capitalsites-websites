@@ -7,7 +7,7 @@ const projects = [
     slug: "fade-and-co",
     name: "Fade & Co.",
     location: "Kensington, Calgary",
-    plan: "Website Plan · $0 upfront, $99/mo",
+    plan: "Website Plan · $0 upfront, $99/mo ($1,188 in year one)",
     desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation.",
     tile: "tile-black on-dark",
   },
@@ -15,7 +15,7 @@ const projects = [
     slug: "ember-kitchen",
     name: "Ember Kitchen",
     location: "North End, Halifax",
-    plan: "Website Plan · $0 upfront, $99/mo",
+    plan: "Website Plan · $0 upfront, $99/mo ($1,188 in year one)",
     desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup.",
     tile: "tile-snow",
   },
@@ -32,6 +32,7 @@ const projects = [
 export const metadata = {
   title: "Work — CapitalSites",
   description: "Three concept redesigns showing what CapitalSites builds at each plan.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {

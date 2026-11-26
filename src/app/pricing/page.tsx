@@ -1,11 +1,12 @@
 import Rise from "@/components/Rise";
 import { Pill, ChevLink, Check } from "@/components/ui";
 import { contactHref } from "@/lib/services";
+import FixTerms from "@/components/FixTerms";
 
 const faqs = [
   {
     q: "How does payment work?",
-    a: "For the Website Plan there's nothing to pay upfront. Your $99/month starts the day your site launches and runs for a 12-month minimum. After that it drops to $79/month, or you can cancel with 30 days notice. Premium builds are paid 50% upfront and 50% on launch, plus $129/month.",
+    a: "For the Website Plan there's nothing to pay upfront. Your $99/month starts the day your site launches and runs for a 12-month minimum ($1,188 in the first year). After that it drops to $79/month, or you can cancel with 30 days notice. Premium builds are paid 50% upfront and 50% on launch, plus $129/month.",
   },
   {
     q: "What does the Website Plan cost in the first year?",
@@ -13,7 +14,7 @@ const faqs = [
   },
   {
     q: "What is the $149 Website Fix?",
-    a: "A one-time fix for one specific problem we agree on in writing before we start, like a broken Book Now button, a contact form that doesn't arrive, a wrong phone number or a missing tap-to-call link. You get before-and-after screenshots, and we test the fix on a phone and a computer. You pay $149 by Interac e-Transfer once it's done and working; if we can't fix it, there's no charge. If the fix stops working within 30 days because of our work, we fix it again at no charge. Anything else is quoted separately. It doesn't cover redesigns, moving your site to a new platform, or complex integrations.",
+    a: "A one-time fix for one customer-facing problem, like a broken Book Now button, a contact form that doesn't arrive, a wrong phone number or a missing tap-to-call link. We agree the problem and the price in writing by email before work starts. You get the fix, testing on a phone and a computer, and before-and-after screenshots. You pay $149 CAD by Interac e-Transfer within 7 calendar days after successful delivery; if we can't fix it, there's no charge. If the fix stops working within 30 days because of our work, we fix it again at no charge. That doesn't cover changes made by others, platform or hosting outages, or theme or plugin updates. Not included: redesigns, moving platforms or hosts, complex integrations (booking software, payments, e-commerce) and custom-coded apps. Anything else is quoted separately.",
   },
   {
     q: "Why is there a 12-month minimum?",
@@ -85,36 +86,37 @@ const plans = [
 
 export const metadata = {
   title: "Pricing — CapitalSites",
+  alternates: { canonical: "/pricing" },
   description:
-    "Website Fix: $149 one-time. Website Plan: $0 upfront, $99/month (12-month minimum). Premium: $2,500 + $129/month. All prices in CAD.",
+    "Website Fix: $149 one-time. Website Plan: $0 upfront, $99/month (12-month minimum, $1,188 in year one). Premium: $2,500 + $129/month. All prices in CAD.",
 };
 
 export default function PricingPage() {
   return (
     <>
       <section className="tile tile-black tile-glow on-dark text-center px-6 pt-20 md:pt-28 pb-20">
-        <h1 className="display text-[48px] sm:text-[64px] md:text-[88px] text-white">
+        <h1 className="display text-[40px] sm:text-[60px] md:text-[80px] text-white">
           Simple pricing.
           <br />
-          <span className="text-red">No upfront cost to start.</span>
+          <span className="text-red">$0 upfront on the Website Plan.</span>
         </h1>
         <p className="subhead text-[19px] md:text-[24px] mt-5 text-night-muted max-w-[640px] mx-auto">
-          Transparent monthly pricing from a small Canadian web studio, for independent businesses across Canada.
+          Transparent pricing from a small Canadian web studio, for independent businesses across Canada.
         </p>
       </section>
 
       <section className="bg-snow px-4 md:px-6 py-16 md:py-24">
         <div className="max-w-[1024px] mx-auto grid md:grid-cols-2 gap-5">
-          {plans.map((p, i) => (
-            <Rise key={p.name} className={`card-tile p-8 md:p-10 flex flex-col ${p.featured ? "bg-white ring-2 ring-red" : "bg-white"}`}>
+          {plans.map((p) => (
+            <Rise key={p.name} className={`card-tile min-w-0 p-6 sm:p-8 md:p-10 flex flex-col ${p.featured ? "bg-white ring-2 ring-red" : "bg-white"}`}>
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <h2 className="headline text-[36px] md:text-[44px]">{p.name}</h2>
+                <h2 className="headline text-[32px] sm:text-[36px] md:text-[44px]">{p.name}</h2>
                 <span className={`rounded-full px-3 py-1 text-[13px] font-semibold ${p.featured ? "bg-red text-white" : "bg-snow text-ink-2"}`}>{p.tag}</span>
               </div>
               <p className="text-[17px] text-ink-2 mt-2 leading-[1.45]">{p.for}</p>
 
               <div className="mt-8 pb-8 border-b border-line">
-                <p className={`display tabular text-[72px] md:text-[88px] leading-none ${p.featured ? "zero-fig" : "text-ink"}`}>{p.big}</p>
+                <p className={`display tabular text-[60px] sm:text-[72px] md:text-[88px] leading-none ${p.featured ? "zero-fig" : "text-ink"}`}>{p.big}</p>
                 <p className="text-[15px] text-ink-2 mt-2">{p.bigNote}</p>
                 <p className="headline tabular text-[32px] mt-6">{p.monthly}</p>
                 <p className="text-[15px] text-ink-2 mt-1">{p.monthlyNote}</p>
@@ -145,21 +147,22 @@ export default function PricingPage() {
               </div>
             </Rise>
           ))}
-          <Rise className="card-tile bg-white p-8 md:p-10 md:col-span-2 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+          <Rise className="card-tile min-w-0 bg-white p-6 sm:p-8 md:p-10 md:col-span-2 grid gap-8 md:grid-cols-[1fr_auto] md:items-start">
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <h2 className="headline text-[36px] md:text-[44px]">Website Fix</h2>
+                <h2 className="headline text-[32px] sm:text-[36px] md:text-[44px]">Website Fix</h2>
                 <span className="rounded-full px-3 py-1 text-[13px] font-semibold bg-snow text-ink-2">One problem, one price</span>
               </div>
               <p className="text-[17px] text-ink-2 mt-3 leading-[1.5] max-w-[600px]">
-                Just one thing broken? We fix one agreed problem on your current site, test it on a phone and a computer,
-                and send you before-and-after screenshots. You pay once it&apos;s fixed; if we can&apos;t fix it, there&apos;s
-                no charge. Covered for 30 days. Redesigns, platform moves and complex integrations aren&apos;t included.
+                Just one thing broken? We fix one problem on your current site, without a rebuild or a monthly plan.
               </p>
+              <div className="mt-6 max-w-[640px]">
+                <FixTerms />
+              </div>
             </div>
             <div className="md:text-right">
-              <p className="display tabular text-[72px] md:text-[88px] leading-none text-ink">$149</p>
-              <p className="text-[15px] text-ink-2 mt-2">one-time, paid when it&apos;s fixed</p>
+              <p className="display tabular text-[60px] sm:text-[72px] md:text-[88px] leading-none text-ink">$149</p>
+              <p className="text-[15px] text-ink-2 mt-2">one-time, paid within 7 days of delivery</p>
               <div className="mt-6">
                 <Pill href={contactHref("fix")} variant="ghost">
                   Fix one problem

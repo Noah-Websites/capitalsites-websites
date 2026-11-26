@@ -5,6 +5,7 @@ import { contactHref } from "@/lib/services";
 export const metadata = {
   title: "Free Website Audit — CapitalSites",
   description: "Send us your URL and we'll email you a detailed manual audit within 24 hours.",
+  alternates: { canonical: "/audit" },
 };
 
 const covers = ["Load speed and performance", "Mobile experience", "SEO basics", "Trust signals", "Conversion issues"];
@@ -37,6 +38,7 @@ export default function AuditPage() {
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_subject" value="New Website Audit Request - CapitalSites" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://www.capitalsites.ca/thanks" />
 
           <div>
             <label htmlFor="name" className="field-label">Name</label>
@@ -54,12 +56,16 @@ export default function AuditPage() {
             Request free audit
           </button>
           <p className="text-center text-[13px] text-ink-2">
-            Delivered within 24 hours. No obligation. Your information is never shared.
+            Delivered within 24 hours. No obligation.
           </p>
           <p className="text-center text-[13px] text-ink-2">
             <Link href={contactHref("new-site")} className="text-ink underline underline-offset-3 hover:text-red">
               No website yet? Tell us about your business instead
             </Link>
+          </p>
+          <p className="text-center text-[13px] text-ink-2 leading-[1.5]">
+            Your enquiry is sent through FormSubmit, a third-party form service, to our inbox. We only use it to reply to
+            you.
           </p>
         </form>
       </div>

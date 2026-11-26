@@ -6,6 +6,7 @@ const cols = [
     title: "Plans",
     links: [
       { href: "/pricing", label: "Website Plan" },
+      { href: "/pricing", label: "Website Fix" },
       { href: "/pricing", label: "Premium" },
       { href: "/pricing#faq", label: "Pricing FAQ" },
     ],

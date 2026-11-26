@@ -24,10 +24,12 @@ const fadeUp = {
 /* ---- Banner ---- */
 function DemoBanner() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-red-brand text-white text-center text-xs py-2 font-medium tracking-wide">
-      This is a concept redesign by CapitalSites — Website Plan $0 upfront, $99/mo
+    <div className="fixed top-0 left-0 right-0 z-[60] h-8 flex items-center justify-center bg-red-brand text-white text-xs font-medium tracking-wide whitespace-nowrap overflow-hidden px-3">
+      <span className="lg:hidden">Concept site by CapitalSites</span>
+      <span className="hidden lg:inline">This is a concept redesign by CapitalSites — Website Plan $0 upfront, $99/mo ($1,188 in year one)</span>
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
-        Back to Portfolio
+        <span className="lg:hidden">Back</span>
+        <span className="hidden lg:inline">Back to Portfolio</span>
       </Link>
     </div>
   );
