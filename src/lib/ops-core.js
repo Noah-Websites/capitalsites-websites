@@ -13,7 +13,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  var VERSION = '0.1.0';
+  var VERSION = '0.2.0';
   var TZ_DEFAULT = 'America/Toronto';
 
   // ---------- small utilities ----------
@@ -130,7 +130,7 @@
   var LEAD_FIELDS = ['lead_id', 'created_at_utc', 'source', 'submission_id', 'customer_name', 'email', 'phone',
     'preferred_contact', 'service_category', 'postal_code', 'urgency', 'message', 'status', 'assigned_owner',
     'last_contact_at', 'next_action', 'next_action_at', 'quote_id', 'quote_status', 'opt_out', 'duplicate_count',
-    'duplicate_of', 'notes', 'updated_at', 'error_state'];
+    'related_lead_id', 'notes', 'updated_at', 'error_state'];
   var LEAD_STATUSES = ['New', 'Contacted', 'Booked', 'Quoted', 'Won', 'Lost', 'Rejected'];
   var OPEN_STATUSES = ['New', 'Contacted', 'Booked', 'Quoted'];
 
@@ -141,16 +141,26 @@
   }
 
   /**
-   * Find an open lead from the same customer (same email OR phone) inside the window.
+   * Same customer = same email OR phone, on an OPEN lead, inside the window.
+   * Duplicate = same customer AND same service (merged; nothing is discarded: the new message is kept in notes).
+   * Related   = same customer, DIFFERENT service (a legitimate new job: a new lead is created and linked).
    */
+  function sameCustomer(L, v, w, t) {
+    if (OPEN_STATUSES.indexOf(L.status) === -1) return false;
+    var same = (v.email && L.email === v.email) || (v.phone && L.phone === v.phone);
+    return !!same && Math.abs(t - ms(L.created_at_utc)) <= w;
+  }
   function findDuplicate(leads, v, windowHours) {
     var w = (windowHours || 72) * HOUR, t = ms(v.submitted_at);
     for (var i = leads.length - 1; i >= 0; i--) {
       var L = leads[i];
-      if (OPEN_STATUSES.indexOf(L.status) === -1) continue;
-      var same = (v.email && L.email === v.email) || (v.phone && L.phone === v.phone);
-      if (same && Math.abs(t - ms(L.created_at_utc)) <= w) return L;
+      if (sameCustomer(L, v, w, t) && L.service_category === v.service_category) return L;
     }
+    return null;
+  }
+  function findRelated(leads, v, windowHours) {
+    var w = (windowHours || 72) * HOUR, t = ms(v.submitted_at);
+    for (var i = leads.length - 1; i >= 0; i--) if (sameCustomer(leads[i], v, w, t)) return leads[i];
     return null;
   }
 
@@ -183,7 +193,8 @@
     if (dup) {
       dup.duplicate_count = (dup.duplicate_count || 0) + 1;
       dup.notes = (dup.notes ? dup.notes + ' | ' : '') + 'Repeat enquiry ' + formatLocal(ms(v.submitted_at), cfg.timezone) +
-        (v.message ? ': ' + v.message.slice(0, 140) : '');
+        (v.message ? ': ' + v.message.slice(0, 1000) : '') + (v.phone && v.phone !== dup.phone ? ' (new phone ' + v.phone + ')' : '') +
+        (v.email && v.email !== dup.email ? ' (new email ' + v.email + ')' : '');
       if (v.urgency === 'emergency' && dup.urgency !== 'emergency') {
         dup.urgency = 'emergency';
         queueNotification(state, 'LEAD_ESCALATED:' + dup.lead_id, ownerAlert(dup, cfg, 'escalated'), now);
@@ -204,6 +215,8 @@
     lead.next_action = 'First response';
     lead.next_action_at = iso(ms(v.submitted_at) + (v.urgency === 'emergency' ? 1 : (cfg.firstResponseHours || 4)) * HOUR);
     lead.opt_out = false; lead.duplicate_count = 0; lead.updated_at = iso(now);
+    var rel = findRelated(state.leads, v, cfg.duplicateWindowHours);
+    if (rel) { lead.related_lead_id = rel.lead_id; lead.notes = 'Same customer as ' + rel.lead_id + ' (' + rel.service_category + '); separate job'; }
     state.leads.push(lead);
     state.processed[sid] = lead.lead_id;
     queueNotification(state, 'LEAD_NEW:' + lead.lead_id, ownerAlert(lead, cfg, 'new'), now);
@@ -223,7 +236,7 @@
   function ownerAlert(lead, cfg, kind) {
     var tz = cfg.timezone || TZ_DEFAULT;
     var subj = (kind === 'escalated' ? 'URGENT repeat enquiry: ' : (lead.urgency === 'emergency' ? 'EMERGENCY enquiry: ' : 'New enquiry: ')) +
-      lead.service_category + ' - ' + lead.customer_name;
+      lead.service_category + ' - ' + lead.customer_name + (lead.related_lead_id ? ' (returning customer, new job)' : '');
     var body = [
       (cfg.businessName || 'Your business') + ' - internal lead alert (do not forward to the customer)',
       'Lead: ' + lead.lead_id,
@@ -522,7 +535,7 @@
     VERSION: VERSION, LEAD_FIELDS: LEAD_FIELDS, LEAD_STATUSES: LEAD_STATUSES, QUOTE_STATUSES: QUOTE_STATUSES, DEFAULT_RULES: DEFAULT_RULES,
     fnv1a: fnv1a, tzOffsetMs: tzOffsetMs, localToUtcMs: localToUtcMs, formatLocal: formatLocal,
     normalizePhone: normalizePhone, normalizeEmail: normalizeEmail, validateEnquiry: validateEnquiry,
-    processSubmission: processSubmission, findDuplicate: findDuplicate, queueNotification: queueNotification,
+    processSubmission: processSubmission, findDuplicate: findDuplicate, findRelated: findRelated, queueNotification: queueNotification,
     dispatchNotifications: dispatchNotifications, requeueDead: requeueDead,
     setLeadStatus: setLeadStatus, createQuote: createQuote, setQuoteStatus: setQuoteStatus, evaluateFollowUps: evaluateFollowUps,
     listSlots: listSlots, book: book, cancelBooking: cancelBooking, reschedule: reschedule, isWithinHours: isWithinHours,

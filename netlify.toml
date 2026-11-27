@@ -1,0 +1,30 @@
+# Netlify configuration for www.capitalsites.ca (Next.js 15 App Router; every route is static).
+#
+# Netlify detects Next.js and applies its OpenNext adapter (@netlify/plugin-nextjs) on its own.
+# Don't add or pin the plugin here; Netlify keeps it current.
+# Nothing in this file affects the Vercel deployment.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Same HSTS value the live site sends from Vercel today.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000"
+
+# AFTER the DNS cutover only (see docs/staging/netlify-migration.md, step 9):
+# send the Netlify default address to the real domain so it never competes in search.
+# Replace SITE-NAME with the Netlify project name, uncomment, commit and deploy.
+# Deploy previews and branch deploys use other hostnames and are not affected.
+#
+# [[redirects]]
+#   from = "https://SITE-NAME.netlify.app/*"
+#   to = "https://www.capitalsites.ca/:splat"
+#   status = 301
+#   force = true

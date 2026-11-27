@@ -100,7 +100,7 @@ export default function Home() {
       <section className="bg-white px-3 pt-24 md:pt-32 pb-3">
         <Rise className="text-center px-6">
           <h2 className="headline text-[40px] md:text-[56px]">Two ways to start.</h2>
-          <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2">One is ready today. One is taking founding customers.</p>
+          <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2">One is ready today. One is open for expressions of interest.</p>
         </Rise>
         {/* Both cards share one row grid (subgrid), so title, badge, text, list, price and actions line up. */}
         <div className="mt-12 grid gap-3 md:grid-cols-2 md:grid-rows-[repeat(6,auto)] md:gap-y-0">

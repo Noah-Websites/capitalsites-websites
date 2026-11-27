@@ -54,11 +54,11 @@ const faqs = [
   },
   {
     q: "Can I cancel?",
-    a: `After your first ${n.months} months, yes, with 30 days notice, and we'll help you move your site wherever you want. Cancelling during the first ${n.months} months: ${unsettled}`,
+    a: `${plan.name}: after your first ${n.months} months, yes, with 30 days notice, and we'll help you move your site wherever you want. Cancelling during the first ${n.months} months: ${unsettled} ${premium.name} cancellation: ${unsettled}`,
   },
   {
     q: "Do I own the website?",
-    a: `Yes, once your first ${n.months} months are paid. What that covers, such as the design, content, code and domain: ${unsettled}`,
+    a: `${plan.name}: yes, once your first ${n.months} months are paid. What that covers, such as the design, content, code and domain: ${unsettled} ${premium.name} ownership: ${unsettled}`,
   },
   {
     q: "What's included in the monthly fee?",
@@ -66,11 +66,11 @@ const faqs = [
   },
   {
     q: "What is a founding customer pilot?",
-    a: `${getOffer("estimate-requests").name} is our first Digital Operations service. We're taking expressions of interest from contractors and home-service businesses who'd like to be among the first to use it. Registering interest doesn't commit you to anything: no payment is taken and no delivery date is promised yet.`,
+    a: `${getOffer("estimate-requests").name} is our first Digital Operations service. It's open for expressions of interest only: we're not taking paying customers for it yet. If you'd like to be among the first to use it, register interest. That doesn't commit you to anything: no payment is taken and no delivery date is promised yet.`,
   },
   {
     q: "What does \"Not available yet\" mean?",
-    a: `${listNames(comingSoon.map((o) => o.name))} aren't available yet. The prices shown are the planned introductory prices. Ask us to tell you when one is ready; no payment is taken and no date is promised.`,
+    a: `${listNames(comingSoon.map((o) => o.name))} aren't available yet, so we're accepting expressions of interest only, not paying customers. The prices shown are the planned introductory prices. Ask us to tell you when one is ready; no payment is taken and no date is promised.`,
   },
   {
     q: "Do I own my accounts and data?",

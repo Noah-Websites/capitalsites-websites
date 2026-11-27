@@ -102,9 +102,14 @@ const SAMPLES: Sample[] = [
     raw: { name: "Lee Synthetic", email: "lee@example.com", phone: "613-555-0105", service: "General estimate", postal_code: "K1Y 2C3", urgency: "normal", message: "Basement bathroom estimate", contact_permission: "yes" },
   },
   {
-    label: "Repeat from Priya",
-    outcome: "Merges into Priya's row",
+    label: "Repeat from Priya, same job",
+    outcome: "Same service within 72 hours: merges into Priya's row",
     raw: { name: "Priya Sample", email: "PRIYA@example.com", phone: "", service: "Plumbing", postal_code: "K2P 1L4", urgency: "emergency", message: "Now leaking onto the floor", contact_permission: "yes" },
+  },
+  {
+    label: "Priya again, a different job",
+    outcome: "Different service: a new row, linked as a returning customer",
+    raw: { name: "Priya Sample", email: "priya@example.com", phone: "", service: "HVAC", postal_code: "K2P 1L4", urgency: "normal", message: "Furnace is making a rattling noise", contact_permission: "yes" },
   },
   {
     label: "Missing contact details",
@@ -191,9 +196,11 @@ function submit(w: World, raw: RawEnquiry) {
   const r = C.processSubmission(w.S, raw, CFG, w.now);
   const t = tick(w);
   let msg: string;
-  if (r.action === "created" && r.lead) msg = `New request from ${r.lead.customer_name} (${r.lead.service_category}, ${URGENCY[r.lead.urgency] ?? r.lead.urgency}) added to the list. Owner alert queued.`;
+  if (r.action === "created" && r.lead && r.lead.related_lead_id)
+    msg = `Returning customer, new job: ${r.lead.customer_name} (${r.lead.service_category}) added as a new row, linked to their earlier request. Owner alert queued.`;
+  else if (r.action === "created" && r.lead) msg = `New request from ${r.lead.customer_name} (${r.lead.service_category}, ${URGENCY[r.lead.urgency] ?? r.lead.urgency}) added to the list. Owner alert queued.`;
   else if (r.action === "duplicate" && r.lead)
-    msg = `Repeat request from ${r.lead.customer_name} merged into their existing row. No second alert${r.lead.urgency === "emergency" ? ", but it was escalated to an emergency" : ""}.`;
+    msg = `Repeat request from ${r.lead.customer_name} for the same service merged into their existing row; the new message is kept in the notes. No second alert${r.lead.urgency === "emergency" ? ", but it was escalated to an emergency" : ""}.`;
   else if (r.action === "rejected") msg = `Rejected: ${(r.errors ?? []).map((e) => ERR[e] ?? e).join(" ")} Logged without personal details; no alert.`;
   else if (r.action === "spam") msg = "Spam filtered: a hidden field was filled in. Dropped silently.";
   else msg = "Already received: the identical submission was ignored.";
@@ -318,8 +325,11 @@ export default function MapleDemo() {
   });
   const showResult = (r: ReturnType<typeof submit>) => {
     if (r.action === "created" && r.lead)
-      setFormResult({ tone: "ok", text: `Thanks, ${r.lead.customer_name.split(" ")[0]}. Your request was received. (Owner's view: a new row in the list and an alert in the outbox.)` });
-    else if (r.action === "duplicate") setFormResult({ tone: "neutral", text: "Thanks, we already have your request and added this to it. (Owner's view: merged into the same row, no duplicate.)" });
+      setFormResult({
+        tone: "ok",
+        text: `Thanks, ${r.lead.customer_name.split(" ")[0]}. Your request was received. (Owner's view: a new row in the list${r.lead.related_lead_id ? ", linked to this customer's earlier request" : ""} and an alert in the outbox.)`,
+      });
+    else if (r.action === "duplicate") setFormResult({ tone: "neutral", text: "Thanks, we already have your request and added this to it. (Owner's view: same service within 72 hours, so it merged into the same row and the message was kept in the notes.)" });
     else if (r.action === "ignored") setFormResult({ tone: "neutral", text: "Already received. (Owner's view: the identical submission was ignored.)" });
     else if (r.action === "spam") setFormResult({ tone: "ok", text: "Thanks, your request was received. (Owner's view: spam was dropped silently.)" });
     else setFormResult({ tone: "bad", text: (r.errors ?? []).map((e) => ERR[e] ?? e).join(" ") });
@@ -722,7 +732,7 @@ export default function MapleDemo() {
       <div role="tabpanel" id="demo-panel-requests" aria-labelledby="demo-tab-requests" hidden={tab !== "requests"} className="mt-6 grid gap-4">
         <Panel
           title="Estimate requests"
-          intro="The owner's list: one row per customer. Repeat requests merge into the same row. Change a status the way the owner would. In a real setup this list lives in your Google Sheet or job software."
+          intro="The owner's list: one row per job. When the same customer (matched by email or phone) asks for the same service within 72 hours, it merges into their open row and the new message is kept in the notes. A different service gets its own row, linked as a returning customer. Change a status the way the owner would. In a real setup this list lives in your Google Sheet or job software."
         >
           {/* md and up: table */}
           <div className="hidden md:block overflow-x-auto rounded-xl bg-white ring-1 ring-line" data-testid="register-table">
@@ -746,6 +756,11 @@ export default function MapleDemo() {
                     <tr key={L.lead_id} className="border-b border-line last:border-b-0 align-top" data-testid="register-row">
                       <th scope="row" className="py-3 px-3 font-normal">
                         <span className="block font-semibold text-ink">{L.customer_name}</span>
+                        {L.related_lead_id && (
+                          <span className="block mt-1" data-testid="returning-tag">
+                            <Tag>Returning customer, new job</Tag>
+                          </span>
+                        )}
                         <span className="block text-[13px] text-ink-2">{L.email || phone(L.phone)}</span>
                       </th>
                       <td className="py-3 px-3">
@@ -787,6 +802,7 @@ export default function MapleDemo() {
                 <li key={L.lead_id} className="rounded-xl bg-white ring-1 ring-line p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-[16px] font-semibold text-ink">{L.customer_name}</span>
+                    {L.related_lead_id && <Tag>Returning customer, new job</Tag>}
                     <Tag tone={leadTone(L.status)}>{L.status}</Tag>
                     {L.urgency === "emergency" && <Tag tone="bad">Emergency</Tag>}
                     {overdue && <Tag tone="bad">Overdue</Tag>}
@@ -817,7 +833,10 @@ export default function MapleDemo() {
           </ul>
         </Panel>
         <div className="grid gap-4 lg:grid-cols-2">
-          <Panel title="Owner alerts (simulated outbox)" intro="Alerts go to the owner, never to the customer. Here they stay on this page; in a real setup they arrive in your inbox.">
+          <Panel
+            title="Owner alerts (simulated outbox)"
+            intro="Alerts go to the owner, never to the customer. Here they stay on this page. In a real setup they're emailed to you; they aren't instant, because new requests are checked every 5 minutes."
+          >
             {S.outbox.length === 0 ? (
               <p className="text-[14px] text-ink-2">No alerts yet.</p>
             ) : (

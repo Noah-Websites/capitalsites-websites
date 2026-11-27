@@ -57,6 +57,16 @@ async function settle(page) {
 
 async function newContext(browser, vp, extra = {}) {
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, reducedMotion: "reduce", ...extra });
+  // `netlify serve` hangs on local images (url=/...) behind its /_next/image rewrite; remote images and the
+  // Image CDN itself work. EMULATE_NETLIFY_IMAGES=1 sends local ones straight to /.netlify/images, as production does.
+  if (process.env.EMULATE_NETLIFY_IMAGES) {
+    await ctx.route(/\/_next\/image\?url=%2F/, (route) => {
+      const u = new URL(route.request().url());
+      const q = u.searchParams;
+      const to = `${u.origin}/.netlify/images?url=${encodeURIComponent(q.get("url"))}&w=${q.get("w")}&q=${q.get("q") || 75}`;
+      return route.continue({ url: to });
+    });
+  }
   return ctx;
 }
 
@@ -296,13 +306,22 @@ async function focusInfo(page) {
       const repeats = vp.w >= 768 ? await page.locator("[data-testid=register-row]").first().locator("td").nth(3).textContent() : "see card";
       return { ok: n === 6, rows: n, priyaRepeats: repeats };
     });
+    await step("returning customer, different service: new linked row", async () => {
+      await tab(/Enquiry form/);
+      await page.getByRole("button", { name: /Priya again, a different job/ }).click();
+      const n = await rows();
+      const sel = vp.w >= 768 ? "[data-testid=register-row]" : "[data-testid=register-cards] > li";
+      const tagged = await page.locator(sel, { hasText: "Returning customer, new job" }).count();
+      const alerts = await page.locator("[data-testid=demo-outbox] li", { hasText: "(returning customer, new job)" }).count();
+      return { ok: n === 7 && tagged === 1 && alerts === 1, rows: n, tagged, alerts };
+    });
     await step("invalid requests rejected", async () => {
       await tab(/Enquiry form/);
       await page.getByRole("button", { name: /Missing contact details/ }).click();
       await page.getByRole("button", { name: /Outside the service area/ }).click();
       const n = await rows();
       const rejected = await page.locator("[data-testid=demo-rejected] li").count();
-      return { ok: n === 6 && rejected === 2, rows: n, rejected };
+      return { ok: n === 7 && rejected === 2, rows: n, rejected };
     });
     await step("book a visit", async () => {
       await tab(/Scheduling/);
@@ -367,7 +386,16 @@ async function focusInfo(page) {
       const after = await page.locator("[data-testid=demo-health]").textContent();
       return { ok: /^Green/.test(before.trim()) && /^Red/.test(red.trim()) && /^Green/.test(after.trim()), before, red, after };
     });
-    await step("zero network requests during the demo", async () => ({ ok: requests.length === 0, requests }));
+    await step("zero network requests during the demo", async () => {
+      // Next.js prefetches linked pages (GET /_next/static/... code and GET /page?_rsc=... content) when a
+      // link scrolls into view. That carries no demo data, so it's listed separately; anything else
+      // (a fetch, a POST, another host) fails the step.
+      const codePrefetch = requests.filter(
+        (r) => r.startsWith(`GET ${BASE}/_next/static/`) || (r.startsWith(`GET ${BASE}/`) && /[?&]_rsc=/.test(r)),
+      );
+      const other = requests.filter((r) => !codePrefetch.includes(r));
+      return { ok: other.length === 0, requests: other, codePrefetch };
+    });
     R.demo[`w${vp.w}`] = steps;
     await ctx.close();
   }

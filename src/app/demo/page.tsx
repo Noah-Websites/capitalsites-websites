@@ -18,7 +18,7 @@ const simulated = [
 ];
 const real = [
   "Your own Google account or job software holds the list.",
-  "Real email alerts go to you.",
+  "Real email alerts go to you. They aren't instant: new requests are checked every 5 minutes.",
   "Everything is tested with you before handover.",
 ];
 
@@ -83,8 +83,8 @@ export default function DemoPage() {
         <Rise>
           <h2 className="headline text-[40px] md:text-[56px]">Want this for your business?</h2>
           <p className="subhead text-[19px] md:text-[21px] text-white/90 mt-3 max-w-[640px] mx-auto">
-            {estimates.name} is our founding customer pilot. Register interest; no payment is taken and no delivery date
-            is promised yet.
+            {estimates.name} is our founding customer pilot, open for expressions of interest only. We&apos;re not taking
+            paying customers for it yet: no payment is taken and no delivery date is promised.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Pill href={contactHref(estimates.slug)}>{estimates.cta}</Pill>

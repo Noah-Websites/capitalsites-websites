@@ -47,3 +47,6 @@ next-env.d.ts
 # staging screenshots (large; kept on the reviewing machine, paths listed in docs/staging/qa-report.md)
 docs/staging/before/
 docs/staging/after/
+
+# netlify (local build and CLI state)
+.netlify

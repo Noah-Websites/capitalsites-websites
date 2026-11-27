@@ -134,11 +134,11 @@ export const offers: Offer[] = [
     availability: "pilot",
     summary: "Every estimate request in one organized list you own.",
     description:
-      "A quote or estimate request form on your website that lands in one organized list you own (Google Sheets or your existing job software), an instant email alert to you for every new request, duplicate and spam filtering, and a reminder when a request hasn't been answered. Works with tools you already have; no new subscription needed in most cases. We set it up, test it with you and hand it over.",
+      "A quote or estimate request form on your website that lands in one organized list you own (Google Sheets or your existing job software), an email alert to you for every new request, duplicate and spam filtering, and a reminder when a request hasn't been answered. Alerts aren't instant: new requests are checked every 5 minutes, and the target is an alert within 15 minutes. Works with tools you already have; no new subscription needed in most cases. We set it up, test it with you and hand it over.",
     includes: [
       "Estimate request form on your website",
       "One organized list you own: Google Sheets or your job software",
-      "Instant email alert to you for every new request",
+      "An email alert for every new request (checked every 5 minutes, not instant)",
       "Duplicate and spam filtering",
       "A reminder when a request hasn't been answered",
     ],
@@ -349,12 +349,12 @@ export const availabilityInfo: Record<Availability, { badge: string; status: str
   pilot: {
     badge: "Founding customer pilot",
     status: "Founding customer pilot: register interest",
-    note: "We're taking expressions of interest. No payment is taken and no delivery date is promised yet.",
+    note: "Expressions of interest only: we're not taking paying customers for this yet. No payment is taken and no delivery date is promised.",
   },
   "coming-soon": {
     badge: "Not available yet",
     status: "Coming soon",
-    note: "No payment is taken while it isn't available, and no date is promised.",
+    note: "Expressions of interest only: we're not taking paying customers for this yet. No payment is taken and no date is promised.",
   },
 };
 
@@ -372,7 +372,7 @@ export const groups: { id: GroupId; name: string; title: string; intro: string }
     name: "Digital Operations",
     title: "Digital Operations.",
     intro:
-      "Get enquiries, estimates, bookings and the tools in between working together, in accounts you own. Estimate Request Setup is taking founding customers; the rest are coming soon.",
+      "Get enquiries, estimates, bookings and the tools in between working together, in accounts you own. Estimate Request Setup is a founding customer pilot open for expressions of interest; the rest are coming soon. We're not taking paying customers for any of them yet.",
   },
   {
     id: "care",

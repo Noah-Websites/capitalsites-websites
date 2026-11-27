@@ -1,6 +1,7 @@
 /**
- * Types for src/lib/ops-core.js (CapitalSites Ops Core v0.1).
- * The JavaScript file is kept byte-for-byte as supplied; this file only describes it.
+ * Types for src/lib/ops-core.js (CapitalSites Ops Core v0.2.0, "OpsCore.gs (v0.2)" from the Digital Ops Kit,
+ * as described in the CapitalSites Readiness Pack v0.2). The JavaScript file is kept byte-for-byte as supplied
+ * (its header comment still reads v0.1; VERSION is 0.2.0); this file only describes it.
  */
 
 export type HealthLevel = "GREEN" | "AMBER" | "RED";
@@ -27,7 +28,8 @@ export interface Lead {
   quote_status: string;
   opt_out: boolean;
   duplicate_count: number;
-  duplicate_of: string;
+  /** v0.2: same customer, different service within the window = a new lead linked to this one. */
+  related_lead_id: string;
   notes: string;
   updated_at: string;
   error_state: string;
@@ -168,6 +170,10 @@ declare const OpsCore: {
     cfg: OpsConfig,
     nowMs: number,
   ): { action: "created" | "duplicate" | "rejected" | "spam" | "ignored"; lead?: Lead; errors?: string[]; reason?: string; lead_id?: string };
+  /** Same customer (email or phone) on an open lead, same service, inside the window. */
+  findDuplicate(leads: Lead[], v: { email?: string; phone?: string; service_category: string; submitted_at: string }, windowHours?: number): Lead | null;
+  /** Same customer on an open lead inside the window, any service (v0.2 returning-customer link). */
+  findRelated(leads: Lead[], v: { email?: string; phone?: string; submitted_at: string }, windowHours?: number): Lead | null;
   queueNotification(
     state: OpsState,
     key: string,

@@ -49,7 +49,9 @@ export default function ContactForm({ initial, alias }: { initial?: ContactSlug;
             <>
               You picked: <span className="font-semibold text-ink">{offer ? offer.name : picked.label}</span>
               {offer ? ` (${priceLine(offer)})` : ""}
-              {interestOnly ? ". Registering interest only; no payment is taken." : ""}
+              {interestOnly
+                ? ". This is an expression of interest only: we're not taking paying customers for it yet, and no payment is taken."
+                : ""}
             </>
           )}
         </p>
