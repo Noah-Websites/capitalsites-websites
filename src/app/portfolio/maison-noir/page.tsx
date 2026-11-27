@@ -6,6 +6,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
 import { maisonNoir, u } from "@/lib/demoImages";
+import { getOffer, premiumNumbers } from "@/data/offers";
+
+const premiumN = premiumNumbers();
+const premiumBanner = `${getOffer("premium").name}, ${premiumN.build} build + ${premiumN.monthly}/mo`;
 
 /* =========================================================
    MAISON NOIR — Premium Tier concept demo
@@ -28,7 +32,7 @@ function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-8 flex items-center justify-center bg-red-brand text-white text-xs font-medium tracking-wide whitespace-nowrap overflow-hidden px-3">
       <span className="lg:hidden">Concept site by CapitalSites</span>
-      <span className="hidden lg:inline">This is a concept redesign by CapitalSites — Premium $2,500 build + $129/mo</span>
+      <span className="hidden lg:inline" data-site-prices>This is a concept redesign by CapitalSites — {premiumBanner}</span>
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         <span className="lg:hidden">Back</span>
         <span className="hidden lg:inline">Back to Portfolio</span>
@@ -583,7 +587,7 @@ function Footer() {
 /* ---- Page ---- */
 export default function MaisonNoirDemo() {
   return (
-    <div className="bg-[#0a0a0a]">
+    <div className="bg-[#0a0a0a]" data-fictional="concept">
       <SmoothScroll />
       <DemoBanner />
       <AnnouncementBar />

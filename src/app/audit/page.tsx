@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Check } from "@/components/ui";
-import { contactHref } from "@/lib/services";
+import { contactHref } from "@/data/offers";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Free Website Audit — CapitalSites",
-  description: "Send us your URL and we'll email you a detailed manual audit within 24 hours.",
-  alternates: { canonical: "/audit" },
-};
+  description:
+    "A free manual audit of your current website for contractors and home-service businesses in Canada: speed, mobile, SEO basics, trust signals and conversion issues.",
+  path: "/audit",
+});
 
 const covers = ["Load speed and performance", "Mobile experience", "SEO basics", "Trust signals", "Conversion issues"];
 
@@ -59,13 +61,16 @@ export default function AuditPage() {
             Delivered within 24 hours. No obligation.
           </p>
           <p className="text-center text-[13px] text-ink-2">
-            <Link href={contactHref("new-site")} className="text-ink underline underline-offset-3 hover:text-red">
+            <Link href={contactHref("plan")} className="text-ink underline underline-offset-3 hover:text-red">
               No website yet? Tell us about your business instead
             </Link>
           </p>
           <p className="text-center text-[13px] text-ink-2 leading-[1.5]">
             Your enquiry is sent through FormSubmit, a third-party form service, to our inbox. We only use it to reply to
-            you.
+            you.{" "}
+            <Link href="/privacy" className="text-ink underline underline-offset-3 hover:text-red">
+              Privacy
+            </Link>
           </p>
         </form>
       </div>

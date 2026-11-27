@@ -1,9 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ChevLink } from "@/components/ui";
-import { services, getService, DEFAULT_PLACEHOLDER } from "@/lib/services";
+import { AvailabilityBadge } from "@/components/offers";
+import {
+  availabilityInfo,
+  contactOptions,
+  getContactOption,
+  placeholderFor,
+  priceLine,
+  resolveContactSlug,
+  type ContactSlug,
+} from "@/data/offers";
 
 export const FORM_ACTION = "https://formsubmit.co/capitalsitesottawa@gmail.com";
 export const THANKS_URL = "https://www.capitalsites.ca/thanks";
@@ -11,21 +21,24 @@ export const THANKS_URL = "https://www.capitalsites.ca/thanks";
 /* Reads ?service= and hands it to the form. Must sit inside <Suspense>. */
 export function ContactFromParams() {
   const params = useSearchParams();
-  const id = getService(params.get("service"))?.id;
-  return <ContactForm key={id ?? "none"} initial={id} />;
+  const resolved = resolveContactSlug(params.get("service"));
+  return <ContactForm key={resolved ? `${resolved.slug}:${resolved.alias ?? ""}` : "none"} initial={resolved?.slug} alias={resolved?.alias} />;
 }
 
-export default function ContactForm({ initial }: { initial?: string }) {
-  const [value, setValue] = useState(getService(initial)?.id ?? "");
-  const picked = getService(value);
+export default function ContactForm({ initial, alias }: { initial?: ContactSlug; alias?: string }) {
+  const [value, setValue] = useState<ContactSlug | "">(initial ?? "");
+  const [fromAlias, setFromAlias] = useState(alias);
+  const picked = getContactOption(value);
+  const offer = picked?.offer;
+  const interestOnly = offer && offer.availability !== "available";
 
   return (
     <div className="max-w-[1024px] mx-auto grid lg:grid-cols-[1fr_560px] gap-10 lg:gap-16 items-start">
       <div className="pt-2">
         <h1 className="display text-[48px] md:text-[72px]">Let&apos;s talk.</h1>
         <p className="subhead text-[19px] md:text-[21px] text-ink-2 mt-5 max-w-[440px]">
-          Tell us about your business and we will get back to you within 24 hours. No website yet? That&apos;s fine,
-          just leave the website field blank.
+          Tell us what you need and we will get back to you within 24 hours. No website yet? That&apos;s fine, just leave
+          the website field blank.
         </p>
         <p
           aria-live="polite"
@@ -34,7 +47,9 @@ export default function ContactForm({ initial }: { initial?: string }) {
         >
           {picked && (
             <>
-              You picked: <span className="font-semibold text-ink">{picked.label}</span> ({picked.plan} · {picked.price})
+              You picked: <span className="font-semibold text-ink">{offer ? offer.name : picked.label}</span>
+              {offer ? ` (${priceLine(offer)})` : ""}
+              {interestOnly ? ". Registering interest only; no payment is taken." : ""}
             </>
           )}
         </p>
@@ -60,6 +75,8 @@ export default function ContactForm({ initial }: { initial?: string }) {
         <input type="hidden" name="_subject" value="New Project Inquiry - CapitalSites" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_next" value={THANKS_URL} />
+        {/* The picked service's slug, so enquiries can be counted per product. */}
+        <input type="hidden" name="service" value={value} data-testid="service-slug" />
 
         <div>
           <label htmlFor="package" className="field-label">What do you need?</label>
@@ -75,29 +92,47 @@ export default function ContactForm({ initial }: { initial?: string }) {
               id="package"
               name="package"
               required
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
+              value={picked ? picked.label : ""}
+              onChange={(e) => {
+                const opt = contactOptions.find((o) => o.label === e.target.value);
+                setValue(opt ? opt.slug : "");
+                setFromAlias(undefined);
+              }}
               aria-describedby="service-info"
               className="service-select absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             >
               <option value="" disabled>
                 Choose one
               </option>
-              {services.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.label}
+              {contactOptions.map((o) => (
+                <option key={o.slug} value={o.label}>
+                  {o.label}
                 </option>
               ))}
             </select>
           </div>
           <div id="service-info" aria-live="polite" className={`mt-3 rounded-xl bg-snow px-4 py-3 ${picked ? "" : "hidden"}`}>
-            {picked && (
+            {offer && (
+              <>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <p className="text-[15px] font-semibold text-ink" data-testid="service-price">
+                    {offer.name}: {priceLine(offer)}
+                  </p>
+                  <AvailabilityBadge availability={offer.availability} />
+                </div>
+                <p className="text-[14px] text-ink-2 mt-1.5 leading-[1.45]" data-testid="service-description">
+                  {offer.summary}
+                  {interestOnly ? ` ${availabilityInfo[offer.availability].note}` : ""}
+                </p>
+              </>
+            )}
+            {picked && !offer && (
               <>
                 <p className="text-[15px] font-semibold text-ink" data-testid="service-price">
-                  {picked.plan === picked.label ? picked.price : `${picked.plan}: ${picked.price}`}
+                  We&apos;ll recommend the right option
                 </p>
                 <p className="text-[14px] text-ink-2 mt-1 leading-[1.45]" data-testid="service-description">
-                  {picked.description}
+                  Tell us what&apos;s going on and we&apos;ll suggest where to start.
                 </p>
               </>
             )}
@@ -129,7 +164,7 @@ export default function ContactForm({ initial }: { initial?: string }) {
             name="message"
             rows={5}
             required
-            placeholder={picked?.placeholder ?? DEFAULT_PLACEHOLDER}
+            placeholder={placeholderFor(value, fromAlias)}
             className="field resize-none leading-[1.5]"
           />
         </div>
@@ -137,7 +172,10 @@ export default function ContactForm({ initial }: { initial?: string }) {
           Send message
         </button>
         <p className="text-center text-[13px] text-ink-2 leading-[1.5]">
-          Your enquiry is sent through FormSubmit, a third-party form service, to our inbox. We only use it to reply to you.
+          Your enquiry is sent through FormSubmit, a third-party form service, to our inbox. We only use it to reply to you.{" "}
+          <Link href="/privacy" className="text-ink underline underline-offset-3 hover:text-red">
+            Privacy
+          </Link>
         </p>
       </form>
     </div>

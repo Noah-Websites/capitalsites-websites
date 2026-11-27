@@ -5,13 +5,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/* Home · Services · Pricing · Demo · About · Contact (Contact is the pill on the right from sm up). */
 const links = [
-  { href: "/pricing", label: "Pricing" },
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Work" },
-  { href: "/audit", label: "Free Audit" },
-  { href: "/contact", label: "Contact" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/demo", label: "Demo" },
+  { href: "/about", label: "About" },
 ];
+const contact = { href: "/contact", label: "Contact" };
+const isActive = (pathname: string, href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
 export default function Nav() {
   const pathname = usePathname();
@@ -27,7 +30,7 @@ export default function Nav() {
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-[14px] font-medium">
           {links.map((l) => {
-            const active = pathname.startsWith(l.href);
+            const active = isActive(pathname, l.href);
             return (
               <li key={l.href}>
                 <Link
@@ -42,8 +45,12 @@ export default function Nav() {
           })}
         </ul>
         <div className="flex items-center gap-3">
-          <Link href="/audit" className="hidden sm:inline-flex items-center h-8 px-4 rounded-full bg-white text-red text-[13px] font-semibold hover:bg-snow transition-colors">
-            Get a free audit
+          <Link
+            href={contact.href}
+            aria-current={isActive(pathname, contact.href) ? "page" : undefined}
+            className="nav-cta hidden sm:inline-flex items-center h-8 px-4 rounded-full bg-white text-red text-[13px] font-semibold hover:bg-snow transition-colors"
+          >
+            {contact.label}
           </Link>
           <button
             type="button"
@@ -62,9 +69,13 @@ export default function Nav() {
       {open && (
         <div id="mobile-menu" className="md:hidden border-t border-white/10 bg-red-deep">
           <ul className="max-w-[1024px] mx-auto px-6 py-4 space-y-1">
-            {links.map((l) => (
+            {[...links, contact].map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="block py-2.5 text-[24px] font-semibold tracking-[-0.02em] text-white">
+                <Link
+                  href={l.href}
+                  aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                  className="block py-2.5 text-[24px] font-semibold tracking-[-0.02em] text-white aria-[current=page]:underline underline-offset-[6px] decoration-2"
+                >
                   {l.label}
                 </Link>
               </li>

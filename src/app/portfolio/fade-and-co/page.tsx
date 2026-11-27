@@ -6,6 +6,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
 import { fadeAndCo, u } from "@/lib/demoImages";
+import { getOffer, planNumbers } from "@/data/offers";
+
+const planN = planNumbers();
+const planBanner = `${getOffer("plan").name}, ${planN.upfront} upfront, ${planN.monthly}/mo (${planN.firstYear} in the first year)`;
 
 /* =========================================================
    FADE & CO. — Website Plan concept demo
@@ -26,7 +30,7 @@ function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-8 flex items-center justify-center bg-red-brand text-white text-xs font-medium tracking-wide whitespace-nowrap overflow-hidden px-3">
       <span className="lg:hidden">Concept site by CapitalSites</span>
-      <span className="hidden lg:inline">This is a concept redesign by CapitalSites — Website Plan $0 upfront, $99/mo ($1,188 in year one)</span>
+      <span className="hidden lg:inline" data-site-prices>This is a concept redesign by CapitalSites — {planBanner}</span>
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         <span className="lg:hidden">Back</span>
         <span className="hidden lg:inline">Back to Portfolio</span>
@@ -244,7 +248,7 @@ function Contact() {
             <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-amber-500/30" />
           </div>
           <input type="email" placeholder="Email address" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-amber-500/30" />
-          <select className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-amber-500/30">
+          <select aria-label="Service" className="w-full px-4 py-3.5 bg-[#1a1a1a] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-amber-500/30">
             <option>Select a service</option>
             <option>Classic Cut — $35</option>
             <option>Fade — $40</option>
@@ -268,7 +272,7 @@ function Footer() {
   return (
     <footer className="py-10 px-6 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/55">
-        <span className="font-bold text-white/40">FADE <span className="text-amber-500/60">&</span> CO.</span>
+        <span className="font-bold text-white/70">FADE <span className="text-amber-500">&</span> CO.</span>
         <span>1124 Kensington Rd NW, Calgary, AB</span>
         <span>&copy; {new Date().getFullYear()} Fade & Co.</span>
       </div>
@@ -279,7 +283,7 @@ function Footer() {
 /* ---- Page ---- */
 export default function FadeAndCoDemo() {
   return (
-    <div className="bg-[#111]">
+    <div className="bg-[#111]" data-fictional="concept">
       <SmoothScroll />
       <DemoBanner />
       <Nav />

@@ -1,13 +1,20 @@
 import Link from "next/link";
 import Rise from "@/components/Rise";
 import { Pill, ChevLink, MacBook, IPhone } from "@/components/ui";
+import { firstYearNote, getOffer, priceLine } from "@/data/offers";
+import { pageMeta } from "@/lib/seo";
+
+const plan = getOffer("plan");
+const premium = getOffer("premium");
+const planLine = `${plan.name} · ${priceLine(plan)} (${firstYearNote()})`;
+const premiumLine = `${premium.name} · ${priceLine(premium)}`;
 
 const projects = [
   {
     slug: "fade-and-co",
     name: "Fade & Co.",
     location: "Kensington, Calgary",
-    plan: "Website Plan · $0 upfront, $99/mo ($1,188 in year one)",
+    plan: planLine,
     desc: "Concept redesign of a modern barbershop. Clean 5-page site with mobile optimization, booking-style contact form, and SEO foundation.",
     tile: "tile-black on-dark",
   },
@@ -15,7 +22,7 @@ const projects = [
     slug: "ember-kitchen",
     name: "Ember Kitchen",
     location: "North End, Halifax",
-    plan: "Website Plan · $0 upfront, $99/mo ($1,188 in year one)",
+    plan: planLine,
     desc: "Concept redesign for a wood-fired restaurant. 7 pages with menu, reservations form, team bios, gallery, and Google Business Profile setup.",
     tile: "tile-snow",
   },
@@ -23,17 +30,18 @@ const projects = [
     slug: "maison-noir",
     name: "Maison Noir",
     location: "Centretown, Ottawa",
-    plan: "Premium · $2,500 + $129/mo",
+    plan: premiumLine,
     desc: "Concept e-commerce build for a fashion boutique. Up to 15 pages with shop, collections, lookbook, and Stripe-ready checkout.",
     tile: "tile-ink on-dark",
   },
 ];
 
-export const metadata = {
-  title: "Work — CapitalSites",
-  description: "Three concept redesigns showing what CapitalSites builds at each plan.",
-  alternates: { canonical: "/portfolio" },
-};
+export const metadata = pageMeta({
+  title: "Concept websites — CapitalSites",
+  description:
+    "Three concept website redesigns showing what CapitalSites builds on the Website Plan and Premium Website. Concepts, not paying clients.",
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (
