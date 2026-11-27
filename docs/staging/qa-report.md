@@ -145,7 +145,10 @@ Also checked:
   6. Uneven Steps rise, and two dark tiles stacked on About.
   7. Inconsistent state names and repeated lines.
   8. DESIGN.md out of date.
-- **Result:** all eight were applied in one batch. The automated checks above were rerun afterwards, and DESIGN.md was merged with the build at your request.
+- **Result:** all eight were applied in one batch.
+- **Verdict pass 1:** items 1 to 7 resolved. DESIGN.md was still pending, and the reviewer found one new issue: the demo log cut an entry at its scroll edge.
+- **Verdict pass 2:** the log fix and the DESIGN.md merge (merged at your request) both resolved. One copy slip remained: the log said "six" while showing five entries. It now reads "Up to six recent events, newest first." I verified that in the build; the reviewer had said the scored list comes out at ship once that line changes, and I didn't run a third pass.
+- **Scope:** the reviewer's ship applies to the scored fixes, not the whole site. The automated checks above were rerun on the final build.
 
 ## Could not do or verify
 

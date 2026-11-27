@@ -704,7 +704,7 @@ export default function MapleDemo() {
               ))}
             </ul>
           </Panel>
-          <Panel title="What the system did" intro="The six most recent events, newest first.">
+          <Panel title="What the system did" intro="Up to six recent events, newest first.">
             {/* Whole entries only: no scroll area to cut an entry in half. */}
             <ol className="divide-y divide-line border-y border-line text-[14px] leading-[1.45]" aria-label="System log, newest first" data-testid="demo-log">
               {w.log.slice(0, 6).map((l, i) => (
