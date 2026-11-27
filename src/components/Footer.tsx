@@ -8,7 +8,7 @@ const cols = [
     title: "Services",
     links: [
       { href: "/services#websites", label: "Websites" },
-      { href: "/services#operations", label: "Digital operations" },
+      { href: "/services#operations", label: "Digital Operations" },
       { href: "/services#care", label: "Digital Care" },
       { href: "/pricing", label: "Pricing" },
     ],

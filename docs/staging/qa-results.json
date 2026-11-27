@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3100",
-  "ranAt": "2026-11-27T17:37:35.515Z",
+  "ranAt": "2026-11-27T18:07:56.702Z",
   "pages": [
     {
       "page": "/",
@@ -353,16 +353,7 @@
     {
       "page": "/portfolio/ember-kitchen",
       "width": 1440,
-      "serious": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "nodes": 1,
-          "sample": [
-            "button[type=\"submit\"]"
-          ]
-        }
-      ],
+      "serious": [],
       "other": []
     },
     {
@@ -446,16 +437,7 @@
     {
       "page": "/portfolio/ember-kitchen",
       "width": 390,
-      "serious": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "nodes": 1,
-          "sample": [
-            "button[type=\"submit\"]"
-          ]
-        }
-      ],
+      "serious": [],
       "other": []
     },
     {
@@ -1048,7 +1030,7 @@
         "shown": "Quote Follow-up (tell me when ready)",
         "slug": "quote-follow-up",
         "price": "Quote Follow-up: $299, or $199 as an add-on to Estimate Request Setup",
-        "description": "No quote goes quiet. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "No quote goes quiet. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Quote Follow-up ($299, or $199 as an add-on to Estimate Request Setup). Registering interest only; no payment is taken.",
         "placeholder": "How do you send quotes today, and how do you keep track of them?"
       },
@@ -1059,7 +1041,7 @@
         "shown": "Online Booking (tell me when ready)",
         "slug": "booking",
         "price": "Online Booking: $299 one-time",
-        "description": "Customers book a visit in a tool you already have. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Customers book a visit in a tool you already have. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Online Booking ($299 one-time). Registering interest only; no payment is taken.",
         "placeholder": "Which calendar or job software do you use, and how do customers book today?"
       },
@@ -1070,7 +1052,7 @@
         "shown": "Software Integration (tell me when ready)",
         "slug": "integration",
         "price": "Software Integration: From $799",
-        "description": "Stop typing the same customer twice. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Stop typing the same customer twice. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Software Integration (From $799). Registering interest only; no payment is taken.",
         "placeholder": "Which two tools would you like connected, and what should move between them?"
       },
@@ -1081,7 +1063,7 @@
         "shown": "Digital Care (tell me when ready)",
         "slug": "care",
         "price": "Digital Care: $99/month",
-        "description": "Ongoing care for the operations systems we set up. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Ongoing care for the operations systems we set up. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Digital Care ($99/month). Registering interest only; no payment is taken.",
         "placeholder": "Which systems would you want looked after?"
       },
@@ -1204,7 +1186,7 @@
         "shown": "Quote Follow-up (tell me when ready)",
         "slug": "quote-follow-up",
         "price": "Quote Follow-up: $299, or $199 as an add-on to Estimate Request Setup",
-        "description": "No quote goes quiet. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "No quote goes quiet. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Quote Follow-up ($299, or $199 as an add-on to Estimate Request Setup). Registering interest only; no payment is taken.",
         "placeholder": "How do you send quotes today, and how do you keep track of them?"
       },
@@ -1215,7 +1197,7 @@
         "shown": "Online Booking (tell me when ready)",
         "slug": "booking",
         "price": "Online Booking: $299 one-time",
-        "description": "Customers book a visit in a tool you already have. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Customers book a visit in a tool you already have. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Online Booking ($299 one-time). Registering interest only; no payment is taken.",
         "placeholder": "Which calendar or job software do you use, and how do customers book today?"
       },
@@ -1226,7 +1208,7 @@
         "shown": "Software Integration (tell me when ready)",
         "slug": "integration",
         "price": "Software Integration: From $799",
-        "description": "Stop typing the same customer twice. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Stop typing the same customer twice. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Software Integration (From $799). Registering interest only; no payment is taken.",
         "placeholder": "Which two tools would you like connected, and what should move between them?"
       },
@@ -1237,7 +1219,7 @@
         "shown": "Digital Care (tell me when ready)",
         "slug": "care",
         "price": "Digital Care: $99/month",
-        "description": "Ongoing care for the operations systems we set up. Not available yet. The price shown is the planned introductory price. No payment is taken.",
+        "description": "Ongoing care for the operations systems we set up. No payment is taken while it isn't available, and no date is promised.",
         "summary": "You picked: Digital Care ($99/month). Registering interest only; no payment is taken.",
         "placeholder": "Which systems would you want looked after?"
       },

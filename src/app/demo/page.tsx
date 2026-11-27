@@ -39,43 +39,43 @@ export default function DemoPage() {
         </p>
       </div>
 
-      <section className="tile tile-white text-center px-6 pt-16 md:pt-24 pb-12">
-        <h1 className="display text-[48px] sm:text-[64px] md:text-[88px]">See how it works.</h1>
-        <p className="subhead text-[19px] md:text-[24px] mt-5 text-ink-2 max-w-[720px] mx-auto">
-          One estimate request for Maple Home Services (fictional), followed from the website form to the owner&apos;s list,
-          a booked visit, a tracked quote and a reminder. Move the simulated clock to see what happens over days.
+      <section className="tile tile-white text-center px-6 pt-10 md:pt-16 pb-6 md:pb-8">
+        <h1 className="display text-[48px] md:text-[72px]">See how it works.</h1>
+        <p className="subhead text-[19px] md:text-[24px] mt-4 text-ink-2 max-w-[860px] mx-auto">
+          Follow one estimate request from the form to the owner&apos;s reminder.
         </p>
       </section>
 
-      <section className="bg-white px-3 pb-3">
-        <div className="max-w-[1024px] mx-auto grid gap-3 md:grid-cols-2">
-          <div className="rounded-2xl bg-snow p-6 md:p-8">
-            <h2 className="text-[21px] font-semibold tracking-[-0.015em]">Simulated here</h2>
-            <ul className="mt-3 space-y-2 text-[16px] leading-[1.45] text-ink-2 list-disc pl-5">
+      <section className="bg-snow px-2 sm:px-4 md:px-6 pt-3 pb-6 md:py-10" aria-label="Interactive demo: Maple Home Services (fictional)">
+        {/* Fictional amounts live inside this region; the price check skips it. */}
+        <div className="max-w-[1180px] mx-auto" data-fictional="demo">
+          <DemoLoader />
+        </div>
+      </section>
+
+      {/* What's simulated vs real: right after the demo, so the demo itself starts on the first screen. */}
+      <section className="bg-snow px-2 sm:px-4 md:px-6 pb-10 md:pb-16" aria-label="What's simulated and what's real">
+        <div className="max-w-[1180px] mx-auto rounded-2xl bg-white ring-1 ring-line px-5 py-5 md:px-8 md:py-6 grid gap-x-10 gap-y-3 md:grid-cols-2">
+          <div>
+            <h2 className="text-[17px] font-semibold tracking-[-0.015em]">Simulated here</h2>
+            <ul className="mt-1.5 space-y-1 text-[15px] leading-[1.45] text-ink-2 list-disc pl-5">
               {simulated.map((t) => (
                 <li key={t}>{t}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-snow p-6 md:p-8">
-            <h2 className="text-[21px] font-semibold tracking-[-0.015em]">In a real setup</h2>
-            <ul className="mt-3 space-y-2 text-[16px] leading-[1.45] text-ink-2 list-disc pl-5">
+          <div>
+            <h2 className="text-[17px] font-semibold tracking-[-0.015em]">In a real setup</h2>
+            <ul className="mt-1.5 space-y-1 text-[15px] leading-[1.45] text-ink-2 list-disc pl-5">
               {real.map((t) => (
                 <li key={t}>{t}</li>
               ))}
             </ul>
           </div>
-        </div>
-        <p className="max-w-[1024px] mx-auto px-3 mt-4 text-[14px] text-ink-2 leading-[1.5]">
-          This demo doesn&apos;t connect to any third-party app, and it doesn&apos;t mean a particular app is supported. We
-          confirm your tools before quoting.
-        </p>
-      </section>
-
-      <section className="bg-snow px-2 sm:px-4 md:px-6 py-8 md:py-16 mt-3" aria-label="Interactive demo: Maple Home Services (fictional)">
-        {/* Fictional amounts live inside this region; the price check skips it. */}
-        <div className="max-w-[1180px] mx-auto" data-fictional="demo">
-          <DemoLoader />
+          <p className="md:col-span-2 text-[13px] text-ink-2 leading-[1.5]">
+            This demo doesn&apos;t connect to any third-party app, and it doesn&apos;t mean a particular app is supported.
+            We confirm your tools before quoting.
+          </p>
         </div>
       </section>
 

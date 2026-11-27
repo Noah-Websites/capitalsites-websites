@@ -107,23 +107,22 @@ export function PriceTable({ group }: { group: GroupId }) {
       </span>
     </>
   );
-  const status = (o: Offer) => (
-    <>
-      <AvailabilityBadge availability={o.availability} />
-      {o.availability !== "available" && (
-        <span className="block text-[13px] text-ink-2 mt-2 leading-[1.4]">{availabilityInfo[o.availability].status}</span>
-      )}
-    </>
-  );
   return (
     <>
-      <table className="hidden md:table w-full text-left border-collapse">
+      {/* Fixed layout and one shared set of column widths, so the three tables line up. */}
+      <table className="hidden md:table table-fixed w-full text-left border-collapse">
         <caption className="sr-only">{name} prices</caption>
+        <colgroup>
+          <col className="w-[32%]" />
+          <col className="w-[28%]" />
+          <col className="w-[18%]" />
+          <col className="w-[22%]" />
+        </colgroup>
         <thead>
           <tr className="border-b border-line text-[13px] text-ink-2">
-            <th scope="col" className="py-3 pr-6 font-semibold w-[34%]">Service</th>
-            <th scope="col" className="py-3 pr-6 font-semibold w-[30%]">Price</th>
-            <th scope="col" className="py-3 pr-6 font-semibold">Availability</th>
+            <th scope="col" className="py-3 pr-6 font-semibold">Service</th>
+            <th scope="col" className="py-3 pr-6 font-semibold">Price</th>
+            <th scope="col" className="py-3 pr-4 font-semibold">Availability</th>
             <th scope="col" className="py-3 font-semibold">
               <span className="sr-only">Action</span>
             </th>
@@ -137,8 +136,10 @@ export function PriceTable({ group }: { group: GroupId }) {
                 <span className="block text-[15px] text-ink-2 mt-1 leading-[1.45]">{o.summary}</span>
               </th>
               <td className="py-6 pr-6">{price(o)}</td>
-              <td className="py-6 pr-6">{status(o)}</td>
-              <td className="py-6 text-right whitespace-nowrap">
+              <td className="py-6 pr-4">
+                <AvailabilityBadge availability={o.availability} />
+              </td>
+              <td className="py-6 text-right">
                 <ChevLink href={contactHref(o.slug)}>{o.cta}</ChevLink>
               </td>
             </tr>
@@ -154,9 +155,6 @@ export function PriceTable({ group }: { group: GroupId }) {
             </div>
             <p className="text-[15px] text-ink-2 mt-1 leading-[1.45]">{o.summary}</p>
             <div className="mt-3">{price(o)}</div>
-            {o.availability !== "available" && (
-              <p className="text-[13px] text-ink-2 mt-2">{availabilityInfo[o.availability].status}</p>
-            )}
             <div className="mt-3">
               <ChevLink href={contactHref(o.slug)}>{o.cta}</ChevLink>
             </div>

@@ -21,7 +21,7 @@ OWN-WORLD: The site's world: snow ground, white 28px panels, Inter UI, hairline 
 
 STORY: Visitor sees the fictional banner, reads what is simulated and what is real, works through five tabs while moving the simulated clock, and leaves knowing what Estimate Request Setup does; then registers interest.
 
-FIRST VIEWPORT: Sticky ink banner under the red nav; display h1 "See how it works." with a one-line subhead; the simulated-vs-real panel; the demo card opening on tab 1 with five sample requests already loaded and the simulated clock at the top.
+FIRST VIEWPORT: Sticky ink banner under the red nav; display h1 "See how it works." with a one-line subhead; then the demo card opening on tab 1 with five sample requests loaded, its simulated clock and tabs inside the first viewport at 1440 and 390. The simulated-vs-real panel follows the demo.
 
 FORM: seed: none (pinned) — "Rebuild the demo as a client-only React component in the site's existing design." "do not copy its visual style".
 

@@ -12,7 +12,7 @@ Nothing was submitted to FormSubmit: every request to `formsubmit.co` was interc
 | 1 | Screenshots, horizontal scroll, console errors | PASS | 14 pages × 2 widths = 28 captures; 0 pages wider than the viewport; 0 console errors |
 | 2 | Accessibility (axe-core, keyboard, focus, contrast) | PASS | 0 serious or critical axe violations on 28 page loads; keyboard runs pass on nav, contact form, demo and mobile menu |
 | 3 | Links | PASS | 39 internal links and anchors, 0 broken; 1 external link (Calendly) returns 200; 1 mailto listed |
-| 4 | Pricing consistency | PASS | 96 dollar amounts in 9 built pages, all from `offers.ts`; 0 hard-coded prices in `src/`; rendered pages: 0 amounts outside `offers.ts` |
+| 4 | Pricing consistency | PASS | 96 dollar amounts in 9 built pages, all from `offers.ts`; 0 hard-coded prices in `src/`; 109 amounts on 14 rendered pages, 0 outside `offers.ts` |
 | 5 | Contact form | PASS | 14/14 `?service=` values preselect correctly; 9/9 dropdown changes update price, description, summary and placeholder; empty and bad-email submits blocked; stubbed submit carries the `service` slug and lands on `/thanks` |
 | 6 | Demo flows and network | PASS | 13/13 steps at 1440 and 13/13 at 390; 0 network requests during the demo |
 | 7 | Lighthouse (mobile) | PASS | Home 97 / 100 / 100 / 100; Pricing 99 / 100 / 100 / 100; Demo 98 / 100 / 100 / 100 (Performance / Accessibility / Best practices / SEO) |
@@ -47,7 +47,7 @@ Nothing was submitted to FormSubmit: every request to `formsubmit.co` was interc
 
 - `src/data/offers.ts` is the only place prices live. Allowed amounts derived from it: $149, $0, $99, $79, $1,188 (12 × $99, shown as the Website Plan's first-year total), $2,500, $129, $399, $299, $199, $799.
 - `node scripts/check-prices.mjs` (after `next build`): scans the built HTML of every CapitalSites page, including metadata, and greps `src/` for hard-coded amounts. Result: 96 amounts in 9 pages, all allowed; 0 hard-coded. It fails the run on anything else (it did, correctly, on a first draft of its own pattern).
-- In the browser (`site-qa.cjs`): every page including the demos, with fictional regions (`data-fictional`: menu items, products, the demo's made-up quote amounts) set aside and the CapitalSites banners inside them kept. Result: 0 amounts outside `offers.ts`.
+- In the browser (`site-qa.cjs`): every page including the demos, with fictional regions (`data-fictional`: menu items, products, the demo's made-up quote amounts) set aside and the CapitalSites banners inside them kept. Result: 109 amounts across 14 pages, 0 outside `offers.ts`.
 - Page titles, descriptions and Open Graph tags that mention prices build them from `offers.ts`.
 
 ## 5. Contact form
@@ -113,6 +113,39 @@ Also checked:
 - `sitemap.xml`: 12 URLs (all public pages; `/thanks` excluded), each 200. `robots.txt`: allow all, disallow `/thanks`, sitemap linked (unchanged).
 - `next build`: passes (21 static routes, including the new favicon and app icons). `next lint`: no warnings or errors. `tsc --noEmit`: clean.
 - Design detector (`impeccable detect`): no blocking findings; advisories only (type sizes on the documented ramp, the demo-only status colours, pre-existing device-frame radii, and the Maison Noir concept page's purple text).
+
+## Copy to confirm before launch
+
+1. **First-year total:** "$1,188 in the first year" stays next to every Website Plan price. It is 12 × $99, built from `offers.ts`, not a separate price, but the brief says "show only these prices", so please confirm you want it shown.
+2. **Reply times:** "we will get back to you within 24 hours" on Contact and "Delivered within 24 hours" on the audit are existing promises about our own reply time. I read the brief's "never promise response times" as being about customers' results, so I kept them.
+3. **Existing Website Plan claims:**
+   - Kept as written: "Rebuilds launch in 7 days, new sites in 10–14 days", "Premium 14–21 days", "Google Search Console setup included with every website build", "Uptime monitoring".
+   - "Monthly content changes" is also kept, but its size is still undefined.
+4. **Cancellation:** the FAQ keeps "after your first 12 months … cancel with 30 days notice". Cancelling early and what you own after 12 months now read "Terms confirmed in your written scope before any work starts.", as you chose. The footer fine print no longer repeats the cancellation term.
+5. **Estimate Request Setup:** $399 is labelled "Planned introductory price." along with the pilot's no-payment note. Confirm whether $399 is the pilot price or the later price.
+6. **Software Integration:** shown as "From $799 setup", with the $149 discovery credited.
+7. **Privacy page (new):** please read it.
+   - **Facts it states:** what the forms collect; that they go through FormSubmit to a Gmail inbox; no analytics, advertising or tracking scripts and no cookies of our own (the live site sends no Set-Cookie header); that the demo stays in the browser; and that Calendly handles bookings.
+   - **What it leaves out:** retention promises.
+8. **Free audit:** it left the main nav (per the new nav) but stays reachable from the footer and the Services closing section.
+9. **Structured data:** it is now `Organization`, not `ProfessionalService`, and `priceRange` was removed, since prices vary by service.
+10. **Concept demos:** they still show fictional business numbers, such as Ember Kitchen's "4.8★ Google Rating". They're pre-existing and fictional, but you may prefer to remove star ratings anywhere on the site.
+11. **"Contact or booking form" in the Website Plan list:** this is existing wording. It may be confused with Online Booking, which is coming soon.
+
+## Design review (impeccable)
+
+- **Detector:** no blocking findings.
+- **First viewport:** passes on Home at 390 and 1440. On Demo, the clock, tabs and the start of tab 1 are on screen at both sizes.
+- **Finish review (fresh reviewer, code-led build):** returned **fix** with eight items:
+  1. The demo's first viewport.
+  2. The phone frame's island covering the wordmark in the demo screenshots.
+  3. Pricing table columns not lining up.
+  4. The two offer cards' rows not lining up.
+  5. The Fix pill wrapping on phones.
+  6. Uneven Steps rise, and two dark tiles stacked on About.
+  7. Inconsistent state names and repeated lines.
+  8. DESIGN.md out of date.
+- **Result:** all eight were applied in one batch. The automated checks above were rerun afterwards, and DESIGN.md was merged with the build at your request.
 
 ## Could not do or verify
 

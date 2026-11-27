@@ -354,7 +354,7 @@ export const availabilityInfo: Record<Availability, { badge: string; status: str
   "coming-soon": {
     badge: "Not available yet",
     status: "Coming soon",
-    note: "Not available yet. The price shown is the planned introductory price. No payment is taken.",
+    note: "No payment is taken while it isn't available, and no date is promised.",
   },
 };
 
@@ -370,14 +370,15 @@ export const groups: { id: GroupId; name: string; title: string; intro: string }
   {
     id: "operations",
     name: "Digital Operations",
-    title: "Digital operations.",
-    intro: "Get enquiries, estimates, bookings and the tools in between working together, in accounts you own.",
+    title: "Digital Operations.",
+    intro:
+      "Get enquiries, estimates, bookings and the tools in between working together, in accounts you own. Estimate Request Setup is taking founding customers; the rest are coming soon.",
   },
   {
     id: "care",
     name: "Digital Care",
     title: "Digital Care.",
-    intro: "Ongoing care for the operations systems we set up, within limits agreed in writing.",
+    intro: "Ongoing care for the operations systems we set up, within limits agreed in writing. Coming soon.",
   },
 ];
 

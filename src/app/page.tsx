@@ -10,7 +10,6 @@ import {
   firstYearNote,
   getOffer,
   priceFigure,
-  priceLine,
   priceNote,
   TERMS_NOTE,
   type Offer,
@@ -27,9 +26,17 @@ export const metadata = pageMeta({
   path: "/",
 });
 
-const featured: { offer: Offer; secondary: { href: string; label: string } }[] = [
-  { offer: fix, secondary: { href: "/services#website-fix", label: "How the Fix works" } },
-  { offer: estimates, secondary: { href: "/demo", label: "See it in the demo" } },
+const featured: { offer: Offer; secondary: { href: string; label: string }; note: string }[] = [
+  {
+    offer: fix,
+    secondary: { href: "/services#website-fix", label: "How the Fix works" },
+    note: "Examples: a booking button, a contact form or a phone link. No charge if we can't fix it.",
+  },
+  {
+    offer: estimates,
+    secondary: { href: "/demo", label: "See it in the demo" },
+    note: availabilityInfo[estimates.availability].note,
+  },
 ];
 
 const demoShots = [
@@ -61,9 +68,14 @@ export default function Home() {
           <div className="mt-6">
             <Link
               href={contactHref("fix")}
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/40 px-5 py-2.5 text-[16px] md:text-[17px] font-semibold text-white hover:bg-white/20 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/40 px-5 py-2.5 text-[16px] md:text-[17px] font-semibold text-white hover:bg-white/20 transition-colors focus-visible:outline-3 focus-visible:outline-white focus-visible:outline-offset-3"
             >
-              Just one thing broken on your website? Fix one problem — {priceFigure(fix)} CAD
+              <span className="text-balance">
+                <span className="hidden sm:inline">Just one thing broken on your website? </span>
+                <span className="sm:hidden">One thing broken? </span>
+                Fix one problem —{" "}
+                <span className="whitespace-nowrap">{priceFigure(fix)}&nbsp;CAD</span>
+              </span>
               <svg viewBox="0 0 8 14" className="w-2 h-3.5 flex-none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <path d="M1 1l6 6-6 6" />
               </svg>
@@ -90,14 +102,18 @@ export default function Home() {
           <h2 className="headline text-[40px] md:text-[56px]">Two ways to start.</h2>
           <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2">One is ready today. One is taking founding customers.</p>
         </Rise>
-        <div className="mt-12 grid md:grid-cols-2 gap-3">
-          {featured.map(({ offer: o, secondary }) => (
-            <Rise key={o.slug} className="tile tile-snow card-tile px-7 sm:px-10 pt-10 sm:pt-12 pb-10 flex flex-col">
-              <div className="flex flex-wrap items-center gap-3">
-                <h3 className="headline text-[36px] md:text-[48px]">{o.name}</h3>
+        {/* Both cards share one row grid (subgrid), so title, badge, text, list, price and actions line up. */}
+        <div className="mt-12 grid gap-3 md:grid-cols-2 md:grid-rows-[repeat(6,auto)] md:gap-y-0">
+          {featured.map(({ offer: o, secondary, note }) => (
+            <Rise
+              key={o.slug}
+              className="tile tile-snow card-tile px-7 sm:px-10 pt-10 sm:pt-12 pb-10 flex flex-col md:row-span-6 md:grid md:grid-rows-subgrid"
+            >
+              <h3 className="headline text-[36px] md:text-[48px]">{o.name}</h3>
+              <div className="mt-3">
                 <AvailabilityBadge availability={o.availability} />
               </div>
-              <p className="text-[17px] md:text-[19px] text-ink-2 mt-3 leading-[1.45]">{o.slug === "fix" ? o.description : o.summary}</p>
+              <p className="text-[17px] md:text-[19px] text-ink-2 mt-4 leading-[1.45]">{o.summary}</p>
               <ul className="mt-6 space-y-3">
                 {o.includes.slice(0, 3).map((f) => (
                   <li key={f} className="flex gap-3 text-[16px] leading-[1.4]">
@@ -106,16 +122,16 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto pt-10">
+              <div className="mt-10 md:self-end">
                 <p className="display tabular text-[60px] sm:text-[72px] leading-none text-ink">{priceFigure(o)}</p>
                 <p className="text-[15px] text-ink-2 mt-2">{priceNote(o)}</p>
-                {o.availability !== "available" && (
-                  <p className="text-[15px] text-ink mt-2 font-medium">{availabilityInfo[o.availability].note}</p>
-                )}
+              </div>
+              <div>
                 <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
                   <Pill href={contactHref(o.slug)}>{o.cta}</Pill>
                   <ChevLink href={secondary.href}>{secondary.label}</ChevLink>
                 </div>
+                <p className="text-[14px] text-ink-2 mt-4 leading-[1.45]">{note}</p>
               </div>
             </Rise>
           ))}
@@ -170,13 +186,14 @@ export default function Home() {
           <p className="subhead text-[19px] md:text-[24px] mt-3 text-ink-2 max-w-[680px] mx-auto">
             A website that works on a phone and gets every enquiry to you.
           </p>
-          <dl className="mt-10 grid sm:grid-cols-3 gap-3 max-w-[920px] mx-auto text-left">
+          <dl className="mt-10 grid sm:grid-cols-3 gap-x-8 gap-y-6 max-w-[920px] mx-auto text-left">
             {websites.map((o) => (
-              <div key={o.slug} className="rounded-2xl bg-white ring-1 ring-line p-5">
+              <div key={o.slug} className="border-t border-line pt-5">
                 <dt className="text-[17px] font-semibold tracking-[-0.015em] text-ink">{o.name}</dt>
-                <dd className="text-[15px] text-ink-2 mt-1 leading-[1.45] tabular">
-                  {priceLine(o)}
-                  {o.slug === "plan" && <span className="block">({firstYearNote()})</span>}
+                <dd className="headline tabular text-[32px] mt-2">{priceFigure(o)}</dd>
+                <dd className="text-[15px] text-ink-2 mt-1 leading-[1.45]">
+                  {priceNote(o)}
+                  {o.slug === "plan" && ` (${firstYearNote()})`}
                 </dd>
               </div>
             ))}

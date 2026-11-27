@@ -36,9 +36,6 @@ export default function AboutPage() {
             <p className="text-[17px] md:text-[19px] text-ink-2 mt-4 leading-[1.5]">
               I build every project myself, working with businesses across Canada.
             </p>
-            <p className="text-[17px] md:text-[19px] text-ink mt-4 leading-[1.5] font-medium">
-              We use modern tools, including AI, to build and test faster. You get a normal system you own.
-            </p>
           </Rise>
           <Rise className="tile tile-ink on-dark card-tile text-center px-8 pt-14 pb-14 flex flex-col">
             <h2 className="headline text-[36px] md:text-[48px]">One person builds it.</h2>
@@ -66,6 +63,9 @@ export default function AboutPage() {
           <Rise className="mt-12">
             <Steps />
           </Rise>
+          <p className="mt-12 text-center text-[17px] md:text-[19px] text-ink leading-[1.5] font-medium max-w-[620px] mx-auto">
+            We use modern tools, including AI, to build and test faster. You get a normal system you own.
+          </p>
         </div>
       </section>
 
@@ -73,16 +73,16 @@ export default function AboutPage() {
         <Rise className="max-w-[720px] mx-auto text-center">
           <h2 className="headline text-[40px] md:text-[56px]">Your accounts. Your data.</h2>
           <p className="text-[19px] md:text-[21px] text-ink-2 mt-6 leading-[1.5]">
-            Digital operations setups are built in accounts you own, such as your Google account or your existing job
+            Digital Operations setups are built in accounts you own, such as your Google account or your existing job
             software. Your requests, estimates and customer details stay there, and you keep access to all of it.
           </p>
         </Rise>
       </section>
 
-      <section className="tile tile-black on-dark py-24 md:py-32 px-6">
+      <section className="tile tile-snow py-24 md:py-32 px-6">
         <Rise className="max-w-[720px] mx-auto text-center">
-          <h2 className="headline text-[40px] md:text-[56px] text-white">Where we are today.</h2>
-          <p className="text-[19px] md:text-[21px] text-night-muted mt-6 leading-[1.5]">
+          <h2 className="headline text-[40px] md:text-[56px]">Where we are today.</h2>
+          <p className="text-[19px] md:text-[21px] text-ink-2 mt-6 leading-[1.5]">
             We are a new studio. The demo is fictional; we&apos;ll show real client work once clients give permission. The
             concept websites are examples too, not paying clients.
           </p>

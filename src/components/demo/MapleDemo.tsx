@@ -559,7 +559,9 @@ export default function MapleDemo() {
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
         <div className="px-2 pt-2 sm:p-0">
           <h2 className="headline text-[32px] md:text-[36px]">Maple Home Services (fictional)</h2>
-          <p className="text-[15px] text-ink-2 mt-1">A made-up home-service business with five sample requests already in.</p>
+          <p className="text-[15px] text-ink-2 mt-1">
+            A made-up home-service business with five sample requests already in. Move the clock to see what happens over days.
+          </p>
         </div>
         <div className="rounded-2xl bg-snow px-4 py-3 w-full sm:w-auto" role="group" aria-label="Simulated clock">
           <p className="text-[13px] text-ink-2">
@@ -685,21 +687,28 @@ export default function MapleDemo() {
         </Panel>
         <div className="grid gap-4 content-start min-w-0">
           <Panel title="Sample requests" intro="Synthetic requests with example.com addresses. The first five are already in the list.">
-            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <ul className="divide-y divide-line border-y border-line">
               {SAMPLES.map((s) => (
                 <li key={s.label}>
-                  <button type="button" onClick={() => runSample(s)} className="demo-sample w-full text-left rounded-xl bg-white ring-1 ring-line hover:ring-ink px-4 py-2.5 transition-shadow">
-                    <span className="block text-[15px] font-semibold text-ink">{s.label}</span>
-                    <span className="block text-[13px] text-ink-2">{s.outcome}</span>
+                  <button
+                    type="button"
+                    onClick={() => runSample(s)}
+                    className="demo-sample group w-full text-left py-2.5 flex flex-wrap items-baseline justify-between gap-x-4"
+                  >
+                    <span className="text-[15px] font-semibold text-ink group-hover:text-red group-hover:underline underline-offset-3 transition-colors">
+                      {s.label}
+                    </span>
+                    <span className="text-[13px] text-ink-2">{s.outcome}</span>
                   </button>
                 </li>
               ))}
             </ul>
           </Panel>
-          <Panel title="What the system did">
-            <ol className="max-h-[280px] overflow-auto space-y-2 text-[14px] leading-[1.45]" tabIndex={0} aria-label="System log, newest first" data-testid="demo-log">
-              {w.log.map((l, i) => (
-                <li key={`${l.at}-${i}`} className="rounded-xl bg-white ring-1 ring-line px-3 py-2">
+          <Panel title="What the system did" intro="The six most recent events, newest first.">
+            {/* Whole entries only: no scroll area to cut an entry in half. */}
+            <ol className="divide-y divide-line border-y border-line text-[14px] leading-[1.45]" aria-label="System log, newest first" data-testid="demo-log">
+              {w.log.slice(0, 6).map((l, i) => (
+                <li key={`${l.at}-${i}`} className="py-2.5">
                   <span className="block text-[12px] text-ink-2 tabular">{fmt(l.at)}</span>
                   {l.text}
                 </li>

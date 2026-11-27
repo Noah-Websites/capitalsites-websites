@@ -66,15 +66,15 @@ const faqs = [
   },
   {
     q: "What is a founding customer pilot?",
-    a: `${getOffer("estimate-requests").name} is our first digital operations service. We're taking expressions of interest from contractors and home-service businesses who'd like to be among the first to use it. Registering interest doesn't commit you to anything: no payment is taken and no delivery date is promised yet.`,
+    a: `${getOffer("estimate-requests").name} is our first Digital Operations service. We're taking expressions of interest from contractors and home-service businesses who'd like to be among the first to use it. Registering interest doesn't commit you to anything: no payment is taken and no delivery date is promised yet.`,
   },
   {
-    q: "What does \"Coming soon\" mean?",
+    q: "What does \"Not available yet\" mean?",
     a: `${listNames(comingSoon.map((o) => o.name))} aren't available yet. The prices shown are the planned introductory prices. Ask us to tell you when one is ready; no payment is taken and no date is promised.`,
   },
   {
     q: "Do I own my accounts and data?",
-    a: "Yes. Digital operations setups are built in accounts you own, such as your Google account or your existing job software, so your requests, estimates and customer details stay with you.",
+    a: "Yes. Digital Operations setups are built in accounts you own, such as your Google account or your existing job software, so your requests, estimates and customer details stay with you.",
   },
   {
     q: `How is ${getOffer("care").name} different from the ${plan.name}?`,

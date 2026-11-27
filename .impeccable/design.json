@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T00:59:28+00:00",
+  "generatedAt": "2026-11-27T18:23:00+00:00",
   "title": "Design System: CapitalSites",
   "extensions": {
     "colorMeta": {
@@ -173,27 +173,27 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Poppins 800, -0.025em, word-spacing 0.06em. Page h1s and hero figures. Ramp: 56/80/112 at lh 0.95 (home hero, two lines), 48/64/88 (page heroes), 48/72 (form pages), 44/80 (closer), 120/160/220 ($0), 72/88 (plan prices)."
+        "purpose": "Poppins 800, -0.025em, word-spacing 0.06em. Page h1s and figures. Ramp: 56/80/112 at lh 0.95 (home hero, mobile/sm/lg, two lines), 48/64/88 (page heroes), 48/72 (form, demo, privacy and section heroes), 44/80 (closers), 60/72 (price figures; 60/72/88 for the Website Fix on Services). The pricing h1 at 40/60/80 is drift, not a step."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Poppins 700, -0.02em. Section and tile headlines. Ramp: 40/56, 40/64, 36/48, 32/48, 36/44, 32 (price)."
+        "purpose": "Poppins 700, -0.02em. Section and tile headlines. Ramp: 40/56, 40/64, 36/48, 32/36 (offer cards, demo title), 32/36/44 (price groups), 32 (price columns, Steps numerals)."
       },
       "subhead": {
         "displayName": "Subhead",
-        "purpose": "Inter 500. One-line follow-up under a headline. Ramp: 19/24, 21/30 (hero), 19/21, 17/21."
+        "purpose": "Inter 500. One-line follow-up under a headline. Ramp: 19/24 (default, including the home hero), 19/21, 17/21."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Sentence-case 600 lines: 'Due today' (21/24), FAQ summaries (19/21), card titles (19)."
+        "purpose": "Sentence-case 600 lines: Privacy section titles (21/24), FAQ summaries (19/21), card, price-table and demo-panel titles (19), Steps, price-column and payment-term names (17)."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Lead paragraphs 17/21, tile copy 17/19, lists 16, plan detail 15; measure 420\u2013640px."
+        "purpose": "Lead paragraphs 17/21, tile copy 17/19, lists 16, offer details, price notes and Steps copy 15; dense UI (price tables, the demo) 14-15 with 12-13 meta; measure 420\u2013640px."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Inter. Field labels 14/600; meta 14, tags 13, nav CTA 13/600, footer 12, nav links 14/500."
+        "purpose": "Inter. Field labels 14/600; meta and the demo banner 14; tags, badges, table headers and the nav CTA 13/600; footer 12; demo status tags 12/600; nav links 14/500."
       }
     },
     "shadows": [
@@ -241,6 +241,11 @@
         "name": "nav-hairline",
         "value": "border-bottom: 1px solid rgb(255 255 255 / 0.15)",
         "purpose": "Only separation under the solid red nav; nothing is translucent."
+      },
+      {
+        "name": "hairline-ring",
+        "value": "0 0 0 1px var(--color-line)",
+        "purpose": "Flat separation instead of a shadow: the demo card and its rows, Steps cards, unselected demo tabs, time slots, the Not available yet badge and small notes on snow."
       }
     ],
     "motion": [
@@ -295,12 +300,12 @@
       {
         "pair": "red on black",
         "ratio": 3.57,
-        "note": "Large text only: the pricing h1 second line at 48-88px."
+        "note": "Large text only: the pricing h1's second line, at display size (40px and up)."
       },
       {
         "pair": "white/90 on red",
         "ratio": 4.95,
-        "note": "Minimum for text on red grounds (tiles, hero, nav links)."
+        "note": "Minimum for text on red grounds (hero, nav links, the final Steps card)."
       },
       {
         "pair": "ink-2 on white",
@@ -314,6 +319,40 @@
         "pair": "white on red-deep",
         "ratio": 7.82,
         "note": "Hero bottom edge and mobile menu panel."
+      },
+      {
+        "pair": "white on ink",
+        "ratio": 16.83,
+        "note": "Available badge, selected demo tab, the /demo fictional banner."
+      },
+      {
+        "pair": "white on hero link pill (white/10 over red)",
+        "ratio": 5.26
+      },
+      {
+        "pair": "white on hero link pill hover (white/20 over red)",
+        "ratio": 4.53,
+        "note": "Lowest text pair on the site; the fill must not get lighter."
+      },
+      {
+        "pair": "status green #1E7B3C on #E6F4EA",
+        "ratio": 4.68,
+        "note": "/demo only, always with a word."
+      },
+      {
+        "pair": "status amber #8A5A00 on #FBF0DC",
+        "ratio": 5.25,
+        "note": "/demo only, always with a word."
+      },
+      {
+        "pair": "status red #B3261E on #FBE9E7",
+        "ratio": 5.58,
+        "note": "/demo only, always with a word."
+      },
+      {
+        "pair": "amber dot #C27C0E on snow",
+        "ratio": 3.12,
+        "note": "Non-text; always followed by its sentence."
       }
     ],
     "logo": {
@@ -329,7 +368,95 @@
         "path": "public/logo-mark-white.png",
         "use": "Solid white symbol for red/dark grounds; nav at 32px tall beside the Poppins 700 19px wordmark."
       },
-      "openQuestion": "The symbol's tower resembles Parliament's Peace Tower; the owner's earlier brief said no government-style imagery in the logo or header. Owner supplied the logo and asked for it to be used. Unresolved; owner to decide."
+      "icons": {
+        "paths": [
+          "src/app/favicon.ico",
+          "src/app/icon.png",
+          "src/app/apple-icon.png"
+        ],
+        "use": "The full-colour symbol: icon.png transparent (512px), apple-icon.png on white (180px), favicon.ico 16 and 32px."
+      },
+      "peaceTower": "The symbol's tower resembles Parliament's Peace Tower; the owner's earlier brief said no government-style imagery. The owner supplied the logo, asked for it to be used and approved keeping the tower on 2026-11-26. It is an exception for the brand mark, not a precedent for new imagery."
+    },
+    "demoStatus": {
+      "scope": "/demo only (src/components/demo/MapleDemo.tsx). Classes .status-ok, .status-warn, .status-bad and .status-dot-green/-amber/-red in src/app/globals.css. Not palette tokens and not accents.",
+      "pairs": [
+        {
+          "name": "status-ok",
+          "text": "#1E7B3C",
+          "background": "#E6F4EA",
+          "ratio": 4.68,
+          "use": "Won requests, delivered alerts, confirmed visits, accepted quotes, successful results."
+        },
+        {
+          "name": "status-warn",
+          "text": "#8A5A00",
+          "background": "#FBF0DC",
+          "ratio": 5.25,
+          "use": "New requests, waiting alerts, sent quotes, anything that needs attention."
+        },
+        {
+          "name": "status-bad",
+          "text": "#B3261E",
+          "background": "#FBE9E7",
+          "ratio": 5.58,
+          "use": "Failures, overdue replies, emergencies, lost requests, declined or expired quotes, blocked actions. A different red from Maple Red."
+        }
+      ],
+      "dots": [
+        {
+          "name": "status-dot-green",
+          "value": "#1E7B3C"
+        },
+        {
+          "name": "status-dot-amber",
+          "value": "#C27C0E"
+        },
+        {
+          "name": "status-dot-red",
+          "value": "#B3261E"
+        }
+      ],
+      "rule": "Always paired with a word; never an accent, a decoration or a ground outside /demo."
+    },
+    "focus": [
+      {
+        "name": "pill",
+        "value": "outline: 3px solid var(--color-ink); outline-offset: 3px",
+        "purpose": "Pills; the outline turns white inside .on-dark."
+      },
+      {
+        "name": "chevron-link",
+        "value": "outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px",
+        "purpose": "Chevron links."
+      },
+      {
+        "name": "field",
+        "value": "border-color: var(--color-ink); box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ink) 14%, transparent)",
+        "purpose": "Fields and selects; never red. The contact form's transparent service select draws it on the visible field beneath."
+      },
+      {
+        "name": "nav",
+        "value": "outline: 2px solid var(--color-white); outline-offset: 3px; border-radius: 4px",
+        "purpose": "Links and the menu button on the red nav; the Contact pill keeps its pill radius at a 2px offset."
+      },
+      {
+        "name": "demo-tab",
+        "value": "outline: 3px solid var(--color-ink); outline-offset: 3px",
+        "purpose": "Demo tabs and sample-request buttons."
+      },
+      {
+        "name": "faq-summary",
+        "value": "outline: 2px solid var(--color-ink)",
+        "purpose": "FAQ summaries."
+      }
+    ],
+    "layout": {
+      "containerDemo": "1180px (the /demo console and its simulated-vs-real panel; every other page uses the 1024px container)",
+      "stepsRise": "Top offsets 96 / 64 / 32 / 0px from md on a shared bottom, so each Steps card rises 32px",
+      "priceTableColumns": "table-layout: fixed; one shared colgroup of 32% / 28% / 18% / 22% so every group's table lines up; stacked rows below md",
+      "twoWaysSubgrid": "Home pair: md:grid-rows-[repeat(6,auto)] with each card md:row-span-6 md:grid-rows-subgrid, so all six rows line up across both cards",
+      "phoneStatusStrip": "Maple demo phone screenshots carry a plain 47pt nav-red strip above the page so the Dynamic Island covers nothing"
     }
   },
   "components": [
@@ -337,17 +464,17 @@
       "name": "Home Hero",
       "kind": "custom",
       "refersTo": "tile-hero",
-      "description": "Red radial hero with a two-line Poppins 800 headline, white pill (red text) + white ghost pill.",
-      "html": "<section class=\"ds-hero ds-on-dark ds-red-ground\"><h1>Your website.<br>Rebuilt.</h1><p><b>$0 upfront.</b> <span>Then $99/month.</span></p><div class=\"ds-hero-ctas\"><a class=\"ds-pill ds-pill-white\" href=\"#\">Get a free audit</a><a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a></div></section>",
-      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-hero{background:radial-gradient(90% 70% at 50% 0%, var(--color-red,#C8102E) 0%, transparent 70%), radial-gradient(120% 100% at 50% 100%, var(--color-red-deep,#A50D26) 0%, var(--color-red,#C8102E) 75%);color:#fff;text-align:center;padding:64px 24px;font-family:Inter,-apple-system,sans-serif;} .ds-hero h1{margin:0;font-family:Poppins,Inter,sans-serif;font-weight:800;font-size:56px;line-height:0.95;letter-spacing:-0.025em;word-spacing:0.06em;text-wrap:balance;} .ds-hero p{margin:24px 0 0;font-size:21px;font-weight:500;letter-spacing:-0.012em;} .ds-hero p span{color:rgb(255 255 255 / 0.9);} .ds-hero-ctas{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;} .ds-pill-white{background:#fff;color:var(--color-red,#C8102E);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);}"
+      "description": "Red radial hero: two-line Poppins 800 slogan, the value proposition as a 19/24 white subhead, a white pill (red text) beside a white ghost pill, then the one-sentence Website Fix link pill.",
+      "html": "<section class=\"ds-hero ds-on-dark ds-red-ground\"><h1>Better systems.<br>Better business.</h1><p>We help contractors and home-service businesses manage customer enquiries, organize estimates, schedule appointments and connect their digital systems.</p><div class=\"ds-hero-ctas\"><a class=\"ds-pill ds-pill-white\" href=\"#\">See how it works</a><a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a></div><div class=\"ds-hero-fix\"><a class=\"ds-hero-link\" href=\"#\">Just one thing broken on your website? Fix one problem<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1 1l6 6-6 6\"/></svg></a></div></section>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border:0;border-radius:980px;background:transparent;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-hero{background:radial-gradient(90% 70% at 50% 0%, var(--color-red,#C8102E) 0%, transparent 70%), radial-gradient(120% 100% at 50% 100%, var(--color-red-deep,#A50D26) 0%, var(--color-red,#C8102E) 75%);color:#fff;text-align:center;padding:64px 24px;font-family:Inter,-apple-system,sans-serif;} .ds-hero h1{margin:0;font-family:Poppins,Inter,sans-serif;font-weight:800;font-size:56px;line-height:0.95;letter-spacing:-0.025em;word-spacing:0.06em;text-wrap:balance;} .ds-hero p{margin:24px auto 0;max-width:760px;font-size:19px;font-weight:500;letter-spacing:-0.012em;line-height:1.3;text-wrap:balance;} .ds-hero-ctas{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;} .ds-pill-white{background:#fff;color:var(--color-red,#C8102E);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);} .ds-hero-fix{margin-top:24px;} .ds-hero-link{display:inline-flex;align-items:center;gap:8px;border-radius:980px;background:rgb(255 255 255 / 0.1);box-shadow:0 0 0 1px rgb(255 255 255 / 0.4);padding:10px 20px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;text-wrap:balance;transition:background-color 150ms;} .ds-hero-link:hover{background:rgb(255 255 255 / 0.2);} .ds-hero-link svg{width:8px;height:14px;flex:none;}"
     },
     {
       "name": "Primary Pill",
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Filled red pill CTA; the single primary action in a section.",
-      "html": "<a class=\"ds-pill ds-pill-red\" href=\"#\">Get a free audit</a>",
-      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-red{background:var(--color-red,#C8102E);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#A50D26);}"
+      "html": "<a class=\"ds-pill ds-pill-red\" href=\"#\">Get in touch</a>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border:0;border-radius:980px;background:transparent;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-red{background:var(--color-red,#C8102E);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#A50D26);}"
     },
     {
       "name": "Ghost Pill",
@@ -355,14 +482,14 @@
       "refersTo": "button-ghost",
       "description": "Outline pill paired beside the primary; inverts to white on dark, red and ink tiles.",
       "html": "<a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:16px;border-radius:16px\"><a class=\"ds-pill ds-pill-ghost\" href=\"#\">See pricing</a></span>",
-      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-ghost{color:var(--color-red,#C8102E);box-shadow:inset 0 0 0 1.5px var(--color-red,#C8102E);} .ds-pill-ghost:hover{background:var(--color-red,#C8102E);color:#fff;} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);}"
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border:0;border-radius:980px;background:transparent;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-ghost{color:var(--color-red,#C8102E);box-shadow:inset 0 0 0 1.5px var(--color-red,#C8102E);} .ds-pill-ghost:hover{background:var(--color-red,#C8102E);color:#fff;} .ds-on-dark .ds-pill-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff;} .ds-on-dark .ds-pill-ghost:hover{background:#fff;color:var(--color-ink,#1D1D1F);}"
     },
     {
       "name": "White Pill",
       "kind": "button",
       "refersTo": "button-white-on-red",
-      "description": "White pill; ink text on neutral contexts, red text on red grounds (hero, red tiles, nav).",
-      "html": "<div class=\"ds-on-dark ds-red-ground\" style=\"background:#C8102E;padding:24px\"><a class=\"ds-pill ds-pill-white\" href=\"#\">Get a free audit</a></div>",
+      "description": "White pill; ink text on neutral contexts, red text on red grounds (the hero and the nav).",
+      "html": "<div class=\"ds-on-dark ds-red-ground\" style=\"background:#C8102E;padding:24px\"><a class=\"ds-pill ds-pill-white\" href=\"#\">See how it works</a></div>",
       "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border-radius:980px;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-white{background:#fff;color:var(--color-ink,#1D1D1F);} .ds-pill-white:hover{background:var(--color-snow,#F5F5F7);} .ds-red-ground .ds-pill-white{color:var(--color-red,#C8102E);}"
     },
     {
@@ -370,7 +497,7 @@
       "kind": "custom",
       "refersTo": "chevron-link",
       "description": "Apple-style 'Learn more \u203a' link; ink at rest, red and underlined on hover on light grounds, white in both states on dark.",
-      "html": "<a class=\"ds-chev\" href=\"#\">Compare plans<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:12px 16px;border-radius:12px\"><a class=\"ds-chev\" href=\"#\">See all concept work<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></span>",
+      "html": "<a class=\"ds-chev\" href=\"#\">Website services<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a> <span class=\"ds-on-dark\" style=\"display:inline-block;background:#000;padding:12px 16px;border-radius:12px\"><a class=\"ds-chev\" href=\"#\">Open the demo<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></span>",
       "css": ".ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;transition:color 150ms;} .ds-chev:hover{color:var(--color-red,#C8102E);text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);} .ds-on-dark .ds-chev,.ds-on-dark .ds-chev:hover{color:#fff;}"
     },
     {
@@ -378,7 +505,7 @@
       "kind": "input",
       "refersTo": "input-field",
       "description": "Labelled 52px field with a neutral ink focus ring, never red.",
-      "html": "<label class=\"ds-field-label\" for=\"ds-n\">Business name</label><input id=\"ds-n\" class=\"ds-field\" placeholder=\"Ember Kitchen\">",
+      "html": "<label class=\"ds-field-label\" for=\"ds-n\">Business name</label><input id=\"ds-n\" class=\"ds-field\" placeholder=\"Your business\">",
       "css": ".ds-field-label{display:block;font-family:Inter,-apple-system,sans-serif;font-size:14px;font-weight:600;color:var(--color-ink,#1D1D1F);margin-bottom:6px;} .ds-field{display:block;width:100%;min-height:52px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;transition:border-color 150ms,box-shadow 150ms;} .ds-field::placeholder{color:var(--color-ink-2,#6E6E73);} .ds-field:hover{border-color:var(--color-ink-2,#6E6E73);} .ds-field:focus{outline:none;border-color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 4px color-mix(in srgb, var(--color-ink,#1D1D1F) 14%, transparent);}"
     },
     {
@@ -386,68 +513,89 @@
       "kind": "input",
       "refersTo": "input-select",
       "description": "Native select restyled as a field with an ink chevron.",
-      "html": "<select class=\"ds-select\"><option>Website Plan</option><option>Premium</option></select>",
+      "html": "<select class=\"ds-select\"><option>Website Fix</option><option>Estimate Request Setup</option><option>Not sure yet</option></select>",
       "css": ".ds-select{display:block;width:100%;min-height:52px;padding:14px 44px 14px 16px;border-radius:12px;background-color:#fff;border:1px solid var(--color-line,#D2D2D7);color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-size:17px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8' fill='none' stroke='%231D1D1F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 6.5l5.5-5'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 18px center;background-size:14px 8px;transition:border-color 150ms,box-shadow 150ms;} .ds-select:hover{border-color:var(--color-ink-2,#6E6E73);} .ds-select:focus{outline:none;border-color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 4px color-mix(in srgb, var(--color-ink,#1D1D1F) 14%, transparent);}"
     },
     {
       "name": "Navigation Bar",
       "kind": "nav",
       "refersTo": "nav-bar",
-      "description": "Sticky solid red 56px bar: white logo symbol (logo-mark-white.png, 32px; omitted from this snippet) + Poppins wordmark, 14px white/90 links with underline on hover/current, white CTA pill with red text.",
-      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">CapitalSites</a><ul><li><a href=\"#\" aria-current=\"page\">Pricing</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Get a free audit</a></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;background:var(--color-red,#C8102E);border-bottom:1px solid rgb(255 255 255 / 0.15);font-family:Inter,-apple-system,sans-serif;color:#fff;} .ds-nav-mark{display:inline-flex;align-items:center;gap:10px;font-family:Poppins,Inter,sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.02em;color:#fff;text-decoration:none;} .ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500;} .ds-nav ul a{color:rgb(255 255 255 / 0.9);text-decoration:none;text-underline-offset:6px;text-decoration-thickness:2px;transition:color 150ms;} .ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#fff;text-decoration-line:underline;} .ds-nav a:focus-visible{outline:2px solid #fff;outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:#fff;color:var(--color-red,#C8102E);font-size:13px;font-weight:600;text-decoration:none;transition:background-color 150ms;} .ds-nav-cta:hover{background:var(--color-snow,#F5F5F7);}"
+      "description": "Sticky solid red 56px bar: white logo symbol (logo-mark-white.png, 32px; omitted here) + Poppins wordmark, 14px white/90 links (Home, Services, Pricing, Demo, About) underlined on hover/current, and Contact as the white pill with red text. Focus is a 2px white outline.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">CapitalSites</a><ul><li><a href=\"#\">Home</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\" aria-current=\"page\">Pricing</a></li><li><a href=\"#\">Demo</a></li><li><a href=\"#\">About</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Contact</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 20px;background:var(--color-red,#C8102E);border-bottom:1px solid rgb(255 255 255 / 0.15);font-family:Inter,-apple-system,sans-serif;color:#fff;} .ds-nav-mark{display:inline-flex;align-items:center;gap:10px;font-family:Poppins,Inter,sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.02em;color:#fff;text-decoration:none;} .ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500;} .ds-nav ul a{color:rgb(255 255 255 / 0.9);text-decoration:none;text-underline-offset:6px;text-decoration-thickness:2px;transition:color 150ms;} .ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#fff;text-decoration-line:underline;} .ds-nav a:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px;} .ds-nav-cta{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:980px;background:#fff;color:var(--color-red,#C8102E);font-size:13px;font-weight:600;text-decoration:none;transition:background-color 150ms;} .ds-nav-cta:hover{background:var(--color-snow,#F5F5F7);} .ds-nav a.ds-nav-cta:focus-visible{outline-offset:2px;border-radius:980px;}"
     },
     {
-      "name": "Plan Tag",
+      "name": "Availability Badge",
       "kind": "chip",
-      "refersTo": "plan-tag-featured",
-      "description": "Pill tag on plan cards; red when featured, snow otherwise.",
-      "html": "<span class=\"ds-tag ds-tag-featured\">Most popular</span> <span class=\"ds-tag\">One-time</span>",
-      "css": ".ds-tag{display:inline-block;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;background:var(--color-snow,#F5F5F7);color:var(--color-ink-2,#6E6E73);} .ds-tag-featured{background:var(--color-red,#C8102E);color:#fff;}"
+      "refersTo": "badge-available",
+      "description": "The one tag for offers, set from offers.ts: Available (ink, with a check), Founding customer pilot (red), Not available yet (white with a hairline ring).",
+      "html": "<span class=\"ds-badge ds-badge-available\"><svg viewBox=\"0 0 12 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.5 6.5 5 9l4.5-5.5\"/></svg>Available</span> <span class=\"ds-badge ds-badge-pilot\">Founding customer pilot</span> <span class=\"ds-badge ds-badge-soon\">Not available yet</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;} .ds-badge svg{width:12px;height:12px;flex:none;} .ds-badge-available{background:var(--color-ink,#1D1D1F);color:#fff;} .ds-badge-pilot{background:var(--color-red,#C8102E);color:#fff;} .ds-badge-soon{background:#fff;color:var(--color-ink-2,#6E6E73);box-shadow:0 0 0 1px var(--color-line,#D2D2D7);}"
     },
     {
       "name": "Colour Card Tile",
       "kind": "card",
       "refersTo": "card-tile",
-      "description": "28px-radius mosaic tile with headline, subhead and chevron link; solid red and ink variants.",
-      "html": "<div class=\"ds-tile ds-tile-snow\"><h3>Live in 7 days.</h3><p>Rebuilds launch in a week.</p><a href=\"#\">Learn more \u203a</a></div><div class=\"ds-tile ds-tile-ink\" style=\"margin-top:12px\"><h3>One person. Start to finish.</h3><p>No agency. No handoffs. Just Noah.</p><a href=\"#\">Talk to Noah \u203a</a></div>",
+      "description": "28px-radius mosaic tile with headline, copy and a chevron link; snow and ink variants (no red tiles below the first screen).",
+      "html": "<div class=\"ds-tile ds-tile-snow\"><h3>We stay after launch.</h3><p>Hosting, security updates and email support are part of the Website Plan.</p><a href=\"#\">Website services \u203a</a></div><div class=\"ds-tile ds-tile-ink\" style=\"margin-top:12px\"><h3>One person builds it.</h3><p>No agency. No handoffs. Just Noah.</p><a href=\"#\">Get in touch \u203a</a></div>",
       "css": ".ds-tile{position:relative;overflow:hidden;border-radius:28px;padding:40px;text-align:center;color:#fff;font-family:Inter,-apple-system,sans-serif;} .ds-tile-snow{background:var(--color-snow,#F5F5F7);color:var(--color-ink,#1D1D1F);} .ds-tile-snow p{color:var(--color-ink-2,#6E6E73);} .ds-tile-snow a{color:var(--color-ink,#1D1D1F);} .ds-tile-ink{background:var(--color-ink,#1D1D1F);} .ds-tile h3{margin:0;font-family:Poppins,Inter,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1.08;} .ds-tile p{margin:12px 0 0;font-size:19px;font-weight:500;letter-spacing:-0.012em;color:rgba(255,255,255,0.9);} .ds-tile a{display:inline-block;margin-top:20px;color:#fff;font-size:17px;font-weight:500;text-decoration:none;} .ds-tile a:hover{text-decoration:underline;text-underline-offset:3px;} .ds-tile a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;}"
     },
     {
-      "name": "Zero Figure",
+      "name": "Steps",
+      "kind": "custom",
+      "refersTo": "step-card",
+      "description": "Four numbered 16px cards on snow whose tops rise in 32px steps on a shared bottom; only the last (Handover) is red.",
+      "html": "<div class=\"ds-steps-wrap\"><ol class=\"ds-steps\"><li><span class=\"ds-step-n\">1</span><h3>Discovery call</h3><p>A short call about how enquiries, estimates and bookings work today.</p></li><li><span class=\"ds-step-n\">2</span><h3>Written scope</h3><p>What we set up and what it costs, in writing, before any work starts.</p></li><li><span class=\"ds-step-n\">3</span><h3>Setup and testing</h3><p>Set up in your accounts and tested with you.</p></li><li class=\"ds-step-last\"><span class=\"ds-step-n\">4</span><h3>Handover</h3><p>You own it: your accounts, your data, your system.</p></li></ol></div>",
+      "css": ".ds-steps-wrap{background:var(--color-snow,#F5F5F7);padding:32px 24px;} .ds-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:12px;list-style:none;margin:0;padding:0;font-family:Inter,-apple-system,sans-serif;} .ds-steps li{display:flex;flex-direction:column;border-radius:16px;padding:24px;background:#fff;color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 1px var(--color-line,#D2D2D7);} .ds-steps li:nth-child(1){margin-top:96px;} .ds-steps li:nth-child(2){margin-top:64px;} .ds-steps li:nth-child(3){margin-top:32px;} .ds-step-n{font-family:Poppins,Inter,sans-serif;font-weight:700;font-size:32px;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;} .ds-steps h3{margin:auto 0 0;padding-top:24px;font-size:17px;font-weight:600;letter-spacing:-0.015em;} .ds-steps p{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--color-ink-2,#6E6E73);} .ds-steps li.ds-step-last{background:var(--color-red,#C8102E);color:#fff;box-shadow:none;} .ds-steps li.ds-step-last p{color:rgb(255 255 255 / 0.9);}"
+    },
+    {
+      "name": "Price Table",
       "kind": "custom",
       "refersTo": "",
-      "description": "The solid red $0; a key highlight, no gradient.",
-      "html": "<div class=\"ds-zero-wrap\"><p class=\"ds-zero-label\">Due today</p><p class=\"ds-zero\">$0</p></div>",
-      "css": ".ds-zero-wrap{background:var(--color-snow,#F5F5F7);padding:32px;text-align:center;font-family:Inter,-apple-system,sans-serif;} .ds-zero-label{margin:0;font-size:21px;font-weight:600;letter-spacing:-0.02em;color:var(--color-ink,#1D1D1F);} .ds-zero{margin:8px 0 0;font-family:Poppins,Inter,sans-serif;font-size:120px;font-weight:800;letter-spacing:-0.025em;line-height:0.9;font-variant-numeric:tabular-nums;color:var(--color-red,#C8102E);}"
+      "description": "One hairline table per service group: fixed layout with shared 32/28/18/22% columns, badge, right-aligned chevron link. Figures come from offers.ts (placeholders here).",
+      "html": "<table class=\"ds-ptable\"><thead><tr><th>Service</th><th>Price</th><th>Availability</th><th><span class=\"ds-sr\">Action</span></th></tr></thead><tbody><tr><th scope=\"row\"><span class=\"ds-pt-name\">Website Fix</span><span class=\"ds-pt-sum\">One broken thing on your website, fixed.</span></th><td><span class=\"ds-pt-price\">$000</span><span class=\"ds-pt-note\">Price and note from offers.ts</span></td><td><span class=\"ds-badge ds-badge-available\"><svg viewBox=\"0 0 12 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.5 6.5 5 9l4.5-5.5\"/></svg>Available</span></td><td class=\"ds-pt-act\"><a class=\"ds-chev\" href=\"#\">Fix one problem<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></td></tr><tr><th scope=\"row\"><span class=\"ds-pt-name\">Estimate Request Setup</span><span class=\"ds-pt-sum\">Every estimate request in one organized list you own.</span></th><td><span class=\"ds-pt-price\">$000</span><span class=\"ds-pt-note\">Price and note from offers.ts</span></td><td><span class=\"ds-badge ds-badge-pilot\">Founding customer pilot</span></td><td class=\"ds-pt-act\"><a class=\"ds-chev\" href=\"#\">Register interest<svg viewBox=\"0 0 8 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 1.5 6.5 7l-5 5.5\"/></svg></a></td></tr></tbody></table>",
+      "css": ".ds-ptable{width:100%;table-layout:fixed;border-collapse:collapse;text-align:left;font-family:Inter,-apple-system,sans-serif;color:var(--color-ink,#1D1D1F);background:#fff;} .ds-ptable thead th:nth-child(1){width:32%;} .ds-ptable thead th:nth-child(2){width:28%;} .ds-ptable thead th:nth-child(3){width:18%;} .ds-ptable thead th:nth-child(4){width:22%;} .ds-ptable thead tr{border-bottom:1px solid var(--color-line,#D2D2D7);} .ds-ptable thead th{padding:12px 24px 12px 0;font-size:13px;font-weight:600;color:var(--color-ink-2,#6E6E73);} .ds-ptable tbody tr{border-bottom:1px solid var(--color-line,#D2D2D7);vertical-align:top;} .ds-ptable tbody tr:last-child{border-bottom:0;} .ds-ptable tbody th,.ds-ptable td{padding:24px 24px 24px 0;font-weight:400;} .ds-pt-name{display:block;font-size:19px;font-weight:600;letter-spacing:-0.015em;} .ds-pt-sum{display:block;margin-top:4px;font-size:15px;line-height:1.45;color:var(--color-ink-2,#6E6E73);} .ds-pt-price{display:block;font-size:21px;font-weight:600;letter-spacing:-0.015em;font-variant-numeric:tabular-nums;} .ds-pt-note{display:block;margin-top:4px;font-size:14px;line-height:1.45;color:var(--color-ink-2,#6E6E73);} .ds-ptable td.ds-pt-act{text-align:right;padding-right:0;} .ds-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;} .ds-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-family:Inter,-apple-system,sans-serif;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;} .ds-badge svg{width:12px;height:12px;flex:none;} .ds-badge-available{background:var(--color-ink,#1D1D1F);color:#fff;} .ds-badge-pilot{background:var(--color-red,#C8102E);color:#fff;} .ds-badge-soon{background:#fff;color:var(--color-ink-2,#6E6E73);box-shadow:0 0 0 1px var(--color-line,#D2D2D7);} .ds-chev{display:inline-flex;align-items:center;gap:2px;color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;text-decoration:none;transition:color 150ms;} .ds-chev:hover{color:var(--color-red,#C8102E);text-decoration:underline;text-underline-offset:3px;} .ds-chev:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px;} .ds-chev svg{width:0.6em;height:0.6em;margin-left:2px;transition:transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-chev:hover svg{transform:translateX(2px);} .ds-on-dark .ds-chev,.ds-on-dark .ds-chev:hover{color:#fff;}"
+    },
+    {
+      "name": "Demo Console",
+      "kind": "custom",
+      "refersTo": "demo-card",
+      "description": "The /demo console in the site's language: sticky ink banner, white 28px card with a hairline ring on snow, snow clock and panels, ink-filled selected tab, small pills, a quiet button, time slots (taken ones struck through), status tags and a health dot, always with words.",
+      "html": "<div class=\"ds-demo-banner\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><circle cx=\"10\" cy=\"10\" r=\"8\"/><path d=\"M10 9v5M10 6.2v.1\"/></svg><span><b>Fictional demonstration.</b> Maple Home Services is a made-up business. Nothing here is sent anywhere.</span></div><div class=\"ds-demo-ground\"><div class=\"ds-demo-card\"><h3 class=\"ds-demo-title\">Maple Home Services (fictional)</h3><div class=\"ds-demo-clock\"><p>Simulated time (Toronto) \u00b7 <b>Mon, Nov 30, 9:55 a.m.</b></p><div class=\"ds-demo-row\"><button class=\"ds-pill ds-pill-sm ds-pill-ghost\">+1 hour</button><button class=\"ds-pill ds-pill-sm ds-pill-ghost\">+1 day</button><button class=\"ds-pill ds-pill-sm ds-quiet\">Reset</button></div></div><div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span>1</span>Enquiry form</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span>2</span>Requests and alerts</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\"><span>3</span>Scheduling</button></div><section class=\"ds-panel\"><h4>Book a visit</h4><p class=\"ds-panel-intro\">60-minute visits with a 30-minute travel buffer.</p><div class=\"ds-slots\"><button class=\"ds-pill ds-pill-sm ds-slot\">8:00 a.m.</button><button class=\"ds-pill ds-pill-sm ds-slot-taken\" aria-disabled=\"true\">8:30 a.m.</button><button class=\"ds-pill ds-pill-sm ds-slot\">9:00 a.m.</button></div><div class=\"ds-demo-row\"><button class=\"ds-pill ds-pill-sm ds-pill-red\">Send request</button><button class=\"ds-pill ds-pill-sm ds-pill-ghost\">Try to double-book</button></div><p class=\"ds-result ds-status-ok\">Booked Tue, Dec 1, 9:00 a.m. for Priya Sample.</p><ul class=\"ds-rows\"><li><b>Priya Sample</b><span class=\"ds-tag ds-status-warn\">New</span></li><li><b>Marc Exemple</b><span class=\"ds-tag ds-status-bad\">Overdue</span></li><li><b>Dana Fictional</b><span class=\"ds-tag\">Contacted</span></li></ul><p class=\"ds-health\"><span class=\"ds-dot\"></span>Green: everything is working</p></section></div></div>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:11px 22px;border:0;border-radius:980px;background:transparent;font-family:Inter,-apple-system,sans-serif;font-size:17px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),color 200ms,box-shadow 200ms,transform 200ms cubic-bezier(0.22, 1, 0.36, 1);} .ds-pill:active{transform:scale(0.97);} .ds-pill:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-on-dark .ds-pill:focus-visible{outline-color:#fff;} .ds-pill-red{background:var(--color-red,#C8102E);color:#fff;} .ds-pill-red:hover{background:var(--color-red-deep,#A50D26);} .ds-pill-ghost{color:var(--color-red,#C8102E);box-shadow:inset 0 0 0 1.5px var(--color-red,#C8102E);} .ds-pill-ghost:hover{background:var(--color-red,#C8102E);color:#fff;} .ds-pill-sm{min-height:40px;padding:8px 16px;font-size:15px;} .ds-quiet{color:var(--color-ink,#1D1D1F);box-shadow:inset 0 0 0 1.5px var(--color-line,#D2D2D7);} .ds-quiet:hover{box-shadow:inset 0 0 0 1.5px var(--color-ink,#1D1D1F);} .ds-demo-banner{display:flex;gap:10px;align-items:flex-start;background:var(--color-ink,#1D1D1F);color:#fff;padding:10px 20px;font-family:Inter,-apple-system,sans-serif;font-size:14px;line-height:1.45;} .ds-demo-banner svg{width:18px;height:18px;flex:none;margin-top:1px;} .ds-demo-banner b{font-weight:600;} .ds-demo-ground{background:var(--color-snow,#F5F5F7);padding:16px;} .ds-demo-card{background:#fff;border-radius:28px;box-shadow:0 0 0 1px var(--color-line,#D2D2D7);padding:24px;color:var(--color-ink,#1D1D1F);font-family:Inter,-apple-system,sans-serif;} .ds-demo-title{margin:0;font-family:Poppins,Inter,sans-serif;font-weight:700;font-size:32px;line-height:1.08;letter-spacing:-0.02em;} .ds-demo-clock{margin-top:16px;display:inline-block;background:var(--color-snow,#F5F5F7);border-radius:16px;padding:12px 16px;} .ds-demo-clock p{margin:0;font-size:13px;color:var(--color-ink-2,#6E6E73);} .ds-demo-clock b{font-weight:600;color:var(--color-ink,#1D1D1F);font-variant-numeric:tabular-nums;} .ds-demo-row{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;} .ds-tabs{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;} .ds-tab{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border:0;border-radius:980px;background:#fff;color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 1px var(--color-line,#D2D2D7);font-family:Inter,-apple-system,sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:background-color 150ms,color 150ms,box-shadow 150ms;} .ds-tab:hover{box-shadow:0 0 0 1px var(--color-ink,#1D1D1F);} .ds-tab span{font-size:13px;color:var(--color-ink-2,#6E6E73);font-variant-numeric:tabular-nums;} .ds-tab[aria-selected=true]{background:var(--color-ink,#1D1D1F);color:#fff;box-shadow:none;} .ds-tab[aria-selected=true] span{color:rgb(255 255 255 / 0.9);} .ds-tab:focus-visible{outline:3px solid var(--color-ink,#1D1D1F);outline-offset:3px;} .ds-panel{margin-top:24px;background:var(--color-snow,#F5F5F7);border-radius:16px;padding:24px;} .ds-panel h4{margin:0;font-size:19px;font-weight:600;letter-spacing:-0.015em;} .ds-panel-intro{margin:4px 0 0;font-size:14px;line-height:1.5;color:var(--color-ink-2,#6E6E73);} .ds-slots{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;font-variant-numeric:tabular-nums;} .ds-slot{background:#fff;color:var(--color-ink,#1D1D1F);box-shadow:inset 0 0 0 1px var(--color-line,#D2D2D7);} .ds-slot:hover{box-shadow:inset 0 0 0 1.5px var(--color-ink,#1D1D1F);} .ds-slot-taken{color:var(--color-ink-2,#6E6E73);text-decoration:line-through;box-shadow:inset 0 0 0 1px var(--color-line,#D2D2D7);cursor:not-allowed;} .ds-result{margin:16px 0 0;border-radius:12px;padding:12px 16px;font-size:15px;line-height:1.45;} .ds-status-ok{background:#E6F4EA;color:#1E7B3C;} .ds-status-warn{background:#FBF0DC;color:#8A5A00;} .ds-status-bad{background:#FBE9E7;color:#B3261E;} .ds-rows{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;} .ds-rows li{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#fff;border-radius:12px;box-shadow:0 0 0 1px var(--color-line,#D2D2D7);padding:12px 16px;font-size:15px;} .ds-rows b{font-weight:600;} .ds-tag{display:inline-flex;align-items:center;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;white-space:nowrap;background:#fff;color:var(--color-ink,#1D1D1F);box-shadow:0 0 0 1px var(--color-line,#D2D2D7);} .ds-tag.ds-status-ok,.ds-tag.ds-status-warn,.ds-tag.ds-status-bad{box-shadow:none;} .ds-tag.ds-status-ok{background:#E6F4EA;color:#1E7B3C;} .ds-tag.ds-status-warn{background:#FBF0DC;color:#8A5A00;} .ds-tag.ds-status-bad{background:#FBE9E7;color:#B3261E;} .ds-health{margin:16px 0 0;display:flex;align-items:center;gap:12px;font-size:19px;font-weight:600;} .ds-dot{width:14px;height:14px;border-radius:999px;flex:none;background:#1E7B3C;}"
     }
   ],
   "narrative": {
     "northStar": "The Product Page",
-    "overview": "**Creative North Star: \"The Product Page\"**\n\nCapitalSites is a small Canadian web studio that sells a website plan, and the site presents that plan the way Apple presents a phone: the product is shown big, on real screens, and priced plainly. Every section is a full-bleed tile. The brand opens in red: a solid red nav bar sits over a red hero, then true black, white and Apple grey alternate as the ground, with solid red and near-black ink tiles as punctuation. Headlines are set in Poppins (800 for display, 700 for headlines), the geometric face that matches the owner's logo wordmark, large enough to carry a section alone. Inter carries body and UI text. The supporting copy is one short line and one chevron link.\n\nThe product imagery is the studio's own work: screenshots of the three concept sites (`public/shots/*.jpg`) set inside CSS-drawn MacBook and iPhone frames. There is no stock photography, no icon-card grid and no testimonial carousel. Depth comes from the devices, not from card chrome. Motion is a single transform-only scroll-driven rise, written in CSS, which disappears when reduced motion is requested.\n\nThis world replaces the earlier receipt world, which the owner rejected as plain. The three concept demos under `src/app/portfolio/{fade-and-co,ember-kitchen,maison-noir}` are separate worlds with their own styling and are out of scope here. The legacy `--color-red-brand` (#8B1A1A) token exists only for their banners and is not part of this system.\n\nThe owner's logo is the brand mark: a full-colour symbol with a \"CapitalSites\" wordmark (`public/logo-full.png`), a colour symbol alone (`public/logo-mark.png`) and a solid white symbol for red or dark grounds (`public/logo-mark-white.png`). All have transparent backgrounds. **Open brand question (owner to decide):** the symbol includes a tower that resembles Parliament's Peace Tower, while the owner's earlier brief said no government-style imagery in the logo or header. The owner supplied this logo and asked for it to be used, so it ships as is; this system does not resolve the conflict.",
+    "overview": "**Creative North Star: \"The Product Page\"**\n\nCapitalSites is a small Canadian web studio that sets up digital operations and websites for contractors and home-service businesses, and the site presents that work the way Apple presents a phone: the product, a working system, is shown big, running on real screens, and priced plainly. Every section is a full-bleed tile. The brand opens in red: a solid red nav bar sits over a red hero, then true black, white and Apple grey alternate as the ground, with near-black ink tiles as punctuation. Headlines are set in Poppins (800 for display, 700 for headlines), the geometric face that matches the owner's logo wordmark, large enough to carry a section alone. Inter carries body and UI text. The supporting copy is one short line and one chevron link.\n\nThe product imagery is the studio's own work, set inside CSS-drawn MacBook and iPhone frames (`public/shots/*.jpg`): the fictional Maple Home Services demo on the home hero and in the demo teaser, and the three concept sites in the \"Websites, too.\" band and on Services and Portfolio. There is no stock photography, no icon-card grid and no testimonial carousel. Depth comes from the devices, not from card chrome. Motion is a single transform-only scroll-driven rise, written in CSS, which disappears when reduced motion is requested.\n\nThis world replaces the earlier receipt world, which the owner rejected as plain. The three concept demos under `src/app/portfolio/{fade-and-co,ember-kitchen,maison-noir}` are separate worlds with their own styling and are out of scope here. The legacy `--color-red-brand` (#8B1A1A) token exists only for their banners and is not part of this system. The `/demo` console is not a separate world: it is built from this system's tiles, panels, pills and fields, and adds only a set of status colours scoped to that page (see Colors).\n\nThe owner's logo is the brand mark: a full-colour symbol with a \"CapitalSites\" wordmark (`public/logo-full.png`), a colour symbol alone (`public/logo-mark.png`) and a solid white symbol for red or dark grounds (`public/logo-mark-white.png`). All have transparent backgrounds. **Peace Tower note:** the symbol includes a tower that resembles Parliament's Peace Tower, while the owner's earlier brief said no government-style imagery in the logo or header. The owner supplied this logo, asked for it to be used and approved keeping the tower on 2026-11-26, so it ships as is. It is an exception for the brand mark, not a precedent for new imagery.",
     "keyCharacteristics": [
       "A red opening: solid red nav bar over a red radial hero, both with white type.",
-      "Full-bleed alternating tiles below: black, snow, white, then a solid red or ink tile for punctuation.",
-      "One accent only: deep maple red. No secondary hue.",
+      "Full-bleed alternating tiles below: black, snow and white, with an ink tile for punctuation.",
+      "One accent only: deep maple red. No secondary hue; the demo's status colours stay inside `/demo`.",
       "Poppins display (800, -0.025em) and headline (700, -0.02em) type with balanced wrapping; Inter for everything else.",
       "Pill buttons (980px radius) and ink chevron text links (\"Learn more \u203a\") that turn red on hover.",
-      "Real concept-site screenshots inside CSS MacBook and iPhone frames.",
+      "Real screenshots inside CSS MacBook and iPhone frames: the Maple demo for operations, the concept sites for websites.",
       "Centred composition on a 1024px container. Tiles in a mosaic sit 12px apart on white."
     ],
     "rules": [
       {
         "name": "The One Accent Rule",
-        "body": "Red is the only accent. As a full ground it is allowed in three places only: the nav bar, the home hero and the red tiles (owner request). Otherwise it goes on primary buttons, links on hover and key highlights (the $0 figures, the featured plan, checkmarks). Every other surface is a neutral. Red text is for large type or for white grounds (and snow, 5.40:1). Gradients are not used for text. The red tile is solid; the home hero's radial is the one red gradient, and every stop in it is red or darker.",
+        "body": "Red is the only accent. As a full ground it is allowed in two places only, the first things a visitor sees: the nav bar and the home hero (owner request: the first screen should pop). Below that first screen the standard rule applies. Otherwise it goes on primary buttons, links on hover and key highlights (checkmarks, the pilot badge, the final Steps card). Every other surface is a neutral. Red text is for large type or for white grounds (and snow, 5.40:1). Gradients are not used for text. The home hero's radial is the one red gradient, and every stop in it is red or darker.",
         "section": "colors"
       },
       {
         "name": "The Red On Black Is Large Only Rule",
-        "body": "Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line at 48\u201388px. Body-size links and copy on dark grounds stay white. Text on red grounds (tiles, hero, nav) is white or white at 90% (4.95:1), never lower.",
+        "body": "Red on black is 3.57:1, which passes only for large text. It appears once, on the pricing h1's second line (\"Agreed in writing first.\"), at display size (40px and up, Poppins 800). Body-size links and copy on dark grounds stay white. Text on red grounds (the hero, the nav, the final Steps card, the pilot badge) is white or white at 90% (4.95:1), never lower.",
+        "section": "colors"
+      },
+      {
+        "name": "The Status Stays In The Demo Rule",
+        "body": "Green, amber and the status red exist only inside `/demo`, always paired with a word, and never as an accent, a decoration or a ground anywhere else. Maple Red never marks a problem, there or anywhere.",
         "section": "colors"
       },
       {
         "name": "The Stay On The Ramp Rule",
-        "body": "Headline sizes come in pairs from the list above (40/56, 36/48, 32/48, 48/64/88, 56/80/112). Do not add one-off steps.",
+        "body": "Headline sizes come in pairs from the list above (40/56, 36/48, 32/36, 48/64/88, 56/80/112). Do not add one-off steps.",
         "section": "typography"
       },
       {
@@ -462,30 +610,34 @@
       },
       {
         "name": "The Product Casts The Shadow Rule",
-        "body": "Shadows go on devices and on cards that float over a contrasting ground. Tiles and plan cards stay flat. Separation comes from colour change and the 12px white gap.",
+        "body": "Shadows go on devices and on cards that float over a contrasting ground. Tiles, offer and price cards, Steps and the demo card stay flat. Separation comes from colour change, the 12px white gap or a 1px hairline ring.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do open with the red nav and red hero, then build sections as full-bleed tiles alternating black and snow or white, with a solid red or ink tile as punctuation.",
+      "Do open with the red nav and red hero, then build sections as full-bleed tiles alternating black and snow or white, with an ink tile as punctuation.",
       "Do take every display and headline size from the ramp (e.g. 56/80/112, 48/64/88, 40/56, 36/48) in Poppins via `.display` (800) or `.headline` (700).",
       "Do use the white logo symbol on red or dark grounds and the full-colour logo on light grounds.",
-      "Do show the product as real concept-site screenshots in the MacBook or iPhone frames, cropped by the tile edge.",
-      "Do end a section with one pill pair or one to two chevron links. Chevrons are ink on light (red on hover) and white on dark, red and ink tiles.",
-      "Do keep keyboard focus visible: a 3px ink outline on pills (white on dark), a 2px currentColor outline on chevron links, and an ink border and ring on fields.",
-      "Do keep text on red grounds (tiles, hero, nav) at white or white/90 (4.95:1) and text on light grounds no lighter than ink-2.",
-      "Do keep the `.rise` reveal CSS-only, transform-only (no opacity fade), and gated by `prefers-reduced-motion`."
+      "Do show the product as real screenshots in the MacBook or iPhone frames, cropped by the tile edge: the Maple demo for operations, the concept sites for websites. New phone screenshots of this site get the 47pt nav-red strip on top so the Dynamic Island covers nothing.",
+      "Do end a section with one pill pair or one to two chevron links. Chevrons are ink on light (red on hover) and white on black and ink tiles.",
+      "Do keep keyboard focus visible: a 3px ink outline on pills and demo tabs (white on dark), a 2px currentColor outline on chevron links, a 2px white outline on the red nav, and an ink border and ring on fields.",
+      "Do keep text on red grounds (the hero, the nav, the final Steps card) at white or white/90 (4.95:1) and text on light grounds no lighter than ink-2.",
+      "Do keep the `.rise` reveal CSS-only, transform-only (no opacity fade), and gated by `prefers-reduced-motion`.",
+      "Do show an offer's availability with its badge beside the name (offer cards, price tables, the contact form), and give offers that are not available yet a ghost pill, not a filled one.",
+      "Do keep the compact controls (`.pill-sm`, `.field-sm`, `.field-compact`, `.demo-quiet`) to dense UI such as the demo; marketing sections keep the 44px pill and the 52px field.",
+      "Do pair every demo status colour with a word (\"Confirmed\", \"Overdue\", \"Green: everything is working\"), and keep the sticky ink \"Fictional demonstration\" banner on `/demo`."
     ],
     "donts": [
-      "Don't add a second accent hue, and don't put gradients on text or on the red tile. The home hero radial is the only red gradient, and it never uses a stop lighter than red.",
-      "Don't use red as a full ground beyond the nav bar, the home hero and red tiles.",
+      "Don't add a second accent hue, and don't put gradients on text. The home hero radial is the only red gradient, and it never uses a stop lighter than red.",
+      "Don't use red as a full ground beyond the nav bar and the home hero. Sections below the first screen are black, ink, snow or white, with red only on buttons, link hover and key highlights.",
       "Don't set body, buttons or nav links in Poppins. It is the display face only.",
       "Don't set body-size red text on black (3.57:1). Red on black is for large display text only.",
-      "Don't use red for field focus or other neutral states. Red must never read as an error.",
-      "Don't use the Canadian flag, a maple leaf, a \"Canada\" wordmark or government-style imagery, and don't imply any government affiliation. (Open question: the owner-supplied logo's tower resembles the Peace Tower; that is the owner's call, not a precedent for new imagery.)",
+      "Don't use red for field focus or other neutral states. Maple Red must never read as an error; inside the demo, problems use the separate status red, always with a word.",
+      "Don't use the demo status colours, or any green or amber, outside `/demo`, and never as a ground, a decoration or a brand accent.",
+      "Don't use the Canadian flag, a maple leaf, a \"Canada\" wordmark or government-style imagery, and don't imply any government affiliation. (Exception approved by the owner on 2026-11-26: the logo's tower resembles the Peace Tower and stays as part of the brand mark.)",
       "Don't add stock photography, icon-card grids or testimonial carousels. The devices and the type carry the page.",
       "Don't put uppercase letter-spaced eyebrows above headlines. Use a sentence-case 21px+ title line or nothing.",
-      "Don't put shadows on tiles or plan cards. Shadows belong to devices and to floating cards.",
+      "Don't put shadows on tiles, offer or price cards, Steps or the demo card. Shadows belong to devices and to floating cards.",
       "Don't use `red-brand` (#8B1A1A) or any concept-demo styling on the main site. Those belong to the portfolio demo worlds.",
       "Don't revert to the receipt / thermal-paper world (cream paper, monospace, Oswald). The owner rejected it."
     ]
