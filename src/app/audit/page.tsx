@@ -41,6 +41,8 @@ export default function AuditPage() {
           <input type="hidden" name="_subject" value="New Website Audit Request - CapitalSites" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://www.capitalsites.ca/thanks" />
+          {/* FormSubmit honeypot: people never see or fill it; bots that do are dropped. */}
+          <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
           <div>
             <label htmlFor="name" className="field-label">Name</label>

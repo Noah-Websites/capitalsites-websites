@@ -52,7 +52,7 @@ Nothing was submitted to FormSubmit: every request to `formsubmit.co` was interc
 
 ## 5. Contact form
 
-- Form config, unchanged: `POST https://formsubmit.co/capitalsitesottawa@gmail.com`; hidden `_captcha=false`, `_subject`, `_template=table`, `_next=https://www.capitalsites.ca/thanks`; fields `package*`, `name*`, `business_name*`, `email*`, `current_website`, `message*`. New hidden field: `service` (the selected slug, for counting enquiries per product). `package` now submits the readable option label.
+- Form config, unchanged: `POST https://formsubmit.co/capitalsitesottawa@gmail.com`; hidden `_captcha=false`, `_subject`, `_template=table`, `_next=https://www.capitalsites.ca/thanks`; fields `package*`, `name*`, `business_name*`, `email*`, `current_website`, `message*`. New hidden field: `service` (the selected slug, for counting enquiries per product). New spam trap: FormSubmit's `_honey` text field, hidden and skipped by keyboard; the stubbed test submission sends it empty. `package` now submits the readable option label.
 - `?service=` preselects (14/14): `fix`, `plan`, `premium`, `estimate-requests`, `quote-follow-up`, `booking`, `integration`, `care`, `not-sure`, plus the older `rebuild`, `new-site` and `website-plan` (all three select Website Plan), plus an invalid value and none (both show "Choose one").
 - Changing the dropdown (9/9 options): price line, short description, "You picked" summary, message placeholder and hidden slug all update at once.
 - Validation: empty submit blocked by the browser (name, business name, email and message flagged); a malformed email blocked. A valid stubbed submit sent `service=estimate-requests` and `package=Estimate Request Setup (founding pilot, register interest)` and landed on `/thanks`.
@@ -116,6 +116,16 @@ Also checked:
 
 ## Copy to confirm before launch
 
+**Decided by the owner on 2026-11-27 ("whatever you think"), so these are settled:**
+- Keep "$1,188 in the first year".
+- Keep the 24-hour wording on Contact and the audit.
+- Keep "Planned introductory price." on the $399.
+- The audit stays out of the main nav.
+- The Ember Kitchen "4.8★ Google Rating" and "2K+ Monthly Guests" are replaced by "Seasonal / Menu changes" and "Wood-fired / Open kitchen".
+- FormSubmit's hidden `_honey` spam trap is added to both forms.
+
+The list below is kept for the record.
+
 1. **First-year total:** "$1,188 in the first year" stays next to every Website Plan price. It is 12 × $99, built from `offers.ts`, not a separate price, but the brief says "show only these prices", so please confirm you want it shown.
 2. **Reply times:** "we will get back to you within 24 hours" on Contact and "Delivered within 24 hours" on the audit are existing promises about our own reply time. I read the brief's "never promise response times" as being about customers' results, so I kept them.
 3. **Existing Website Plan claims:**
@@ -155,4 +165,4 @@ Also checked:
 - **Crawling the Vercel preview itself:** it requires your Vercel login, and changing protection would mean changing Vercel settings (out of bounds). All checks ran on the identical local production build; the preview's build status was checked through GitHub.
 - **Third-party integrations:** none are claimed or verified. The demo's sync uses an in-memory stand-in.
 - **A real form submission:** not sent, per the brief.
-- **Spam protection:** the forms send `_captcha=false` and have no honeypot, so FormSubmit's own filtering is the only spam protection today. Unchanged; adding FormSubmit's `_honey` field is a one-line option.
+- **Spam protection:** FormSubmit's hidden `_honey` field was added to both forms with the owner's go-ahead. `_captcha=false` is unchanged.

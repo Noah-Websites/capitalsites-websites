@@ -159,15 +159,15 @@ function About() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             <div>
-              <div className="text-2xl font-bold text-orange-500">4.8★</div>
-              <div className="text-white/60 text-sm mt-1">Google Rating</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Seasonal</div>
+              <div className="text-white/60 text-sm mt-1">Menu changes</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-orange-500">2K+</div>
-              <div className="text-white/60 text-sm mt-1">Monthly Guests</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Wood-fired</div>
+              <div className="text-white/60 text-sm mt-1">Open kitchen</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-orange-500">Local</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Local</div>
               <div className="text-white/55 text-sm mt-1">Nova Scotia Farms</div>
             </div>
           </div>

@@ -75,6 +75,8 @@ export default function ContactForm({ initial, alias }: { initial?: ContactSlug;
         <input type="hidden" name="_subject" value="New Project Inquiry - CapitalSites" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_next" value={THANKS_URL} />
+        {/* FormSubmit honeypot: people never see or fill it; bots that do are dropped. */}
+        <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         {/* The picked service's slug, so enquiries can be counted per product. */}
         <input type="hidden" name="service" value={value} data-testid="service-slug" />
 
