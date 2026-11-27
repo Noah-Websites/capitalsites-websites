@@ -6,6 +6,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
 import { emberKitchen, u } from "@/lib/demoImages";
+import { getOffer, planNumbers } from "@/data/offers";
+
+const planN = planNumbers();
+const planBanner = `${getOffer("plan").name}, ${planN.upfront} upfront, ${planN.monthly}/mo (${planN.firstYear} in the first year)`;
 
 /* =========================================================
    EMBER KITCHEN — Website Plan concept demo
@@ -27,7 +31,7 @@ function DemoBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-8 flex items-center justify-center bg-red-brand text-white text-xs font-medium tracking-wide whitespace-nowrap overflow-hidden px-3">
       <span className="lg:hidden">Concept site by CapitalSites</span>
-      <span className="hidden lg:inline">This is a concept redesign by CapitalSites — Website Plan $0 upfront, $99/mo ($1,188 in year one)</span>
+      <span className="hidden lg:inline" data-site-prices>This is a concept redesign by CapitalSites — {planBanner}</span>
       <Link href="/portfolio" className="underline ml-2 text-white/80 hover:text-white">
         <span className="lg:hidden">Back</span>
         <span className="hidden lg:inline">Back to Portfolio</span>
@@ -58,7 +62,7 @@ function Nav() {
             {navLinks.map((l) => (
               <a key={l.id} href={`#${l.id}`} className="hover:text-white transition-colors">{l.label}</a>
             ))}
-            <a href="#reservations" className="bg-orange-500 text-white px-5 py-2 rounded-md font-semibold hover:bg-orange-400 transition-colors">
+            <a href="#reservations" className="bg-orange-500 text-black px-5 py-2 rounded-md font-semibold hover:bg-orange-400 transition-colors">
               Reserve a Table
             </a>
           </div>
@@ -124,7 +128,7 @@ function Hero() {
             A modern dining experience rooted in wood-fired cooking, seasonal ingredients, and bold local flavours.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#reservations" className="bg-orange-500 text-white px-8 py-3.5 rounded-md font-semibold hover:bg-orange-400 transition-colors">
+            <a href="#reservations" className="bg-orange-500 text-black px-8 py-3.5 rounded-md font-semibold hover:bg-orange-400 transition-colors">
               Reserve a Table
             </a>
             <a href="#menu" className="border border-white/10 text-white/60 px-8 py-3.5 rounded-md font-semibold hover:bg-white/5 hover:text-white transition-colors">
@@ -155,15 +159,15 @@ function About() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             <div>
-              <div className="text-2xl font-bold text-orange-500">4.8★</div>
-              <div className="text-white/30 text-sm mt-1">Google Rating</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Seasonal</div>
+              <div className="text-white/60 text-sm mt-1">Menu changes</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-orange-500">2K+</div>
-              <div className="text-white/30 text-sm mt-1">Monthly Guests</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Wood-fired</div>
+              <div className="text-white/60 text-sm mt-1">Open kitchen</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-orange-500">Local</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-500">Local</div>
               <div className="text-white/55 text-sm mt-1">Nova Scotia Farms</div>
             </div>
           </div>
@@ -325,7 +329,7 @@ function Team() {
               </div>
               <div className="p-5">
                 <h3 className="text-white font-semibold">{member.name}</h3>
-                <p className="text-orange-500/60 text-sm font-medium mb-2">{member.role}</p>
+                <p className="text-orange-400 text-sm font-medium mb-2">{member.role}</p>
                 <p className="text-white/70 text-sm leading-relaxed">{member.bio}</p>
               </div>
             </motion.div>
@@ -439,7 +443,7 @@ function Reservations() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <input type="tel" placeholder="Phone number" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-orange-500/30" />
-            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
+            <select aria-label="Party size" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
               <option>Party size</option>
               <option>1–2 guests</option>
               <option>3–4 guests</option>
@@ -449,8 +453,8 @@ function Reservations() {
             </select>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="date" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 focus:outline-none focus:border-orange-500/30" />
-            <select className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
+            <input type="date" aria-label="Date" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 focus:outline-none focus:border-orange-500/30" />
+            <select aria-label="Preferred time" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white/60 appearance-none focus:outline-none focus:border-orange-500/30">
               <option>Preferred time</option>
               <option>5:00 PM</option>
               <option>5:30 PM</option>
@@ -464,7 +468,7 @@ function Reservations() {
             </select>
           </div>
           <textarea rows={3} placeholder="Special requests (allergies, celebrations, seating preferences)" className="w-full px-4 py-3.5 bg-[#151210] border border-white/5 rounded-lg text-sm text-white placeholder:text-white/45 resize-none focus:outline-none focus:border-orange-500/30" />
-          <button type="submit" className="w-full bg-orange-500 text-white py-3.5 rounded-lg font-semibold hover:bg-orange-400 transition-colors">
+          <button type="submit" className="w-full bg-orange-500 text-black py-3.5 rounded-lg font-semibold hover:bg-orange-400 transition-colors">
             Request Reservation
           </button>
           <p className="text-white/50 text-xs text-center">You will receive a confirmation email within 2 hours.</p>
@@ -517,7 +521,7 @@ function Footer() {
 /* ---- Page ---- */
 export default function EmberKitchenDemo() {
   return (
-    <div className="bg-[#0c0806]">
+    <div className="bg-[#0c0806]" data-fictional="concept">
       <SmoothScroll />
       <DemoBanner />
       <Nav />

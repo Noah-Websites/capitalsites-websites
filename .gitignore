@@ -43,3 +43,7 @@ next-env.d.ts
 .impeccable/tmpshots/
 .impeccable/mocks/
 .impeccable/questions/
+
+# staging screenshots (large; kept on the reviewing machine, paths listed in docs/staging/qa-report.md)
+docs/staging/before/
+docs/staging/after/

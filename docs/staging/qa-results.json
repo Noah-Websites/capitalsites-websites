@@ -1,0 +1,1582 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-11-27T18:40:44.242Z",
+  "pages": [
+    {
+      "page": "/",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/home-1440.jpg"
+    },
+    {
+      "page": "/services",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/services-1440.jpg"
+    },
+    {
+      "page": "/pricing",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/pricing-1440.jpg"
+    },
+    {
+      "page": "/demo",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/demo-1440.jpg"
+    },
+    {
+      "page": "/about",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/about-1440.jpg"
+    },
+    {
+      "page": "/contact",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/contact-1440.jpg"
+    },
+    {
+      "page": "/contact?service=fix",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/contact_service_fix-1440.jpg"
+    },
+    {
+      "page": "/privacy",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/privacy-1440.jpg"
+    },
+    {
+      "page": "/audit",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/audit-1440.jpg"
+    },
+    {
+      "page": "/portfolio",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio-1440.jpg"
+    },
+    {
+      "page": "/portfolio/fade-and-co",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_fade-and-co-1440.jpg"
+    },
+    {
+      "page": "/portfolio/ember-kitchen",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_ember-kitchen-1440.jpg"
+    },
+    {
+      "page": "/portfolio/maison-noir",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_maison-noir-1440.jpg"
+    },
+    {
+      "page": "/thanks",
+      "width": 1440,
+      "status": 200,
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/thanks-1440.jpg"
+    },
+    {
+      "page": "/",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/home-390.jpg"
+    },
+    {
+      "page": "/services",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/services-390.jpg"
+    },
+    {
+      "page": "/pricing",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/pricing-390.jpg"
+    },
+    {
+      "page": "/demo",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/demo-390.jpg"
+    },
+    {
+      "page": "/about",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/about-390.jpg"
+    },
+    {
+      "page": "/contact",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/contact-390.jpg"
+    },
+    {
+      "page": "/contact?service=fix",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/contact_service_fix-390.jpg"
+    },
+    {
+      "page": "/privacy",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/privacy-390.jpg"
+    },
+    {
+      "page": "/audit",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/audit-390.jpg"
+    },
+    {
+      "page": "/portfolio",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio-390.jpg"
+    },
+    {
+      "page": "/portfolio/fade-and-co",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_fade-and-co-390.jpg"
+    },
+    {
+      "page": "/portfolio/ember-kitchen",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_ember-kitchen-390.jpg"
+    },
+    {
+      "page": "/portfolio/maison-noir",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/portfolio_maison-noir-390.jpg"
+    },
+    {
+      "page": "/thanks",
+      "width": 390,
+      "status": 200,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "noHorizontalScroll": true,
+      "consoleErrors": [],
+      "screenshot": "docs/staging/after/thanks-390.jpg"
+    }
+  ],
+  "axe": [
+    {
+      "page": "/",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/services",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/pricing",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/demo",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/about",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/contact",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/contact?service=fix",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/privacy",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/audit",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/fade-and-co",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/ember-kitchen",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/maison-noir",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/thanks",
+      "width": 1440,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/services",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/pricing",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/demo",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/about",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/contact",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/contact?service=fix",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/privacy",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/audit",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/fade-and-co",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/ember-kitchen",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/portfolio/maison-noir",
+      "width": 390,
+      "serious": [],
+      "other": []
+    },
+    {
+      "page": "/thanks",
+      "width": 390,
+      "serious": [],
+      "other": []
+    }
+  ],
+  "keyboard": {
+    "nav": [
+      {
+        "tag": "a",
+        "role": "",
+        "name": "CapitalSites home",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Home",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Services",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Pricing",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Demo",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "About",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Contact",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "See how it works",
+        "visible": true
+      }
+    ],
+    "navAllVisible": true,
+    "contactForm": [
+      {
+        "tag": "select",
+        "role": "",
+        "name": "Choose oneWebsite FixWebsite PlanPremium WebsiteEstimate Req",
+        "visible": true
+      },
+      {
+        "tag": "input",
+        "role": "",
+        "name": "name",
+        "visible": true
+      },
+      {
+        "tag": "input",
+        "role": "",
+        "name": "business_name",
+        "visible": true
+      },
+      {
+        "tag": "input",
+        "role": "",
+        "name": "email",
+        "visible": true
+      },
+      {
+        "tag": "input",
+        "role": "",
+        "name": "current_website",
+        "visible": true
+      },
+      {
+        "tag": "textarea",
+        "role": "",
+        "name": "message",
+        "visible": true
+      },
+      {
+        "tag": "button",
+        "role": "",
+        "name": "Send message",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "Privacy",
+        "visible": true
+      },
+      {
+        "tag": "a",
+        "role": "",
+        "name": "CapitalSites home",
+        "visible": true
+      }
+    ],
+    "contactAllVisible": true,
+    "demo": {
+      "reachedTabs": true,
+      "tabsPressedTo": "3Scheduling",
+      "slotFocus": {
+        "tag": "button",
+        "role": "",
+        "name": "8:00 a.m.",
+        "visible": true
+      },
+      "bookedWithEnter": true,
+      "tabFocusVisible": true
+    },
+    "mobileMenu": {
+      "opensWithEnter": true,
+      "firstLink": {
+        "tag": "a",
+        "role": "",
+        "name": "Home",
+        "visible": true
+      }
+    }
+  },
+  "links": {
+    "internalChecked": 39,
+    "broken": [],
+    "internal": [
+      {
+        "href": "/",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/services",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/pricing",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/demo",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/about",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=fix",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/services#website-fix",
+        "from": "/",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=estimate-requests",
+        "from": "/demo",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/services#websites",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/services#operations",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/services#care",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/privacy",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/audit",
+        "from": "/thanks",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=plan",
+        "from": "/audit",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=premium",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=quote-follow-up",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=booking",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=integration",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=care",
+        "from": "/pricing",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/contact?service=not-sure",
+        "from": "/about",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/fade-and-co",
+        "from": "/portfolio",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen",
+        "from": "/portfolio",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/maison-noir",
+        "from": "/portfolio",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/fade-and-co#services",
+        "from": "/portfolio/fade-and-co",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/fade-and-co#gallery",
+        "from": "/portfolio/fade-and-co",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/fade-and-co#about",
+        "from": "/portfolio/fade-and-co",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/fade-and-co#contact",
+        "from": "/portfolio/fade-and-co",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#about",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#menu",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#gallery",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#team",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#testimonials",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/ember-kitchen#reservations",
+        "from": "/portfolio/ember-kitchen",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/maison-noir#shop",
+        "from": "/portfolio/maison-noir",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/maison-noir#collections",
+        "from": "/portfolio/maison-noir",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/maison-noir#lookbook",
+        "from": "/portfolio/maison-noir",
+        "status": 200,
+        "anchorOk": true
+      },
+      {
+        "href": "/portfolio/maison-noir#story",
+        "from": "/portfolio/maison-noir",
+        "status": 200,
+        "anchorOk": true
+      }
+    ],
+    "external": [
+      {
+        "href": "https://calendly.com/capitalsitesottawa/website-consult",
+        "from": "/contact?service=fix",
+        "status": 200
+      },
+      {
+        "href": "mailto:capitalsitesottawa@gmail.com",
+        "from": "/thanks",
+        "status": "mailto (not fetched)"
+      }
+    ]
+  },
+  "prices": [
+    {
+      "page": "/",
+      "amounts": 10,
+      "unique": [
+        "$149",
+        "$399",
+        "$0",
+        "$99",
+        "$79",
+        "$1,188",
+        "$2,500",
+        "$129"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/services",
+      "amounts": 18,
+      "unique": [
+        "$149",
+        "$0",
+        "$99",
+        "$79",
+        "$1,188",
+        "$2,500",
+        "$129",
+        "$399",
+        "$299",
+        "$199",
+        "$799"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/pricing",
+      "amounts": 55,
+      "unique": [
+        "$149",
+        "$0",
+        "$99",
+        "$79",
+        "$1,188",
+        "$2,500",
+        "$129",
+        "$399",
+        "$299",
+        "$199",
+        "$799"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/demo",
+      "amounts": 0,
+      "unique": [],
+      "notFromOffers": []
+    },
+    {
+      "page": "/about",
+      "amounts": 0,
+      "unique": [],
+      "notFromOffers": []
+    },
+    {
+      "page": "/contact",
+      "amounts": 3,
+      "unique": [
+        "$149"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/contact?service=fix",
+      "amounts": 5,
+      "unique": [
+        "$149"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/privacy",
+      "amounts": 0,
+      "unique": [],
+      "notFromOffers": []
+    },
+    {
+      "page": "/audit",
+      "amounts": 0,
+      "unique": [],
+      "notFromOffers": []
+    },
+    {
+      "page": "/portfolio",
+      "amounts": 10,
+      "unique": [
+        "$0",
+        "$99",
+        "$79",
+        "$1,188",
+        "$2,500",
+        "$129"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/portfolio/fade-and-co",
+      "amounts": 3,
+      "unique": [
+        "$0",
+        "$99",
+        "$1,188"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/portfolio/ember-kitchen",
+      "amounts": 3,
+      "unique": [
+        "$0",
+        "$99",
+        "$1,188"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/portfolio/maison-noir",
+      "amounts": 2,
+      "unique": [
+        "$2,500",
+        "$129"
+      ],
+      "notFromOffers": []
+    },
+    {
+      "page": "/thanks",
+      "amounts": 0,
+      "unique": [],
+      "notFromOffers": []
+    }
+  ],
+  "contact": {
+    "preselect": [
+      {
+        "param": "fix",
+        "ok": true,
+        "selected": "Website Fix",
+        "shown": "Website Fix",
+        "slug": "fix",
+        "price": "Website Fix: $149 one-time",
+        "description": "One broken thing on your website, fixed.",
+        "summary": "You picked: Website Fix ($149 one-time)",
+        "placeholder": "What's the one thing that's broken? (e.g. the Book Now button goes nowhere)"
+      },
+      {
+        "param": "plan",
+        "ok": true,
+        "selected": "Website Plan",
+        "shown": "Website Plan",
+        "slug": "plan",
+        "price": "Website Plan: $0 upfront, $99/month for 12 months, then $79/month",
+        "description": "A new or rebuilt website with no upfront build fee.",
+        "summary": "You picked: Website Plan ($0 upfront, $99/month for 12 months, then $79/month)",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "param": "premium",
+        "ok": true,
+        "selected": "Premium Website",
+        "shown": "Premium Website",
+        "slug": "premium",
+        "price": "Premium Website: $2,500 + $129/month",
+        "description": "An online store or a larger site.",
+        "summary": "You picked: Premium Website ($2,500 + $129/month)",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "param": "estimate-requests",
+        "ok": true,
+        "selected": "Estimate Request Setup (founding pilot, register interest)",
+        "shown": "Estimate Request Setup (founding pilot, register interest)",
+        "slug": "estimate-requests",
+        "price": "Estimate Request Setup: $399 one-time",
+        "description": "Every estimate request in one organized list you own. We're taking expressions of interest. No payment is taken and no delivery date is promised yet.",
+        "summary": "You picked: Estimate Request Setup ($399 one-time). Registering interest only; no payment is taken.",
+        "placeholder": "What kind of work do you do, and how do estimate requests reach you today?"
+      },
+      {
+        "param": "quote-follow-up",
+        "ok": true,
+        "selected": "Quote Follow-up (tell me when ready)",
+        "shown": "Quote Follow-up (tell me when ready)",
+        "slug": "quote-follow-up",
+        "price": "Quote Follow-up: $299, or $199 as an add-on to Estimate Request Setup",
+        "description": "No quote goes quiet. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Quote Follow-up ($299, or $199 as an add-on to Estimate Request Setup). Registering interest only; no payment is taken.",
+        "placeholder": "How do you send quotes today, and how do you keep track of them?"
+      },
+      {
+        "param": "booking",
+        "ok": true,
+        "selected": "Online Booking (tell me when ready)",
+        "shown": "Online Booking (tell me when ready)",
+        "slug": "booking",
+        "price": "Online Booking: $299 one-time",
+        "description": "Customers book a visit in a tool you already have. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Online Booking ($299 one-time). Registering interest only; no payment is taken.",
+        "placeholder": "Which calendar or job software do you use, and how do customers book today?"
+      },
+      {
+        "param": "integration",
+        "ok": true,
+        "selected": "Software Integration (tell me when ready)",
+        "shown": "Software Integration (tell me when ready)",
+        "slug": "integration",
+        "price": "Software Integration: From $799",
+        "description": "Stop typing the same customer twice. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Software Integration (From $799). Registering interest only; no payment is taken.",
+        "placeholder": "Which two tools would you like connected, and what should move between them?"
+      },
+      {
+        "param": "care",
+        "ok": true,
+        "selected": "Digital Care (tell me when ready)",
+        "shown": "Digital Care (tell me when ready)",
+        "slug": "care",
+        "price": "Digital Care: $99/month",
+        "description": "Ongoing care for the operations systems we set up. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Digital Care ($99/month). Registering interest only; no payment is taken.",
+        "placeholder": "Which systems would you want looked after?"
+      },
+      {
+        "param": "not-sure",
+        "ok": true,
+        "selected": "Not sure yet",
+        "shown": "Not sure yet",
+        "slug": "not-sure",
+        "price": "We'll recommend the right option",
+        "description": "Tell us what's going on and we'll suggest where to start.",
+        "summary": "You picked: Not sure yet",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "param": "rebuild",
+        "ok": true,
+        "selected": "Website Plan",
+        "shown": "Website Plan",
+        "slug": "plan",
+        "price": "Website Plan: $0 upfront, $99/month for 12 months, then $79/month",
+        "description": "A new or rebuilt website with no upfront build fee.",
+        "summary": "You picked: Website Plan ($0 upfront, $99/month for 12 months, then $79/month)",
+        "placeholder": "What's your current website, and what isn't working?"
+      },
+      {
+        "param": "new-site",
+        "ok": true,
+        "selected": "Website Plan",
+        "shown": "Website Plan",
+        "slug": "plan",
+        "price": "Website Plan: $0 upfront, $99/month for 12 months, then $79/month",
+        "description": "A new or rebuilt website with no upfront build fee.",
+        "summary": "You picked: Website Plan ($0 upfront, $99/month for 12 months, then $79/month)",
+        "placeholder": "Tell us about your business and what customers need to find"
+      },
+      {
+        "param": "website-plan",
+        "ok": true,
+        "selected": "Website Plan",
+        "shown": "Website Plan",
+        "slug": "plan",
+        "price": "Website Plan: $0 upfront, $99/month for 12 months, then $79/month",
+        "description": "A new or rebuilt website with no upfront build fee.",
+        "summary": "You picked: Website Plan ($0 upfront, $99/month for 12 months, then $79/month)",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "param": "bogus",
+        "ok": true,
+        "selected": "",
+        "shown": "Choose one",
+        "slug": "",
+        "price": "",
+        "description": "",
+        "summary": "",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "param": "(none)",
+        "ok": true,
+        "selected": "",
+        "shown": "Choose one",
+        "slug": "",
+        "price": "",
+        "description": "",
+        "summary": "",
+        "placeholder": "Tell us about your business and what you need"
+      }
+    ],
+    "dropdown": [
+      {
+        "option": "Website Fix",
+        "ok": true,
+        "selected": "Website Fix",
+        "shown": "Website Fix",
+        "slug": "fix",
+        "price": "Website Fix: $149 one-time",
+        "description": "One broken thing on your website, fixed.",
+        "summary": "You picked: Website Fix ($149 one-time)",
+        "placeholder": "What's the one thing that's broken? (e.g. the Book Now button goes nowhere)"
+      },
+      {
+        "option": "Website Plan",
+        "ok": true,
+        "selected": "Website Plan",
+        "shown": "Website Plan",
+        "slug": "plan",
+        "price": "Website Plan: $0 upfront, $99/month for 12 months, then $79/month",
+        "description": "A new or rebuilt website with no upfront build fee.",
+        "summary": "You picked: Website Plan ($0 upfront, $99/month for 12 months, then $79/month)",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "option": "Premium Website",
+        "ok": true,
+        "selected": "Premium Website",
+        "shown": "Premium Website",
+        "slug": "premium",
+        "price": "Premium Website: $2,500 + $129/month",
+        "description": "An online store or a larger site.",
+        "summary": "You picked: Premium Website ($2,500 + $129/month)",
+        "placeholder": "Tell us about your business and what you need"
+      },
+      {
+        "option": "Estimate Request Setup (founding pilot, register interest)",
+        "ok": true,
+        "selected": "Estimate Request Setup (founding pilot, register interest)",
+        "shown": "Estimate Request Setup (founding pilot, register interest)",
+        "slug": "estimate-requests",
+        "price": "Estimate Request Setup: $399 one-time",
+        "description": "Every estimate request in one organized list you own. We're taking expressions of interest. No payment is taken and no delivery date is promised yet.",
+        "summary": "You picked: Estimate Request Setup ($399 one-time). Registering interest only; no payment is taken.",
+        "placeholder": "What kind of work do you do, and how do estimate requests reach you today?"
+      },
+      {
+        "option": "Quote Follow-up (tell me when ready)",
+        "ok": true,
+        "selected": "Quote Follow-up (tell me when ready)",
+        "shown": "Quote Follow-up (tell me when ready)",
+        "slug": "quote-follow-up",
+        "price": "Quote Follow-up: $299, or $199 as an add-on to Estimate Request Setup",
+        "description": "No quote goes quiet. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Quote Follow-up ($299, or $199 as an add-on to Estimate Request Setup). Registering interest only; no payment is taken.",
+        "placeholder": "How do you send quotes today, and how do you keep track of them?"
+      },
+      {
+        "option": "Online Booking (tell me when ready)",
+        "ok": true,
+        "selected": "Online Booking (tell me when ready)",
+        "shown": "Online Booking (tell me when ready)",
+        "slug": "booking",
+        "price": "Online Booking: $299 one-time",
+        "description": "Customers book a visit in a tool you already have. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Online Booking ($299 one-time). Registering interest only; no payment is taken.",
+        "placeholder": "Which calendar or job software do you use, and how do customers book today?"
+      },
+      {
+        "option": "Software Integration (tell me when ready)",
+        "ok": true,
+        "selected": "Software Integration (tell me when ready)",
+        "shown": "Software Integration (tell me when ready)",
+        "slug": "integration",
+        "price": "Software Integration: From $799",
+        "description": "Stop typing the same customer twice. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Software Integration (From $799). Registering interest only; no payment is taken.",
+        "placeholder": "Which two tools would you like connected, and what should move between them?"
+      },
+      {
+        "option": "Digital Care (tell me when ready)",
+        "ok": true,
+        "selected": "Digital Care (tell me when ready)",
+        "shown": "Digital Care (tell me when ready)",
+        "slug": "care",
+        "price": "Digital Care: $99/month",
+        "description": "Ongoing care for the operations systems we set up. No payment is taken while it isn't available, and no date is promised.",
+        "summary": "You picked: Digital Care ($99/month). Registering interest only; no payment is taken.",
+        "placeholder": "Which systems would you want looked after?"
+      },
+      {
+        "option": "Not sure yet",
+        "ok": true,
+        "selected": "Not sure yet",
+        "shown": "Not sure yet",
+        "slug": "not-sure",
+        "price": "We'll recommend the right option",
+        "description": "Tell us what's going on and we'll suggest where to start.",
+        "summary": "You picked: Not sure yet",
+        "placeholder": "Tell us about your business and what you need"
+      }
+    ],
+    "validation": {
+      "emptySubmitBlocked": true,
+      "invalidFields": [
+        "name: Please fill out this field.",
+        "business_name: Please fill out this field.",
+        "email: Please fill out this field.",
+        "message: Please fill out this field."
+      ],
+      "badEmailBlocked": true
+    },
+    "stubbedSubmission": [
+      {
+        "url": "https://formsubmit.co/capitalsitesottawa@gmail.com",
+        "method": "POST",
+        "body": "_captcha=false&_subject=New Project Inquiry - CapitalSites&_template=table&_next=https://www.capitalsites.ca/thanks&_honey=&service=estimate-requests&package=Estimate Request Setup (founding pilot, register interest)&name=Test Person&business_name=Test Contracting&email=test@example.com&current_website=&message=Stubbed test only"
+      }
+    ],
+    "contactForm": {
+      "action": "https://formsubmit.co/capitalsitesottawa@gmail.com",
+      "method": "post",
+      "hidden": {
+        "_captcha": "false",
+        "_subject": "New Project Inquiry - CapitalSites",
+        "_template": "table",
+        "_next": "https://www.capitalsites.ca/thanks",
+        "service": ""
+      },
+      "fields": [
+        "_honey",
+        "package*",
+        "name*",
+        "business_name*",
+        "email*",
+        "current_website",
+        "message*"
+      ]
+    },
+    "auditForm": {
+      "action": "https://formsubmit.co/capitalsitesottawa@gmail.com",
+      "method": "post",
+      "hidden": {
+        "_captcha": "false",
+        "_subject": "New Website Audit Request - CapitalSites",
+        "_template": "table",
+        "_next": "https://www.capitalsites.ca/thanks"
+      },
+      "fields": [
+        "_honey",
+        "name*",
+        "email*",
+        "website_url*"
+      ]
+    }
+  },
+  "demo": {
+    "w1440": [
+      {
+        "step": "starts with the five sample requests",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 5
+        }
+      },
+      {
+        "step": "submit a request (made-up details)",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "message": "Thanks, Jordan. Your request was received. (Owner's view: a new row in the list and an alert in the outbox.)"
+        }
+      },
+      {
+        "step": "repeat request merges",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 6,
+          "priyaRepeats": "1"
+        }
+      },
+      {
+        "step": "invalid requests rejected",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 6,
+          "rejected": 2
+        }
+      },
+      {
+        "step": "book a visit",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "confirmed": 1
+        }
+      },
+      {
+        "step": "double-booking blocked",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "message": "Blocked: that time overlaps the Tue, Dec 1, 8:00 a.m. visit. The calendar never double-books."
+        }
+      },
+      {
+        "step": "cancel frees the slot",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "takenBefore": 3,
+          "takenAfter": 0
+        }
+      },
+      {
+        "step": "create a quote",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "row": "Priya Sample · $1,850SentSent Mon, Nov 30, 9:55 a.m. · Reminders: none yetMark acceptedMark declined"
+        }
+      },
+      {
+        "step": "+3 days: day-3 owner reminder appears",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "reminders": "day 3",
+          "outboxItemsRendered": 13
+        }
+      },
+      {
+        "step": "accepted quote stops reminders",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "reminders": "day 3",
+          "lastCheck": "Checked: Mon, Dec 7, 9:55 a.m.Reminders due: first reply overdue (L-20261130-0f5ff4c9); first reply overdue (L-20261130-0e5ff336); first reply overdue (L-20261130-115ff7ef); first reply overdue (L-20261130-105ff65c); first reply overdue (L-20261130-135ffb15)Expired: noneStopped: Q-a529de8d (quote accepted)"
+        }
+      },
+      {
+        "step": "sync: works, then stops when access is revoked",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "working": "Pushed 6, unchanged 0, failed 0.",
+          "revoked": "Pushed 0, unchanged 1, failed 1. Stopped: access was revoked. The owner is alerted; fix access, then run it again. Waiting to retry: 1."
+        }
+      },
+      {
+        "step": "simulated outage shows red, then recovers",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "before": "Green: everything is working",
+          "red": "Red: something is broken",
+          "after": "Green: everything is working"
+        }
+      },
+      {
+        "step": "zero network requests during the demo",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "requests": []
+        }
+      }
+    ],
+    "w390": [
+      {
+        "step": "starts with the five sample requests",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 5
+        }
+      },
+      {
+        "step": "submit a request (made-up details)",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "message": "Thanks, Jordan. Your request was received. (Owner's view: a new row in the list and an alert in the outbox.)"
+        }
+      },
+      {
+        "step": "repeat request merges",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 6,
+          "priyaRepeats": "see card"
+        }
+      },
+      {
+        "step": "invalid requests rejected",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "rows": 6,
+          "rejected": 2
+        }
+      },
+      {
+        "step": "book a visit",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "confirmed": 1
+        }
+      },
+      {
+        "step": "double-booking blocked",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "message": "Blocked: that time overlaps the Tue, Dec 1, 8:00 a.m. visit. The calendar never double-books."
+        }
+      },
+      {
+        "step": "cancel frees the slot",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "takenBefore": 3,
+          "takenAfter": 0
+        }
+      },
+      {
+        "step": "create a quote",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "row": "Priya Sample · $1,850SentSent Mon, Nov 30, 9:55 a.m. · Reminders: none yetMark acceptedMark declined"
+        }
+      },
+      {
+        "step": "+3 days: day-3 owner reminder appears",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "reminders": "day 3",
+          "outboxItemsRendered": 13
+        }
+      },
+      {
+        "step": "accepted quote stops reminders",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "reminders": "day 3",
+          "lastCheck": "Checked: Mon, Dec 7, 9:55 a.m.Reminders due: first reply overdue (L-20261130-0f5ff4c9); first reply overdue (L-20261130-0e5ff336); first reply overdue (L-20261130-115ff7ef); first reply overdue (L-20261130-105ff65c); first reply overdue (L-20261130-135ffb15)Expired: noneStopped: Q-a529de8d (quote accepted)"
+        }
+      },
+      {
+        "step": "sync: works, then stops when access is revoked",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "working": "Pushed 6, unchanged 0, failed 0.",
+          "revoked": "Pushed 0, unchanged 1, failed 1. Stopped: access was revoked. The owner is alerted; fix access, then run it again. Waiting to retry: 1."
+        }
+      },
+      {
+        "step": "simulated outage shows red, then recovers",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "before": "Green: everything is working",
+          "red": "Red: something is broken",
+          "after": "Green: everything is working"
+        }
+      },
+      {
+        "step": "zero network requests during the demo",
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "requests": []
+        }
+      }
+    ]
+  },
+  "regression": {
+    "/robots.txt": {
+      "status": 200,
+      "body": "User-Agent: *\nAllow: /\nDisallow: /thanks\n\nHost: https://www.capitalsites.ca\nSitemap: https://www.capitalsites.ca/sitemap.xml\n"
+    },
+    "/sitemap.xml": {
+      "status": 200,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://www.capitalsites.ca</loc>\n<changefreq>monthly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/pricing</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/services</loc>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/demo</loc>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/about</loc>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/contact</loc>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/audit</loc>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/portfolio</loc>\n<changefreq>monthly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/portfolio/fade-and-co</loc>\n<changefreq>monthly</changefreq>\n<priority>0.4</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/portfolio/ember-kitchen</loc>\n<changefreq>monthly</changefreq>\n<priority>0.4</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/portfolio/maison-noir</loc>\n<changefreq>monthly</changefreq>\n<priority>0.4</priority>\n</url>\n<url>\n<loc>https://www.capitalsites.ca/privacy</loc>\n<changefreq>monthly</changefreq>\n<priority>0.3</priority>\n</url>\n</urlset>\n"
+    },
+    "sitemapUrls": [
+      {
+        "url": "https://www.capitalsites.ca",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/pricing",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/services",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/demo",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/about",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/contact",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/audit",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/portfolio",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/portfolio/fade-and-co",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/portfolio/ember-kitchen",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/portfolio/maison-noir",
+        "status": 200
+      },
+      {
+        "url": "https://www.capitalsites.ca/privacy",
+        "status": 200
+      }
+    ]
+  }
+}

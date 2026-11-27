@@ -1,10 +1,12 @@
 import { Pill, ChevLink } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Thanks — CapitalSites",
   description: "Your message has been sent. We reply within 24 hours.",
-  robots: { index: false, follow: false },
-};
+  path: "/thanks",
+  noindex: true,
+});
 
 export default function ThanksPage() {
   return (

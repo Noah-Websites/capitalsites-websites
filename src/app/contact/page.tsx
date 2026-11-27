@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import ContactForm, { ContactFromParams } from "@/components/ContactForm";
+import { pageMeta } from "@/lib/seo";
+import { getOffer, priceFigure } from "@/data/offers";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Contact — CapitalSites",
-  description: "Tell us what you need: a $149 Website Fix, a Website Plan rebuild or first site, or Premium. We reply within 24 hours.",
-  alternates: { canonical: "/contact" },
-};
+  description: `Tell us what you need: a ${priceFigure(getOffer("fix"))} Website Fix, a website, or early access to estimate request setup and the other digital operations services for contractors and home-service businesses in Canada.`,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
