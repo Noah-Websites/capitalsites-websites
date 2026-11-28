@@ -35,6 +35,7 @@ export default function AuditPage() {
         <form
           action="https://formsubmit.co/capitalsitesottawa@gmail.com"
           method="POST"
+          data-lead-form="audit"
           className="card-tile bg-white p-7 md:p-10 space-y-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]"
         >
           <input type="hidden" name="_captcha" value="false" />

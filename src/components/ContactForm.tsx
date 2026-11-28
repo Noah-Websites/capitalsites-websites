@@ -71,6 +71,7 @@ export default function ContactForm({ initial, alias }: { initial?: ContactSlug;
       <form
         action={FORM_ACTION}
         method="POST"
+        data-lead-form="contact"
         className="card-tile bg-white p-7 md:p-10 space-y-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]"
       >
         <input type="hidden" name="_captcha" value="false" />

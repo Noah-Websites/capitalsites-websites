@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { contactOptions } from "@/data/offers";
 import { pageMeta } from "@/lib/seo";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 export const metadata = pageMeta({
   title: "Privacy — CapitalSites",
@@ -62,12 +63,43 @@ export default function PrivacyPage() {
             </p>
           </Block>
           <Block title="Analytics and cookies">
-            <p>This site doesn&apos;t use analytics, advertising or tracking scripts, and doesn&apos;t set cookies of its own.</p>
+            <p>
+              We use Google Analytics 4, a Google service, to count visits and see which pages and buttons get used. It
+              runs only if you choose <strong className="font-semibold text-ink">Allow</strong>. Until then nothing is
+              loaded from Google and no analytics cookies are set. You can change your choice at any time with{" "}
+              <CookieSettingsButton className="text-ink underline underline-offset-3 hover:text-red">
+                Cookie settings
+              </CookieSettingsButton>
+              , also at the bottom of every page.
+            </p>
+            <p>
+              If you allow it, Google Analytics records the pages you view, the site that sent you here, your browser,
+              device, screen size and language, an approximate location (such as your city) that Google works out from your
+              IP address, and events such as a main button or an email link being clicked, the demo being used or a form
+              being sent. It never receives your name, email address, phone number or anything you type into the forms or
+              the demo.
+            </p>
+            <p>
+              It sets two cookies, <code>_ga</code> and <code>_ga_C5722KERH0</code>, which hold a random ID so repeat
+              visits can be counted. They expire after 13 months. According to Google, Google Analytics 4 doesn&apos;t log
+              or store IP addresses. Google processes this information and may store it outside Canada, including in the
+              United States. Detailed records are deleted after 14 months at most; reports keep only totals.
+            </p>
+            <p>
+              Google&apos;s advertising features are turned off: no Google signals, no ad personalization and no
+              remarketing. We don&apos;t sell this information or use it for advertising.
+            </p>
+            <p>
+              The site remembers your choice in your browser&apos;s local storage. When you send a form, it also keeps a
+              short note in that browser tab saying which form was sent, so a sent form is counted once. The note holds
+              nothing you typed.
+            </p>
           </Block>
           <Block title="The demo">
             <p>
               The <Link href="/demo" className="text-ink underline underline-offset-3 hover:text-red">Maple Home Services demo</Link>{" "}
               runs entirely in your browser. Nothing you type there is sent anywhere or saved. Reloading the page clears it.
+              If you&apos;ve allowed analytics, Google Analytics records only that the demo was started or finished.
             </p>
           </Block>
           <Block title="Booking a call">
@@ -76,13 +108,14 @@ export default function PrivacyPage() {
               own privacy policy.
             </p>
           </Block>
-          <Block title="Questions">
+          <Block title="Questions and your choices">
             <p>
-              Email{" "}
+              The owner of CapitalSites is responsible for how personal information is handled here. To ask what we hold
+              about you, to have it corrected or deleted, or to withdraw your consent, email{" "}
               <a href="mailto:capitalsitesottawa@gmail.com" className="text-ink underline underline-offset-3 hover:text-red">
                 capitalsitesottawa@gmail.com
               </a>
-              .
+              . To turn analytics off, use Cookie settings at the bottom of any page.
             </p>
           </Block>
         </div>

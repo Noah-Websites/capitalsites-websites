@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import LayoutShell from "@/components/LayoutShell";
+import Analytics from "@/components/Analytics";
 import { pageMeta, SITE_NAME, SITE_URL, SLOGAN, VALUE_PROPOSITION } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_SCHEMA) }} />
         <LayoutShell>{children}</LayoutShell>
+        <Analytics />
       </body>
     </html>
   );

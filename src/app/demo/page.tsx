@@ -34,7 +34,7 @@ export default function DemoPage() {
           </svg>
           <span>
             <strong className="font-semibold">Fictional demonstration.</strong> Maple Home Services is a made-up business.
-            Nothing here is sent anywhere.
+            Nothing you type here is sent anywhere.
           </span>
         </p>
       </div>

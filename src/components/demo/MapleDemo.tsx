@@ -19,6 +19,7 @@ import OpsCore, {
   type RawEnquiry,
   type SyncState,
 } from "@/lib/ops-core";
+import { track } from "@/lib/analytics";
 
 const C = OpsCore;
 const TZ = "America/Toronto";
@@ -321,6 +322,22 @@ export default function MapleDemo() {
   const [tab, setTab] = useState<TabId>("enquiry");
   const [announce, setAnnounce] = useState("");
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  // Analytics, only if the visitor allowed it: demo_start on the first action, demo_complete once every
+  // section has been opened. Nothing typed into the demo is ever sent.
+  const started = useRef(false);
+  const visited = useRef(new Set<TabId>(["enquiry"]));
+  const markStart = () => {
+    if (started.current) return;
+    started.current = true;
+    track("demo_start", { demo_name: "maple_home_services" });
+  };
+  const selectTab = (id: TabId) => {
+    setTab(id);
+    markStart();
+    if (visited.current.has(id)) return;
+    visited.current.add(id);
+    if (visited.current.size === TABS.length) track("demo_complete", { demo_name: "maple_home_services", sections: TABS.length });
+  };
   const w = world;
   const S = w.S;
 
@@ -584,7 +601,7 @@ export default function MapleDemo() {
     if (e.key === "End") next = TABS.length - 1;
     if (next < 0) return;
     e.preventDefault();
-    setTab(TABS[next].id);
+    selectTab(TABS[next].id);
     const el = tabRefs.current[TABS[next].id];
     el?.focus();
     el?.scrollIntoView({ block: "nearest", inline: "nearest" });
@@ -593,7 +610,13 @@ export default function MapleDemo() {
   const leadName = (id: string) => S.leads.find((l) => l.lead_id === id)?.customer_name ?? id;
 
   return (
-    <div className="card-tile bg-white ring-1 ring-line p-3 sm:p-6 md:p-8" data-testid="maple-demo">
+    <div
+      className="card-tile bg-white ring-1 ring-line p-3 sm:p-6 md:p-8"
+      data-testid="maple-demo"
+      onClickCapture={(e) => {
+        if (e.target instanceof Element && e.target.closest("button")) markStart();
+      }}
+    >
       {/* Header and simulated clock */}
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
         <div className="px-2 pt-2 sm:p-0">
@@ -652,7 +675,7 @@ export default function MapleDemo() {
               aria-controls={`demo-panel-${t.id}`}
               tabIndex={selected ? 0 : -1}
               onClick={(e) => {
-                setTab(t.id);
+                selectTab(t.id);
                 e.currentTarget.scrollIntoView({ block: "nearest", inline: "nearest" });
               }}
               className={`demo-tab flex-none inline-flex items-center gap-2 min-h-10 rounded-full px-4 text-[15px] font-medium whitespace-nowrap transition-colors ${

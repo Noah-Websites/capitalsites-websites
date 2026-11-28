@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CURRENCY_NOTE, TERMS_NOTE } from "@/data/offers";
 import { SLOGAN } from "@/lib/seo";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 const cols = [
   {
@@ -57,6 +58,11 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
+                {c.title === "Studio" && (
+                  <li>
+                    <CookieSettingsButton />
+                  </li>
+                )}
               </ul>
             </div>
           ))}

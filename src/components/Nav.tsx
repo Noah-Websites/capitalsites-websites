@@ -47,6 +47,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <Link
             href={contact.href}
+            data-cta="primary"
             aria-current={isActive(pathname, contact.href) ? "page" : undefined}
             className="nav-cta hidden sm:inline-flex items-center h-8 px-4 rounded-full bg-white text-red text-[13px] font-semibold hover:bg-snow transition-colors"
           >

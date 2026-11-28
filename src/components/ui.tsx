@@ -35,12 +35,14 @@ export function Pill({
   variant?: "red" | "ghost" | "white";
 }) {
   const cls = `pill pill-${variant}`;
+  // Red and white pills are the primary calls to action; analytics counts their clicks (cta_click).
+  const cta = variant === "ghost" ? undefined : "primary";
   return href.startsWith("http") ? (
-    <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+    <a href={href} className={cls} target="_blank" rel="noopener noreferrer" data-cta={cta}>
       {children}
     </a>
   ) : (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} data-cta={cta}>
       {children}
     </Link>
   );
