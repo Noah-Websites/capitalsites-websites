@@ -62,6 +62,9 @@ async function newContext(browser, vp, extra = {}) {
   // sending them uncompressed, so pages are requested uncompressed. Real deployments run without the flag.
   const local = process.env.EMULATE_NETLIFY_IMAGES ? { extraHTTPHeaders: { "Accept-Encoding": "identity" } } : {};
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, reducedMotion: "reduce", ...local, ...extra });
+  // QA_CONSENT=denied|granted presets the analytics choice (see analytics-qa.cjs for the banner itself), so a
+  // build that allows analytics on this host behaves like a visitor who has already chosen.
+  if (process.env.QA_CONSENT) await ctx.addInitScript((v) => localStorage.setItem("cs-analytics-consent-v1", v), process.env.QA_CONSENT);
   if (process.env.EMULATE_NETLIFY_IMAGES) {
     await ctx.route(/\/_next\/image\?url=%2F/, (route) => {
       const u = new URL(route.request().url());

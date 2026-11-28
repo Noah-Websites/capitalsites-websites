@@ -1,0 +1,289 @@
+{
+ "base": "http://localhost:3100",
+ "passed": 33,
+ "failed": 0,
+ "results": [
+  {
+   "name": "@1440 no Google request before a choice",
+   "ok": true,
+   "detail": {
+    "google": 0
+   }
+  },
+  {
+   "name": "@1440 banner shown, inside the viewport, no page overflow",
+   "ok": true,
+   "detail": {
+    "box": {
+     "x": 1016,
+     "y": 688,
+     "width": 400,
+     "height": 188
+    }
+   }
+  },
+  {
+   "name": "@1440 Allow and Don't allow are the same size",
+   "ok": true,
+   "detail": {
+    "sizes": [
+     {
+      "x": 1040,
+      "y": 812,
+      "width": 170,
+      "height": 40
+     },
+     {
+      "x": 1222,
+      "y": 812,
+      "width": 170,
+      "height": 40
+     }
+    ]
+   }
+  },
+  {
+   "name": "@1440 banner axe: no violations",
+   "ok": true,
+   "detail": {
+    "violations": []
+   }
+  },
+  {
+   "name": "@390 no Google request before a choice",
+   "ok": true,
+   "detail": {
+    "google": 0
+   }
+  },
+  {
+   "name": "@390 banner shown, inside the viewport, no page overflow",
+   "ok": true,
+   "detail": {
+    "box": {
+     "x": 16,
+     "y": 648,
+     "width": 358,
+     "height": 180
+    }
+   }
+  },
+  {
+   "name": "@390 Allow and Don't allow are the same size",
+   "ok": true,
+   "detail": {
+    "sizes": [
+     {
+      "x": 36,
+      "y": 768,
+      "width": 153,
+      "height": 40
+     },
+     {
+      "x": 201,
+      "y": 768,
+      "width": 153,
+      "height": 40
+     }
+    ]
+   }
+  },
+  {
+   "name": "@390 banner axe: no violations",
+   "ok": true,
+   "detail": {
+    "violations": []
+   }
+  },
+  {
+   "name": "Don't allow: no Google requests across pages and a form send",
+   "ok": true,
+   "detail": {
+    "google": []
+   }
+  },
+  {
+   "name": "Don't allow: no _ga cookies, choice stored, banner gone",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "Don't allow: form still sends",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "Allow: page_view for the landing page, exactly once",
+   "ok": true,
+   "detail": {
+    "homeViews": 1
+   }
+  },
+  {
+   "name": "Allow: in-app navigation gives one page_view per page, no duplicates",
+   "ok": true,
+   "detail": {
+    "byUrl": {
+     "/": 1,
+     "/services": 1,
+     "/pricing": 1
+    }
+   }
+  },
+  {
+   "name": "Allow: gtag.js loaded once, config pushed once",
+   "ok": true,
+   "detail": {
+    "scripts": 1,
+    "config": 1
+   }
+  },
+  {
+   "name": "Allow: consent mode analytics granted, ads denied (gcs G101)",
+   "ok": true,
+   "detail": {
+    "gcs": [
+     "G101"
+    ]
+   }
+  },
+  {
+   "name": "Allow: every hit marked non-personalized for ads (npa=1)",
+   "ok": true,
+   "detail": {
+    "sample": [
+     "&npa=1"
+    ]
+   }
+  },
+  {
+   "name": "Allow: _ga cookies set, about 13 months",
+   "ok": true,
+   "detail": {
+    "cookies": [
+     "_ga",
+     "_ga_C5722KERH0"
+    ],
+    "days": 395
+   }
+  },
+  {
+   "name": "cta_click: ghost (secondary) button not counted",
+   "ok": true,
+   "detail": {
+    "ghost": 0
+   }
+  },
+  {
+   "name": "cta_click: primary button on the page",
+   "ok": true,
+   "detail": {
+    "sample": {
+     "cta_text": "See how it works",
+     "cta_destination": "/demo",
+     "cta_location": "page"
+    }
+   }
+  },
+  {
+   "name": "cta_click: nav Contact button",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "click_email: footer email link, no address sent",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "demo_start once on the first action",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "demo_complete only after every section, once",
+   "ok": true,
+   "detail": {
+    "params": {
+     "demo_name": "maple_home_services",
+     "sections": "5"
+    }
+   }
+  },
+  {
+   "name": "generate_lead: invalid (empty) form not counted",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "generate_lead: contact form, once, with form_type and service only",
+   "ok": true,
+   "detail": {
+    "params": {
+     "form_type": "contact",
+     "service": "fix"
+    }
+   }
+  },
+  {
+   "name": "generate_lead: audit form counted; direct visit to /thanks not counted",
+   "ok": true,
+   "detail": {
+    "total": 2
+   }
+  },
+  {
+   "name": "forms still post to FormSubmit (stand-in)",
+   "ok": true,
+   "detail": {
+    "posts": 2
+   }
+  },
+  {
+   "name": "Cookie settings reopens the choice, focus on Allow, shows current state",
+   "ok": true,
+   "detail": {
+    "focused": "Allow"
+   }
+  },
+  {
+   "name": "withdraw: _ga cookies removed, nothing more sent",
+   "ok": true,
+   "detail": {
+    "after": 0
+   }
+  },
+  {
+   "name": "no names, emails, messages or '@' in any hit",
+   "ok": true,
+   "detail": {
+    "found": [],
+    "enhancedForms": []
+   }
+  },
+  {
+   "name": "events seen (for the report)",
+   "ok": true,
+   "detail": {
+    "page_view": 18,
+    "user_engagement": 5,
+    "cta_click": 2,
+    "scroll": 5,
+    "click_email": 1,
+    "demo_start": 1,
+    "demo_complete": 1,
+    "generate_lead": 2
+   }
+  },
+  {
+   "name": "undecided at send: nothing sent until Allow on /thanks, then the lead counts once",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "name": "non-production host: no banner, no Google requests",
+   "ok": true,
+   "detail": {}
+  }
+ ]
+}

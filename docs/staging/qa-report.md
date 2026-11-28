@@ -1,3 +1,49 @@
+# Production on Netlify (after the DNS switch), 2026-11-27 evening
+
+DNS changed at Namecheap (two records; Search Console TXT kept). Checked against the authoritative servers
+and Google, Cloudflare, Quad9 and OpenDNS. Scripts: `prod-check.cjs` (new), `legacy-urls.cjs`,
+`form-delivery-test.cjs --send`.
+
+| Check | Result |
+|---|---|
+| Certificate | Let's Encrypt, covers capitalsites.ca and www.capitalsites.ca, valid to 2027-02-26, verifies OK |
+| Redirects | capitalsites.ca/* 301 to www (path and query kept); http 301 to https on both; `/silentstack` and `/silentstack/*` 308 to `/services`; trailing slash 308 |
+| Served by | `server: Netlify` on all 14 pages, status 200 (404 page OK) |
+| Indexable | No `X-Robots-Tag` on any production page; robots meta only on `/thanks` (noindex, by design and as before). The netlify.app address still sends noindex |
+| SEO | Identical to the tested deploy, which matched Vercel: 0 differences. Canonicals on www. robots.txt allows all except `/thanks`. Sitemap https://www.capitalsites.ca/sitemap.xml: 12 URLs, all www, all 200 |
+| HSTS | Present on every response. Pages get Netlify's `max-age=31536000` (1 year); our 2-year value applies to redirects only (see remaining items) |
+| Logos and images | Nav and footer logos on all 10 major pages at 1440 and 390; 0 broken visible images; 0 HTTP errors |
+| Sales links | Every `/contact?service=` link, `/audit`, `/pricing`, `/demo`, Calendly: 200; mailto present |
+| Legacy URLs | 21/21 paths (plus the deliberate 404), 16/16 `?service=` preselects |
+| Demo | Mounts in about 0.7 s at both widths with the 5 sample requests; contacts no other host |
+| TEST form submissions (2 approved) | Both sent 2026-11-28 03:43 UTC (contact Website Fix, audit); FormSubmit accepted both and redirected to https://www.capitalsites.ca/thanks ("Thanks. It's sent."), served by Netlify. **Both delivered**: "New Project Inquiry - CapitalSites" at 03:43:17 and "New Website Audit Request - CapitalSites" at 03:43:20 (2 s and 1 s after sending), with every field correct. Gmail put both in **Spam**; the owner marked them Not spam and they are now in the Inbox (Updates tab). A Gmail filter for FormSubmit is recommended so real enquiries aren't missed |
+
+# Real Netlify deployment test, 2026-11-27
+
+Project `capitalsites-websites` (Netlify Free, business account), production branch `netlify-migration-prep`
+at a2ec83e, tested at https://capitalsites-websites.netlify.app. Production DNS unchanged (still Vercel).
+Scripts: `site-qa.cjs`, `legacy-urls.cjs`, `deploy-check.cjs` (new), run without `EMULATE_NETLIFY_IMAGES`.
+
+| Check | Result |
+|---|---|
+| Pages, desktop 1440 and mobile 390 | 28/28 load, no console errors, no horizontal scroll, axe 0 issues |
+| Logos | Nav and footer logos load on every CapitalSites page at both widths, through Netlify's image CDN; both files 200 |
+| Photos | Every visible image loads (144 checked, incl. remote Unsplash); 0 HTTP errors. Images hidden at a width by design (desktop/mobile screenshot pairs) don't load there |
+| Maple demo | 15/15 steps at both widths, incl. repeat-enquiry alerts; zero network requests |
+| Prices, contact form | All prices from `offers.ts`; every `?service=` preselects; validation blocks bad input; form sends the same fields to the same FormSubmit address as live (checked without sending) |
+| Links | 39 internal links and anchors OK, Calendly 200 |
+| Legacy URLs | 21/21 paths OK (plus the deliberate 404 test), 16/16 `?service=` values; `/silentstack` and `/silentstack/*` 308 to `/services` |
+| SEO vs live | 0 differences across 14 pages (title, description, canonical to www, robots, Open Graph, Twitter, JSON-LD, lang); robots.txt identical; sitemap identical (12 URLs, all www) |
+| Indexing | `X-Robots-Tag: noindex, nofollow` on the netlify.app address |
+| Transport | http 301 to https; brotli bodies decode; 404 page OK |
+| Security headers | HSTS on netlify.app is Netlify's own (1 year, preload); ours (2 years) applies to the custom domain, to verify after cutover. Netlify adds `nosniff`. Otherwise matches live (no CSP/XFO on either) |
+
+Notes: new projects in this team start **private** (Netlify login wall); visibility was set to Public. During the
+heaviest automated run Netlify briefly answered 403 to the test browser (burst protection); a slow re-run was all
+200. Netlify inserts an invisible HTML comment ("This site is hosted on Netlify…") at the top of each page's source.
+FormSubmit activates per web address, so a real send from netlify.app would need a new activation; the two
+approved TEST submissions are held for the owner's decision.
+
 # Update 2026-11-27 (round 2): `netlify-migration-prep`
 
 Changes this round: Maple demo on OpsCore v0.2.1 (in reliability testing, **not certified**); no public alert

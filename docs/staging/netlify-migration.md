@@ -1,8 +1,16 @@
 # Netlify migration: Vercel to Netlify Free
 
-Updated 2026-11-27. Approved: a real Netlify deployment for testing, on Netlify Free, from the business
-Netlify account (capitalsitesottawa@gmail.com). Not approved yet: any DNS change. Vercel stays live and
-untouched; nothing is merged into `main` (Vercel deploys `main` to production automatically).
+**Status, 2026-11-27 (evening, Ottawa time): switched. www.capitalsites.ca is served by Netlify.**
+- Project `capitalsites-websites` (Netlify Free, business account capitalsitesottawa@gmail.com, site id
+  `4cdaff3a-3727-4c39-b5cc-753ebcfeefc2`), production branch `netlify-migration-prep` at a2ec83e.
+- Primary domain www.capitalsites.ca; capitalsites.ca 301s to it.
+- Certificate: Let's Encrypt, covers both names, issued 2026-11-28 02:41 UTC, expires 2027-02-26, and
+  renews automatically.
+- DNS stays at Namecheap. Only two records changed (section 4); the Search Console TXT record is untouched.
+- Vercel project and its domain settings are kept, unchanged, as the rollback until verification is complete.
+- Nothing is merged into `main`, because Vercel deploys `main` automatically.
+
+Earlier approvals: a real Netlify test deployment, then the DNS switch after the owner's visual review.
 
 **Netlify deploys the `netlify-migration-prep` branch directly.** Once the project exists, every push to that
 branch is a production deploy (15 of the 300 monthly credits), so changes are batched into as few pushes
@@ -60,22 +68,33 @@ Keep production deploys to 8 or fewer a month, and check Team settings → Usage
 - [ ] Security headers: HSTS on pages, assets and 404.
 - [ ] The two approved form delivery tests (`form-delivery-test.md`), with Gmail receipt checked.
 
-### C. Before the switch (you; only after you approve the deployment)
-- [ ] Namecheap → Domain List → capitalsites.ca → Manage → **Advanced DNS**: set TTL to **5 min** on the
-      `@` A record and the `www` CNAME. Values unchanged. Wait at least 30 minutes; a day is safest.
+A and B are done (A: project `capitalsites-websites`; new projects in this team start **private**, so
+Project configuration → General → Visitor access → Public was needed. B: see `qa-report.md`).
 
-### D. The switch (you; a quiet hour)
-- [ ] Netlify → Domain management → Add a domain → `www.capitalsites.ca`; accept adding `capitalsites.ca`;
-      make **www the primary domain**.
-- [ ] Namecheap → Advanced DNS, change two records, nothing else:
+### C. Before the switch
+- [x] Skipped the pre-switch TTL wait: the new records were set to TTL 5 min at the switch, which is what
+      makes a rollback fast. The old 30-minute TTL only slowed the move itself, while Vercel kept serving.
+
+### D. The switch (done 2026-11-27 evening)
+- [x] Netlify → Domain management → Add a domain → `www.capitalsites.ca`. Netlify first treated the bare
+      domain as primary (www redirected to capitalsites.ca); fixed with Options → Set as primary domain on www.
+- [x] Namecheap → Advanced DNS, two records changed, nothing else:
       - `A` · `@` · `216.198.79.1` → **`75.2.60.5`** · TTL 5 min
-      - `CNAME` · `www` · `760e6e681f7930de.vercel-dns-017.com.` → **`<name>.netlify.app.`** · TTL 5 min
-- [ ] Netlify → Domain management → HTTPS → Verify DNS configuration → Provision certificate.
-- [ ] I re-run every check in B against https://www.capitalsites.ca (no noindex header there).
+      - `CNAME` · `www` · `760e6e681f7930de.vercel-dns-017.com.` → **`capitalsites-websites.netlify.app.`** · TTL 5 min
+      - Kept: `TXT` · `@` · `google-site-verification=JRCQ…` (Search Console). No AAAA, CAA or MX records exist.
+- [x] Netlify → Domain management → HTTPS → **Check DNS** ("DNS looks right") → Let's Encrypt certificate issued
+      about 10 minutes after the change.
+- [x] Production checks and the two approved TEST form submissions: see `qa-report.md`.
 
 ### E. Later
+- [ ] Now: Gmail filter `from:submissions@formsubmit.co` → Never send it to Spam (the TEST emails landed in Spam).
 - [ ] After 48 stable hours: enable the `netlify.app` → www redirect in `netlify.toml` (one deploy).
-- [ ] After 14 stable days: TTLs back to 30 min.
+- [ ] Optional, with a later deploy: pages send Netlify's 1-year HSTS instead of the 2-year value in
+      `netlify.toml`, which only reaches redirects. Setting it in `next.config.ts` headers would restore 2 years.
+- [ ] Netlify → Domain management → HTTPS: turn on "Always use a secure connection" if shown (http → https
+      already redirects).
+- [ ] Narrow the Netlify GitHub app to `capitalsites-websites` only (GitHub → Settings → Applications).
+- [ ] After 14 stable days: TTLs back to 30 min (optional).
 - [ ] Bring `main` in line without triggering Vercel: disconnect the Vercel project's Git connection
       first (or delete the project; your decision), then merge `netlify-migration-prep` into `main` and
       switch Netlify's production branch to `main`.
@@ -87,10 +106,22 @@ Keep production deploys to 8 or fewer a month, and check Team settings → Usage
 | A | @ | `216.198.79.1` |
 | CNAME | www | `760e6e681f7930de.vercel-dns-017.com.` |
 
-- **Before the switch:** nothing to roll back; Vercel is live. The Netlify project can simply be deleted.
-- **After the switch, if anything is wrong:** put the two values above back in Namecheap (TTL 5 min).
-  Visitors return to Vercel within about 5–30 minutes. Vercel keeps serving the domain throughout,
-  because its project and domains stay attached.
+Netlify values now live: `A` `@` `75.2.60.5`; `CNAME` `www` `capitalsites-websites.netlify.app.` (both TTL 5 min).
+
+**To switch back to Vercel** (keep this until production verification is complete and the Vercel project
+is retired):
+1. Namecheap → Domain List → capitalsites.ca → Manage → Advanced DNS.
+2. Edit the `A` record `@`: value `216.198.79.1`, TTL 5 min, ✓ to save.
+3. Edit the `CNAME` record `www`: value `760e6e681f7930de.vercel-dns-017.com`, TTL 5 min, ✓ to save.
+4. Leave the `TXT` google-site-verification record and everything else as is.
+5. Visitors return to Vercel within about 5 to 10 minutes (the Netlify records have a 5-minute TTL). Vercel
+   still holds both domains and serves them (checked 2026-11-28). Its certificates stay valid until
+   2027-01-13, so until then it serves HTTPS immediately; after that, Vercel re-issues within minutes of
+   DNS pointing back. The form keeps working, because FormSubmit is activated for www.capitalsites.ca
+   whichever host serves the page.
+6. Leave the Netlify project in place; switching forward again is the same two edits in reverse.
+
+Don't remove the domains from the Vercel project, or delete it, until this procedure is retired.
 - **A bad deploy on Netlify:** Deploys → last good deploy → **Publish deploy** (instant, no credits).
 - **Credits run out:** switch DNS back to Vercel as above, or wait for the monthly reset.
 
