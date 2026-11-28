@@ -24,7 +24,7 @@ const stamp = new Date().toISOString().replace(/\.\d+Z$/, "Z");
 const TEST = {
   name: "TEST - CapitalSites delivery check",
   business: "TEST (please ignore)",
-  email: "delivery-test@example.com",
+  email: "capitalsitesottawa@gmail.com", // our own business address, so nothing goes to anyone else
   message: `TEST ONLY: end-to-end delivery check of the website contact form, sent ${stamp} from ${BASE}. No action needed.`,
 };
 
@@ -45,7 +45,17 @@ async function run(page, label, url, fill) {
   await page.locator("form button[type=submit]").first().click();
   await nav;
   if (SEND) {
-    console.log(JSON.stringify({ form: label, sent: true, sentAtUtc: sentAt.toISOString(), landedOn: page.url() }, null, 2));
+    // FormSubmit answers the POST, then redirects to the form's _next page. Wait for the final page.
+    await page.waitForURL(/\/thanks(\?|$)/, { timeout: 45000 }).catch(() => null);
+    await page.waitForLoadState("load").catch(() => {});
+    const landedOn = page.url();
+    const heading = await page.locator("h1").first().textContent({ timeout: 5000 }).catch(() => null);
+    const shot = `form-delivery-${label.split(" ")[0]}.png`;
+    await page.screenshot({ path: require("path").join(process.env.SHOTS_DIR || ".", shot) }).catch(() => {});
+    const confirmation = /\/thanks(\?|$)/.test(landedOn);
+    // Not on /thanks usually means FormSubmit showed its own page (for example a first-use activation notice).
+    const note = confirmation ? "" : ((await page.locator("body").innerText().catch(() => "")) || "").slice(0, 400);
+    console.log(JSON.stringify({ form: label, sent: true, sentAtUtc: sentAt.toISOString(), landedOn, heading, confirmation, note }, null, 2));
   } else {
     await page.unroute("https://formsubmit.co/**");
     const fields = posted ? Object.fromEntries(new URLSearchParams(posted.body)) : null;
@@ -55,7 +65,7 @@ async function run(page, label, url, fill) {
 
 (async () => {
   const browser = await chromium.launch();
-  const ctx = await browser.newContext();
+  const ctx = await browser.newContext(process.env.EMULATE_NETLIFY_IMAGES ? { extraHTTPHeaders: { "Accept-Encoding": "identity" } } : {});
   // See site-qa.cjs: work around `netlify serve` hanging on local images behind /_next/image.
   if (process.env.EMULATE_NETLIFY_IMAGES) {
     await ctx.route(/\/_next\/image\?url=%2F/, (route) => {

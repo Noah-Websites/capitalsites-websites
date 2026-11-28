@@ -13,7 +13,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  var VERSION = '0.2.0';
+  var VERSION = '0.2.1';
   var TZ_DEFAULT = 'America/Toronto';
 
   // ---------- small utilities ----------
@@ -191,14 +191,21 @@
     var v = res.value;
     var dup = findDuplicate(state.leads, v, cfg.duplicateWindowHours);
     if (dup) {
+      var norm = function (x) { return String(x || '').toLowerCase().replace(/\s+/g, ' ').trim(); };
+      var newText = norm(v.message) && norm(v.message) !== norm(dup.message) &&
+        (dup.notes || '').toLowerCase().indexOf(norm(v.message).slice(0, 60)) === -1;
+      if (v.urgency === 'emergency' && dup.urgency !== 'emergency') {
+        dup.urgency = 'emergency';
+        queueNotification(state, 'LEAD_ESCALATED:' + dup.lead_id, ownerAlert(dup, cfg, 'escalated'), now);
+      } else if (newText) {
+        // Same customer, same service, but a different message: could be a second job. Tell the owner; never drop it silently.
+        queueNotification(state, 'LEAD_REPEAT:' + dup.lead_id + ':' + sid, repeatAlert(dup, v, cfg), now);
+      }
       dup.duplicate_count = (dup.duplicate_count || 0) + 1;
       dup.notes = (dup.notes ? dup.notes + ' | ' : '') + 'Repeat enquiry ' + formatLocal(ms(v.submitted_at), cfg.timezone) +
         (v.message ? ': ' + v.message.slice(0, 1000) : '') + (v.phone && v.phone !== dup.phone ? ' (new phone ' + v.phone + ')' : '') +
         (v.email && v.email !== dup.email ? ' (new email ' + v.email + ')' : '');
-      if (v.urgency === 'emergency' && dup.urgency !== 'emergency') {
-        dup.urgency = 'emergency';
-        queueNotification(state, 'LEAD_ESCALATED:' + dup.lead_id, ownerAlert(dup, cfg, 'escalated'), now);
-      }
+
       dup.updated_at = iso(now);
       state.processed[sid] = dup.lead_id;
       return { action: 'duplicate', lead: dup };
@@ -250,6 +257,18 @@
       'Open the lead register: ' + (cfg.registerUrl || '(register link)')
     ].join('\n');
     return { to: cfg.ownerEmail || 'owner@example.com', subject: subj, body: body, audience: 'internal' };
+  }
+
+  function repeatAlert(lead, v, cfg) {
+    var tz = cfg.timezone || TZ_DEFAULT;
+    return { to: cfg.ownerEmail || 'owner@example.com', audience: 'internal',
+      subject: 'Repeat enquiry (possible new job): ' + lead.service_category + ' - ' + lead.customer_name,
+      body: [(cfg.businessName || 'Your business') + ' - internal lead alert (do not forward to the customer)',
+        'Existing lead: ' + lead.lead_id + ' (status ' + lead.status + ')',
+        'New message received ' + formatLocal(ms(v.submitted_at), tz) + ': ' + (v.message || '-'),
+        'Phone: ' + (v.phone || lead.phone || '-') + '   Email: ' + (v.email || lead.email || '-'),
+        'It was added to the existing lead. If this is a separate job, add it as a new row or treat it separately.',
+        'Open the lead register: ' + (cfg.registerUrl || '(register link)')].join('\n') };
   }
 
   // ---------- Notifications: queue, idempotency, retry, dead-letter ----------

@@ -134,7 +134,7 @@ export const offers: Offer[] = [
     availability: "pilot",
     summary: "Every estimate request in one organized list you own.",
     description:
-      "A quote or estimate request form on your website that lands in one organized list you own (Google Sheets or your existing job software), an email alert to you for every new request, duplicate and spam filtering, and a reminder when a request hasn't been answered. Alerts aren't instant: new requests are checked every 5 minutes, and the target is an alert within 15 minutes. Works with tools you already have; no new subscription needed in most cases. We set it up, test it with you and hand it over.",
+      "A quote or estimate request form on your website that lands in one organized list you own (Google Sheets or your existing job software), an email alert to you for every new request, duplicate and spam filtering, and a reminder when a request hasn't been answered. Alerts aren't instant: new requests are checked about every 5 minutes, and email delivery times can vary. Works with tools you already have; no new subscription needed in most cases. We set it up, test it with you and hand it over.",
     includes: [
       "Estimate request form on your website",
       "One organized list you own: Google Sheets or your job software",

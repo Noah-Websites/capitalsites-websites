@@ -103,8 +103,13 @@ const SAMPLES: Sample[] = [
   },
   {
     label: "Repeat from Priya, same job",
-    outcome: "Same service within 72 hours: merges into Priya's row",
+    outcome: "Same service within 72 hours: merges into Priya's row, now an emergency, owner gets an urgent alert",
     raw: { name: "Priya Sample", email: "PRIYA@example.com", phone: "", service: "Plumbing", postal_code: "K2P 1L4", urgency: "emergency", message: "Now leaking onto the floor", contact_permission: "yes" },
+  },
+  {
+    label: "Priya again, same service, new message",
+    outcome: "Merges into Priya's row; owner alerted in case it's a second job",
+    raw: { name: "Priya Sample", email: "priya@example.com", phone: "", service: "Plumbing", postal_code: "K2P 1L4", urgency: "soon", message: "Can you also look at the bathroom sink? It drains slowly.", contact_permission: "yes" },
   },
   {
     label: "Priya again, a different job",
@@ -193,21 +198,35 @@ function tick(w: World) {
 function submit(w: World, raw: RawEnquiry) {
   raw.submission_id = raw.submission_id || `demo-${++w.seq}`;
   raw.submitted_at = iso(w.now);
+  const before = new Set(w.S.outbox.map((n) => n.key));
   const r = C.processSubmission(w.S, raw, CFG, w.now);
+  // Which owner alert this submission queued, read from the outbox rather than assumed.
+  const queued = w.S.outbox.filter((n) => !before.has(n.key)).map((n) => n.key);
+  const repeatAlert: "escalated" | "new-message" | "none" = queued.some((k) => k.startsWith("LEAD_ESCALATED:"))
+    ? "escalated"
+    : queued.some((k) => k.startsWith("LEAD_REPEAT:"))
+      ? "new-message"
+      : "none";
   const t = tick(w);
   let msg: string;
   if (r.action === "created" && r.lead && r.lead.related_lead_id)
     msg = `Returning customer, new job: ${r.lead.customer_name} (${r.lead.service_category}) added as a new row, linked to their earlier request. Owner alert queued.`;
   else if (r.action === "created" && r.lead) msg = `New request from ${r.lead.customer_name} (${r.lead.service_category}, ${URGENCY[r.lead.urgency] ?? r.lead.urgency}) added to the list. Owner alert queued.`;
   else if (r.action === "duplicate" && r.lead)
-    msg = `Repeat request from ${r.lead.customer_name} for the same service merged into their existing row; the new message is kept in the notes. No second alert${r.lead.urgency === "emergency" ? ", but it was escalated to an emergency" : ""}.`;
+    msg =
+      `Repeat request from ${r.lead.customer_name} for the same service merged into their open row; the message is kept in the notes. ` +
+      (repeatAlert === "escalated"
+        ? "It was marked as an emergency, so the owner gets an urgent alert."
+        : repeatAlert === "new-message"
+          ? "The message is new, so the owner gets an alert in case it's a second job."
+          : "Same message as before, so no second alert.");
   else if (r.action === "rejected") msg = `Rejected: ${(r.errors ?? []).map((e) => ERR[e] ?? e).join(" ")} Logged without personal details; no alert.`;
   else if (r.action === "spam") msg = "Spam filtered: a hidden field was filled in. Dropped silently.";
   else msg = "Already received: the identical submission was ignored.";
   if (t.d.sent) msg += ` ${t.d.sent} alert${t.d.sent === 1 ? "" : "s"} delivered to the simulated outbox.`;
   if (t.d.dead) msg += ` ${t.d.dead} alert${t.d.dead === 1 ? "" : "s"} failed.`;
   writeLog(w, msg);
-  return r;
+  return { ...r, repeatAlert };
 }
 
 function makeWorld(): World {
@@ -329,7 +348,17 @@ export default function MapleDemo() {
         tone: "ok",
         text: `Thanks, ${r.lead.customer_name.split(" ")[0]}. Your request was received. (Owner's view: a new row in the list${r.lead.related_lead_id ? ", linked to this customer's earlier request" : ""} and an alert in the outbox.)`,
       });
-    else if (r.action === "duplicate") setFormResult({ tone: "neutral", text: "Thanks, we already have your request and added this to it. (Owner's view: same service within 72 hours, so it merged into the same row and the message was kept in the notes.)" });
+    else if (r.action === "duplicate")
+      setFormResult({
+        tone: "neutral",
+        text: `Thanks, we already have your request and added this to it. (Owner's view: same service within 72 hours, so it merged into the same row and the message was kept in the notes. ${
+          r.repeatAlert === "escalated"
+            ? "It's now an emergency, so the owner got an urgent alert."
+            : r.repeatAlert === "new-message"
+              ? "The message is new, so the owner got an alert in case it's a second job."
+              : "Same message as before, so no second alert."
+        })`,
+      });
     else if (r.action === "ignored") setFormResult({ tone: "neutral", text: "Already received. (Owner's view: the identical submission was ignored.)" });
     else if (r.action === "spam") setFormResult({ tone: "ok", text: "Thanks, your request was received. (Owner's view: spam was dropped silently.)" });
     else setFormResult({ tone: "bad", text: (r.errors ?? []).map((e) => ERR[e] ?? e).join(" ") });
@@ -732,7 +761,7 @@ export default function MapleDemo() {
       <div role="tabpanel" id="demo-panel-requests" aria-labelledby="demo-tab-requests" hidden={tab !== "requests"} className="mt-6 grid gap-4">
         <Panel
           title="Estimate requests"
-          intro="The owner's list: one row per job. When the same customer (matched by email or phone) asks for the same service within 72 hours, it merges into their open row and the new message is kept in the notes. A different service gets its own row, linked as a returning customer. Change a status the way the owner would. In a real setup this list lives in your Google Sheet or job software."
+          intro="The owner's list: one row per job. When the same customer (matched by email or phone) asks for the same service within 72 hours, it merges into their open row and the new message is kept in the notes; if the message is new, the owner still gets an alert in case it's a second job. A different service gets its own row, linked as a returning customer. Change a status the way the owner would. In a real setup this list lives in your Google Sheet or job software."
         >
           {/* md and up: table */}
           <div className="hidden md:block overflow-x-auto rounded-xl bg-white ring-1 ring-line" data-testid="register-table">

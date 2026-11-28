@@ -56,9 +56,12 @@ async function settle(page) {
 }
 
 async function newContext(browser, vp, extra = {}) {
-  const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, reducedMotion: "reduce", ...extra });
-  // `netlify serve` hangs on local images (url=/...) behind its /_next/image rewrite; remote images and the
-  // Image CDN itself work. EMULATE_NETLIFY_IMAGES=1 sends local ones straight to /.netlify/images, as production does.
+  // EMULATE_NETLIFY_IMAGES=1 is for the local `netlify serve` emulator only. Two emulator faults are worked
+  // around: (1) it hangs on local images (url=/...) behind its /_next/image rewrite, so those go straight to
+  // /.netlify/images, as production does; (2) with an edge function in the path it labels pages gzip while
+  // sending them uncompressed, so pages are requested uncompressed. Real deployments run without the flag.
+  const local = process.env.EMULATE_NETLIFY_IMAGES ? { extraHTTPHeaders: { "Accept-Encoding": "identity" } } : {};
+  const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, reducedMotion: "reduce", ...local, ...extra });
   if (process.env.EMULATE_NETLIFY_IMAGES) {
     await ctx.route(/\/_next\/image\?url=%2F/, (route) => {
       const u = new URL(route.request().url());
@@ -304,7 +307,21 @@ async function focusInfo(page) {
       await page.getByRole("button", { name: /Repeat from Priya/ }).click();
       const n = await rows();
       const repeats = vp.w >= 768 ? await page.locator("[data-testid=register-row]").first().locator("td").nth(3).textContent() : "see card";
-      return { ok: n === 6, rows: n, priyaRepeats: repeats };
+      const urgent = await page.locator("[data-testid=demo-outbox] li", { hasText: "URGENT repeat enquiry" }).count();
+      return { ok: n === 6 && urgent === 1, rows: n, priyaRepeats: repeats, urgentAlerts: urgent };
+    });
+    // OpsCore v0.2.1: same service + a new message merges AND alerts the owner; the identical message again does not.
+    await step("repeat with a new message alerts the owner; identical repeat does not", async () => {
+      const repeatAlerts = () => page.locator("[data-testid=demo-outbox] li", { hasText: "Repeat enquiry (possible new job)" }).count();
+      await tab(/Enquiry form/);
+      await page.getByRole("button", { name: /Priya again, same service, new message/ }).click();
+      const first = await repeatAlerts();
+      const rows1 = await rows();
+      await tab(/Enquiry form/);
+      await page.getByRole("button", { name: /Priya again, same service, new message/ }).click();
+      const second = await repeatAlerts();
+      const rows2 = await rows();
+      return { ok: first === 1 && second === 1 && rows1 === 6 && rows2 === 6, first, second, rows1, rows2 };
     });
     await step("returning customer, different service: new linked row", async () => {
       await tab(/Enquiry form/);

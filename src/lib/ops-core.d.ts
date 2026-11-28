@@ -1,7 +1,12 @@
 /**
- * Types for src/lib/ops-core.js (CapitalSites Ops Core v0.2.0, "OpsCore.gs (v0.2)" from the Digital Ops Kit,
- * as described in the CapitalSites Readiness Pack v0.2). The JavaScript file is kept byte-for-byte as supplied
- * (its header comment still reads v0.1; VERSION is 0.2.0); this file only describes it.
+ * Types for src/lib/ops-core.js: CapitalSites Ops Core v0.2.1, "OpsCore.gs (v0.2.1)" from the
+ * Reliability Test 2026-11 folder (Drive, saved 2026-11-27 12:20). v0.2.1 is in reliability testing and is
+ * NOT certified. The JavaScript file is kept byte-for-byte as supplied (its header comment still reads v0.1;
+ * VERSION is 0.2.1); this file only describes it.
+ *
+ * v0.2.1 vs v0.2: a repeat enquiry for the same service with a new message now alerts the owner
+ * ("Repeat enquiry (possible new job)"); an emergency escalation still sends "URGENT repeat enquiry";
+ * an identical repeat sends nothing.
  */
 
 export type HealthLevel = "GREEN" | "AMBER" | "RED";

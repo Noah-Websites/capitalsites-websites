@@ -18,7 +18,7 @@
   [headers.values]
     Strict-Transport-Security = "max-age=63072000"
 
-# AFTER the DNS cutover only (see docs/staging/netlify-migration.md, step 9):
+# AFTER the DNS cutover only (see docs/staging/netlify-migration.md, section 3E):
 # send the Netlify default address to the real domain so it never competes in search.
 # Replace SITE-NAME with the Netlify project name, uncomment, commit and deploy.
 # Deploy previews and branch deploys use other hostnames and are not affected.

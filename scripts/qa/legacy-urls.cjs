@@ -39,7 +39,7 @@ const SERVICES = [
     out.paths.push({ path: p, status: r.status, location: r.headers.get("location") || "" });
   }
   const browser = await chromium.launch();
-  const ctx = await browser.newContext();
+  const ctx = await browser.newContext(process.env.EMULATE_NETLIFY_IMAGES ? { extraHTTPHeaders: { "Accept-Encoding": "identity" } } : {});
   // See site-qa.cjs: work around `netlify serve` hanging on local images behind /_next/image.
   if (process.env.EMULATE_NETLIFY_IMAGES) {
     await ctx.route(/\/_next\/image\?url=%2F/, (route) => {

@@ -1,27 +1,32 @@
-# Update 2026-11-27: `netlify-migration-prep` (audit corrections + Netlify preparation)
+# Update 2026-11-27 (round 2): `netlify-migration-prep`
 
-Run against Netlify's own build and local emulator (`netlify build --offline`, `netlify serve`,
-CLI 27.20.1, Next.js adapter 5.16.9) and, for comparison, the live site on Vercel. Nothing was deployed,
-no DNS was changed, nothing was sent to FormSubmit.
+Changes this round: Maple demo on OpsCore v0.2.1 (in reliability testing, **not certified**); no public alert
+time target; `/silentstack` → `/services`; noindex on Netlify addresses; ownership and cancellation FAQs
+restored to the live wording (awaiting separate approval).
+
+Run against Netlify's own build and local emulator (`netlify build --offline` then `netlify serve`,
+CLI 27.20.1, Next.js adapter 5.16.9). Real-deployment results are added after the first Netlify deploy.
 
 | Check | Result | Numbers |
 |---|---|---|
-| Netlify build | PASS | 21/21 routes static, same as Vercel; server handler packaged |
-| Full suite (`site-qa.cjs`) on local Netlify | PASS | 28 page loads: all 200, 0 horizontal scroll, 0 console errors; 0 serious or critical axe violations; keyboard runs pass; 39 internal links, 0 broken; 109 prices on 14 pages, all from `offers.ts`; contact 14/14 preselects, 9/9 dropdown changes, validation blocks, stubbed POST correct; demo 14/14 at 1440 and 390; sitemap 12/12 |
-| Demo network watch | PASS | No request carries demo data. The only requests are same-origin Next.js prefetches of linked pages (`/_next/static/…`, `?_rsc=`) as links scroll into view; the check now lists those separately |
-| Demo returning-customer rule (OpsCore v0.2) | PASS | same service within 72 h merges (6 rows); Priya's HVAC request adds a 7th row tagged "Returning customer, new job", alert subject ends "(returning customer, new job)"; desktop and phone |
-| Old and outreach URLs (`legacy-urls.cjs`) | PASS, identical to live | 22 paths: 18 × 200, `/about/` and `/pricing/` 308 to no slash, `/silentstack` and unknown 404; 16/16 `?service=` values incl. `rebuild`, `new-site`, `website-plan`, `FIX`, padded `fix` |
-| Domain redirects on live (for comparison after cutover) | Recorded | `http://capitalsites.ca` 308 → https; `https://capitalsites.ca` 307 → www; `http://www` 308 → https www |
-| SEO metadata | PASS, identical to live | 14 pages: title, description, canonical, Open Graph, Twitter, robots, JSON-LD count; `robots.txt` and `sitemap.xml` byte-identical |
-| Headers | PASS | HSTS `max-age=63072000` on pages, assets and 404 (matches live); assets `max-age=31536000, immutable` |
-| Prices | PASS | 96 amounts in 9 built pages, all from `offers.ts`; prices, availability and slugs identical to `main` |
-| Form delivery dry run (`form-delivery-test.cjs`) | PASS on live | contact: 12 fields incl. `service=fix`, `package=Website Fix`; audit: 8 fields; both POSTs blocked in the browser |
-| Copy | PASS | 0 "instant" or implied-instant alert claims in `src/`; unready services say "expressions of interest only… not taking paying customers" |
+| OpsCore copy in the demo | Verified | `src/lib/ops-core.js` is byte-identical to Drive "OpsCore.gs (v0.2.1)" (saved 2026-11-27 12:20; sha256 `a5ee6c57…`); only change from v0.2 is the repeat-enquiry alert |
+| v0.2.1 repeat-enquiry rules (`opscore-repeat-check.cjs`) | PASS 8/8 | identical repeat: merged, no alert · new message: merged + "Repeat enquiry (possible new job)" · same new message again: no second alert · becomes emergency: one "URGENT repeat enquiry" only · different service: new linked row "(returning customer, new job)" · after 72 h: new request · phone-only match works |
+| Full suite (`site-qa.cjs`) on local Netlify | PASS | 28 page loads: all 200, 0 horizontal scroll, 0 console errors; 0 serious or critical axe violations; keyboard runs pass; 39 internal links, 0 broken, Calendly 200; 109 prices on 14 pages, all from `offers.ts`; contact 14/14 preselects, 9/9 dropdown changes, validation blocks, stubbed POST correct; demo 15/15 at 1440 and 390 (urgent repeat alert, v0.2.1 "possible new job" alert once and not again for the same message, returning-customer row); no demo data sent; sitemap 12/12; legacy URLs 16/16 `?service=` links, `/about/` → `/about`, `/silentstack` → `/services` |
+| `/silentstack` | PASS | 308 → `/services`; `/silentstack/anything` → `/services` |
+| Noindex on Netlify addresses | PASS locally | `X-Robots-Tag: noindex, nofollow` for a `*.netlify.app` host; absent for `www.capitalsites.ca`; confirm on the real deploy |
+| Copy | PASS | no "instant" and no time target; Estimate Request Setup: "checked about every 5 minutes, and email delivery times can vary"; terms FAQs identical to live |
 
-Not verifiable locally: the two logo images (local files behind `/_next/image`) hang in `netlify serve`;
-remote photos and `/.netlify/images` itself work. The suite ran with `EMULATE_NETLIFY_IMAGES=1`, which sends
-only those local-image requests to `/.netlify/images`, the way Netlify production does. Confirm on the first
-real deploy (migration step C).
+Earlier in the day (round 1, same branch): legacy URLs, SEO metadata, `robots.txt`, `sitemap.xml`, HSTS and
+asset caching all matched live exactly; form dry run passed on live.
+
+Local emulator limits (both handled by `EMULATE_NETLIFY_IMAGES=1`, which only local runs set):
+- The two logo images (local files behind `/_next/image`) hang in `netlify serve`; remote photos and
+  `/.netlify/images` work. Local runs send those requests to `/.netlify/images`, as Netlify production does.
+- With any edge function in the path, `netlify serve` labels pages `gzip` while sending them uncompressed,
+  so browsers reject them (it happens even when the function returns without touching the response).
+  Local runs request pages uncompressed. In production the noindex function returns immediately for every
+  host except `*.netlify.app`, so www.capitalsites.ca can't be affected; the netlify.app path is checked on
+  the real deploy.
 
 ---
 

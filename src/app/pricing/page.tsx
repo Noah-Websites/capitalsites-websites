@@ -54,11 +54,11 @@ const faqs = [
   },
   {
     q: "Can I cancel?",
-    a: `${plan.name}: after your first ${n.months} months, yes, with 30 days notice, and we'll help you move your site wherever you want. Cancelling during the first ${n.months} months: ${unsettled} ${premium.name} cancellation: ${unsettled}`,
+    a: `After your first ${n.months} months, yes, with 30 days notice, and we'll help you move your site wherever you want. Cancelling during the first ${n.months} months: ${unsettled}`,
   },
   {
     q: "Do I own the website?",
-    a: `${plan.name}: yes, once your first ${n.months} months are paid. What that covers, such as the design, content, code and domain: ${unsettled} ${premium.name} ownership: ${unsettled}`,
+    a: `Yes, once your first ${n.months} months are paid. What that covers, such as the design, content, code and domain: ${unsettled}`,
   },
   {
     q: "What's included in the monthly fee?",
